@@ -324,7 +324,7 @@ public final class removal_modules_rdf_date extends SubLTranslatedFile implement
         final SubLObject month_string = format(NIL, $str13$_4__0d__2__0d, year, month);
         final SubLObject day_string = format(NIL, $str14$__2__0d, day);
         final SubLObject date_string = cconcatenate(month_string, day_string);
-        final SubLObject time_string = format(NIL, $str15$T_2__0d__2__0d__2__0d, new SubLObject[]{ hour, min, sec });
+        final SubLObject time_string = format(NIL, $str15$T_2__0d__2__0d__2__0d, hour, min, sec);
         final SubLObject milli_string = format(NIL, $str16$__3__0d, milli);
         SubLObject literal_nat = NIL;
         if (NIL != isa.isaP(cyc_date, $$CalendarYear, UNPROVIDED, UNPROVIDED)) {

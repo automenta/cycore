@@ -2031,7 +2031,7 @@ public final class problem_store_visualization extends SubLTranslatedFile implem
                     $is_thread_performing_cleanupP$.rebind(_prev_bind_0, thread);
                 }
             }
-            format($html_stream$.getDynamicValue(thread), problem_store_visualization.$str72$_script_type__text_javascript____, new SubLObject[]{ inference_datastructures_problem_store.problem_store_suid(store), parent_id_json, f_1_(last_available_problem_id) });
+            format($html_stream$.getDynamicValue(thread), problem_store_visualization.$str72$_script_type__text_javascript____, inference_datastructures_problem_store.problem_store_suid(store), parent_id_json, f_1_(last_available_problem_id));
             html_markup(problem_store_visualization.html_problem_layout_visualization_scripts(layout, schemes, slider_id, slider_field_id, last_available_problem_id));
         } else {
             cdestructuring_bind_error(datum, problem_store_visualization.$list65);
@@ -2052,7 +2052,7 @@ public final class problem_store_visualization extends SubLTranslatedFile implem
         slider_field_id = current.first();
         current = current.rest();
         if (NIL == current) {
-            format($html_stream$.getDynamicValue(thread), problem_store_visualization.$str73$_style_type__text_css_______A_tab, new SubLObject[]{ slider_id, slider_field_id, slider_field_id });
+            format($html_stream$.getDynamicValue(thread), problem_store_visualization.$str73$_style_type__text_css_______A_tab, slider_id, slider_field_id, slider_field_id);
             html_markup($html_div_head$.getGlobalValue());
             html_markup($html_div_style$.getGlobalValue());
             html_char(CHAR_quotation, UNPROVIDED);
@@ -2133,7 +2133,7 @@ public final class problem_store_visualization extends SubLTranslatedFile implem
         final SubLObject scheme_json = cconcatenate(problem_store_visualization.$str79$__, new SubLObject[]{ format_nil.format_nil_a_no_copy(string_utilities.bunge_with_string(Mapping.mapcar(TO_STRING, schemes), problem_store_visualization.$str81$___)), problem_store_visualization.$str82$__ });
         final SubLObject last_visible_problem_id = (NIL != f_1_(last_available_problem)) ? f_1_(last_available_problem) : f_1_(inference_datastructures_problem_store.problem_store_problem_count(problem_store_visualization.problem_layout_problem_store(layout)));
         final SubLObject problem_store_id = inference_datastructures_problem_store.problem_store_suid(problem_store_visualization.problem_layout_problem_store(layout));
-        return format(NIL, problem_store_visualization.$html_problem_layout_visualization_script_template$.getDynamicValue(thread), new SubLObject[]{ last_visible_problem_id, scheme_json, problem_store_id, slider_id, slider_field_id });
+        return format(NIL, problem_store_visualization.$html_problem_layout_visualization_script_template$.getDynamicValue(thread), last_visible_problem_id, scheme_json, problem_store_id, slider_id, slider_field_id);
     }
 
     public static SubLObject html_problem_layout_id(final SubLObject problem, final SubLObject scheme) {
@@ -2429,7 +2429,7 @@ public final class problem_store_visualization extends SubLTranslatedFile implem
                 html_markup(html_macros.$html_anchor_href$.getGlobalValue());
                 html_char(CHAR_quotation, UNPROVIDED);
                 cyc_cgi_url_int();
-                format(html_macros.$html_stream$.getDynamicValue(thread), $str_alt68$cb_visualize_problems__A__A__A__A, new SubLObject[]{ problem_store_suid(store), refresh_rate, size, problem_end });
+                format(html_macros.$html_stream$.getDynamicValue(thread), $str_alt68$cb_visualize_problems__A__A__A__A, problem_store_suid(store), refresh_rate, size, problem_end);
                 html_char(CHAR_quotation, UNPROVIDED);
                 if (NIL != frame_name_var) {
                     html_markup(html_macros.$html_anchor_target$.getGlobalValue());
@@ -2484,7 +2484,7 @@ public final class problem_store_visualization extends SubLTranslatedFile implem
         html_markup($html_anchor_href$.getGlobalValue());
         html_char(CHAR_quotation, UNPROVIDED);
         cyc_cgi_url_int();
-        format($html_stream$.getDynamicValue(thread), problem_store_visualization.$str113$cb_visualize_problems__A__A__A__A, new SubLObject[]{ inference_datastructures_problem_store.problem_store_suid(store), refresh_rate, size, problem_end });
+        format($html_stream$.getDynamicValue(thread), problem_store_visualization.$str113$cb_visualize_problems__A__A__A__A, inference_datastructures_problem_store.problem_store_suid(store), refresh_rate, size, problem_end);
         html_char(CHAR_quotation, UNPROVIDED);
         if (NIL != frame_name_var) {
             html_markup($html_anchor_target$.getGlobalValue());

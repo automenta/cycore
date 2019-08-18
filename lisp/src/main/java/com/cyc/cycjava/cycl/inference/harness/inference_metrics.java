@@ -4248,7 +4248,7 @@ public final class inference_metrics extends SubLTranslatedFile implements V12 {
                         SubLObject inferences_tail = property_list_member($INFERENCES, current);
                         SubLObject inferences = (NIL != inferences_tail) ? ((SubLObject) (cadr(inferences_tail))) : NIL;
                         total_time = add(total_time, time);
-                        format(stream, $str_alt346$___6F____S____S__a__S, new SubLObject[]{ time, inference_count, rule, assertion_id(rule) });
+                        format(stream, $str_alt346$___6F____S____S__a__S, time, inference_count, rule, assertion_id(rule));
                         if (NIL != trigger_gafs) {
                             format(stream, $str_alt347$___S, trigger_gafs);
                         }
@@ -4314,7 +4314,7 @@ public final class inference_metrics extends SubLTranslatedFile implements V12 {
             final SubLObject inferences_tail = property_list_member($INFERENCES, current);
             final SubLObject inferences = (NIL != inferences_tail) ? cadr(inferences_tail) : NIL;
             total_time = add(total_time, time);
-            format(stream, inference_metrics.$str418$___6F____S____S__a__S, new SubLObject[]{ time, inference_count, rule, assertion_handles.assertion_id(rule) });
+            format(stream, inference_metrics.$str418$___6F____S____S__a__S, time, inference_count, rule, assertion_handles.assertion_id(rule));
             if (NIL != trigger_gafs) {
                 format(stream, inference_metrics.$str419$___S, trigger_gafs);
             }

@@ -739,7 +739,7 @@ public final class inference_datastructures_problem_link extends SubLTranslatedF
             {
                 SubLObject store_suid = inference_datastructures_problem_store.problem_store_suid(com.cyc.cycjava.cycl.inference.harness.inference_datastructures_problem_link.problem_link_store(v_object));
                 SubLObject type = com.cyc.cycjava.cycl.inference.harness.inference_datastructures_problem_link.problem_link_type(v_object);
-                format(stream, $str_alt33$__a_LINK__a__a_supporting_, new SubLObject[]{ type, store_suid, com.cyc.cycjava.cycl.inference.harness.inference_datastructures_problem_link.problem_link_suid(v_object) });
+                format(stream, $str_alt33$__a_LINK__a__a_supporting_, type, store_suid, inference_datastructures_problem_link.problem_link_suid(v_object));
                 if ($ANSWER == type) {
                     format(stream, $str_alt35$_a_, com.cyc.cycjava.cycl.inference.harness.inference_datastructures_problem_link.problem_link_supported_inference(v_object));
                 } else {
@@ -756,7 +756,7 @@ public final class inference_datastructures_problem_link extends SubLTranslatedF
         } else {
             final SubLObject store_suid = inference_datastructures_problem_store.problem_store_suid(inference_datastructures_problem_link.problem_link_store(v_object));
             final SubLObject type = inference_datastructures_problem_link.problem_link_type(v_object);
-            format(stream, inference_datastructures_problem_link.$str42$__a_LINK__a__a_supporting_, new SubLObject[]{ type, store_suid, inference_datastructures_problem_link.problem_link_suid(v_object) });
+            format(stream, inference_datastructures_problem_link.$str42$__a_LINK__a__a_supporting_, type, store_suid, inference_datastructures_problem_link.problem_link_suid(v_object));
             if ($ANSWER == type) {
                 format(stream, inference_datastructures_problem_link.$str44$_a_, inference_datastructures_problem_link.problem_link_supported_inference(v_object));
             } else {

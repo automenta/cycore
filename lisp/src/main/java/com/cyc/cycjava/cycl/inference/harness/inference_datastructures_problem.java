@@ -3917,11 +3917,11 @@ public final class inference_datastructures_problem extends SubLTranslatedFile i
 	    format(stream, inference_datastructures_problem.$str53$_Invalid_PROBLEM__s_, inference_datastructures_problem.prob_suid(v_object));
 	} else {
 	    format(stream, inference_datastructures_problem.$str54$__a_PROBLEM__a__a__s_a_,
-		    new SubLObject[] { inference_datastructures_problem.problem_status(v_object), inference_datastructures_problem_store.problem_store_suid(inference_datastructures_problem.problem_store(v_object)), inference_datastructures_problem.problem_suid(v_object),
-			    inference_datastructures_problem.problem_query(v_object),
-			    NIL != inference_datastructures_problem.problem_free_hl_vars(v_object)
-				    ? cconcatenate(inference_datastructures_problem.$str55$_free_, format_nil.format_nil_a_no_copy(Mapping.mapcar(inference_datastructures_problem.VARIABLE_ID, inference_datastructures_problem.problem_free_hl_vars(v_object))))
-				    : inference_datastructures_problem.$str57$ });
+            inference_datastructures_problem.problem_status(v_object), inference_datastructures_problem_store.problem_store_suid(inference_datastructures_problem.problem_store(v_object)), inference_datastructures_problem.problem_suid(v_object),
+            inference_datastructures_problem.problem_query(v_object),
+            NIL != inference_datastructures_problem.problem_free_hl_vars(v_object)
+                ? cconcatenate(inference_datastructures_problem.$str55$_free_, format_nil.format_nil_a_no_copy(Mapping.mapcar(inference_datastructures_problem.VARIABLE_ID, inference_datastructures_problem.problem_free_hl_vars(v_object))))
+                : inference_datastructures_problem.$str57$);
 	}
 	return NIL;
     }
@@ -3930,8 +3930,8 @@ public final class inference_datastructures_problem extends SubLTranslatedFile i
 	if (NIL != inference_datastructures_problem.problem_invalid_p(v_object)) {
 	    format(stream, inference_datastructures_problem.alt_str38$_Invalid_PROBLEM__s_, inference_datastructures_problem.prob_suid(v_object));
 	} else {
-	    format(stream, inference_datastructures_problem.alt_str39$__a_PROBLEM__a__a__s_, new SubLObject[] { inference_datastructures_problem.problem_status(v_object), inference_datastructures_problem_store.problem_store_suid(inference_datastructures_problem.problem_store(v_object)),
-		    inference_datastructures_problem.problem_suid(v_object), inference_datastructures_problem.problem_query(v_object) });
+	    format(stream, inference_datastructures_problem.alt_str39$__a_PROBLEM__a__a__s_, inference_datastructures_problem.problem_status(v_object), inference_datastructures_problem_store.problem_store_suid(inference_datastructures_problem.problem_store(v_object)),
+            inference_datastructures_problem.problem_suid(v_object), inference_datastructures_problem.problem_query(v_object));
 	}
 	return NIL;
     }

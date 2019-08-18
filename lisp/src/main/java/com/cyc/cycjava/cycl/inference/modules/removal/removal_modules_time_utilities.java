@@ -1224,12 +1224,12 @@ public final class removal_modules_time_utilities extends SubLTranslatedFile imp
             final SubLObject latest_end = time_interval_utilities.cycl_interval_final_second_possibly_indeterminate_late(interval2);
             if (NIL != debugP) {
                 format(T, $str49$_________________________________);
-                format(T, $str50$NEXT__A_____A_____A_____A_____A__, new SubLObject[]{ interval2, earliest_start, latest_start, earliest_end, latest_end });
-                format(T, $str51$CURRENT_____A_____A_____A_____A__, new SubLObject[]{ cur_earliest_start, cur_latest_start, cur_earliest_end, cur_latest_end });
+                format(T, $str50$NEXT__A_____A_____A_____A_____A__, interval2, earliest_start, latest_start, earliest_end, latest_end);
+                format(T, $str51$CURRENT_____A_____A_____A_____A__, cur_earliest_start, cur_latest_start, cur_earliest_end, cur_latest_end);
             }
             if ((NIL == cur_earliest_start) || (NIL == cur_latest_end)) {
                 if (NIL != debugP) {
-                    format(T, $str52$initial_setup_____A_____A_____A__, new SubLObject[]{ earliest_start, latest_start, earliest_end, latest_end });
+                    format(T, $str52$initial_setup_____A_____A_____A__, earliest_start, latest_start, earliest_end, latest_end);
                 }
                 cur_earliest_start = earliest_start;
                 cur_latest_start = latest_start;
@@ -1240,10 +1240,10 @@ public final class removal_modules_time_utilities extends SubLTranslatedFile imp
                 SubLObject cur_interval = time_interval_utilities.canonicalize_possibly_indeterminate_time_interval_fn(cur_earliest_start, cur_latest_start, cur_earliest_end, cur_latest_end, UNPROVIDED, UNPROVIDED);
                 if (NIL != time_interval_utilities.date_intervals_intersectP(cur_interval, interval2, T, T)) {
                     if (NIL != debugP) {
-                        format(T, $str53$stitching_____A_____A_____A_____A, new SubLObject[]{ earliest_start, latest_start, earliest_end, latest_end });
+                        format(T, $str53$stitching_____A_____A_____A_____A, earliest_start, latest_start, earliest_end, latest_end);
                     }
                     if (NIL != debugP) {
-                        format(T, $str54$into_current_____A_____A_____A___, new SubLObject[]{ cur_earliest_start, cur_latest_start, cur_earliest_end, cur_latest_end });
+                        format(T, $str54$into_current_____A_____A_____A___, cur_earliest_start, cur_latest_start, cur_earliest_end, cur_latest_end);
                     }
                     final SubLObject merged_interval = cur_interval = time_interval_utilities.merge_date_intervals(cur_interval, interval2);
                     cur_earliest_start = time_interval_utilities.cycl_interval_initial_second_possibly_indeterminate_early(cur_interval);
@@ -1251,7 +1251,7 @@ public final class removal_modules_time_utilities extends SubLTranslatedFile imp
                     cur_earliest_end = time_interval_utilities.cycl_interval_final_second_possibly_indeterminate_early(cur_interval);
                     cur_latest_end = time_interval_utilities.cycl_interval_final_second_possibly_indeterminate_late(cur_interval);
                     if (NIL != debugP) {
-                        format(T, $str55$to_get_____A_____A_____A_____A__, new SubLObject[]{ cur_earliest_start, cur_latest_start, cur_earliest_end, cur_latest_end });
+                        format(T, $str55$to_get_____A_____A_____A_____A__, cur_earliest_start, cur_latest_start, cur_earliest_end, cur_latest_end);
                     }
                     SubLObject cdolist_list_var_$18 = supports;
                     SubLObject support = NIL;
@@ -1266,7 +1266,7 @@ public final class removal_modules_time_utilities extends SubLTranslatedFile imp
                     } 
                 } else {
                     if (NIL != debugP) {
-                        format(T, $str56$adding_____A_____A_____A_____A__, new SubLObject[]{ cur_earliest_start, cur_latest_start, cur_earliest_end, cur_latest_end });
+                        format(T, $str56$adding_____A_____A_____A_____A__, cur_earliest_start, cur_latest_start, cur_earliest_end, cur_latest_end);
                     }
                     merged_intervals_start_end_supports_list = cons(list(cur_earliest_start, cur_latest_start, cur_earliest_end, cur_latest_end, cur_supports), merged_intervals_start_end_supports_list);
                     cur_earliest_start = earliest_start;
@@ -1280,7 +1280,7 @@ public final class removal_modules_time_utilities extends SubLTranslatedFile imp
             interval_with_supports = cdolist_list_var2.first();
         } 
         if (NIL != debugP) {
-            format(T, $str57$adding_last_____A_____A_____A____, new SubLObject[]{ cur_earliest_start, cur_latest_start, cur_earliest_end, cur_latest_end });
+            format(T, $str57$adding_last_____A_____A_____A____, cur_earliest_start, cur_latest_start, cur_earliest_end, cur_latest_end);
         }
         if ((NIL != cur_earliest_start) && (NIL != cur_latest_end)) {
             merged_intervals_start_end_supports_list = cons(list(cur_earliest_start, cur_latest_start, cur_earliest_end, cur_latest_end, cur_supports), merged_intervals_start_end_supports_list);

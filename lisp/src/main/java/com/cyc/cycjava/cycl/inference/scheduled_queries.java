@@ -4126,7 +4126,7 @@ public final class scheduled_queries extends SubLTranslatedFile implements V12 {
             SubLObject stream = NIL;
             try {
                 stream = make_private_string_output_stream();
-                format(stream, $scheduled_query_results_message_template$.getGlobalValue(), new SubLObject[]{ name, paraphrase, result_count });
+                format(stream, $scheduled_query_results_message_template$.getGlobalValue(), name, paraphrase, result_count);
                 terpri(stream);
                 operation_communication.server_summary(stream);
                 result = get_output_stream_string(stream);
@@ -4154,7 +4154,7 @@ public final class scheduled_queries extends SubLTranslatedFile implements V12 {
         SubLObject stream = NIL;
         try {
             stream = make_private_string_output_stream();
-            format(stream, scheduled_queries.$scheduled_query_results_message_template$.getGlobalValue(), new SubLObject[]{ name, cycl_string.cycl_string_to_utf8_string(paraphrase), result_count });
+            format(stream, scheduled_queries.$scheduled_query_results_message_template$.getGlobalValue(), name, cycl_string.cycl_string_to_utf8_string(paraphrase), result_count);
             terpri(stream);
             server_summary(stream);
             result = get_output_stream_string(stream);
@@ -5693,7 +5693,7 @@ public final class scheduled_queries extends SubLTranslatedFile implements V12 {
                 } catch (Throwable ccatch_env_var) {
                     timed_outP = Errors.handleThrowable(ccatch_env_var, tag);
                 }
-                format(T, $str_alt233$___D_existing_results___S___D_new, new SubLObject[]{ length(existing_results), existing_results, length(new_results), new_results });
+                format(T, $str_alt233$___D_existing_results___S___D_new, length(existing_results), existing_results, length(new_results), new_results);
                 if (NIL != timed_outP) {
                     Errors.warn($str_alt234$Timed_out_after__S_seconds_during, timeout);
                 } else {
@@ -5773,7 +5773,7 @@ public final class scheduled_queries extends SubLTranslatedFile implements V12 {
         } finally {
             thread.throwStack.pop();
         }
-        format(T, scheduled_queries.$str220$___D_existing_result__P___S___D_n, new SubLObject[]{ length(existing_results), existing_results, length(new_results), new_results });
+        format(T, scheduled_queries.$str220$___D_existing_result__P___S___D_n, length(existing_results), existing_results, length(new_results), new_results);
         if (NIL != timed_outP) {
             Errors.warn(scheduled_queries.$str221$Timed_out_after__S_second__P_duri, timeout);
         } else {
@@ -5967,7 +5967,7 @@ public final class scheduled_queries extends SubLTranslatedFile implements V12 {
                 } catch (Throwable ccatch_env_var) {
                     timed_outP = Errors.handleThrowable(ccatch_env_var, tag);
                 }
-                format(T, $str_alt233$___D_existing_results___S___D_new, new SubLObject[]{ length(existing_results), existing_results, length(new_results), new_results });
+                format(T, $str_alt233$___D_existing_results___S___D_new, length(existing_results), existing_results, length(new_results), new_results);
                 if (NIL != timed_outP) {
                     Errors.warn($str_alt236$Timed_out_after__S_seconds_during, timeout);
                 } else {
@@ -6049,7 +6049,7 @@ public final class scheduled_queries extends SubLTranslatedFile implements V12 {
         } finally {
             thread.throwStack.pop();
         }
-        format(T, scheduled_queries.$str220$___D_existing_result__P___S___D_n, new SubLObject[]{ length(existing_results), existing_results, length(new_results), new_results });
+        format(T, scheduled_queries.$str220$___D_existing_result__P___S___D_n, length(existing_results), existing_results, length(new_results), new_results);
         if (NIL != timed_outP) {
             Errors.warn(scheduled_queries.$str223$Timed_out_after__S_second__P_duri, timeout);
         } else {

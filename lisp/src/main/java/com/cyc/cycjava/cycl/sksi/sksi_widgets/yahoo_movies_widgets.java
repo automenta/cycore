@@ -476,7 +476,7 @@ public final class yahoo_movies_widgets extends SubLTranslatedFile implements V1
             films = current.first();
             current = current.rest();
             if (NIL == current) {
-                format(stream, $str_alt30$At__A__Phone__A__Address__A__loca, new SubLObject[]{ name, phone_number, address, map_url });
+                format(stream, $str_alt30$At__A__Phone__A__Address__A__loca, name, phone_number, address, map_url);
                 {
                     SubLObject cdolist_list_var = films;
                     SubLObject film = NIL;
@@ -517,7 +517,7 @@ public final class yahoo_movies_widgets extends SubLTranslatedFile implements V1
         films = current.first();
         current = current.rest();
         if (NIL == current) {
-            format(stream, $str32$At__A__Phone__A__Address__A__loca, new SubLObject[]{ name, phone_number, address, map_url });
+            format(stream, $str32$At__A__Phone__A__Address__A__loca, name, phone_number, address, map_url);
             SubLObject cdolist_list_var = films;
             SubLObject film = NIL;
             film = cdolist_list_var.first();
@@ -599,7 +599,7 @@ public final class yahoo_movies_widgets extends SubLTranslatedFile implements V1
             playing_times = current.first();
             current = current.rest();
             if (NIL == current) {
-                format(stream, $str_alt32$Name___A__see__A__rated__A_lastin, new SubLObject[]{ film_name, film_description_url, film_rating, film_duration, playing_times });
+                format(stream, $str_alt32$Name___A__see__A__rated__A_lastin, film_name, film_description_url, film_rating, film_duration, playing_times);
             } else {
                 cdestructuring_bind_error(datum, $list_alt31);
             }
@@ -632,7 +632,7 @@ public final class yahoo_movies_widgets extends SubLTranslatedFile implements V1
         playing_times = current.first();
         current = current.rest();
         if (NIL == current) {
-            format(stream, $str34$Name___A__see__A__rated__A_lastin, new SubLObject[]{ film_name, film_description_url, film_rating, film_duration, playing_times });
+            format(stream, $str34$Name___A__see__A__rated__A_lastin, film_name, film_description_url, film_rating, film_duration, playing_times);
         } else {
             cdestructuring_bind_error(result, $list33);
         }

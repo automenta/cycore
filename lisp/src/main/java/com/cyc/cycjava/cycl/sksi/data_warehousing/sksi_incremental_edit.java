@@ -855,7 +855,7 @@ public final class sksi_incremental_edit extends SubLTranslatedFile implements V
         }
         final SubLThread thread = SubLProcess.currentSubLThread();
         if (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(NINE_INTEGER)) {
-            format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str3$__SKSI__A_, $str4$_sksi_translate_logical_sentence_), new SubLObject[]{ NINE_INTEGER, logical_sentence, logical_schema, physical_schema, meta_mt, sk_source, rewrite_cmses_with_set_arg3sP });
+            format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str3$__SKSI__A_, $str4$_sksi_translate_logical_sentence_), NINE_INTEGER, logical_sentence, logical_schema, physical_schema, meta_mt, sk_source, rewrite_cmses_with_set_arg3sP);
             force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
         }
         SubLObject raw_tuples = NIL;
@@ -976,7 +976,7 @@ public final class sksi_incremental_edit extends SubLTranslatedFile implements V
         }
         raw_tuples = list_utilities.fast_delete_duplicates(raw_tuples, UNPROVIDED, UNPROVIDED, UNPROVIDED, UNPROVIDED, UNPROVIDED);
         if (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(NINE_INTEGER)) {
-            format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str3$__SKSI__A_, $str9$sksi_translate_logical_sentence_t), new SubLObject[]{ NINE_INTEGER, raw_tuples, physical_schema });
+            format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str3$__SKSI__A_, $str9$sksi_translate_logical_sentence_t), NINE_INTEGER, raw_tuples, physical_schema);
             force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
         }
         return values(raw_tuples, physical_fields);
@@ -2672,7 +2672,7 @@ public final class sksi_incremental_edit extends SubLTranslatedFile implements V
                                     }
                                 } else
                                     if (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(TEN_INTEGER)) {
-                                        format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str3$__SKSI__A_, $str32$sksi_incremental_edit_reformulate), new SubLObject[]{ TEN_INTEGER, logical_value, logical_field_indexical, field_encoding });
+                                        format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str3$__SKSI__A_, $str32$sksi_incremental_edit_reformulate), TEN_INTEGER, logical_value, logical_field_indexical, field_encoding);
                                         force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
                                     }
 
@@ -4176,7 +4176,7 @@ public final class sksi_incremental_edit extends SubLTranslatedFile implements V
     public static SubLObject sksi_store_or_delete_raw_value(final SubLObject sk_source, final SubLObject access_path, final SubLObject raw_tuple, final SubLObject physical_fields, final SubLObject physical_schema, final SubLObject meta_mt, final SubLObject operator, final SubLObject csql_conditions) {
         final SubLThread thread = SubLProcess.currentSubLThread();
         if (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(NINE_INTEGER)) {
-            format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str3$__SKSI__A_, $str58$_sksi_store_or_delete_raw_value__), new SubLObject[]{ NINE_INTEGER, sk_source, access_path, raw_tuple, physical_fields, physical_schema, meta_mt, operator, csql_conditions });
+            format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str3$__SKSI__A_, $str58$_sksi_store_or_delete_raw_value__), NINE_INTEGER, sk_source, access_path, raw_tuple, physical_fields, physical_schema, meta_mt, operator, csql_conditions);
             force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
         }
         SubLObject successP = NIL;
@@ -4268,7 +4268,7 @@ public final class sksi_incremental_edit extends SubLTranslatedFile implements V
         final SubLThread thread = SubLProcess.currentSubLThread();
         if (NIL != sksi_csql_utilities.invalid_csql_expressionP(csql)) {
             if (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(NINE_INTEGER)) {
-                format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str3$__SKSI__A_, $str63$Invalid_CSQL_expression_at__sksi_), new SubLObject[]{ NINE_INTEGER, access_path, csql, physical_schema });
+                format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str3$__SKSI__A_, $str63$Invalid_CSQL_expression_at__sksi_), NINE_INTEGER, access_path, csql, physical_schema);
                 force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
             }
             return NIL;
@@ -4298,7 +4298,7 @@ public final class sksi_incremental_edit extends SubLTranslatedFile implements V
     public static SubLObject sksi_store_or_delete_raw_value_db(final SubLObject csql, final SubLObject access_path) {
         final SubLThread thread = SubLProcess.currentSubLThread();
         if (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(NINE_INTEGER)) {
-            format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str3$__SKSI__A_, $str67$_sksi_store_or_delete_raw_value_d), new SubLObject[]{ NINE_INTEGER, csql, access_path });
+            format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str3$__SKSI__A_, $str67$_sksi_store_or_delete_raw_value_d), NINE_INTEGER, csql, access_path);
             force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
         }
         final SubLObject sql_flavor = sksi_access_path.access_path_sql_flavor(access_path);

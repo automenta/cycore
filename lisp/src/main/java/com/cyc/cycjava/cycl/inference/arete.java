@@ -451,7 +451,7 @@ public final class arete extends SubLTranslatedFile implements V12 {
                     thread.resetMultipleValues();
                     {
                         SubLObject machine_string = substitute(CHAR_underbar, CHAR_period, machine, UNPROVIDED, UNPROVIDED, UNPROVIDED, UNPROVIDED, UNPROVIDED);
-                        return format(NIL, $str_alt7$kbq__8D__6D__A, new SubLObject[]{ universal_date, universal_second, machine_string });
+                        return format(NIL, $str_alt7$kbq__8D__6D__A, universal_date, universal_second, machine_string);
                     }
                 }
             }
@@ -469,7 +469,7 @@ public final class arete extends SubLTranslatedFile implements V12 {
         final SubLObject universal_second = thread.secondMultipleValue();
         thread.resetMultipleValues();
         final SubLObject machine_string = substitute(CHAR_underbar, CHAR_period, machine, UNPROVIDED, UNPROVIDED, UNPROVIDED, UNPROVIDED, UNPROVIDED);
-        return format(NIL, $str7$kbq__8D__6D__A, new SubLObject[]{ universal_date, universal_second, machine_string });
+        return format(NIL, $str7$kbq__8D__6D__A, universal_date, universal_second, machine_string);
     }
 
     public static final SubLObject kbq_load_control_query_set_run_alt(SubLObject filename) {

@@ -1029,7 +1029,7 @@ public final class sksi_reports_by_column extends SubLTranslatedFile implements 
                                 final SubLObject results = iteration.iteration_next(iterator);
                                 SubLObject this_file_name = NIL;
                                 if (list_utilities.plist_lookup(full_report_props, $OUTPUT_DIRECTORY, UNPROVIDED) != NIL) {
-                                    this_file_name = (NIL != iteration.iteration_done(iterator)) ? file_name : format(NIL, $str38$_A_A__2__0D_A, new SubLObject[]{ partial_directory, file_name_base, v_iteration, file_name_suffix });
+                                    this_file_name = (NIL != iteration.iteration_done(iterator)) ? file_name : format(NIL, $str38$_A_A__2__0D_A, partial_directory, file_name_base, v_iteration, file_name_suffix);
                                     file_utilities.prepare_to_possibly_overwrite_file(this_file_name, UNPROVIDED);
                                 }
                                 if (NIL != this_file_name) {
@@ -1118,7 +1118,7 @@ public final class sksi_reports_by_column extends SubLTranslatedFile implements 
                             final SubLObject results2 = iteration.iteration_next(iterator2);
                             SubLObject this_file_name2 = NIL;
                             if (list_utilities.plist_lookup(full_report_props, $OUTPUT_DIRECTORY, UNPROVIDED) != NIL) {
-                                this_file_name2 = (NIL != iteration.iteration_done(iterator2)) ? file_name : format(NIL, $str38$_A_A__2__0D_A, new SubLObject[]{ partial_directory2, file_name_base, v_iteration2, file_name_suffix });
+                                this_file_name2 = (NIL != iteration.iteration_done(iterator2)) ? file_name : format(NIL, $str38$_A_A__2__0D_A, partial_directory2, file_name_base, v_iteration2, file_name_suffix);
                                 file_utilities.prepare_to_possibly_overwrite_file(this_file_name2, UNPROVIDED);
                             }
                             if (NIL != this_file_name2) {
@@ -2573,7 +2573,7 @@ public final class sksi_reports_by_column extends SubLTranslatedFile implements 
             thread.resetMultipleValues();
             final SubLObject curr_vector = gethash(key, hashtable, UNPROVIDED);
             final SubLObject physical_value = encode_logical_answer(logical_values, clobber_multiple_valuesP, collect_multiple_valuesP, pf, ks, encoding_expression);
-            format(T, $str219$vectorp___S__curr_vector___S__col, new SubLObject[]{ vectorp(curr_vector), curr_vector, column_num, physical_value });
+            format(T, $str219$vectorp___S__curr_vector___S__col, vectorp(curr_vector), curr_vector, column_num, physical_value);
             if (curr_vector.isVector()) {
                 set_aref(curr_vector, column_num, physical_value);
             }
@@ -2901,7 +2901,7 @@ public final class sksi_reports_by_column extends SubLTranslatedFile implements 
                 original_sentence = cycl_utilities.cycl_arg_position_nsubst(new_var, value_query.first(), original_sentence);
                 var_list = cons(new_var, var_list);
             }
-            format(T, $str242$_S__S__S__S___S__, new SubLObject[]{ key_selection.first(), value_selection, value_query, var_list, selection_output_list });
+            format(T, $str242$_S__S__S__S___S__, key_selection.first(), value_selection, value_query, var_list, selection_output_list);
             cdolist_list_var = cdolist_list_var.rest();
             key_selection = cdolist_list_var.first();
         } 
@@ -3035,7 +3035,7 @@ public final class sksi_reports_by_column extends SubLTranslatedFile implements 
                             while (NIL != cdolist_list_var) {
                                 selection_vars = cons(cycl_utilities.formula_cycl_arg_position(selection_sentence, var_pos.first(), UNPROVIDED), selection_vars);
                                 format(T, $str250$var_pos_var_selection_vars_select);
-                                format(T, $str251$_S__S__S__S__, new SubLObject[]{ var_pos, cycl_utilities.formula_cycl_arg_position(selection_sentence, var_pos.first(), UNPROVIDED), selection_vars, selection_output_list });
+                                format(T, $str251$_S__S__S__S__, var_pos, cycl_utilities.formula_cycl_arg_position(selection_sentence, var_pos.first(), UNPROVIDED), selection_vars, selection_output_list);
                                 cdolist_list_var = cdolist_list_var.rest();
                                 var_pos = cdolist_list_var.first();
                             } 

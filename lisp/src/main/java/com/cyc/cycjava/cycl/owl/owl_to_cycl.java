@@ -11744,7 +11744,7 @@ public final class owl_to_cycl extends SubLTranslatedFile implements V12 {
                     SubLObject v_isa = NIL;
                     for (v_isa = cdolist_list_var.first(); NIL != cdolist_list_var; cdolist_list_var = cdolist_list_var.rest() , v_isa = cdolist_list_var.first()) {
                         if (NIL != owl_utilities.$owl_verboseP$.getDynamicValue(thread)) {
-                            format(T, cconcatenate($str_alt221$__, new SubLObject[]{ $str_alt408$Postponing__isa__S__S__because__S, $str_alt223$__ }), new SubLObject[]{ new_term, v_isa, v_isa });
+                            format(T, cconcatenate($str_alt221$__, new SubLObject[]{ $str_alt408$Postponing__isa__S__S__because__S, $str_alt223$__ }), new_term, v_isa, v_isa);
                             force_output(UNPROVIDED);
                         }
                         com.cyc.cycjava.cycl.owl.owl_to_cycl.owl_enqueue_assert(list($$isa, new_term, v_isa), defining_mt, UNPROVIDED);
@@ -11800,7 +11800,7 @@ public final class owl_to_cycl extends SubLTranslatedFile implements V12 {
         v_isa2 = cdolist_list_var2.first();
         while (NIL != cdolist_list_var2) {
             if (NIL != owl_utilities.$owl_verboseP$.getDynamicValue(thread)) {
-                format(T, cconcatenate(owl_to_cycl.$str237$__, new SubLObject[]{ owl_to_cycl.$str423$Postponing__isa__S__S__because__S, owl_to_cycl.$str239$__ }), new SubLObject[]{ new_term, v_isa2, v_isa2 });
+                format(T, cconcatenate(owl_to_cycl.$str237$__, new SubLObject[]{ owl_to_cycl.$str423$Postponing__isa__S__S__because__S, owl_to_cycl.$str239$__ }), new_term, v_isa2, v_isa2);
                 force_output(UNPROVIDED);
             }
             owl_to_cycl.owl_enqueue_assert(list(owl_to_cycl.$$isa, new_term, v_isa2), defining_mt, UNPROVIDED);
@@ -15444,7 +15444,7 @@ public final class owl_to_cycl extends SubLTranslatedFile implements V12 {
                             }
                             if (NIL != term_info) {
                                 if (NIL != owl_utilities.$owl_verboseP$.getDynamicValue(thread)) {
-                                    format(T, cconcatenate($str_alt221$__, new SubLObject[]{ $str_alt540$Finished__S____Superclasses___S__, $str_alt223$__ }), new SubLObject[]{ term_info, com.cyc.cycjava.cycl.owl.owl_to_cycl.owl_term_info_superclasses(term_info), com.cyc.cycjava.cycl.owl.owl_to_cycl.owl_term_info_disjoint_classes(term_info), com.cyc.cycjava.cycl.owl.owl_to_cycl.owl_term_info_plist_lookup(term_info, $ISAS, UNPROVIDED) });
+                                    format(T, cconcatenate($str_alt221$__, new SubLObject[]{ $str_alt540$Finished__S____Superclasses___S__, $str_alt223$__ }), term_info, owl_to_cycl.owl_term_info_superclasses(term_info), owl_to_cycl.owl_term_info_disjoint_classes(term_info), owl_to_cycl.owl_term_info_plist_lookup(term_info, $ISAS, UNPROVIDED));
                                     force_output(UNPROVIDED);
                                 }
                             }
@@ -15504,7 +15504,7 @@ public final class owl_to_cycl extends SubLTranslatedFile implements V12 {
                     }
 
                 if ((NIL != term_info) && (NIL != owl_utilities.$owl_verboseP$.getDynamicValue(thread))) {
-                    format(T, cconcatenate(owl_to_cycl.$str237$__, new SubLObject[]{ owl_to_cycl.$str566$Finished__S____Superclasses___S__, owl_to_cycl.$str239$__ }), new SubLObject[]{ term_info, owl_to_cycl.owl_term_info_superclasses(term_info), owl_to_cycl.owl_term_info_disjoint_classes(term_info), owl_to_cycl.owl_term_info_plist_lookup(term_info, $ISAS, UNPROVIDED) });
+                    format(T, cconcatenate(owl_to_cycl.$str237$__, new SubLObject[]{ owl_to_cycl.$str566$Finished__S____Superclasses___S__, owl_to_cycl.$str239$__ }), term_info, owl_to_cycl.owl_term_info_superclasses(term_info), owl_to_cycl.owl_term_info_disjoint_classes(term_info), owl_to_cycl.owl_term_info_plist_lookup(term_info, $ISAS, UNPROVIDED));
                     force_output(UNPROVIDED);
                 }
                 if (NIL != term_info) {
@@ -17050,7 +17050,7 @@ public final class owl_to_cycl extends SubLTranslatedFile implements V12 {
                     }
                 } 
                 if (NIL != owl_utilities.$owl_verboseP$.getDynamicValue(thread)) {
-                    format(T, cconcatenate($str_alt221$__, new SubLObject[]{ $str_alt570$Read_restriction___S__S__S, $str_alt223$__ }), new SubLObject[]{ property, type, value });
+                    format(T, cconcatenate($str_alt221$__, new SubLObject[]{ $str_alt570$Read_restriction___S__S__S, $str_alt223$__ }), property, type, value);
                     force_output(UNPROVIDED);
                 }
                 if (NIL != string_utilities.non_empty_string_p(node_id)) {
@@ -17121,7 +17121,7 @@ public final class owl_to_cycl extends SubLTranslatedFile implements V12 {
 
         } 
         if (NIL != owl_utilities.$owl_verboseP$.getDynamicValue(thread)) {
-            format(T, cconcatenate(owl_to_cycl.$str237$__, new SubLObject[]{ owl_to_cycl.$str599$Read_restriction___S__S__S__S, owl_to_cycl.$str239$__ }), new SubLObject[]{ property, type, value, v_class });
+            format(T, cconcatenate(owl_to_cycl.$str237$__, new SubLObject[]{ owl_to_cycl.$str599$Read_restriction___S__S__S__S, owl_to_cycl.$str239$__ }), property, type, value, v_class);
             force_output(UNPROVIDED);
         }
         if (NIL != non_empty_string_p(node_id)) {

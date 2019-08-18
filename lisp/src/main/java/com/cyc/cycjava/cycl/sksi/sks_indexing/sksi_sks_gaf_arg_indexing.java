@@ -473,12 +473,12 @@ public final class sksi_sks_gaf_arg_indexing extends SubLTranslatedFile implemen
     }
 
     public static final SubLObject print_sksi_supported_gaf_argument_cache_entry_alt(SubLObject v_object, SubLObject stream, SubLObject depth) {
-        format(stream, $str_alt27$__GACE__s__s__s__s__s__s_, new SubLObject[]{ sksi_supported_gaf_argument_cache_entry_argument_position(v_object), sksi_supported_gaf_argument_cache_entry_query_form(v_object), sksi_supported_gaf_argument_cache_entry_predicate(v_object), sksi_supported_gaf_argument_cache_entry_mt(v_object), sksi_supported_gaf_argument_cache_entry_count(v_object), sksi_supported_gaf_argument_cache_entry_modules(v_object) });
+        format(stream, $str_alt27$__GACE__s__s__s__s__s__s_, sksi_supported_gaf_argument_cache_entry_argument_position(v_object), sksi_supported_gaf_argument_cache_entry_query_form(v_object), sksi_supported_gaf_argument_cache_entry_predicate(v_object), sksi_supported_gaf_argument_cache_entry_mt(v_object), sksi_supported_gaf_argument_cache_entry_count(v_object), sksi_supported_gaf_argument_cache_entry_modules(v_object));
         return NIL;
     }
 
     public static SubLObject print_sksi_supported_gaf_argument_cache_entry(final SubLObject v_object, final SubLObject stream, final SubLObject depth) {
-        format(stream, sksi_sks_gaf_arg_indexing.$str34$__GACE__s__s__s__s__s__s_, new SubLObject[]{ sksi_sks_gaf_arg_indexing.sksi_supported_gaf_argument_cache_entry_argument_position(v_object), sksi_sks_gaf_arg_indexing.sksi_supported_gaf_argument_cache_entry_query_form(v_object), sksi_sks_gaf_arg_indexing.sksi_supported_gaf_argument_cache_entry_predicate(v_object), sksi_sks_gaf_arg_indexing.sksi_supported_gaf_argument_cache_entry_mt(v_object), sksi_sks_gaf_arg_indexing.sksi_supported_gaf_argument_cache_entry_count(v_object), sksi_sks_gaf_arg_indexing.sksi_supported_gaf_argument_cache_entry_modules(v_object) });
+        format(stream, sksi_sks_gaf_arg_indexing.$str34$__GACE__s__s__s__s__s__s_, sksi_sks_gaf_arg_indexing.sksi_supported_gaf_argument_cache_entry_argument_position(v_object), sksi_sks_gaf_arg_indexing.sksi_supported_gaf_argument_cache_entry_query_form(v_object), sksi_sks_gaf_arg_indexing.sksi_supported_gaf_argument_cache_entry_predicate(v_object), sksi_sks_gaf_arg_indexing.sksi_supported_gaf_argument_cache_entry_mt(v_object), sksi_sks_gaf_arg_indexing.sksi_supported_gaf_argument_cache_entry_count(v_object), sksi_sks_gaf_arg_indexing.sksi_supported_gaf_argument_cache_entry_modules(v_object));
         return NIL;
     }
 

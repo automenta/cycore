@@ -368,12 +368,12 @@ public final class inference_event_filters extends SubLTranslatedFile implements
     }
 
     public static final SubLObject print_new_inference_answer_message_alt(SubLObject store_id, SubLObject inference_id, SubLObject answer_id) {
-        format(T, $str_alt22$__Inference__A__A_generated_answe, new SubLObject[]{ store_id, inference_id, answer_id });
+        format(T, $str_alt22$__Inference__A__A_generated_answe, store_id, inference_id, answer_id);
         return NIL;
     }
 
     public static SubLObject print_new_inference_answer_message(final SubLObject store_id, final SubLObject inference_id, final SubLObject answer_id) {
-        format(T, $str22$__Inference__A__A_generated_answe, new SubLObject[]{ store_id, inference_id, answer_id });
+        format(T, $str22$__Inference__A__A_generated_answe, store_id, inference_id, answer_id);
         return NIL;
     }
 
@@ -524,12 +524,12 @@ public final class inference_event_filters extends SubLTranslatedFile implements
     }
 
     public static final SubLObject print_sksi_query_message_alt(SubLObject store_id, SubLObject inference_id, SubLObject parameter) {
-        format(T, $str_alt31$__Inference__A__A_generated_SKSI_, new SubLObject[]{ store_id, inference_id, parameter });
+        format(T, $str_alt31$__Inference__A__A_generated_SKSI_, store_id, inference_id, parameter);
         return NIL;
     }
 
     public static SubLObject print_sksi_query_message(final SubLObject store_id, final SubLObject inference_id, final SubLObject parameter) {
-        format(T, $str31$__Inference__A__A_generated_SKSI_, new SubLObject[]{ store_id, inference_id, parameter });
+        format(T, $str31$__Inference__A__A_generated_SKSI_, store_id, inference_id, parameter);
         return NIL;
     }
 

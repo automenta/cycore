@@ -176,43 +176,7 @@ public class Values extends SubLTrampolineFile {
 		return thread.thirdMultipleValue();
 	}
 
-	public static SubLObject values(SubLObject value1) {
-		return SubLProcess.currentSubLThread().values(value1);
-	}
-
-	public static SubLObject values(SubLObject value1, SubLObject value2) {
-		return SubLProcess.currentSubLThread().values(value1, value2);
-	}
-
-	public static SubLObject values(SubLObject value1, SubLObject value2, SubLObject value3) {
-		return SubLProcess.currentSubLThread().values(value1, value2, value3);
-	}
-
-	public static SubLObject values(SubLObject value1, SubLObject value2, SubLObject value3, SubLObject value4) {
-		return SubLProcess.currentSubLThread().values(value1, value2, value3, value4);
-	}
-
-	public static SubLObject values(SubLObject value1, SubLObject value2, SubLObject value3, SubLObject value4,
-			SubLObject value5) {
-		return SubLProcess.currentSubLThread().values(value1, value2, value3, value4, value5);
-	}
-
-	public static SubLObject values(SubLObject value1, SubLObject value2, SubLObject value3, SubLObject value4,
-			SubLObject value5, SubLObject value6) {
-		return SubLProcess.currentSubLThread().values(value1, value2, value3, value4, value5, value6);
-	}
-
-	public static SubLObject values(SubLObject value1, SubLObject value2, SubLObject value3, SubLObject value4,
-			SubLObject value5, SubLObject value6, SubLObject value7) {
-		return SubLProcess.currentSubLThread().values(value1, value2, value3, value4, value5, value6, value7);
-	}
-
-	public static SubLObject values(SubLObject value1, SubLObject value2, SubLObject value3, SubLObject value4,
-			SubLObject value5, SubLObject value6, SubLObject value7, SubLObject value8) {
-		return SubLProcess.currentSubLThread().values(value1, value2, value3, value4, value5, value6, value7, value8);
-	}
-
-	public static SubLObject values(SubLObject[] moreValues) {
+	public static SubLObject values(SubLObject... moreValues) {
 		return SubLProcess.currentSubLThread().values(moreValues);
 	}
 

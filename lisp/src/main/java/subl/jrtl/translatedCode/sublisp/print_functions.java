@@ -11,6 +11,7 @@ package subl.jrtl.translatedCode.sublisp;
 
 
 import subl.Guids;
+import subl.PrintLow;
 import subl.Strings;
 import subl.SubLThread;
 import subl.type.core.SubLObject;
@@ -296,7 +297,7 @@ public class print_functions extends SubLTranslatedFile {
             print_not_readable(hash_table, stream);
         else {
             print_macros.print_unreadable_object_preamble(stream, hash_table, T, T);
-            format(stream, $str24$TEST__A__D__D, new SubLObject[]{ hash_table_test(hash_table), hash_table_count(hash_table), hash_table_size(hash_table) });
+            PrintLow.format(stream, $str24$TEST__A__D__D, hash_table_test(hash_table), hash_table_count(hash_table), hash_table_size(hash_table));
             print_macros.print_unreadable_object_postamble(stream, hash_table, T, T);
         }
         return hash_table;

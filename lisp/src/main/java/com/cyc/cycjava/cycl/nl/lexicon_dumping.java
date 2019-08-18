@@ -27,6 +27,7 @@ import static com.cyc.cycjava.cycl.constant_handles.*;
 import static com.cyc.cycjava.cycl.file_utilities.temp_directory;
 import static com.cyc.cycjava.cycl.subl_macro_promotions.$catch_error_message_target$;
 import static com.cyc.cycjava.cycl.utilities_macros.*;
+import static subl.PrintLow.format;
 import static subl.jrtl.translatedCode.sublisp.conses_high.getf;
 import static subl.jrtl.translatedCode.sublisp.conses_high.putf;
 import static subl.jrtl.translatedCode.sublisp.print_high.*;

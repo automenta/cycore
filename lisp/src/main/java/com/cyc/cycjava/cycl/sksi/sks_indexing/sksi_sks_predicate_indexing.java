@@ -498,12 +498,12 @@ public final class sksi_sks_predicate_indexing extends SubLTranslatedFile implem
     }
 
     public static final SubLObject print_sksi_supported_predicate_cache_entry_alt(SubLObject v_object, SubLObject stream, SubLObject depth) {
-        format(stream, $str_alt24$__PCE__s__s__s__s_, new SubLObject[]{ com.cyc.cycjava.cycl.sksi.sks_indexing.sksi_sks_predicate_indexing.sksi_supported_predicate_cache_entry_query_form(v_object), com.cyc.cycjava.cycl.sksi.sks_indexing.sksi_sks_predicate_indexing.sksi_supported_predicate_cache_entry_mt(v_object), com.cyc.cycjava.cycl.sksi.sks_indexing.sksi_sks_predicate_indexing.sksi_supported_predicate_cache_entry_count(v_object), com.cyc.cycjava.cycl.sksi.sks_indexing.sksi_sks_predicate_indexing.sksi_supported_predicate_cache_entry_modules(v_object) });
+        format(stream, $str_alt24$__PCE__s__s__s__s_, sksi_sks_predicate_indexing.sksi_supported_predicate_cache_entry_query_form(v_object), sksi_sks_predicate_indexing.sksi_supported_predicate_cache_entry_mt(v_object), sksi_sks_predicate_indexing.sksi_supported_predicate_cache_entry_count(v_object), sksi_sks_predicate_indexing.sksi_supported_predicate_cache_entry_modules(v_object));
         return NIL;
     }
 
     public static SubLObject print_sksi_supported_predicate_cache_entry(final SubLObject v_object, final SubLObject stream, final SubLObject depth) {
-        format(stream, sksi_sks_predicate_indexing.$str30$__PCE__s__s__s__s_, new SubLObject[]{ sksi_sks_predicate_indexing.sksi_supported_predicate_cache_entry_query_form(v_object), sksi_sks_predicate_indexing.sksi_supported_predicate_cache_entry_mt(v_object), sksi_sks_predicate_indexing.sksi_supported_predicate_cache_entry_count(v_object), sksi_sks_predicate_indexing.sksi_supported_predicate_cache_entry_modules(v_object) });
+        format(stream, sksi_sks_predicate_indexing.$str30$__PCE__s__s__s__s_, sksi_sks_predicate_indexing.sksi_supported_predicate_cache_entry_query_form(v_object), sksi_sks_predicate_indexing.sksi_supported_predicate_cache_entry_mt(v_object), sksi_sks_predicate_indexing.sksi_supported_predicate_cache_entry_count(v_object), sksi_sks_predicate_indexing.sksi_supported_predicate_cache_entry_modules(v_object));
         return NIL;
     }
 

@@ -4344,7 +4344,7 @@ public final class cyblack_messages extends SubLTranslatedFile implements V02 {
             SubLObject message_key = get_cyblack_message_message_key(self);
             try {
                 try {
-                    format(stream, $str_alt191$_S__SID__S__EMID__S__TID__S, new SubLObject[]{ message_key, session_id, external_module_id, transaction_id });
+                    format(stream, $str_alt191$_S__SID__S__EMID__S__TID__S, message_key, session_id, external_module_id, transaction_id);
                     sublisp_throw($sym190$OUTER_CATCH_FOR_CYBLACK_MESSAGE_METHOD, self);
                 } finally {
                     {
@@ -9044,7 +9044,7 @@ public final class cyblack_messages extends SubLTranslatedFile implements V02 {
             SubLObject direct_class = get_cyblack_add_posting_class_message_direct_class(self);
             try {
                 try {
-                    format(stream, $str_alt953$__CLASS__S__SUPER_CLASS__S__SLOTS, new SubLObject[]{ direct_class, super_class, v_slots });
+                    format(stream, $str_alt953$__CLASS__S__SUPER_CLASS__S__SLOTS, direct_class, super_class, v_slots);
                     sublisp_throw($sym952$OUTER_CATCH_FOR_CYBLACK_ADD_POSTING_CLASS_MESSAGE_METHOD, self);
                 } finally {
                     {
@@ -9568,7 +9568,7 @@ public final class cyblack_messages extends SubLTranslatedFile implements V02 {
             try {
                 try {
                     cyblack_panel_manipulation_message_print_tail_part_method(self, stream);
-                    format(stream, $str_alt1043$__SUPERTYPES__S__POSTING_CLASS__S, new SubLObject[]{ supertypes, posting_class, panel_class });
+                    format(stream, $str_alt1043$__SUPERTYPES__S__POSTING_CLASS__S, supertypes, posting_class, panel_class);
                     sublisp_throw($sym1042$OUTER_CATCH_FOR_CYBLACK_ADD_PANEL_MESSAGE_METHOD, self);
                 } finally {
                     {

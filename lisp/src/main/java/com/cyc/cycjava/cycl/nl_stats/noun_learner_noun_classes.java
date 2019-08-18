@@ -1416,7 +1416,7 @@ public final class noun_learner_noun_classes extends SubLTranslatedFile implemen
                             SubLObject verb = dictionary_contents.do_dictionary_contents_key_value(iteration_state);
                             SubLObject count = thread.secondMultipleValue();
                             thread.resetMultipleValues();
-                            format(T, $str_alt227$_S_____S____selectiveness___S___, new SubLObject[]{ verb, count, verb_argument_lookups.selectiveness_wrt_subject(verb) });
+                            format(T, $str_alt227$_S_____S____selectiveness___S___, verb, count, verb_argument_lookups.selectiveness_wrt_subject(verb));
                             iteration_state = dictionary_contents.do_dictionary_contents_next(iteration_state);
                         }
                     } 
@@ -1431,7 +1431,7 @@ public final class noun_learner_noun_classes extends SubLTranslatedFile implemen
                             SubLObject verb = dictionary_contents.do_dictionary_contents_key_value(iteration_state);
                             SubLObject count = thread.secondMultipleValue();
                             thread.resetMultipleValues();
-                            format(T, $str_alt227$_S_____S____selectiveness___S___, new SubLObject[]{ verb, count, verb_argument_lookups.selectiveness_wrt_object(verb) });
+                            format(T, $str_alt227$_S_____S____selectiveness___S___, verb, count, verb_argument_lookups.selectiveness_wrt_object(verb));
                             iteration_state = dictionary_contents.do_dictionary_contents_next(iteration_state);
                         }
                     } 

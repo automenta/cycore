@@ -223,10 +223,10 @@ public final class jubl extends SubLTranslatedFile implements V02 {
             SubLObject list = NIL;
             SubLObject element = NIL;
             SubLObject sequence_1 = sequence;
-            SubLObject size = jsession_exec(jin_session(sequence_1), format(NIL, $str_alt6$self_objects__a___a_a, new SubLObject[]{ jin_id(sequence_1), $str_alt29$__len__, jython_arglist(list(EMPTY_SUBL_OBJECT_ARRAY)) }));
+            SubLObject size = jsession_exec(jin_session(sequence_1), format(NIL, $str_alt6$self_objects__a___a_a, jin_id(sequence_1), $str_alt29$__len__, jython_arglist(list(EMPTY_SUBL_OBJECT_ARRAY))));
             SubLObject i = NIL;
             for (i = ZERO_INTEGER; i.numL(size); i = add(i, ONE_INTEGER)) {
-                element = jsession_exec(jin_session(sequence_1), format(NIL, $str_alt6$self_objects__a___a_a, new SubLObject[]{ jin_id(sequence_1), $str_alt19$__getitem__, jython_arglist(list(i)) }));
+                element = jsession_exec(jin_session(sequence_1), format(NIL, $str_alt6$self_objects__a___a_a, jin_id(sequence_1), $str_alt19$__getitem__, jython_arglist(list(i))));
                 list = cons(element, list);
             }
             return nreverse(list);
@@ -523,7 +523,7 @@ public final class jubl extends SubLTranslatedFile implements V02 {
                     _csetf_jsession_packages(js, NIL);
                     _csetf_jsession_classes(js, dictionary.new_dictionary(EQUAL, EIGHT_INTEGER));
                     _csetf_jsession_objects(js, make_hash_table($int$64, EQL, UNPROVIDED));
-                    jsession_exec(js, format(NIL, $str_alt64$import__a__self_modules___a______, new SubLObject[]{ pjc, pjc, pjc }));
+                    jsession_exec(js, format(NIL, $str_alt64$import__a__self_modules___a______, pjc, pjc, pjc));
                     {
                         SubLObject cdolist_list_var = cfasl_classes;
                         SubLObject v_class = NIL;
@@ -612,7 +612,7 @@ public final class jubl extends SubLTranslatedFile implements V02 {
             }
             if (NIL == jcp) {
                 {
-                    SubLObject classP = numE(ONE_INTEGER, jsession_exec(js, format(NIL, $str_alt71$import__a__self_modules___a______, new SubLObject[]{ class_or_package, class_or_package, class_or_package, class_or_package })));
+                    SubLObject classP = numE(ONE_INTEGER, jsession_exec(js, format(NIL, $str_alt71$import__a__self_modules___a______, class_or_package, class_or_package, class_or_package, class_or_package)));
                     if (NIL != classP) {
                         jcp = new_jcl(class_or_package, js);
                         jsession_set_jcl(js, jcp);
@@ -853,10 +853,10 @@ public final class jubl extends SubLTranslatedFile implements V02 {
             SubLObject classjin = NIL;
             SubLObject v_class = NIL;
             SubLObject sequence = jin;
-            SubLObject size = jsession_exec(jin_session(sequence), format(NIL, $str_alt6$self_objects__a___a_a, new SubLObject[]{ jin_id(sequence), $str_alt29$__len__, jython_arglist(list(EMPTY_SUBL_OBJECT_ARRAY)) }));
+            SubLObject size = jsession_exec(jin_session(sequence), format(NIL, $str_alt6$self_objects__a___a_a, jin_id(sequence), $str_alt29$__len__, jython_arglist(list(EMPTY_SUBL_OBJECT_ARRAY))));
             SubLObject i = NIL;
             for (i = ZERO_INTEGER; i.numL(size); i = add(i, ONE_INTEGER)) {
-                v_class = jsession_exec(jin_session(sequence), format(NIL, $str_alt6$self_objects__a___a_a, new SubLObject[]{ jin_id(sequence), $str_alt19$__getitem__, jython_arglist(list(i)) }));
+                v_class = jsession_exec(jin_session(sequence), format(NIL, $str_alt6$self_objects__a___a_a, jin_id(sequence), $str_alt19$__getitem__, jython_arglist(list(i))));
                 classjin = jsession_exec(js, format(NIL, $str_alt99$type_getattr_self_modules___a____, v_package, v_class));
                 if (NIL != Strings.stringE(jcl_name(jin_class(classjin)), $str_alt62$org_python_core_PyJavaClass, UNPROVIDED, UNPROVIDED, UNPROVIDED, UNPROVIDED)) {
                     v_classes = cons(jsession_import(js, cconcatenate(v_package, new SubLObject[]{ $str_alt97$_, v_class })), v_classes);
@@ -1021,7 +1021,7 @@ public final class jubl extends SubLTranslatedFile implements V02 {
     public static final SubLObject jcl_set(SubLObject jcl, SubLObject field, SubLObject value) {
         SubLTrampolineFile.checkType(jcl, JCL_P);
         SubLTrampolineFile.checkType(field, STRINGP);
-        return jsession_exec(jcl_session(jcl), format(NIL, $str_alt112$self_modules___a____a____a, new SubLObject[]{ jcl_name(jcl), field, value }));
+        return jsession_exec(jcl_session(jcl), format(NIL, $str_alt112$self_modules___a____a____a, jcl_name(jcl), field, value));
     }
 
     /**
@@ -1286,7 +1286,7 @@ public final class jubl extends SubLTranslatedFile implements V02 {
     public static final SubLObject jin_set(SubLObject jin, SubLObject field, SubLObject value) {
         SubLTrampolineFile.checkType(jin, JIN_P);
         SubLTrampolineFile.checkType(field, STRINGP);
-        return jsession_exec(jin_session(jin), format(NIL, $str_alt137$self_objects__a___a____a, new SubLObject[]{ jin_id(jin), field, value }));
+        return jsession_exec(jin_session(jin), format(NIL, $str_alt137$self_objects__a___a____a, jin_id(jin), field, value));
     }
 
     /**
@@ -1394,7 +1394,7 @@ public final class jubl extends SubLTranslatedFile implements V02 {
         SubLTrampolineFile.checkType(jcl, JCL_P);
         jsession_import(jcl_session(jcl), $str_alt148$java_lang_Class);
         {
-            SubLObject jin_seq = jsession_exec(jcl_session(jsession_import(jcl_session(jcl), jcl_name(jcl))), format(NIL, $str_alt116$self_modules___a____a_a, new SubLObject[]{ jcl_name(jsession_import(jcl_session(jcl), jcl_name(jcl))), $$$getFields, jython_arglist(list(EMPTY_SUBL_OBJECT_ARRAY)) }));
+            SubLObject jin_seq = jsession_exec(jcl_session(jsession_import(jcl_session(jcl), jcl_name(jcl))), format(NIL, $str_alt116$self_modules___a____a_a, jcl_name(jsession_import(jcl_session(jcl), jcl_name(jcl))), $$$getFields, jython_arglist(list(EMPTY_SUBL_OBJECT_ARRAY))));
             SubLObject fields = jseq_to_list(jin_seq);
             jin_destroy(jin_seq);
             return fields;
@@ -1412,7 +1412,7 @@ public final class jubl extends SubLTranslatedFile implements V02 {
         SubLTrampolineFile.checkType(jcl, JCL_P);
         jsession_import(jcl_session(jcl), $str_alt148$java_lang_Class);
         {
-            SubLObject jin_seq = jsession_exec(jcl_session(jsession_import(jcl_session(jcl), jcl_name(jcl))), format(NIL, $str_alt116$self_modules___a____a_a, new SubLObject[]{ jcl_name(jsession_import(jcl_session(jcl), jcl_name(jcl))), $$$getConstructors, jython_arglist(list(EMPTY_SUBL_OBJECT_ARRAY)) }));
+            SubLObject jin_seq = jsession_exec(jcl_session(jsession_import(jcl_session(jcl), jcl_name(jcl))), format(NIL, $str_alt116$self_modules___a____a_a, jcl_name(jsession_import(jcl_session(jcl), jcl_name(jcl))), $$$getConstructors, jython_arglist(list(EMPTY_SUBL_OBJECT_ARRAY))));
             SubLObject constructors = jseq_to_list(jin_seq);
             jin_destroy(jin_seq);
             return constructors;
@@ -1430,7 +1430,7 @@ public final class jubl extends SubLTranslatedFile implements V02 {
         SubLTrampolineFile.checkType(jcl, JCL_P);
         jsession_import(jcl_session(jcl), $str_alt148$java_lang_Class);
         {
-            SubLObject jin_seq = jsession_exec(jcl_session(jsession_import(jcl_session(jcl), jcl_name(jcl))), format(NIL, $str_alt116$self_modules___a____a_a, new SubLObject[]{ jcl_name(jsession_import(jcl_session(jcl), jcl_name(jcl))), $$$getMethods, jython_arglist(list(EMPTY_SUBL_OBJECT_ARRAY)) }));
+            SubLObject jin_seq = jsession_exec(jcl_session(jsession_import(jcl_session(jcl), jcl_name(jcl))), format(NIL, $str_alt116$self_modules___a____a_a, jcl_name(jsession_import(jcl_session(jcl), jcl_name(jcl))), $$$getMethods, jython_arglist(list(EMPTY_SUBL_OBJECT_ARRAY))));
             SubLObject v_methods = jseq_to_list(jin_seq);
             jin_destroy(jin_seq);
             return v_methods;
@@ -1446,7 +1446,7 @@ public final class jubl extends SubLTranslatedFile implements V02 {
      */
     public static final SubLObject jin_class_member_p(SubLObject member) {
         SubLTrampolineFile.checkType(member, JIN_P);
-        return numE(jsession_exec(jcl_session(jsession_import(jin_session(member), $str_alt152$java_lang_reflect_Modifier)), format(NIL, $str_alt116$self_modules___a____a_a, new SubLObject[]{ jcl_name(jsession_import(jin_session(member), $str_alt152$java_lang_reflect_Modifier)), $$$isStatic, jython_arglist(list(jsession_exec(jin_session(member), format(NIL, $str_alt6$self_objects__a___a_a, new SubLObject[]{ jin_id(member), $$$getModifiers, jython_arglist(list(EMPTY_SUBL_OBJECT_ARRAY)) })))) })), ONE_INTEGER);
+        return numE(jsession_exec(jcl_session(jsession_import(jin_session(member), $str_alt152$java_lang_reflect_Modifier)), format(NIL, $str_alt116$self_modules___a____a_a, jcl_name(jsession_import(jin_session(member), $str_alt152$java_lang_reflect_Modifier)), $$$isStatic, jython_arglist(list(jsession_exec(jin_session(member), format(NIL, $str_alt6$self_objects__a___a_a, jin_id(member), $$$getModifiers, jython_arglist(list(EMPTY_SUBL_OBJECT_ARRAY)))))))), ONE_INTEGER);
     }
 
     /**
@@ -1469,7 +1469,7 @@ public final class jubl extends SubLTranslatedFile implements V02 {
      */
     public static final SubLObject jin_final_member_p(SubLObject member) {
         SubLTrampolineFile.checkType(member, JIN_P);
-        return numE(jsession_exec(jcl_session(jsession_import(jin_session(member), $str_alt152$java_lang_reflect_Modifier)), format(NIL, $str_alt116$self_modules___a____a_a, new SubLObject[]{ jcl_name(jsession_import(jin_session(member), $str_alt152$java_lang_reflect_Modifier)), $$$isFinal, jython_arglist(list(jsession_exec(jin_session(member), format(NIL, $str_alt6$self_objects__a___a_a, new SubLObject[]{ jin_id(member), $$$getModifiers, jython_arglist(list(EMPTY_SUBL_OBJECT_ARRAY)) })))) })), ONE_INTEGER);
+        return numE(jsession_exec(jcl_session(jsession_import(jin_session(member), $str_alt152$java_lang_reflect_Modifier)), format(NIL, $str_alt116$self_modules___a____a_a, jcl_name(jsession_import(jin_session(member), $str_alt152$java_lang_reflect_Modifier)), $$$isFinal, jython_arglist(list(jsession_exec(jin_session(member), format(NIL, $str_alt6$self_objects__a___a_a, jin_id(member), $$$getModifiers, jython_arglist(list(EMPTY_SUBL_OBJECT_ARRAY)))))))), ONE_INTEGER);
     }
 
     /**

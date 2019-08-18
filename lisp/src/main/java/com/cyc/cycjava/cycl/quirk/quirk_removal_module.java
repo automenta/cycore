@@ -695,7 +695,7 @@ public final class quirk_removal_module extends SubLTranslatedFile implements V1
                                         format(T, $str_alt17$_________________________________);
                                         format(T, $str_alt18$___S, passage);
                                         format(T, $str_alt17$_________________________________);
-                                        format(T, $str_alt19$___secretary__S_found_bindings__S, new SubLObject[]{ com.cyc.cycjava.cycl.quirk.quirk_removal_module.get_secretary(), passage_assignments, mt });
+                                        format(T, $str_alt19$___secretary__S_found_bindings__S, quirk_removal_module.get_secretary(), passage_assignments, mt);
                                         {
                                             SubLObject cdolist_list_var_1 = passage_assignments;
                                             SubLObject assignment = NIL;
@@ -758,7 +758,7 @@ public final class quirk_removal_module extends SubLTranslatedFile implements V1
                     format(T, $str17$_________________________________);
                     format(T, $str18$___S, passage);
                     format(T, $str17$_________________________________);
-                    format(T, $str19$___secretary__S_found_bindings__S, new SubLObject[]{ get_secretary(), passage_assignments, mt });
+                    format(T, $str19$___secretary__S_found_bindings__S, get_secretary(), passage_assignments, mt);
                     SubLObject cdolist_list_var_$1 = passage_assignments;
                     SubLObject assignment = NIL;
                     assignment = cdolist_list_var_$1.first();
@@ -1748,7 +1748,7 @@ public final class quirk_removal_module extends SubLTranslatedFile implements V1
                                                 format(T, $str_alt17$_________________________________);
                                                 format(T, $str_alt18$___S, passage);
                                                 format(T, $str_alt17$_________________________________);
-                                                format(T, $str_alt19$___secretary__S_found_bindings__S, new SubLObject[]{ com.cyc.cycjava.cycl.quirk.quirk_removal_module.get_secretary(), passage_assignments, mt });
+                                                format(T, $str_alt19$___secretary__S_found_bindings__S, quirk_removal_module.get_secretary(), passage_assignments, mt);
                                                 {
                                                     SubLObject cdolist_list_var_10 = passage_assignments;
                                                     SubLObject assignment = NIL;
@@ -1818,7 +1818,7 @@ public final class quirk_removal_module extends SubLTranslatedFile implements V1
                         format(T, $str17$_________________________________);
                         format(T, $str18$___S, passage);
                         format(T, $str17$_________________________________);
-                        format(T, $str19$___secretary__S_found_bindings__S, new SubLObject[]{ get_secretary(), passage_assignments, mt });
+                        format(T, $str19$___secretary__S_found_bindings__S, get_secretary(), passage_assignments, mt);
                         SubLObject cdolist_list_var_$10 = passage_assignments;
                         SubLObject assignment = NIL;
                         assignment = cdolist_list_var_$10.first();

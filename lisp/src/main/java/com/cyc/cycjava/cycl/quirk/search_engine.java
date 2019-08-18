@@ -3961,7 +3961,7 @@ public final class search_engine extends SubLTranslatedFile implements V12 {
             SubLObject corpus = com.cyc.cycjava.cycl.quirk.search_engine.get_corpus_passage_corpus(self);
             try {
                 try {
-                    sublisp_throw($sym188$OUTER_CATCH_FOR_GLIMPSE_PASSAGE_METHOD, format(NIL, $str_alt189$__Corpus___a___File___a___Article, new SubLObject[]{ corpus, file, article, line }));
+                    sublisp_throw($sym188$OUTER_CATCH_FOR_GLIMPSE_PASSAGE_METHOD, format(NIL, $str_alt189$__Corpus___a___File___a___Article, corpus, file, article, line));
                 } finally {
                     {
                         SubLObject _prev_bind_0 = currentBinding($is_thread_performing_cleanupP$);
@@ -3999,7 +3999,7 @@ public final class search_engine extends SubLTranslatedFile implements V12 {
         try {
             thread.throwStack.push($sym188$OUTER_CATCH_FOR_GLIMPSE_PASSAGE_METHOD);
             try {
-                sublisp_throw($sym188$OUTER_CATCH_FOR_GLIMPSE_PASSAGE_METHOD, format(NIL, $str189$__Corpus___a___File___a___Article, new SubLObject[]{ corpus, file, article, line }));
+                sublisp_throw($sym188$OUTER_CATCH_FOR_GLIMPSE_PASSAGE_METHOD, format(NIL, $str189$__Corpus___a___File___a___Article, corpus, file, article, line));
             } finally {
                 final SubLObject _prev_bind_0 = $is_thread_performing_cleanupP$.currentBinding(thread);
                 try {
@@ -4470,7 +4470,7 @@ public final class search_engine extends SubLTranslatedFile implements V12 {
             SubLObject corpus = com.cyc.cycjava.cycl.quirk.search_engine.get_corpus_passage_corpus(self);
             try {
                 try {
-                    sublisp_throw($sym214$OUTER_CATCH_FOR_GURUQA_PASSAGE_METHOD, format(NIL, $str_alt215$Corpus___a__Document___a__Sentenc, new SubLObject[]{ corpus, document_id, sentence_id, span }));
+                    sublisp_throw($sym214$OUTER_CATCH_FOR_GURUQA_PASSAGE_METHOD, format(NIL, $str_alt215$Corpus___a__Document___a__Sentenc, corpus, document_id, sentence_id, span));
                 } finally {
                     {
                         SubLObject _prev_bind_0 = currentBinding($is_thread_performing_cleanupP$);
@@ -4508,7 +4508,7 @@ public final class search_engine extends SubLTranslatedFile implements V12 {
         try {
             thread.throwStack.push($sym214$OUTER_CATCH_FOR_GURUQA_PASSAGE_METHOD);
             try {
-                sublisp_throw($sym214$OUTER_CATCH_FOR_GURUQA_PASSAGE_METHOD, format(NIL, $str215$Corpus___a__Document___a__Sentenc, new SubLObject[]{ corpus, document_id, sentence_id, span }));
+                sublisp_throw($sym214$OUTER_CATCH_FOR_GURUQA_PASSAGE_METHOD, format(NIL, $str215$Corpus___a__Document___a__Sentenc, corpus, document_id, sentence_id, span));
             } finally {
                 final SubLObject _prev_bind_0 = $is_thread_performing_cleanupP$.currentBinding(thread);
                 try {
@@ -5296,7 +5296,7 @@ public final class search_engine extends SubLTranslatedFile implements V12 {
             SubLObject corpus = com.cyc.cycjava.cycl.quirk.search_engine.get_corpus_passage_corpus(self);
             try {
                 try {
-                    sublisp_throw($sym253$OUTER_CATCH_FOR_LEMUR_PASSAGE_METHOD, format(NIL, $str_alt254$__Corpus___a__Source___a__Sentenc, new SubLObject[]{ corpus, doc_id, sentence_number, score }));
+                    sublisp_throw($sym253$OUTER_CATCH_FOR_LEMUR_PASSAGE_METHOD, format(NIL, $str_alt254$__Corpus___a__Source___a__Sentenc, corpus, doc_id, sentence_number, score));
                 } finally {
                     {
                         SubLObject _prev_bind_0 = currentBinding($is_thread_performing_cleanupP$);
@@ -5334,7 +5334,7 @@ public final class search_engine extends SubLTranslatedFile implements V12 {
         try {
             thread.throwStack.push($sym253$OUTER_CATCH_FOR_LEMUR_PASSAGE_METHOD);
             try {
-                sublisp_throw($sym253$OUTER_CATCH_FOR_LEMUR_PASSAGE_METHOD, format(NIL, $str254$__Corpus___a__Source___a__Sentenc, new SubLObject[]{ corpus, doc_id, sentence_number, score }));
+                sublisp_throw($sym253$OUTER_CATCH_FOR_LEMUR_PASSAGE_METHOD, format(NIL, $str254$__Corpus___a__Source___a__Sentenc, corpus, doc_id, sentence_number, score));
             } finally {
                 final SubLObject _prev_bind_0 = $is_thread_performing_cleanupP$.currentBinding(thread);
                 try {
@@ -13586,7 +13586,7 @@ public final class search_engine extends SubLTranslatedFile implements V12 {
         if (hits == UNPROVIDED) {
             hits = TEN_INTEGER;
         }
-        return format(NIL, $str_alt739$http___www_google_com_search_q__A, new SubLObject[]{ web_utilities.html_url_encode(search_string, UNPROVIDED), subtract(start, ONE_INTEGER), hits });
+        return format(NIL, $str_alt739$http___www_google_com_search_q__A, web_utilities.html_url_encode(search_string, UNPROVIDED), subtract(start, ONE_INTEGER), hits);
     }
 
     public static SubLObject google_search_url(final SubLObject search_string, SubLObject start, SubLObject hits) {
@@ -13596,7 +13596,7 @@ public final class search_engine extends SubLTranslatedFile implements V12 {
         if (hits == UNPROVIDED) {
             hits = TEN_INTEGER;
         }
-        return format(NIL, $str735$http___www_google_com_search_q__A, new SubLObject[]{ web_utilities.html_url_encode(search_string, UNPROVIDED), subtract(start, ONE_INTEGER), hits });
+        return format(NIL, $str735$http___www_google_com_search_q__A, web_utilities.html_url_encode(search_string, UNPROVIDED), subtract(start, ONE_INTEGER), hits);
     }
 
     static private final SubLList $list_alt217 = list(makeString("@return stringp; the text of this passage"), list(makeSymbol("PUNLESS"), makeSymbol("TEXT"), list(makeSymbol("CLET"), list(makeSymbol("ERROR")), list(makeSymbol("CATCH-ERROR-MESSAGE"), list(makeSymbol("ERROR")), list(makeSymbol("CSETQ"), makeSymbol("TEXT"), list(makeSymbol("GURUQA-RETRIEVE-PASSAGE"), makeSymbol("DOCUMENT-ID"), makeSymbol("SENTENCE-ID"), makeSymbol("SPAN")))), list(makeSymbol("PWHEN"), makeSymbol("ERROR"), list(makeSymbol("HANDLE-ERROR"), makeSymbol("SELF"), makeSymbol("ERROR"))))), list(RET, makeSymbol("TEXT")));

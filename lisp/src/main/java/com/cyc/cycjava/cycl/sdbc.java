@@ -6188,7 +6188,7 @@ public final class sdbc extends SubLTranslatedFile implements V12 {
 	    port = NIL;
 	}
 	if (NIL != Strings.string_equal(string_utilities.string_first_n(EIGHT_INTEGER, subprotocol), $str268$com_cyc_, UNPROVIDED, UNPROVIDED, UNPROVIDED, UNPROVIDED)) {
-	    return format(NIL, $str269$_a__a__a, new SubLObject[] { $sql_protocol$.getGlobalValue(), subprotocol, db });
+	    return format(NIL, $str269$_a__a__a, $sql_protocol$.getGlobalValue(), subprotocol, db);
 	}
 	SubLObject v_properties = list(new SubLObject[] { $SUB_PROTOCOL, subprotocol, $DBMS_SERVER, dbms_server, $DATABASE, db, $USER, user, $PASSWORD, password });
 	if (NIL != subl_promotions.non_negative_integer_p(port)) {

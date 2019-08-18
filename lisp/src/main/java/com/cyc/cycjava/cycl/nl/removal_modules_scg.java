@@ -14,6 +14,7 @@ import subl.type.core.SubLObject;
 import subl.type.core.SubLProcess;
 import subl.type.symbol.SubLSymbol;
 
+import static com.cyc.cycjava.cycl.constant_handles.reader_make_constant_shell;
 import static com.cyc.cycjava.cycl.el_utilities.*;
 import static subl.jrtl.translatedCode.sublisp.conses_high.putf;
 import static subl.util.SubLFiles.declareFunction;

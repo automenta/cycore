@@ -1092,13 +1092,13 @@ public final class cyblack_unification extends SubLTranslatedFile implements V02
         {
             final SubLThread thread = SubLProcess.currentSubLThread();
             if (NIL != cyblack_globals.$cyblack_tracing_on$.getDynamicValue(thread)) {
-                format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt176$___VISIT__S__S___Unbound_bindings, new SubLObject[]{ self, v_cyblack_posting, get_cyblack_unification_robot_unbound_bindings(self) });
+                format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt176$___VISIT__S__S___Unbound_bindings, self, v_cyblack_posting, get_cyblack_unification_robot_unbound_bindings(self));
             }
             {
                 SubLObject target_binding = get_cyblack_unification_robot_target_binding(self);
                 if (NIL != target_binding) {
                     if (NIL != cyblack_globals.$cyblack_tracing_on$.getDynamicValue(thread)) {
-                        format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt177$___VISIT__S___Binding__S_to__S_, new SubLObject[]{ self, cyblack_precondition_pattern.cyblack_binding_get_variable_method(target_binding), v_cyblack_posting });
+                        format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt177$___VISIT__S___Binding__S_to__S_, self, cyblack_precondition_pattern.cyblack_binding_get_variable_method(target_binding), v_cyblack_posting);
                     }
                     cyblack_precondition_pattern.cyblack_binding_set_value_method(target_binding, v_cyblack_posting);
                     if (NIL == cyblack_posting.cyblack_basic_posting_visitor_continue_p_method(self, UNPROVIDED)) {
@@ -1422,7 +1422,7 @@ public final class cyblack_unification extends SubLTranslatedFile implements V02
                         SubLObject precondition_pattern = cyblack_unification_robot_get_precondition_pattern_method(self);
                         SubLObject logical_form = (NIL != precondition_pattern) ? ((SubLObject) (cyblack_precondition_pattern.cyblack_pattern_get_logical_form(precondition_pattern))) : NIL;
                         if (NIL != cyblack_globals.$cyblack_tracing_on$.getDynamicValue(thread)) {
-                            format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt229$___UNIFY__S___precondition_patter, new SubLObject[]{ self, precondition_pattern, logical_form });
+                            format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt229$___UNIFY__S___precondition_patter, self, precondition_pattern, logical_form);
                         }
                         if (NIL != logical_form) {
                             {
@@ -1460,7 +1460,7 @@ public final class cyblack_unification extends SubLTranslatedFile implements V02
                     SubLObject datatype = cyblack_precondition_pattern.cyblack_binding_get_type_method(target_binding);
                     SubLObject panel = (NIL != datatype) ? ((SubLObject) (cyblack_blackboard.cyblack_basic_blackboard_get_panel_method(cached_blackboard, datatype))) : NIL;
                     if (NIL != cyblack_globals.$cyblack_tracing_on$.getDynamicValue(thread)) {
-                        format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt231$___UNIFY__S___Found_panel__S_asso, new SubLObject[]{ self, panel, datatype });
+                        format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt231$___UNIFY__S___Found_panel__S_asso, self, panel, datatype);
                     }
                     if (NIL != panel) {
                         if (NIL != cyblack_unification_robot_instigator_bound_p_method(self)) {
@@ -1500,13 +1500,13 @@ public final class cyblack_unification extends SubLTranslatedFile implements V02
         {
             final SubLThread thread = SubLProcess.currentSubLThread();
             if (NIL != cyblack_globals.$cyblack_tracing_on$.getDynamicValue(thread)) {
-                format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt176$___VISIT__S__S___Unbound_bindings, new SubLObject[]{ self, v_cyblack_posting, get_cyblack_unification_robot_unbound_bindings(self) });
+                format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt176$___VISIT__S__S___Unbound_bindings, self, v_cyblack_posting, get_cyblack_unification_robot_unbound_bindings(self));
             }
             {
                 SubLObject target_binding = get_cyblack_unification_robot_target_binding(self);
                 if (NIL != target_binding) {
                     if (NIL != cyblack_globals.$cyblack_tracing_on$.getDynamicValue(thread)) {
-                        format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt177$___VISIT__S___Binding__S_to__S_, new SubLObject[]{ self, cyblack_precondition_pattern.cyblack_binding_get_variable_method(target_binding), v_cyblack_posting });
+                        format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt177$___VISIT__S___Binding__S_to__S_, self, cyblack_precondition_pattern.cyblack_binding_get_variable_method(target_binding), v_cyblack_posting);
                     }
                     cyblack_precondition_pattern.cyblack_binding_set_value_method(target_binding, v_cyblack_posting);
                     {

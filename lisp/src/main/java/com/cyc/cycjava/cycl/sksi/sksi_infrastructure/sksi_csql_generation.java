@@ -464,7 +464,7 @@ public final class sksi_csql_generation extends SubLTranslatedFile implements V1
     public static SubLObject sksi_determine_csql_for_incremental_edit(final SubLObject sk_source, final SubLObject physical_schema, final SubLObject physical_fields, final SubLObject raw_tuple, final SubLObject operator, final SubLObject csql_conditions) {
         final SubLThread thread = SubLProcess.currentSubLThread();
         if (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(NINE_INTEGER)) {
-            format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str12$__SKSI__A_, $str13$_sksi_determine_csql_for_incremen), new SubLObject[]{ NINE_INTEGER, sk_source, physical_schema, physical_fields, raw_tuple, operator, csql_conditions });
+            format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str12$__SKSI__A_, $str13$_sksi_determine_csql_for_incremen), NINE_INTEGER, sk_source, physical_schema, physical_fields, raw_tuple, operator, csql_conditions);
             force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
         }
         final SubLObject primary_key = sksi_kb_accessors.physical_schema_primary_key(physical_schema);
@@ -522,7 +522,7 @@ public final class sksi_csql_generation extends SubLTranslatedFile implements V1
                                     mod_raw_tuple = cons(list($NEXT_VALUE, seq_name), mod_raw_tuple);
                                 } else {
                                     if (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(NINE_INTEGER)) {
-                                        format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str12$__SKSI__A_, $str19$In_sksi_determine_csql_for_increm), new SubLObject[]{ NINE_INTEGER, pkey_element, physical_schema, sksi_kb_accessors.physical_field_value_is_auto_incrementedP(pkey_element, physical_schema) });
+                                        format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str12$__SKSI__A_, $str19$In_sksi_determine_csql_for_increm), NINE_INTEGER, pkey_element, physical_schema, sksi_kb_accessors.physical_field_value_is_auto_incrementedP(pkey_element, physical_schema));
                                         force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
                                     }
                                     failP2 = T;
@@ -537,7 +537,7 @@ public final class sksi_csql_generation extends SubLTranslatedFile implements V1
                         }
                     } else {
                         if (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(NINE_INTEGER)) {
-                            format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str12$__SKSI__A_, $str20$In_sksi_determine_csql_for_increm), new SubLObject[]{ NINE_INTEGER, pkey_element, sksi_kb_accessors.integer_sequence_generator_for_physical_field(pkey_element) });
+                            format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str12$__SKSI__A_, $str20$In_sksi_determine_csql_for_increm), NINE_INTEGER, pkey_element, sksi_kb_accessors.integer_sequence_generator_for_physical_field(pkey_element));
                             force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
                         }
                         failP2 = T;

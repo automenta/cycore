@@ -8600,7 +8600,7 @@ public final class foil_export extends SubLTranslatedFile implements V12 {
                     com.cyc.cycjava.cycl.butler.foil_export.log_experimental_info(experimental_log, current_info, UNPROVIDED);
                 }
                 {
-                    SubLObject current_info = format(NIL, $str_alt228$System__A__A__A___, new SubLObject[]{ system_info.cyc_revision_string(), api_widgets.get_lisp_implementation_type(), api_widgets.get_lisp_implementation_version() });
+                    SubLObject current_info = format(NIL, $str_alt228$System__A__A__A___, system_info.cyc_revision_string(), api_widgets.get_lisp_implementation_type(), api_widgets.get_lisp_implementation_version());
                     com.cyc.cycjava.cycl.butler.foil_export.log_experimental_info(experimental_log, current_info, UNPROVIDED);
                 }
                 {
@@ -8696,7 +8696,7 @@ public final class foil_export extends SubLTranslatedFile implements V12 {
         }
         SubLObject current_info = format(NIL, $str226$KB__A__A___, operation_communication.kb_version_string(), operation_communication.kb_op_number());
         log_experimental_info(experimental_log, current_info, UNPROVIDED);
-        current_info = format(NIL, $str227$System__A__A__A___, new SubLObject[]{ system_info.cyc_revision_string(), api_widgets.get_lisp_implementation_type(), api_widgets.get_lisp_implementation_version() });
+        current_info = format(NIL, $str227$System__A__A__A___, system_info.cyc_revision_string(), api_widgets.get_lisp_implementation_type(), api_widgets.get_lisp_implementation_version());
         log_experimental_info(experimental_log, current_info, UNPROVIDED);
         current_info = format(NIL, $str228$Creating_output_directory___A___, results_dir);
         log_experimental_info(experimental_log, current_info, UNPROVIDED);
@@ -10636,7 +10636,7 @@ public final class foil_export extends SubLTranslatedFile implements V12 {
         {
             SubLObject top_n_preds_list = kb_utilities.most_populous_predicates_in_mt(mt, top_n_preds, $sym276$ISIRRELEVANTPREDICATEFORILP_);
             SubLObject mt_name = com.cyc.cycjava.cycl.butler.foil_export.dumb_stringify_cyc_term(mt);
-            SubLObject experiment_path_sufix = format(NIL, $str_alt277$aleph_run__A__A__A, new SubLObject[]{ mt_name, top_n_preds, get_internal_real_time() });
+            SubLObject experiment_path_sufix = format(NIL, $str_alt277$aleph_run__A__A__A, mt_name, top_n_preds, get_internal_real_time());
             SubLObject new_path = format(NIL, $str_alt278$_A__A, experiment_path, experiment_path_sufix);
             SubLObject experiment_name = NIL;
             SubLObject counter = ZERO_INTEGER;
@@ -10649,7 +10649,7 @@ public final class foil_export extends SubLTranslatedFile implements V12 {
                         SubLObject cdolist_list_var = pred_sets;
                         SubLObject pred_set = NIL;
                         for (pred_set = cdolist_list_var.first(); NIL != cdolist_list_var; cdolist_list_var = cdolist_list_var.rest() , pred_set = cdolist_list_var.first()) {
-                            experiment_name = format(NIL, $str_alt277$aleph_run__A__A__A, new SubLObject[]{ mt_name, cur_combination_num, com.cyc.cycjava.cycl.butler.foil_export.dumb_stringify_cyc_term(pred_set) });
+                            experiment_name = format(NIL, $str_alt277$aleph_run__A__A__A, mt_name, cur_combination_num, foil_export.dumb_stringify_cyc_term(pred_set));
                             counter = add(ONE_INTEGER, counter);
                             if (NIL != verboseP) {
                                 format(T, $str_alt279$Runninng_ALEPH_experiment_on_mt__, mt, pred_set);
@@ -10690,7 +10690,7 @@ public final class foil_export extends SubLTranslatedFile implements V12 {
         experiment_path = string_utilities.strip_trailer(experiment_path, $str195$_);
         final SubLObject top_n_preds_list = kb_utilities.most_populous_predicates_in_mt(mt, top_n_preds, $sym275$ISIRRELEVANTPREDICATEFORILP_);
         final SubLObject mt_name = dumb_stringify_cyc_term(mt);
-        final SubLObject experiment_path_sufix = format(NIL, $str276$aleph_run__A__A__A, new SubLObject[]{ mt_name, top_n_preds, get_internal_real_time() });
+        final SubLObject experiment_path_sufix = format(NIL, $str276$aleph_run__A__A__A, mt_name, top_n_preds, get_internal_real_time());
         final SubLObject new_path = format(NIL, $str277$_A__A, experiment_path, experiment_path_sufix);
         SubLObject experiment_name = NIL;
         SubLObject counter = ZERO_INTEGER;
@@ -10704,7 +10704,7 @@ public final class foil_export extends SubLTranslatedFile implements V12 {
                 pred_set = NIL;
                 pred_set = cdolist_list_var.first();
                 while (NIL != cdolist_list_var) {
-                    experiment_name = format(NIL, $str276$aleph_run__A__A__A, new SubLObject[]{ mt_name, cur_combination_num, dumb_stringify_cyc_term(pred_set) });
+                    experiment_name = format(NIL, $str276$aleph_run__A__A__A, mt_name, cur_combination_num, dumb_stringify_cyc_term(pred_set));
                     counter = add(ONE_INTEGER, counter);
                     if (NIL != verboseP) {
                         format(T, $str278$Runninng_ALEPH_experiment_on_mt__, mt, pred_set);
@@ -11718,7 +11718,7 @@ public final class foil_export extends SubLTranslatedFile implements V12 {
                                                             current = current.rest();
                                                             if (NIL == current) {
                                                                 if (NIL != verboseP) {
-                                                                    format(T, $str_alt304$Sentence__A_in_Mt__A____is_equiva, new SubLObject[]{ sentence, sentence_mt, uncanonicalizer.assertion_el_formula(assertion), assertions_high.assertion_mt(assertion) });
+                                                                    format(T, $str_alt304$Sentence__A_in_Mt__A____is_equiva, sentence, sentence_mt, uncanonicalizer.assertion_el_formula(assertion), assertions_high.assertion_mt(assertion));
                                                                 }
                                                             } else {
                                                                 cdestructuring_bind_error(datum, $list_alt303);
@@ -11893,7 +11893,7 @@ public final class foil_export extends SubLTranslatedFile implements V12 {
                                 current = current.rest();
                                 if (NIL == current) {
                                     if (NIL != verboseP) {
-                                        format(T, $str304$Sentence__A_in_Mt__A____is_equiva, new SubLObject[]{ sentence2, sentence_mt, uncanonicalizer.assertion_el_formula(assertion2), assertions_high.assertion_mt(assertion2) });
+                                        format(T, $str304$Sentence__A_in_Mt__A____is_equiva, sentence2, sentence_mt, uncanonicalizer.assertion_el_formula(assertion2), assertions_high.assertion_mt(assertion2));
                                     }
                                 } else {
                                     cdestructuring_bind_error(datum, $list303);

@@ -415,13 +415,13 @@ public final class cyblack_precondition_pattern extends SubLTranslatedFile imple
 		try {
 		    if (NIL != apriori) {
 			if (NIL != type) {
-			    format(stream, cyblack_precondition_pattern_p2.$str_alt33$__S__S__S_, new SubLObject[] { variable, type, value });
+			    format(stream, cyblack_precondition_pattern_p2.$str_alt33$__S__S__S_, variable, type, value);
 			} else {
 			    format(stream, cyblack_precondition_pattern_p2.$str_alt34$__S__S_, variable, value);
 			}
 		    } else {
 			if (NIL != type) {
-			    format(stream, cyblack_precondition_pattern_p2.$str_alt35$__S__S__S_, new SubLObject[] { variable, type, value });
+			    format(stream, cyblack_precondition_pattern_p2.$str_alt35$__S__S__S_, variable, type, value);
 			} else {
 			    format(stream, cyblack_precondition_pattern_p2.$str_alt36$__S__S_, variable, value);
 			}
@@ -3264,7 +3264,7 @@ public final class cyblack_precondition_pattern extends SubLTranslatedFile imple
 	    SubLObject monitor_args = get_cyblack_monitoring_pattern_monitor_args(self);
 	    if ((NIL != monitor_args) && (NIL != local_bindings)) {
 		format(stream, cyblack_precondition_pattern_p2.$str_alt407$__MONITOR_PATTERN____MONITOR__S__,
-			new SubLObject[] { cyblack_environment_listify_local_bindings_method(monitor_args), action, action_qualifiers, cyblack_environment_listify_local_bindings_method(local_bindings), logical_form });
+			cyblack_environment_listify_local_bindings_method(monitor_args), action, action_qualifiers, cyblack_environment_listify_local_bindings_method(local_bindings), logical_form);
 	    } else {
 		format(stream, cyblack_precondition_pattern_p2.$str_alt408$__CYBLACK_MONITORING_PATTERN__UNI);
 	    }
@@ -3693,7 +3693,7 @@ public final class cyblack_precondition_pattern extends SubLTranslatedFile imple
 	    SubLObject local_bindings = get_cyblack_precon_pattern_local_bindings(self);
 	    SubLObject ks_args = get_cyblack_precon_pattern_ks_args(self);
 	    if ((NIL != ks_args) && (NIL != local_bindings)) {
-		format(stream, cyblack_precondition_pattern_p2.$str_alt473$__PRECON___KS_ARGS__S__BINDING_LI, new SubLObject[] { cyblack_environment_listify_local_bindings_method(ks_args), cyblack_environment_listify_local_bindings_method(local_bindings), logical_form });
+		format(stream, cyblack_precondition_pattern_p2.$str_alt473$__PRECON___KS_ARGS__S__BINDING_LI, cyblack_environment_listify_local_bindings_method(ks_args), cyblack_environment_listify_local_bindings_method(local_bindings), logical_form);
 	    } else {
 		format(stream, cyblack_precondition_pattern_p2.$str_alt474$__PRECON__UNINITIALIZED__);
 	    }
@@ -5880,7 +5880,7 @@ public final class cyblack_precondition_pattern extends SubLTranslatedFile imple
 				SubLObject application_6 = cyblack_object.cyblack_object_get_application_method(self);
 				SubLObject blackboard = (NIL != application_6) ? ((SubLObject) (methods.funcall_instance_method_with_0_args(application_6, GET_BLACKBOARD))) : NIL;
 				if (NIL != cyblack_globals.$cyblack_tracing_on$.getDynamicValue(thread)) {
-				    format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), cyblack_precondition_pattern_p2.$str_alt847$___GET_VALUE_INTERNAL__S___dataty, new SubLObject[] { self, datatype, application_6, blackboard });
+				    format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), cyblack_precondition_pattern_p2.$str_alt847$___GET_VALUE_INTERNAL__S___dataty, self, datatype, application_6, blackboard);
 				}
 				if ((NIL != datatype) && (NIL != blackboard)) {
 				    {

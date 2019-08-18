@@ -41,7 +41,6 @@ import subl.type.core.SubLProcess.TerminationRequest;
 import abcl.Interpreter;
 import abcl.Lisp;
 import abcl.ProcessingTerminated;
-import org.logicmoo.system.UpdateZip;
 
 import java.io.PrintStream;
 import java.lang.Thread.UncaughtExceptionHandler;

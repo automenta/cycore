@@ -1343,7 +1343,7 @@ public final class cb_inference_monitors extends SubLTranslatedFile implements V
         final SubLObject _prev_bind_0 = html_macros.$html_safe_print$.currentBinding(thread);
         try {
             html_macros.$html_safe_print$.bind(T, thread);
-            format(html_macros.$html_stream$.getDynamicValue(thread), $str99$var_problemStoreId_____A___var_in, new SubLObject[]{ NIL != store ? inference_datastructures_problem_store.problem_store_suid(store) : $$$null, NIL != inference ? inference_datastructures_inference.inference_suid(inference) : $$$null, maxloc, mode });
+            format(html_macros.$html_stream$.getDynamicValue(thread), $str99$var_problemStoreId_____A___var_in, NIL != store ? inference_datastructures_problem_store.problem_store_suid(store) : $$$null, NIL != inference ? inference_datastructures_inference.inference_suid(inference) : $$$null, maxloc, mode);
             html_source_readability_terpri(UNPROVIDED);
         } finally {
             html_macros.$html_safe_print$.rebind(_prev_bind_0, thread);

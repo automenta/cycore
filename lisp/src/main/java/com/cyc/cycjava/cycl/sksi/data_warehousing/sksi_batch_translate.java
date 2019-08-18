@@ -160,7 +160,7 @@ public final class sksi_batch_translate extends SubLTranslatedFile implements V1
         {
             SubLObject why_not_wff_explanation = wff.explanation_of_why_not_wff(sentence, content_mt, UNPROVIDED);
             if (NIL != why_not_wff_explanation) {
-                format(T, $str_alt38$__The_following_CycL_translation_, new SubLObject[]{ raw_tuple, physical_schema, logical_schema, content_mt, sentence, why_not_wff_explanation });
+                format(T, $str_alt38$__The_following_CycL_translation_, raw_tuple, physical_schema, logical_schema, content_mt, sentence, why_not_wff_explanation);
                 return NIL;
             }
             return T;
@@ -3726,7 +3726,7 @@ public final class sksi_batch_translate extends SubLTranslatedFile implements V1
     public static SubLObject sksi_translate_one_raw_tuple_to_logical_sentence_int(final SubLObject raw_tuple, final SubLObject physical_schema, final SubLObject logical_schema, final SubLObject content_mt, final SubLObject meta_mt) {
         final SubLThread thread = SubLProcess.currentSubLThread();
         if (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(THREE_INTEGER)) {
-            format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str44$__SKSI__A_, $str45$__a__Translating__s_wrt__a__a__a_), new SubLObject[]{ THREE_INTEGER, numeric_date_utilities.timestring(UNPROVIDED), raw_tuple, physical_schema, logical_schema, meta_mt, content_mt });
+            format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str44$__SKSI__A_, $str45$__a__Translating__s_wrt__a__a__a_), THREE_INTEGER, numeric_date_utilities.timestring(UNPROVIDED), raw_tuple, physical_schema, logical_schema, meta_mt, content_mt);
             force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
         }
         SubLObject logical_sentence = NIL;
@@ -3835,7 +3835,7 @@ public final class sksi_batch_translate extends SubLTranslatedFile implements V1
             }
             why_not_wff_format_string = cconcatenate($str56$The_raw_tuple__S_using_the_physic, why_not_wff_format_string);
             if (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(TWO_INTEGER)) {
-                format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str44$__SKSI__A_, why_not_wff_format_string), new SubLObject[]{ TWO_INTEGER, raw_tuple, physical_schema, logical_schema, logical_sentence, content_mt, why_not_wff_explanation });
+                format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str44$__SKSI__A_, why_not_wff_format_string), TWO_INTEGER, raw_tuple, physical_schema, logical_schema, logical_sentence, content_mt, why_not_wff_explanation);
                 force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
             }
         }
@@ -5139,14 +5139,14 @@ public final class sksi_batch_translate extends SubLTranslatedFile implements V1
             final SubLObject error = thread.secondMultipleValue();
             thread.resetMultipleValues();
             if ((NIL == successP) && (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(ONE_INTEGER))) {
-                format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str44$__SKSI__A_, $str124$Assertion_of__s_in__s_failed___a), new SubLObject[]{ ONE_INTEGER, sentence, mt, error });
+                format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str44$__SKSI__A_, $str124$Assertion_of__s_in__s_failed___a), ONE_INTEGER, sentence, mt, error);
                 force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
             }
             return successP;
         }
         final SubLObject successP = cyc_kernel.cyc_assert(sentence, mt, list($kw125$CHECK_WFF_, check_wffP));
         if ((NIL == successP) && (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(ONE_INTEGER))) {
-            format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str44$__SKSI__A_, $str124$Assertion_of__s_in__s_failed___a), new SubLObject[]{ ONE_INTEGER, sentence, mt, fi.fi_get_error_int() });
+            format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str44$__SKSI__A_, $str124$Assertion_of__s_in__s_failed___a), ONE_INTEGER, sentence, mt, fi.fi_get_error_int());
             force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
         }
         return successP;
@@ -5175,7 +5175,7 @@ public final class sksi_batch_translate extends SubLTranslatedFile implements V1
                 error = fi.fi_get_error_int();
             }
             if (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(ONE_INTEGER)) {
-                format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str44$__SKSI__A_, $str126$Deduction_of__s_in__s_with_suppor), new SubLObject[]{ ONE_INTEGER, sentence, mt, supports, error });
+                format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str44$__SKSI__A_, $str126$Deduction_of__s_in__s_with_suppor), ONE_INTEGER, sentence, mt, supports, error);
                 force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
             }
         }
@@ -5208,7 +5208,7 @@ public final class sksi_batch_translate extends SubLTranslatedFile implements V1
                 error = fi.fi_get_error_int();
             }
             if (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(TWO_INTEGER)) {
-                format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str44$__SKSI__A_, $str127$Unassert_of__s_from__s_failed___a), new SubLObject[]{ TWO_INTEGER, sentence, mt, error });
+                format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str44$__SKSI__A_, $str127$Unassert_of__s_from__s_failed___a), TWO_INTEGER, sentence, mt, error);
                 force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
             }
         }

@@ -2067,7 +2067,7 @@ public final class inference_datastructures_strategy extends SubLTranslatedFile 
 		SubLObject inference_id = (NIL != inference) ? ((SubLObject) (inference_datastructures_inference.inference_suid(inference))) : NIL;
 		SubLObject store = (NIL != inference) ? ((SubLObject) (inference_datastructures_inference.inference_problem_store(inference))) : NIL;
 		SubLObject store_id = (NIL != store) ? ((SubLObject) (inference_datastructures_problem_store.problem_store_suid(store))) : NIL;
-		format(stream, $str_alt56$__a_STRATEGY__a__a_for_inference_, new SubLObject[] { strategy_type, store_id, strategy_id, store_id, inference_id });
+		format(stream, $str_alt56$__a_STRATEGY__a__a_for_inference_, strategy_type, store_id, strategy_id, store_id, inference_id);
 	    }
 	}
 	return NIL;
@@ -2083,7 +2083,7 @@ public final class inference_datastructures_strategy extends SubLTranslatedFile 
 	    final SubLObject inference_id = (NIL != inference) ? inference_datastructures_inference.inference_suid(inference) : NIL;
 	    final SubLObject store = (NIL != inference) ? inference_datastructures_inference.inference_problem_store(inference) : NIL;
 	    final SubLObject store_id = (NIL != store) ? inference_datastructures_problem_store.problem_store_suid(store) : NIL;
-	    format(stream, inference_datastructures_strategy.$str65$__a_STRATEGY__a__a_for_inference_, new SubLObject[] { strategy_type, store_id, strategy_id, store_id, inference_id });
+	    format(stream, inference_datastructures_strategy.$str65$__a_STRATEGY__a__a_for_inference_, strategy_type, store_id, strategy_id, store_id, inference_id);
 	}
 	return NIL;
     }

@@ -559,7 +559,7 @@ public final class sksi_conjunctive_removal_modules_expand extends SubLTranslate
                         thread.resetMultipleValues();
                         if (NIL != error_message) {
                             if (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(FOUR_INTEGER)) {
-                                format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str_alt4$SKSI_, new SubLObject[]{ $str_alt5$Could_not_form_a_CSQL_query_with_, $str_alt6$__ }), new SubLObject[]{ meaning_sentence_gafs, append(regular_asents, comparison_asents, evaluate_asents, sksi_unknown_sentence_asents), error_message });
+                                format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str_alt4$SKSI_, new SubLObject[]{ $str_alt5$Could_not_form_a_CSQL_query_with_, $str_alt6$__ }), meaning_sentence_gafs, append(regular_asents, comparison_asents, evaluate_asents, sksi_unknown_sentence_asents), error_message);
                                 force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
                             }
                         } else {
@@ -618,7 +618,7 @@ public final class sksi_conjunctive_removal_modules_expand extends SubLTranslate
             thread.resetMultipleValues();
             if (NIL != error_message) {
                 if (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(FOUR_INTEGER)) {
-                    format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str4$__SKSI__A_, $str5$Could_not_form_a_CSQL_query_with_), new SubLObject[]{ FOUR_INTEGER, meaning_sentence_gafs, append(regular_asents, comparison_asents, evaluate_asents, sksi_unknown_sentence_asents), error_message });
+                    format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str4$__SKSI__A_, $str5$Could_not_form_a_CSQL_query_with_), FOUR_INTEGER, meaning_sentence_gafs, append(regular_asents, comparison_asents, evaluate_asents, sksi_unknown_sentence_asents), error_message);
                     force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
                 }
             } else
@@ -640,7 +640,7 @@ public final class sksi_conjunctive_removal_modules_expand extends SubLTranslate
                                 table_names = cons(kb_mapping_utilities.pred_values(second(asent).first(), $$meaningSentencePredicateForSource, TWO_INTEGER, ONE_INTEGER, $TRUE), table_names);
                             } else
                                 if (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(FOUR_INTEGER)) {
-                                    format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str4$__SKSI__A_, $str8$Could_not_find_table_name_via___m), new SubLObject[]{ FOUR_INTEGER, v_term, asent });
+                                    format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str4$__SKSI__A_, $str8$Could_not_find_table_name_via___m), FOUR_INTEGER, v_term, asent);
                                     force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
                                 }
 

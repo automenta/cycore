@@ -1985,7 +1985,7 @@ public final class cyblack_defbb extends SubLTranslatedFile implements V02 {
             SubLObject type_graph_expression = get_cyblack_defbb_body_type_graph_expression(self);
             try {
                 try {
-                    format(stream, $str_alt298$_S__S__S, new SubLObject[]{ type_graph_expression, type_to_posting_class_map, type_to_panel_class_map });
+                    format(stream, $str_alt298$_S__S__S, type_graph_expression, type_to_posting_class_map, type_to_panel_class_map);
                     if (NIL != on_startup_expression) {
                         format(stream, $str_alt62$__S, on_startup_expression);
                     }
@@ -2455,7 +2455,7 @@ public final class cyblack_defbb extends SubLTranslatedFile implements V02 {
             SubLObject mark = get_cyblack_defbb_type_relation_mark(self);
             try {
                 try {
-                    format(stream, $str_alt373$__TYPE_RELATION___S___S__S__, new SubLObject[]{ subtype, supertype, mark });
+                    format(stream, $str_alt373$__TYPE_RELATION___S___S__S__, subtype, supertype, mark);
                     sublisp_throw($sym372$OUTER_CATCH_FOR_CYBLACK_DEFBB_TYPE_RELATION_METHOD, self);
                 } finally {
                     {

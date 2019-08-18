@@ -6195,7 +6195,7 @@ public final class cyblack_defks extends SubLTranslatedFile implements V02 {
 	    try {
 		try {
 		    if (NIL != reason_list) {
-			format(stream, $str_alt904$__PROPOSE__S__REASONS__S__ON_ACCE, new SubLObject[] { datatype_list, reason_list, on_accept_expression });
+			format(stream, $str_alt904$__PROPOSE__S__REASONS__S__ON_ACCE, datatype_list, reason_list, on_accept_expression);
 		    } else {
 			format(stream, $str_alt905$__PROPOSE__S__ON_ACCEPT_DO__S_, datatype_list, on_accept_expression);
 		    }

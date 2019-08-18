@@ -991,9 +991,9 @@ public final class reinforcement_learning_tactician extends SubLTranslatedFile i
 			    try {
 				$read_default_float_format$.bind(DOUBLE_FLOAT, thread);
 				format(T, $str_alt77$Query___a___a__a__a__a__a__a__a__,
-					new SubLObject[] { i, answer_count, tactic_execution_count, NIL != complete_time_to_first_answer ? ((SubLObject) (number_utilities.significant_digits(complete_time_to_first_answer, FOUR_INTEGER))) : NIL,
-						NIL != time_to_first_answer ? ((SubLObject) (number_utilities.significant_digits(time_to_first_answer, FOUR_INTEGER))) : NIL, NIL != complete_total_time ? ((SubLObject) (number_utilities.significant_digits(complete_total_time, FOUR_INTEGER))) : NIL,
-						NIL != total_time ? ((SubLObject) (number_utilities.significant_digits(total_time, FOUR_INTEGER))) : NIL, NIL != complete_user_time ? ((SubLObject) (number_utilities.significant_digits(complete_user_time, FOUR_INTEGER))) : NIL });
+					i, answer_count, tactic_execution_count, NIL != complete_time_to_first_answer ? ((SubLObject) (number_utilities.significant_digits(complete_time_to_first_answer, FOUR_INTEGER))) : NIL,
+					NIL != time_to_first_answer ? ((SubLObject) (number_utilities.significant_digits(time_to_first_answer, FOUR_INTEGER))) : NIL, NIL != complete_total_time ? ((SubLObject) (number_utilities.significant_digits(complete_total_time, FOUR_INTEGER))) : NIL,
+					NIL != total_time ? ((SubLObject) (number_utilities.significant_digits(total_time, FOUR_INTEGER))) : NIL, NIL != complete_user_time ? ((SubLObject) (number_utilities.significant_digits(complete_user_time, FOUR_INTEGER))) : NIL);
 			    } finally {
 				$read_default_float_format$.rebind(_prev_bind_0, thread);
 			    }

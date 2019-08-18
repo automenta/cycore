@@ -4221,7 +4221,7 @@ public final class semantic_etl_bus extends SubLTranslatedFile implements V12 {
             SubLObject source_semantics = com.cyc.cycjava.cycl.sksi.semantic_etl_bus.t_semant_source_semantics(v_object);
             SubLObject source_access_path = (NIL != source_semantics) ? ((SubLObject) (com.cyc.cycjava.cycl.sksi.semantic_etl_bus.semant_access_path(source_semantics))) : NIL;
             SubLObject source_access_path_string = (NIL != source_access_path) ? ((SubLObject) (com.cyc.cycjava.cycl.sksi.semantic_etl_bus.access_path_pretty_string(source_access_path))) : NIL;
-            format(stream, $str_alt94$_TABLE__a__s___a__a___ref__a_ref_, new SubLObject[]{ com.cyc.cycjava.cycl.sksi.semantic_etl_bus.t_semant_table_id(v_object), com.cyc.cycjava.cycl.sksi.semantic_etl_bus.t_semant_table_name(v_object), access_path_string, source_access_path_string, com.cyc.cycjava.cycl.sksi.semantic_etl_bus.t_semant_points_to_table_ids(v_object), com.cyc.cycjava.cycl.sksi.semantic_etl_bus.t_semant_pointed_to_by_table_ids(v_object), com.cyc.cycjava.cycl.sksi.semantic_etl_bus.t_semant_column_constraints(v_object), com.cyc.cycjava.cycl.sksi.semantic_etl_bus.t_semant_column_semantics_list(v_object) });
+            format(stream, $str_alt94$_TABLE__a__s___a__a___ref__a_ref_, semantic_etl_bus.t_semant_table_id(v_object), semantic_etl_bus.t_semant_table_name(v_object), access_path_string, source_access_path_string, semantic_etl_bus.t_semant_points_to_table_ids(v_object), semantic_etl_bus.t_semant_pointed_to_by_table_ids(v_object), semantic_etl_bus.t_semant_column_constraints(v_object), semantic_etl_bus.t_semant_column_semantics_list(v_object));
         }
         return v_object;
     }
@@ -4233,7 +4233,7 @@ public final class semantic_etl_bus extends SubLTranslatedFile implements V12 {
         final SubLObject source_semantics = semantic_etl_bus.t_semant_source_semantics(v_object);
         final SubLObject source_access_path = (NIL != source_semantics) ? semantic_etl_bus.semant_access_path(source_semantics) : NIL;
         final SubLObject source_access_path_string = (NIL != source_access_path) ? semantic_etl_bus.access_path_pretty_string(source_access_path) : NIL;
-        format(stream, semantic_etl_bus.$str102$_TABLE__a__s___a__a___ref__a_ref_, new SubLObject[]{ semantic_etl_bus.t_semant_table_id(v_object), semantic_etl_bus.t_semant_table_name(v_object), access_path_string, source_access_path_string, semantic_etl_bus.t_semant_points_to_table_ids(v_object), semantic_etl_bus.t_semant_pointed_to_by_table_ids(v_object), semantic_etl_bus.t_semant_column_constraints(v_object), semantic_etl_bus.t_semant_column_semantics_list(v_object) });
+        format(stream, semantic_etl_bus.$str102$_TABLE__a__s___a__a___ref__a_ref_, semantic_etl_bus.t_semant_table_id(v_object), semantic_etl_bus.t_semant_table_name(v_object), access_path_string, source_access_path_string, semantic_etl_bus.t_semant_points_to_table_ids(v_object), semantic_etl_bus.t_semant_pointed_to_by_table_ids(v_object), semantic_etl_bus.t_semant_column_constraints(v_object), semantic_etl_bus.t_semant_column_semantics_list(v_object));
         return v_object;
     }
 
@@ -6056,7 +6056,7 @@ public final class semantic_etl_bus extends SubLTranslatedFile implements V12 {
      */
     @LispMethod(comment = "e.g.\r\n<FK-CONSTRAINT: :FOREIGN(publication_id) -> publication(id)\ne.g.\n<FK-CONSTRAINT: :FOREIGN(publication_id) -> publication(id)")
     public static final SubLObject print_foreign_key_constraint_alt(SubLObject v_object, SubLObject stream, SubLObject depth) {
-        format(stream, $str_alt130$_FK_CONSTRAINT___a_____A__A__, new SubLObject[]{ com.cyc.cycjava.cycl.sksi.semantic_etl_bus.column_semantics_column_name(com.cyc.cycjava.cycl.sksi.semantic_etl_bus.fk_constraint_constrained_column(v_object)), com.cyc.cycjava.cycl.sksi.semantic_etl_bus.table_semantics_table_name(com.cyc.cycjava.cycl.sksi.semantic_etl_bus.fk_constraint_constraining_table(v_object)), com.cyc.cycjava.cycl.sksi.semantic_etl_bus.column_semantics_column_name(com.cyc.cycjava.cycl.sksi.semantic_etl_bus.fk_constraint_constraining_column(v_object)) });
+        format(stream, $str_alt130$_FK_CONSTRAINT___a_____A__A__, semantic_etl_bus.column_semantics_column_name(semantic_etl_bus.fk_constraint_constrained_column(v_object)), semantic_etl_bus.table_semantics_table_name(semantic_etl_bus.fk_constraint_constraining_table(v_object)), semantic_etl_bus.column_semantics_column_name(semantic_etl_bus.fk_constraint_constraining_column(v_object)));
         return v_object;
     }
 
@@ -6066,7 +6066,7 @@ public final class semantic_etl_bus extends SubLTranslatedFile implements V12 {
      */
     @LispMethod(comment = "e.g.\r\n<FK-CONSTRAINT: :FOREIGN(publication_id) -> publication(id)\ne.g.\n<FK-CONSTRAINT: :FOREIGN(publication_id) -> publication(id)")
     public static SubLObject print_foreign_key_constraint(final SubLObject v_object, final SubLObject stream, final SubLObject depth) {
-        format(stream, semantic_etl_bus.$str141$_FK_CONSTRAINT___a_____A__A__, new SubLObject[]{ semantic_etl_bus.column_semantics_column_name(semantic_etl_bus.fk_constraint_constrained_column(v_object)), semantic_etl_bus.table_semantics_table_name(semantic_etl_bus.fk_constraint_constraining_table(v_object)), semantic_etl_bus.column_semantics_column_name(semantic_etl_bus.fk_constraint_constraining_column(v_object)) });
+        format(stream, semantic_etl_bus.$str141$_FK_CONSTRAINT___a_____A__A__, semantic_etl_bus.column_semantics_column_name(semantic_etl_bus.fk_constraint_constrained_column(v_object)), semantic_etl_bus.table_semantics_table_name(semantic_etl_bus.fk_constraint_constraining_table(v_object)), semantic_etl_bus.column_semantics_column_name(semantic_etl_bus.fk_constraint_constraining_column(v_object)));
         return v_object;
     }
 
@@ -7090,7 +7090,7 @@ public final class semantic_etl_bus extends SubLTranslatedFile implements V12 {
      */
     @LispMethod(comment = "e.g.\r\n<COLUMN: publisher.surname (#$HumanSurname)\r\n(<VALUE: ...> <VALUE: ...> ...)>\ne.g.\n<COLUMN: publisher.surname (#$HumanSurname)\n(<VALUE: ...> <VALUE: ...> ...)>")
     public static final SubLObject print_column_semantics_alt(SubLObject v_object, SubLObject stream, SubLObject depth) {
-        format(stream, $str_alt178$_COLUMN___a__a__A__A__, new SubLObject[]{ NIL != com.cyc.cycjava.cycl.sksi.semantic_etl_bus.c_semant_table_semantics(v_object) ? ((SubLObject) (com.cyc.cycjava.cycl.sksi.semantic_etl_bus.t_semant_table_name(com.cyc.cycjava.cycl.sksi.semantic_etl_bus.c_semant_table_semantics(v_object)))) : $UNK, com.cyc.cycjava.cycl.sksi.semantic_etl_bus.c_semant_column_name(v_object), com.cyc.cycjava.cycl.sksi.semantic_etl_bus.c_semant_column_type(v_object), com.cyc.cycjava.cycl.sksi.semantic_etl_bus.c_semant_column_size(v_object) });
+        format(stream, $str_alt178$_COLUMN___a__a__A__A__, NIL != semantic_etl_bus.c_semant_table_semantics(v_object) ? ((SubLObject) (semantic_etl_bus.t_semant_table_name(semantic_etl_bus.c_semant_table_semantics(v_object)))) : $UNK, semantic_etl_bus.c_semant_column_name(v_object), semantic_etl_bus.c_semant_column_type(v_object), semantic_etl_bus.c_semant_column_size(v_object));
         return v_object;
     }
 
@@ -7101,7 +7101,7 @@ public final class semantic_etl_bus extends SubLTranslatedFile implements V12 {
      */
     @LispMethod(comment = "e.g.\r\n<COLUMN: publisher.surname (#$HumanSurname)\r\n(<VALUE: ...> <VALUE: ...> ...)>\ne.g.\n<COLUMN: publisher.surname (#$HumanSurname)\n(<VALUE: ...> <VALUE: ...> ...)>")
     public static SubLObject print_column_semantics(final SubLObject v_object, final SubLObject stream, final SubLObject depth) {
-        format(stream, semantic_etl_bus.$str195$_COLUMN___a__a__A__A__, new SubLObject[]{ NIL != semantic_etl_bus.c_semant_table_semantics(v_object) ? semantic_etl_bus.t_semant_table_name(semantic_etl_bus.c_semant_table_semantics(v_object)) : $UNK, semantic_etl_bus.c_semant_column_name(v_object), semantic_etl_bus.c_semant_column_type(v_object), semantic_etl_bus.c_semant_column_size(v_object) });
+        format(stream, semantic_etl_bus.$str195$_COLUMN___a__a__A__A__, NIL != semantic_etl_bus.c_semant_table_semantics(v_object) ? semantic_etl_bus.t_semant_table_name(semantic_etl_bus.c_semant_table_semantics(v_object)) : $UNK, semantic_etl_bus.c_semant_column_name(v_object), semantic_etl_bus.c_semant_column_type(v_object), semantic_etl_bus.c_semant_column_size(v_object));
         return v_object;
     }
 
@@ -10531,12 +10531,12 @@ public final class semantic_etl_bus extends SubLTranslatedFile implements V12 {
     }
 
     public static final SubLObject print_sql_copy_table_alt(SubLObject v_object, SubLObject stream, SubLObject depth) {
-        format(stream, $str_alt382$COPY_TABLE__a_FROM_DATABASE__a_TO, new SubLObject[]{ com.cyc.cycjava.cycl.sksi.semantic_etl_bus.sql_copy_table_table(v_object), com.cyc.cycjava.cycl.sksi.semantic_etl_bus.access_path_pretty_string(com.cyc.cycjava.cycl.sksi.semantic_etl_bus.sql_copy_table_from(v_object)), com.cyc.cycjava.cycl.sksi.semantic_etl_bus.access_path_pretty_string(com.cyc.cycjava.cycl.sksi.semantic_etl_bus.sql_copy_table_to(v_object)) });
+        format(stream, $str_alt382$COPY_TABLE__a_FROM_DATABASE__a_TO, semantic_etl_bus.sql_copy_table_table(v_object), semantic_etl_bus.access_path_pretty_string(semantic_etl_bus.sql_copy_table_from(v_object)), semantic_etl_bus.access_path_pretty_string(semantic_etl_bus.sql_copy_table_to(v_object)));
         return v_object;
     }
 
     public static SubLObject print_sql_copy_table(final SubLObject v_object, final SubLObject stream, final SubLObject depth) {
-        format(stream, semantic_etl_bus.$str420$COPY_TABLE__a_FROM_DATABASE__a_TO, new SubLObject[]{ semantic_etl_bus.sql_copy_table_table(v_object), semantic_etl_bus.access_path_pretty_string(semantic_etl_bus.sql_copy_table_from(v_object)), semantic_etl_bus.access_path_pretty_string(semantic_etl_bus.sql_copy_table_to(v_object)) });
+        format(stream, semantic_etl_bus.$str420$COPY_TABLE__a_FROM_DATABASE__a_TO, semantic_etl_bus.sql_copy_table_table(v_object), semantic_etl_bus.access_path_pretty_string(semantic_etl_bus.sql_copy_table_from(v_object)), semantic_etl_bus.access_path_pretty_string(semantic_etl_bus.sql_copy_table_to(v_object)));
         return v_object;
     }
 
@@ -10717,12 +10717,12 @@ public final class semantic_etl_bus extends SubLTranslatedFile implements V12 {
     }
 
     public static final SubLObject print_sql_insert_into_alt(SubLObject v_object, SubLObject stream, SubLObject depth) {
-        format(stream, $str_alt399$INSERT_INTO__a___a___a, new SubLObject[]{ com.cyc.cycjava.cycl.sksi.semantic_etl_bus.sql_insert_into_table(v_object), com.cyc.cycjava.cycl.sksi.semantic_etl_bus.sql_list_string(com.cyc.cycjava.cycl.sksi.semantic_etl_bus.sql_insert_into_columns(v_object), $str_alt400$__), com.cyc.cycjava.cycl.sksi.semantic_etl_bus.sql_insert_into_data(v_object) });
+        format(stream, $str_alt399$INSERT_INTO__a___a___a, semantic_etl_bus.sql_insert_into_table(v_object), semantic_etl_bus.sql_list_string(semantic_etl_bus.sql_insert_into_columns(v_object), $str_alt400$__), semantic_etl_bus.sql_insert_into_data(v_object));
         return v_object;
     }
 
     public static SubLObject print_sql_insert_into(final SubLObject v_object, final SubLObject stream, final SubLObject depth) {
-        format(stream, semantic_etl_bus.$str440$INSERT_INTO__a___a___a, new SubLObject[]{ semantic_etl_bus.sql_insert_into_table(v_object), semantic_etl_bus.sql_list_string(semantic_etl_bus.sql_insert_into_columns(v_object), semantic_etl_bus.$str441$__), semantic_etl_bus.sql_insert_into_data(v_object) });
+        format(stream, semantic_etl_bus.$str440$INSERT_INTO__a___a___a, semantic_etl_bus.sql_insert_into_table(v_object), semantic_etl_bus.sql_list_string(semantic_etl_bus.sql_insert_into_columns(v_object), semantic_etl_bus.$str441$__), semantic_etl_bus.sql_insert_into_data(v_object));
         return v_object;
     }
 
@@ -11906,12 +11906,12 @@ public final class semantic_etl_bus extends SubLTranslatedFile implements V12 {
     }
 
     public static final SubLObject print_sql_not_in_alt(SubLObject v_object, SubLObject stream, SubLObject depth) {
-        format(stream, $str_alt498$_a__a_NOT_IN__a, new SubLObject[]{ com.cyc.cycjava.cycl.sksi.semantic_etl_bus.sql_not_in_column_table(v_object), com.cyc.cycjava.cycl.sksi.semantic_etl_bus.sql_not_in_column(v_object), com.cyc.cycjava.cycl.sksi.semantic_etl_bus.sql_not_in_table(v_object) });
+        format(stream, $str_alt498$_a__a_NOT_IN__a, semantic_etl_bus.sql_not_in_column_table(v_object), semantic_etl_bus.sql_not_in_column(v_object), semantic_etl_bus.sql_not_in_table(v_object));
         return v_object;
     }
 
     public static SubLObject print_sql_not_in(final SubLObject v_object, final SubLObject stream, final SubLObject depth) {
-        format(stream, semantic_etl_bus.$str557$_a__a_NOT_IN__a, new SubLObject[]{ semantic_etl_bus.sql_not_in_column_table(v_object), semantic_etl_bus.sql_not_in_column(v_object), semantic_etl_bus.sql_not_in_table(v_object) });
+        format(stream, semantic_etl_bus.$str557$_a__a_NOT_IN__a, semantic_etl_bus.sql_not_in_column_table(v_object), semantic_etl_bus.sql_not_in_column(v_object), semantic_etl_bus.sql_not_in_table(v_object));
         return v_object;
     }
 
@@ -12092,12 +12092,12 @@ public final class semantic_etl_bus extends SubLTranslatedFile implements V12 {
     }
 
     public static final SubLObject print_sql_inner_join_alt(SubLObject v_object, SubLObject stream, SubLObject depth) {
-        format(stream, $str_alt514$_a_INNER_JOIN__a_ON__a, new SubLObject[]{ com.cyc.cycjava.cycl.sksi.semantic_etl_bus.sql_inner_join_table1(v_object), com.cyc.cycjava.cycl.sksi.semantic_etl_bus.sql_inner_join_table2(v_object), com.cyc.cycjava.cycl.sksi.semantic_etl_bus.sql_inner_join_on(v_object) });
+        format(stream, $str_alt514$_a_INNER_JOIN__a_ON__a, semantic_etl_bus.sql_inner_join_table1(v_object), semantic_etl_bus.sql_inner_join_table2(v_object), semantic_etl_bus.sql_inner_join_on(v_object));
         return v_object;
     }
 
     public static SubLObject print_sql_inner_join(final SubLObject v_object, final SubLObject stream, final SubLObject depth) {
-        format(stream, semantic_etl_bus.$str576$_a_INNER_JOIN__a_ON__a, new SubLObject[]{ semantic_etl_bus.sql_inner_join_table1(v_object), semantic_etl_bus.sql_inner_join_table2(v_object), semantic_etl_bus.sql_inner_join_on(v_object) });
+        format(stream, semantic_etl_bus.$str576$_a_INNER_JOIN__a_ON__a, semantic_etl_bus.sql_inner_join_table1(v_object), semantic_etl_bus.sql_inner_join_table2(v_object), semantic_etl_bus.sql_inner_join_on(v_object));
         return v_object;
     }
 
@@ -12278,12 +12278,12 @@ public final class semantic_etl_bus extends SubLTranslatedFile implements V12 {
     }
 
     public static final SubLObject print_sql_left_join_alt(SubLObject v_object, SubLObject stream, SubLObject depth) {
-        format(stream, $str_alt531$_a_LEFT_JOIN__a_ON__a, new SubLObject[]{ com.cyc.cycjava.cycl.sksi.semantic_etl_bus.sql_left_join_left_table(v_object), com.cyc.cycjava.cycl.sksi.semantic_etl_bus.sql_left_join_right_table(v_object), com.cyc.cycjava.cycl.sksi.semantic_etl_bus.sql_left_join_on(v_object) });
+        format(stream, $str_alt531$_a_LEFT_JOIN__a_ON__a, semantic_etl_bus.sql_left_join_left_table(v_object), semantic_etl_bus.sql_left_join_right_table(v_object), semantic_etl_bus.sql_left_join_on(v_object));
         return v_object;
     }
 
     public static SubLObject print_sql_left_join(final SubLObject v_object, final SubLObject stream, final SubLObject depth) {
-        format(stream, semantic_etl_bus.$str596$_a_LEFT_JOIN__a_ON__a, new SubLObject[]{ semantic_etl_bus.sql_left_join_left_table(v_object), semantic_etl_bus.sql_left_join_right_table(v_object), semantic_etl_bus.sql_left_join_on(v_object) });
+        format(stream, semantic_etl_bus.$str596$_a_LEFT_JOIN__a_ON__a, semantic_etl_bus.sql_left_join_left_table(v_object), semantic_etl_bus.sql_left_join_right_table(v_object), semantic_etl_bus.sql_left_join_on(v_object));
         return v_object;
     }
 

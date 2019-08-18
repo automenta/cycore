@@ -719,13 +719,13 @@ public final class cb_query_browser extends SubLTranslatedFile implements V12 {
                     {
                         SubLObject pcase_var = verbosity;
                         if (pcase_var.eql($MINIMAL)) {
-                            linktext = format(NIL, $str_alt47$__A__A__A_, new SubLObject[]{ store_id, inference_id, answer_id });
+                            linktext = format(NIL, $str_alt47$__A__A__A_, store_id, inference_id, answer_id);
                         } else {
                             if (pcase_var.eql($TERSE)) {
-                                linktext = format(NIL, $str_alt48$_Inference_Answer__A__A__A_, new SubLObject[]{ store_id, inference_id, answer_id });
+                                linktext = format(NIL, $str_alt48$_Inference_Answer__A__A__A_, store_id, inference_id, answer_id);
                             } else {
                                 if (pcase_var.eql($VERBOSE)) {
-                                    linktext = format(NIL, $str_alt50$_Inference_Answer__A__A__A__A_, new SubLObject[]{ store_id, inference_id, answer_id, v_bindings });
+                                    linktext = format(NIL, $str_alt50$_Inference_Answer__A__A__A__A_, store_id, inference_id, answer_id, v_bindings);
                                 }
                             }
                         }
@@ -738,7 +738,7 @@ public final class cb_query_browser extends SubLTranslatedFile implements V12 {
                     html_markup(html_macros.$html_anchor_href$.getGlobalValue());
                     html_char(CHAR_quotation, UNPROVIDED);
                     cyc_cgi_url_int();
-                    format(html_macros.$html_stream$.getDynamicValue(thread), $str_alt51$cb_inference_answer__A__A__A, new SubLObject[]{ store_id, inference_id, answer_id });
+                    format(html_macros.$html_stream$.getDynamicValue(thread), $str_alt51$cb_inference_answer__A__A__A, store_id, inference_id, answer_id);
                     html_char(CHAR_quotation, UNPROVIDED);
                     if (NIL != frame_name_var) {
                         html_markup(html_macros.$html_anchor_target$.getGlobalValue());
@@ -790,13 +790,13 @@ public final class cb_query_browser extends SubLTranslatedFile implements V12 {
         if (NIL == linktext) {
             final SubLObject pcase_var = verbosity;
             if (pcase_var.eql($MINIMAL)) {
-                linktext = format(NIL, $str50$__A__A__A_, new SubLObject[]{ store_id, inference_id, answer_id });
+                linktext = format(NIL, $str50$__A__A__A_, store_id, inference_id, answer_id);
             } else
                 if (pcase_var.eql($TERSE)) {
-                    linktext = format(NIL, $str51$_Inference_Answer__A__A__A_, new SubLObject[]{ store_id, inference_id, answer_id });
+                    linktext = format(NIL, $str51$_Inference_Answer__A__A__A_, store_id, inference_id, answer_id);
                 } else
                     if (pcase_var.eql($VERBOSE)) {
-                        linktext = format(NIL, $str53$_Inference_Answer__A__A__A__A_, new SubLObject[]{ store_id, inference_id, answer_id, v_bindings });
+                        linktext = format(NIL, $str53$_Inference_Answer__A__A__A__A_, store_id, inference_id, answer_id, v_bindings);
                     }
 
 
@@ -824,7 +824,7 @@ public final class cb_query_browser extends SubLTranslatedFile implements V12 {
         html_markup(html_macros.$html_anchor_href$.getGlobalValue());
         html_char(CHAR_quotation, UNPROVIDED);
         cyc_cgi_url_int();
-        format(html_macros.$html_stream$.getDynamicValue(thread), $str54$cb_inference_answer__A__A__A, new SubLObject[]{ store_id, inference_id, answer_id });
+        format(html_macros.$html_stream$.getDynamicValue(thread), $str54$cb_inference_answer__A__A__A, store_id, inference_id, answer_id);
         html_char(CHAR_quotation, UNPROVIDED);
         if (NIL != frame_name_var) {
             html_markup(html_macros.$html_anchor_target$.getGlobalValue());
@@ -1305,7 +1305,7 @@ public final class cb_query_browser extends SubLTranslatedFile implements V12 {
                 html_markup(html_macros.$html_anchor_href$.getGlobalValue());
                 html_char(CHAR_quotation, UNPROVIDED);
                 cyc_cgi_url_int();
-                format(html_macros.$html_stream$.getDynamicValue(thread), $str_alt78$cb_socratic_query_from_answer__A_, new SubLObject[]{ store_id, inference_id, answer_id });
+                format(html_macros.$html_stream$.getDynamicValue(thread), $str_alt78$cb_socratic_query_from_answer__A_, store_id, inference_id, answer_id);
                 html_char(CHAR_quotation, UNPROVIDED);
                 if (NIL != frame_name_var) {
                     html_markup(html_macros.$html_anchor_target$.getGlobalValue());
@@ -1347,7 +1347,7 @@ public final class cb_query_browser extends SubLTranslatedFile implements V12 {
         html_markup(html_macros.$html_anchor_href$.getGlobalValue());
         html_char(CHAR_quotation, UNPROVIDED);
         cyc_cgi_url_int();
-        format(html_macros.$html_stream$.getDynamicValue(thread), $str83$cb_socratic_query_from_answer__A_, new SubLObject[]{ store_id, inference_id, answer_id });
+        format(html_macros.$html_stream$.getDynamicValue(thread), $str83$cb_socratic_query_from_answer__A_, store_id, inference_id, answer_id);
         html_char(CHAR_quotation, UNPROVIDED);
         if (NIL != frame_name_var) {
             html_markup(html_macros.$html_anchor_target$.getGlobalValue());
@@ -1461,13 +1461,13 @@ public final class cb_query_browser extends SubLTranslatedFile implements V12 {
                     {
                         SubLObject pcase_var = verbosity;
                         if (pcase_var.eql($MINIMAL)) {
-                            linktext = format(NIL, $str_alt83$__A__A__A__A_, new SubLObject[]{ store_id, inference_id, answer_id, justification_id });
+                            linktext = format(NIL, $str_alt83$__A__A__A__A_, store_id, inference_id, answer_id, justification_id);
                         } else {
                             if (pcase_var.eql($TERSE)) {
-                                linktext = format(NIL, $str_alt84$_Inference_Answer__A__A__A__A_, new SubLObject[]{ store_id, inference_id, answer_id, justification_id });
+                                linktext = format(NIL, $str_alt84$_Inference_Answer__A__A__A__A_, store_id, inference_id, answer_id, justification_id);
                             } else {
                                 if (pcase_var.eql($VERBOSE)) {
-                                    linktext = format(NIL, $str_alt85$_Inference_Answer__A__A__A__A__A_, new SubLObject[]{ store_id, inference_id, answer_id, justification_id, v_bindings });
+                                    linktext = format(NIL, $str_alt85$_Inference_Answer__A__A__A__A__A_, store_id, inference_id, answer_id, justification_id, v_bindings);
                                 }
                             }
                         }
@@ -1480,7 +1480,7 @@ public final class cb_query_browser extends SubLTranslatedFile implements V12 {
                     html_markup(html_macros.$html_anchor_href$.getGlobalValue());
                     html_char(CHAR_quotation, UNPROVIDED);
                     cyc_cgi_url_int();
-                    format(html_macros.$html_stream$.getDynamicValue(thread), $str_alt86$cb_inference_answer_full_justific, new SubLObject[]{ store_id, inference_id, answer_id, justification_id });
+                    format(html_macros.$html_stream$.getDynamicValue(thread), $str_alt86$cb_inference_answer_full_justific, store_id, inference_id, answer_id, justification_id);
                     html_char(CHAR_quotation, UNPROVIDED);
                     if (NIL != frame_name_var) {
                         html_markup(html_macros.$html_anchor_target$.getGlobalValue());
@@ -1534,13 +1534,13 @@ public final class cb_query_browser extends SubLTranslatedFile implements V12 {
         if (NIL == linktext) {
             final SubLObject pcase_var = verbosity;
             if (pcase_var.eql($MINIMAL)) {
-                linktext = format(NIL, $str88$__A__A__A__A_, new SubLObject[]{ store_id, inference_id, answer_id, justification_id });
+                linktext = format(NIL, $str88$__A__A__A__A_, store_id, inference_id, answer_id, justification_id);
             } else
                 if (pcase_var.eql($TERSE)) {
-                    linktext = format(NIL, $str89$_Inference_Answer__A__A__A__A_, new SubLObject[]{ store_id, inference_id, answer_id, justification_id });
+                    linktext = format(NIL, $str89$_Inference_Answer__A__A__A__A_, store_id, inference_id, answer_id, justification_id);
                 } else
                     if (pcase_var.eql($VERBOSE)) {
-                        linktext = format(NIL, $str90$_Inference_Answer__A__A__A__A__A_, new SubLObject[]{ store_id, inference_id, answer_id, justification_id, v_bindings });
+                        linktext = format(NIL, $str90$_Inference_Answer__A__A__A__A__A_, store_id, inference_id, answer_id, justification_id, v_bindings);
                     }
 
 
@@ -1551,7 +1551,7 @@ public final class cb_query_browser extends SubLTranslatedFile implements V12 {
         html_markup(html_macros.$html_anchor_href$.getGlobalValue());
         html_char(CHAR_quotation, UNPROVIDED);
         cyc_cgi_url_int();
-        format(html_macros.$html_stream$.getDynamicValue(thread), $str91$cb_inference_answer_full_justific, new SubLObject[]{ store_id, inference_id, answer_id, justification_id });
+        format(html_macros.$html_stream$.getDynamicValue(thread), $str91$cb_inference_answer_full_justific, store_id, inference_id, answer_id, justification_id);
         html_char(CHAR_quotation, UNPROVIDED);
         if (NIL != frame_name_var) {
             html_markup(html_macros.$html_anchor_target$.getGlobalValue());

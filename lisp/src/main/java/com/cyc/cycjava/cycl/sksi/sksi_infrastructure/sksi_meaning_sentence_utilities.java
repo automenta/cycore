@@ -4273,7 +4273,7 @@ public final class sksi_meaning_sentence_utilities extends SubLTranslatedFile im
                 final SubLObject pattern = (NIL != memoize_meaning_sentence_patternP) ? generate_pattern_for_meaning_sentence_memoized(ms_formula, memoize_patternsP, meta_mt, strength, use_memoized_isaP, UNPROVIDED) : generate_pattern_for_meaning_sentence(ms_formula, memoize_patternsP, meta_mt, strength, use_memoized_isaP);
                 pattern_matchedP = formula_pattern_match.pattern_matches_formula_without_bindings(pattern, lit);
                 if ((NIL == pattern_matchedP) && (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(NINE_INTEGER))) {
-                    format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str52$__SKSI__A_, $str53$meaning_sentence_type_check_int_f), new SubLObject[]{ NINE_INTEGER, lit, meaning_sentence });
+                    format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str52$__SKSI__A_, $str53$meaning_sentence_type_check_int_f), NINE_INTEGER, lit, meaning_sentence);
                     force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
                 }
             }

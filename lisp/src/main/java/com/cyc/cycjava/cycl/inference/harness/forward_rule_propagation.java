@@ -192,7 +192,7 @@ public final class forward_rule_propagation extends SubLTranslatedFile implement
             $within_noting_percent_progress$.bind(T, thread);
             $percent_progress_start_time$.bind(get_universal_time(), thread);
             try {
-                noting_percent_progress_preamble(format(NIL, $str3$Triggering_rule_against__A__S_sup, new SubLObject[]{ total, focal_asent, rule_string }));
+                noting_percent_progress_preamble(format(NIL, $str3$Triggering_rule_against__A__S_sup, total, focal_asent, rule_string));
                 SubLObject valid;
                 for (SubLObject done_var = NIL; NIL == done_var; done_var = makeBoolean(NIL == valid)) {
                     thread.resetMultipleValues();

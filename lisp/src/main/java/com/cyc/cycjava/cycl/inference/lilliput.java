@@ -753,7 +753,7 @@ public final class lilliput extends SubLTranslatedFile implements V12 {
                         SubLObject mutual = thread.secondMultipleValue();
                         SubLObject only_2 = thread.thirdMultipleValue();
                         thread.resetMultipleValues();
-                        format(T, $str_alt55$Total_____________s__s__s__, new SubLObject[]{ only_1, mutual, only_2 });
+                        format(T, $str_alt55$Total_____________s__s__s__, only_1, mutual, only_2);
                     }
                     thread.resetMultipleValues();
                     {
@@ -761,7 +761,7 @@ public final class lilliput extends SubLTranslatedFile implements V12 {
                         SubLObject mutual = thread.secondMultipleValue();
                         SubLObject only_2 = thread.thirdMultipleValue();
                         thread.resetMultipleValues();
-                        format(T, $str_alt56$Open_Good_________s__s__s__, new SubLObject[]{ only_1, mutual, only_2 });
+                        format(T, $str_alt56$Open_Good_________s__s__s__, only_1, mutual, only_2);
                     }
                     thread.resetMultipleValues();
                     {
@@ -769,7 +769,7 @@ public final class lilliput extends SubLTranslatedFile implements V12 {
                         SubLObject mutual = thread.secondMultipleValue();
                         SubLObject only_2 = thread.thirdMultipleValue();
                         thread.resetMultipleValues();
-                        format(T, $str_alt57$Open_No_Good______s__s__s__, new SubLObject[]{ only_1, mutual, only_2 });
+                        format(T, $str_alt57$Open_No_Good______s__s__s__, only_1, mutual, only_2);
                     }
                     thread.resetMultipleValues();
                     {
@@ -777,7 +777,7 @@ public final class lilliput extends SubLTranslatedFile implements V12 {
                         SubLObject mutual = thread.secondMultipleValue();
                         SubLObject only_2 = thread.thirdMultipleValue();
                         thread.resetMultipleValues();
-                        format(T, $str_alt58$Closed_Good_______s__s__s__, new SubLObject[]{ only_1, mutual, only_2 });
+                        format(T, $str_alt58$Closed_Good_______s__s__s__, only_1, mutual, only_2);
                     }
                     thread.resetMultipleValues();
                     {
@@ -785,7 +785,7 @@ public final class lilliput extends SubLTranslatedFile implements V12 {
                         SubLObject mutual = thread.secondMultipleValue();
                         SubLObject only_2 = thread.thirdMultipleValue();
                         thread.resetMultipleValues();
-                        format(T, $str_alt59$Closed_No_Good____s__s__s__, new SubLObject[]{ only_1, mutual, only_2 });
+                        format(T, $str_alt59$Closed_No_Good____s__s__s__, only_1, mutual, only_2);
                     }
                     format(stream, $str_alt39$____Basic_analysis____);
                     kbq_query_run.kbq_print_analysis(kbq_query_run.kbq_analyze_query_set_runs(baseline, experiment, metrics));
@@ -869,31 +869,31 @@ public final class lilliput extends SubLTranslatedFile implements V12 {
         SubLObject mutual = thread.secondMultipleValue();
         SubLObject only_2 = thread.thirdMultipleValue();
         thread.resetMultipleValues();
-        format(T, $str55$Total_____________s__s__s__, new SubLObject[]{ only_1, mutual, only_2 });
+        format(T, $str55$Total_____________s__s__s__, only_1, mutual, only_2);
         thread.resetMultipleValues();
         only_1 = kbq_query_run.kbq_query_set_run_answerable_counts(open_good_baseline, open_good_experiment);
         mutual = thread.secondMultipleValue();
         only_2 = thread.thirdMultipleValue();
         thread.resetMultipleValues();
-        format(T, $str56$Open_Good_________s__s__s__, new SubLObject[]{ only_1, mutual, only_2 });
+        format(T, $str56$Open_Good_________s__s__s__, only_1, mutual, only_2);
         thread.resetMultipleValues();
         only_1 = kbq_query_run.kbq_query_set_run_answerable_counts(open_no_good_baseline, open_no_good_experiment);
         mutual = thread.secondMultipleValue();
         only_2 = thread.thirdMultipleValue();
         thread.resetMultipleValues();
-        format(T, $str57$Open_No_Good______s__s__s__, new SubLObject[]{ only_1, mutual, only_2 });
+        format(T, $str57$Open_No_Good______s__s__s__, only_1, mutual, only_2);
         thread.resetMultipleValues();
         only_1 = kbq_query_run.kbq_query_set_run_answerable_counts(closed_good_baseline, closed_good_experiment);
         mutual = thread.secondMultipleValue();
         only_2 = thread.thirdMultipleValue();
         thread.resetMultipleValues();
-        format(T, $str58$Closed_Good_______s__s__s__, new SubLObject[]{ only_1, mutual, only_2 });
+        format(T, $str58$Closed_Good_______s__s__s__, only_1, mutual, only_2);
         thread.resetMultipleValues();
         only_1 = kbq_query_run.kbq_query_set_run_answerable_counts(closed_no_good_baseline, closed_no_good_experiment);
         mutual = thread.secondMultipleValue();
         only_2 = thread.thirdMultipleValue();
         thread.resetMultipleValues();
-        format(T, $str59$Closed_No_Good____s__s__s__, new SubLObject[]{ only_1, mutual, only_2 });
+        format(T, $str59$Closed_No_Good____s__s__s__, only_1, mutual, only_2);
         format(stream, $str39$____Basic_analysis____);
         kbq_query_run.kbq_print_analysis(kbq_query_run.kbq_analyze_query_set_runs(baseline, experiment, metrics));
         format(stream, $str60$____Mutually_Answerable____);

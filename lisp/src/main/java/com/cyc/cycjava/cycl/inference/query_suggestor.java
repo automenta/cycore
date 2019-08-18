@@ -585,7 +585,7 @@ public final class query_suggestor extends SubLTranslatedFile implements V12 {
             }
             {
                 SubLObject universal_date = get_universal_time();
-                SubLObject html_file = format(NIL, $str_alt31$_a__a__a_htm, new SubLObject[]{ $query_suggestor_output_dir$.getDynamicValue(thread), constants_high.constant_name(test_type), universal_date });
+                SubLObject html_file = format(NIL, $str_alt31$_a__a__a_htm, $query_suggestor_output_dir$.getDynamicValue(thread), constants_high.constant_name(test_type), universal_date);
                 com.cyc.cycjava.cycl.inference.query_suggestor.update_query_suggestor_html_intro(test_type, html_file, universal_date);
                 $query_suggestor_file_name$.setDynamicValue(format(NIL, $str_alt32$_a__a, constants_high.constant_name(test_type), universal_date), thread);
                 return html_file;
@@ -599,7 +599,7 @@ public final class query_suggestor extends SubLTranslatedFile implements V12 {
             test_type = query_suggestor_singleton_test_type_sole_instance(test_type);
         }
         final SubLObject universal_date = get_universal_time();
-        final SubLObject html_file = format(NIL, $str31$_a__a__a_htm, new SubLObject[]{ $query_suggestor_output_dir$.getDynamicValue(thread), constants_high.constant_name(test_type), universal_date });
+        final SubLObject html_file = format(NIL, $str31$_a__a__a_htm, $query_suggestor_output_dir$.getDynamicValue(thread), constants_high.constant_name(test_type), universal_date);
         update_query_suggestor_html_intro(test_type, html_file, universal_date);
         $query_suggestor_file_name$.setDynamicValue(format(NIL, $str32$_a__a, constants_high.constant_name(test_type), universal_date), thread);
         return html_file;
@@ -1893,7 +1893,7 @@ public final class query_suggestor extends SubLTranslatedFile implements V12 {
                             concept_id = format(NIL, $str_alt59$n_a, nart_handles.nart_id(concept));
                         }
                     }
-                    html_file = format(NIL, $str_alt60$_a_extra_answers__a__a__a_htm, new SubLObject[]{ $query_suggestor_output_dir$.getDynamicValue(thread), $query_suggestor_file_name$.getDynamicValue(thread), concept_id, query_num });
+                    html_file = format(NIL, $str_alt60$_a_extra_answers__a__a__a_htm, $query_suggestor_output_dir$.getDynamicValue(thread), $query_suggestor_file_name$.getDynamicValue(thread), concept_id, query_num);
                 }
                 if (NIL == concept_id) {
                     html_markup(html_macros.$html_table_data_head$.getGlobalValue());
@@ -2100,7 +2100,7 @@ public final class query_suggestor extends SubLTranslatedFile implements V12 {
                     concept_id = format(NIL, $str59$n_a, nart_handles.nart_id(concept));
                 }
 
-            html_file = format(NIL, $str60$_a_extra_answers__a__a__a_htm, new SubLObject[]{ $query_suggestor_output_dir$.getDynamicValue(thread), $query_suggestor_file_name$.getDynamicValue(thread), concept_id, query_num });
+            html_file = format(NIL, $str60$_a_extra_answers__a__a__a_htm, $query_suggestor_output_dir$.getDynamicValue(thread), $query_suggestor_file_name$.getDynamicValue(thread), concept_id, query_num);
         }
         if (NIL == concept_id) {
             html_markup(html_macros.$html_table_data_head$.getGlobalValue());

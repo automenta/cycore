@@ -16164,7 +16164,7 @@ public final class cb_inference_browser extends SubLTranslatedFile implements V1
                                     linktext = format(NIL, $str_alt445$_Prob__A_, problem_id);
                                 } else {
                                     if (pcase_var.eql($VERBOSE)) {
-                                        linktext = ($TACTICAL == strategic_context) ? ((SubLObject) (format(NIL, $str_alt446$_A_Problem__A_, motivation_string, problem_id))) : format(NIL, $str_alt447$_A__wrt_s_a__Problem__A_, new SubLObject[]{ motivation_string, strategy_id, problem_id });
+                                        linktext = ($TACTICAL == strategic_context) ? ((SubLObject) (format(NIL, $str_alt446$_A_Problem__A_, motivation_string, problem_id))) : format(NIL, $str_alt447$_A__wrt_s_a__Problem__A_, motivation_string, strategy_id, problem_id);
                                     }
                                 }
                             }
@@ -19297,7 +19297,7 @@ public final class cb_inference_browser extends SubLTranslatedFile implements V1
                     html_markup(html_macros.$html_anchor_href$.getGlobalValue());
                     html_char(CHAR_quotation, UNPROVIDED);
                     cyc_cgi_url_int();
-                    format(html_macros.$html_stream$.getDynamicValue(thread), $str_alt488$cb_problem_full_strategic_analysi, new SubLObject[]{ store_id, problem_id, status });
+                    format(html_macros.$html_stream$.getDynamicValue(thread), $str_alt488$cb_problem_full_strategic_analysi, store_id, problem_id, status);
                     html_char(CHAR_quotation, UNPROVIDED);
                     if (NIL != frame_name_var) {
                         html_markup(html_macros.$html_anchor_target$.getGlobalValue());
@@ -19340,7 +19340,7 @@ public final class cb_inference_browser extends SubLTranslatedFile implements V1
         html_markup(html_macros.$html_anchor_href$.getGlobalValue());
         html_char(CHAR_quotation, UNPROVIDED);
         cyc_cgi_url_int();
-        format(html_macros.$html_stream$.getDynamicValue(thread), $str483$cb_problem_full_strategic_analysi, new SubLObject[]{ store_id, problem_id, status });
+        format(html_macros.$html_stream$.getDynamicValue(thread), $str483$cb_problem_full_strategic_analysi, store_id, problem_id, status);
         html_char(CHAR_quotation, UNPROVIDED);
         if (NIL != frame_name_var) {
             html_markup(html_macros.$html_anchor_target$.getGlobalValue());
@@ -20725,7 +20725,7 @@ public final class cb_inference_browser extends SubLTranslatedFile implements V1
                                 linktext = format(NIL, $str_alt509$_Tactic__A__A_, problem_id, tactic_id);
                             } else {
                                 if (pcase_var.eql($VERBOSE)) {
-                                    linktext = format(NIL, $str_alt510$__A_Tactic__A__A__A_, new SubLObject[]{ inference_datastructures_tactic.tactic_hl_module_name(tactic), store_id, problem_id, tactic_id });
+                                    linktext = format(NIL, $str_alt510$__A_Tactic__A__A__A_, inference_datastructures_tactic.tactic_hl_module_name(tactic), store_id, problem_id, tactic_id);
                                 }
                             }
                         }
@@ -20737,7 +20737,7 @@ public final class cb_inference_browser extends SubLTranslatedFile implements V1
                     html_markup(html_macros.$html_anchor_href$.getGlobalValue());
                     html_char(CHAR_quotation, UNPROVIDED);
                     cyc_cgi_url_int();
-                    format(html_macros.$html_stream$.getDynamicValue(thread), $str_alt511$cb_tactic__A__A__A, new SubLObject[]{ store_id, problem_id, tactic_id });
+                    format(html_macros.$html_stream$.getDynamicValue(thread), $str_alt511$cb_tactic__A__A__A, store_id, problem_id, tactic_id);
                     html_char(CHAR_quotation, UNPROVIDED);
                     if (NIL != frame_name_var) {
                         html_markup(html_macros.$html_anchor_target$.getGlobalValue());
@@ -20806,7 +20806,7 @@ public final class cb_inference_browser extends SubLTranslatedFile implements V1
         html_markup(html_macros.$html_anchor_href$.getGlobalValue());
         html_char(CHAR_quotation, UNPROVIDED);
         cyc_cgi_url_int();
-        format(html_macros.$html_stream$.getDynamicValue(thread), $str504$cb_tactic__A__A__A, new SubLObject[]{ store_id, problem_id, tactic_id });
+        format(html_macros.$html_stream$.getDynamicValue(thread), $str504$cb_tactic__A__A__A, store_id, problem_id, tactic_id);
         html_char(CHAR_quotation, UNPROVIDED);
         if (NIL != frame_name_var) {
             html_markup(html_macros.$html_anchor_target$.getGlobalValue());
@@ -21855,7 +21855,7 @@ public final class cb_inference_browser extends SubLTranslatedFile implements V1
                                         SubLObject link_id = inference_datastructures_problem_link.problem_link_suid(inference_datastructures_proof.proof_link(proof));
                                         SubLObject subproofs = inference_datastructures_proof.proof_direct_subproofs(proof);
                                         SubLObject subproof_suids = Mapping.mapcar(PROOF_SUID, subproofs);
-                                        linktext = format(NIL, $str_alt541$__AProof__A__A_for_link__A_suppor, new SubLObject[]{ rejected_string, store_id, proof_id, link_id, subproof_suids });
+                                        linktext = format(NIL, $str_alt541$__AProof__A__A_for_link__A_suppor, rejected_string, store_id, proof_id, link_id, subproof_suids);
                                     }
                                 }
                             }
@@ -28907,7 +28907,7 @@ public final class cb_inference_browser extends SubLTranslatedFile implements V1
                 html_markup(html_macros.$html_anchor_href$.getGlobalValue());
                 html_char(CHAR_quotation, UNPROVIDED);
                 cyc_cgi_url_int();
-                format(html_macros.$html_stream$.getDynamicValue(thread), $str_alt695$cb_execute_tactic__A__A__A__A, new SubLObject[]{ store_id, strategy_id, problem_id, tactic_id });
+                format(html_macros.$html_stream$.getDynamicValue(thread), $str_alt695$cb_execute_tactic__A__A__A__A, store_id, strategy_id, problem_id, tactic_id);
                 html_char(CHAR_quotation, UNPROVIDED);
                 if (NIL != frame_name_var) {
                     html_markup(html_macros.$html_anchor_target$.getGlobalValue());
@@ -28954,7 +28954,7 @@ public final class cb_inference_browser extends SubLTranslatedFile implements V1
         html_markup(html_macros.$html_anchor_href$.getGlobalValue());
         html_char(CHAR_quotation, UNPROVIDED);
         cyc_cgi_url_int();
-        format(html_macros.$html_stream$.getDynamicValue(thread), $str732$cb_execute_tactic__A__A__A__A, new SubLObject[]{ store_id, strategy_id, problem_id, tactic_id });
+        format(html_macros.$html_stream$.getDynamicValue(thread), $str732$cb_execute_tactic__A__A__A__A, store_id, strategy_id, problem_id, tactic_id);
         html_char(CHAR_quotation, UNPROVIDED);
         if (NIL != frame_name_var) {
             html_markup(html_macros.$html_anchor_target$.getGlobalValue());

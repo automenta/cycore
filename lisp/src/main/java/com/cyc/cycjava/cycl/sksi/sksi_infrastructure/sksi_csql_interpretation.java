@@ -607,7 +607,7 @@ public final class sksi_csql_interpretation extends SubLTranslatedFile implement
         }
         if (NIL != error_message) {
             if (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(ONE_INTEGER)) {
-                format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str12$__SKSI__A_, $str13$csql_to_sql_failure___A_A), new SubLObject[]{ ONE_INTEGER, error_message, NIL != inference_worker.currently_active_problem() ? cconcatenate($$$_problem_, new SubLObject[]{ format_nil.format_nil_a_no_copy(inference_datastructures_problem_store.problem_store_suid(inference_worker.currently_active_problem_store())), $str15$_, format_nil.format_nil_a_no_copy(inference_datastructures_problem.problem_suid(inference_worker.currently_active_problem())) }) : NIL });
+                format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str12$__SKSI__A_, $str13$csql_to_sql_failure___A_A), ONE_INTEGER, error_message, NIL != inference_worker.currently_active_problem() ? cconcatenate($$$_problem_, new SubLObject[]{ format_nil.format_nil_a_no_copy(inference_datastructures_problem_store.problem_store_suid(inference_worker.currently_active_problem_store())), $str15$_, format_nil.format_nil_a_no_copy(inference_datastructures_problem.problem_suid(inference_worker.currently_active_problem())) }) : NIL);
                 force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
             }
             sql = NIL;

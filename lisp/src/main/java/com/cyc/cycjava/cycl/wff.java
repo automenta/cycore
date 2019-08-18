@@ -5770,7 +5770,7 @@ public final class wff extends SubLTranslatedFile implements V12 {
         {
             final SubLThread thread = SubLProcess.currentSubLThread();
             if ($wff_trace_level$.getDynamicValue(thread).numGE(level)) {
-                format(T, format_str, new SubLObject[]{ arg1, arg2, arg3, arg4, arg5 });
+                format(T, format_str, arg1, arg2, arg3, arg4, arg5);
                 return NIL;
             }
             return NIL;
@@ -5795,7 +5795,7 @@ public final class wff extends SubLTranslatedFile implements V12 {
         }
         final SubLThread thread = SubLProcess.currentSubLThread();
         if ($wff_trace_level$.getDynamicValue(thread).numGE(level)) {
-            format(T, format_str, new SubLObject[]{ arg1, arg2, arg3, arg4, arg5 });
+            format(T, format_str, arg1, arg2, arg3, arg4, arg5);
             return NIL;
         }
         return NIL;

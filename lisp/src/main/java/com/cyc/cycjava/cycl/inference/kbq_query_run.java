@@ -7449,7 +7449,7 @@ public final class kbq_query_run extends SubLTranslatedFile implements V12 {
             atest = cdolist_list_var.first();
             while (NIL != cdolist_list_var) {
                 final SubLObject qrun = plist_lookup(atest, $QUERY_RUN, UNPROVIDED);
-                format(csv, kbq_query_run.$str257$_A__A__A__A__A__A__A___, new SubLObject[]{ plist_lookup(atest, $TEST, UNPROVIDED), plist_lookup(atest, $STATUS, UNPROVIDED), plist_lookup(atest, $STATUS, UNPROVIDED).equalp($SUCCESS) ? plist_lookup(qrun, $HALT_REASON, UNPROVIDED) : kbq_query_run.$str161$, plist_lookup(atest, $STATUS, UNPROVIDED).equalp($SUCCESS) && (!plist_lookup(qrun, $HALT_REASON, UNPROVIDED).isList()) ? plist_lookup(qrun, $HALT_REASON, UNPROVIDED) : kbq_query_run.$str161$, plist_lookup(qrun, $ANSWER_COUNT, UNPROVIDED), plist_lookup(qrun, kbq_query_run.$TIME_TO_FIRST_ANSWER, UNPROVIDED), plist_lookup(qrun, kbq_query_run.$TIME_TO_LAST_ANSWER, UNPROVIDED), plist_lookup(qrun, $TOTAL_TIME, UNPROVIDED) });
+                format(csv, kbq_query_run.$str257$_A__A__A__A__A__A__A___, plist_lookup(atest, $TEST, UNPROVIDED), plist_lookup(atest, $STATUS, UNPROVIDED), plist_lookup(atest, $STATUS, UNPROVIDED).equalp($SUCCESS) ? plist_lookup(qrun, $HALT_REASON, UNPROVIDED) : kbq_query_run.$str161$, plist_lookup(atest, $STATUS, UNPROVIDED).equalp($SUCCESS) && (!plist_lookup(qrun, $HALT_REASON, UNPROVIDED).isList()) ? plist_lookup(qrun, $HALT_REASON, UNPROVIDED) : kbq_query_run.$str161$, plist_lookup(qrun, $ANSWER_COUNT, UNPROVIDED), plist_lookup(qrun, kbq_query_run.$TIME_TO_FIRST_ANSWER, UNPROVIDED), plist_lookup(qrun, kbq_query_run.$TIME_TO_LAST_ANSWER, UNPROVIDED), plist_lookup(qrun, $TOTAL_TIME, UNPROVIDED));
                 cdolist_list_var = cdolist_list_var.rest();
                 atest = cdolist_list_var.first();
             } 
@@ -13565,10 +13565,10 @@ public final class kbq_query_run extends SubLTranslatedFile implements V12 {
                         {
                             SubLObject extra_value = funcall(extra_key, query_run);
                             SubLObject extra_other_value = funcall(extra_key, other_query_run);
-                            format(T, $str_alt396$_s__s__s__s__s__, new SubLObject[]{ value, extra_value, other_value, extra_other_value, query });
+                            format(T, $str_alt396$_s__s__s__s__s__, value, extra_value, other_value, extra_other_value, query);
                         }
                     } else {
-                        format(T, $str_alt397$_s__s__s__, new SubLObject[]{ value, other_value, query });
+                        format(T, $str_alt397$_s__s__s__, value, other_value, query);
                     }
                 }
             }
@@ -13590,9 +13590,9 @@ public final class kbq_query_run extends SubLTranslatedFile implements V12 {
             if (NIL != extra_key) {
                 final SubLObject extra_value = funcall(extra_key, query_run);
                 final SubLObject extra_other_value = funcall(extra_key, other_query_run);
-                format(T, kbq_query_run.$str449$_s__s__s__s__s__, new SubLObject[]{ value, extra_value, other_value, extra_other_value, query });
+                format(T, kbq_query_run.$str449$_s__s__s__s__s__, value, extra_value, other_value, extra_other_value, query);
             } else {
-                format(T, kbq_query_run.$str450$_s__s__s__, new SubLObject[]{ value, other_value, query });
+                format(T, kbq_query_run.$str450$_s__s__s__, value, other_value, query);
             }
             cdolist_list_var = cdolist_list_var.rest();
             query_run = cdolist_list_var.first();
@@ -14842,7 +14842,7 @@ public final class kbq_query_run extends SubLTranslatedFile implements V12 {
                         SubLObject mutual = thread.secondMultipleValue();
                         SubLObject only_2 = thread.thirdMultipleValue();
                         thread.resetMultipleValues();
-                        format(T, $str_alt448$Total_____________s__s__s__, new SubLObject[]{ only_1, mutual, only_2 });
+                        format(T, $str_alt448$Total_____________s__s__s__, only_1, mutual, only_2);
                     }
                     format(stream, $str_alt449$____Basic_analysis____);
                     com.cyc.cycjava.cycl.inference.kbq_query_run.kbq_print_analysis(com.cyc.cycjava.cycl.inference.kbq_query_run.kbq_analyze_query_set_runs(baseline, experiment, metrics));
@@ -14911,7 +14911,7 @@ public final class kbq_query_run extends SubLTranslatedFile implements V12 {
         final SubLObject mutual = thread.secondMultipleValue();
         final SubLObject only_2 = thread.thirdMultipleValue();
         thread.resetMultipleValues();
-        format(T, kbq_query_run.$str503$Total_____________s__s__s__, new SubLObject[]{ only_1, mutual, only_2 });
+        format(T, kbq_query_run.$str503$Total_____________s__s__s__, only_1, mutual, only_2);
         format(stream, kbq_query_run.$str504$____Basic_analysis____);
         kbq_query_run.kbq_print_analysis(kbq_query_run.kbq_analyze_query_set_runs(baseline, experiment, metrics));
         format(stream, kbq_query_run.$str505$____Mutually_Answerable____);
@@ -15394,12 +15394,12 @@ public final class kbq_query_run extends SubLTranslatedFile implements V12 {
                         if (NIL != number_utilities.positive_number_p(total_time)) {
                             total_total_time = add(total_total_time, total_time);
                         }
-                        format(stream, $str_alt484$_5D__5_1F__7_1F_4D__7_1F__7_1F__7, new SubLObject[]{ num, ttfs, ttfa, sksi_call_count, sksi_query_total_time, NIL != number_utilities.positive_number_p(sksi_query_total_time) ? ((SubLObject) (subtract(total_time, sksi_query_total_time))) : total_time, total_time, NIL != number_utilities.positive_number_p(sksi_query_total_time) ? ((SubLObject) (number_utilities.percent(sksi_query_total_time, total_time, THREE_INTEGER))) : ZERO_INTEGER, test, halt_reason == $EXHAUST_TOTAL ? ((SubLObject) ($str_alt144$)) : format(NIL, $str_alt486$___A_, halt_reason) });
+                        format(stream, $str_alt484$_5D__5_1F__7_1F_4D__7_1F__7_1F__7, num, ttfs, ttfa, sksi_call_count, sksi_query_total_time, NIL != number_utilities.positive_number_p(sksi_query_total_time) ? ((SubLObject) (subtract(total_time, sksi_query_total_time))) : total_time, total_time, NIL != number_utilities.positive_number_p(sksi_query_total_time) ? ((SubLObject) (number_utilities.percent(sksi_query_total_time, total_time, THREE_INTEGER))) : ZERO_INTEGER, test, halt_reason == $EXHAUST_TOTAL ? ((SubLObject) ($str_alt144$)) : format(NIL, $str_alt486$___A_, halt_reason));
                     }
                 }
             }
             format(stream, $str_alt481$_________________________________);
-            format(stream, $str_alt487$_5D__5_1F__7_1F_4D__7_1F__7_1F__7, new SubLObject[]{ total_num, total_ttfs, total_ttfa, total_sksi_call_count, total_sksi, NIL != number_utilities.positive_number_p(total_sksi) ? ((SubLObject) (subtract(total_total_time, total_sksi))) : total_total_time, total_total_time, NIL != number_utilities.positive_number_p(total_sksi) ? ((SubLObject) (number_utilities.percent(total_sksi, total_total_time, THREE_INTEGER))) : ZERO_INTEGER });
+            format(stream, $str_alt487$_5D__5_1F__7_1F_4D__7_1F__7_1F__7, total_num, total_ttfs, total_ttfa, total_sksi_call_count, total_sksi, NIL != number_utilities.positive_number_p(total_sksi) ? ((SubLObject) (subtract(total_total_time, total_sksi))) : total_total_time, total_total_time, NIL != number_utilities.positive_number_p(total_sksi) ? ((SubLObject) (number_utilities.percent(total_sksi, total_total_time, THREE_INTEGER))) : ZERO_INTEGER);
         }
         return NIL;
     }
@@ -15451,12 +15451,12 @@ public final class kbq_query_run extends SubLTranslatedFile implements V12 {
             if (NIL != positive_number_p(total_time)) {
                 total_total_time = add(total_total_time, total_time);
             }
-            format(stream, kbq_query_run.$str540$_5D__5_1F__7_1F_4D__7_1F__7_1F__7, new SubLObject[]{ num, ttfs, ttfa, sksi_call_count, sksi_query_total_time, NIL != positive_number_p(sksi_query_total_time) ? subtract(total_time, sksi_query_total_time) : total_time, total_time, NIL != positive_number_p(sksi_query_total_time) ? percent(sksi_query_total_time, total_time, THREE_INTEGER) : ZERO_INTEGER, test, halt_reason == $EXHAUST_TOTAL ? kbq_query_run.$str161$ : format(NIL, kbq_query_run.$str542$___A_, halt_reason) });
+            format(stream, kbq_query_run.$str540$_5D__5_1F__7_1F_4D__7_1F__7_1F__7, num, ttfs, ttfa, sksi_call_count, sksi_query_total_time, NIL != positive_number_p(sksi_query_total_time) ? subtract(total_time, sksi_query_total_time) : total_time, total_time, NIL != positive_number_p(sksi_query_total_time) ? percent(sksi_query_total_time, total_time, THREE_INTEGER) : ZERO_INTEGER, test, halt_reason == $EXHAUST_TOTAL ? kbq_query_run.$str161$ : format(NIL, kbq_query_run.$str542$___A_, halt_reason));
             cdolist_list_var = cdolist_list_var.rest();
             kbq_run = cdolist_list_var.first();
         } 
         format(stream, kbq_query_run.$str537$_________________________________);
-        format(stream, kbq_query_run.$str543$_5D__5_1F__7_1F_4D__7_1F__7_1F__7, new SubLObject[]{ total_num, total_ttfs, total_ttfa, total_sksi_call_count, total_sksi, NIL != positive_number_p(total_sksi) ? subtract(total_total_time, total_sksi) : total_total_time, total_total_time, NIL != positive_number_p(total_sksi) ? percent(total_sksi, total_total_time, THREE_INTEGER) : ZERO_INTEGER });
+        format(stream, kbq_query_run.$str543$_5D__5_1F__7_1F_4D__7_1F__7_1F__7, total_num, total_ttfs, total_ttfa, total_sksi_call_count, total_sksi, NIL != positive_number_p(total_sksi) ? subtract(total_total_time, total_sksi) : total_total_time, total_total_time, NIL != positive_number_p(total_sksi) ? percent(total_sksi, total_total_time, THREE_INTEGER) : ZERO_INTEGER);
         return NIL;
     }
 
@@ -15483,7 +15483,7 @@ public final class kbq_query_run extends SubLTranslatedFile implements V12 {
                     SubLObject sksi_query_total_time = com.cyc.cycjava.cycl.inference.kbq_query_run.kbq_extract_query_run_metric_value(kbq_run, $SKSI_QUERY_TOTAL_TIME, ZERO_INTEGER);
                     SubLObject total_time = com.cyc.cycjava.cycl.inference.kbq_query_run.kbq_extract_query_run_metric_value(kbq_run, $TOTAL_TIME, ZERO_INTEGER);
                     if (test_fort.equal(test)) {
-                        format(stream, $str_alt490$_15A___5D__5_1F__7_1F_4D__7_1F__7, new SubLObject[]{ short_filename, num, ttfs, ttfa, sksi_call_count, sksi_query_total_time, NIL != number_utilities.positive_number_p(sksi_query_total_time) ? ((SubLObject) (subtract(total_time, sksi_query_total_time))) : total_time, total_time, NIL != number_utilities.positive_number_p(sksi_query_total_time) ? ((SubLObject) (number_utilities.percent(sksi_query_total_time, total_time, THREE_INTEGER))) : ZERO_INTEGER, one_line_comment });
+                        format(stream, $str_alt490$_15A___5D__5_1F__7_1F_4D__7_1F__7, short_filename, num, ttfs, ttfa, sksi_call_count, sksi_query_total_time, NIL != number_utilities.positive_number_p(sksi_query_total_time) ? ((SubLObject) (subtract(total_time, sksi_query_total_time))) : total_time, total_time, NIL != number_utilities.positive_number_p(sksi_query_total_time) ? ((SubLObject) (number_utilities.percent(sksi_query_total_time, total_time, THREE_INTEGER))) : ZERO_INTEGER, one_line_comment);
                         force_output(T);
                     }
                 }
@@ -15514,7 +15514,7 @@ public final class kbq_query_run extends SubLTranslatedFile implements V12 {
             final SubLObject sksi_query_total_time = kbq_query_run.kbq_extract_query_run_metric_value(kbq_run, kbq_query_run.$SKSI_QUERY_TOTAL_TIME, ZERO_INTEGER);
             final SubLObject total_time = kbq_query_run.kbq_extract_query_run_metric_value(kbq_run, $TOTAL_TIME, ZERO_INTEGER);
             if (test_fort.equal(test)) {
-                format(stream, kbq_query_run.$str546$_15A___5D__5_1F__7_1F_4D__7_1F__7, new SubLObject[]{ short_filename, num, ttfs, ttfa, sksi_call_count, sksi_query_total_time, NIL != positive_number_p(sksi_query_total_time) ? subtract(total_time, sksi_query_total_time) : total_time, total_time, NIL != positive_number_p(sksi_query_total_time) ? percent(sksi_query_total_time, total_time, THREE_INTEGER) : ZERO_INTEGER, one_line_comment });
+                format(stream, kbq_query_run.$str546$_15A___5D__5_1F__7_1F_4D__7_1F__7, short_filename, num, ttfs, ttfa, sksi_call_count, sksi_query_total_time, NIL != positive_number_p(sksi_query_total_time) ? subtract(total_time, sksi_query_total_time) : total_time, total_time, NIL != positive_number_p(sksi_query_total_time) ? percent(sksi_query_total_time, total_time, THREE_INTEGER) : ZERO_INTEGER, one_line_comment);
                 force_output(T);
             }
             cdolist_list_var = cdolist_list_var.rest();
@@ -15701,7 +15701,7 @@ public final class kbq_query_run extends SubLTranslatedFile implements V12 {
                                             }
                                             answer_values = bindings_values(inference_answer_bindings(v_answer));
                                             v_answer_$90 = (NIL != singletonP(answer_values)) ? answer_values.first() : NIL != answer_values ? answer_values : kbq_query_run.$$True;
-                                            format(stream, kbq_query_run.$str553$____Answer___A__A____A, new SubLObject[]{ answer_number, answer_count, pretty_print_cycl_to_string(v_answer_$90, UNPROVIDED) });
+                                            format(stream, kbq_query_run.$str553$____Answer___A__A____A, answer_number, answer_count, pretty_print_cycl_to_string(v_answer_$90, UNPROVIDED));
                                             format(stream, kbq_query_run.$str554$__Justification__);
                                             supports = inference_utilities.inference_answer_expanded_justification(v_answer);
                                             supports = remove_if(kbq_query_run.UNKNOWN_SENTENCE_SUPPORT_P, supports, UNPROVIDED, UNPROVIDED, UNPROVIDED, UNPROVIDED);
@@ -15741,7 +15741,7 @@ public final class kbq_query_run extends SubLTranslatedFile implements V12 {
                                             v_answer2 = getEntryValue(cdohash_entry);
                                             final SubLObject answer_values2 = bindings_values(inference_answer_bindings(v_answer2));
                                             final SubLObject v_answer_$91 = (NIL != singletonP(answer_values2)) ? answer_values2.first() : NIL != answer_values2 ? answer_values2 : kbq_query_run.$$True;
-                                            format(stream, kbq_query_run.$str553$____Answer___A__A____A, new SubLObject[]{ answer_number, answer_count, pretty_print_cycl_to_string(v_answer_$91, UNPROVIDED) });
+                                            format(stream, kbq_query_run.$str553$____Answer___A__A____A, answer_number, answer_count, pretty_print_cycl_to_string(v_answer_$91, UNPROVIDED));
                                             format(stream, kbq_query_run.$str554$__Justification__);
                                             SubLObject supports2 = inference_utilities.inference_answer_expanded_justification(v_answer2);
                                             supports2 = remove_if(kbq_query_run.UNKNOWN_SENTENCE_SUPPORT_P, supports2, UNPROVIDED, UNPROVIDED, UNPROVIDED, UNPROVIDED);

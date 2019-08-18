@@ -588,7 +588,7 @@ public final class cb_inference_debugger extends SubLTranslatedFile implements V
                 if ($TACTICAL == strategic_context) {
                     linktext = format(NIL, $str_alt27$_Debug_Problem__A__A_, store_id, problem_id);
                 } else {
-                    linktext = format(NIL, $str_alt28$_Debug_Problem__A__A_wrt_s_A_, new SubLObject[]{ store_id, problem_id, strategic_context_id });
+                    linktext = format(NIL, $str_alt28$_Debug_Problem__A__A_wrt_s_A_, store_id, problem_id, strategic_context_id);
                 }
             }
             {
@@ -621,7 +621,7 @@ public final class cb_inference_debugger extends SubLTranslatedFile implements V
             if ($TACTICAL == strategic_context) {
                 linktext = format(NIL, $str31$_Debug_Problem__A__A_, store_id, problem_id);
             } else {
-                linktext = format(NIL, $str32$_Debug_Problem__A__A_wrt_s_A_, new SubLObject[]{ store_id, problem_id, strategic_context_id });
+                linktext = format(NIL, $str32$_Debug_Problem__A__A_wrt_s_A_, store_id, problem_id, strategic_context_id);
             }
         }
         final SubLObject options_glob_id = cb_glob_id(options);
@@ -831,7 +831,7 @@ public final class cb_inference_debugger extends SubLTranslatedFile implements V
                 if (strategic_context == $TACTICAL) {
                     linktext = format(NIL, $str_alt39$_Debug_Link__A__A_, store_id, link_id);
                 } else {
-                    linktext = format(NIL, $str_alt40$_Debug_Link__A__A_wrt_s_A_, new SubLObject[]{ store_id, link_id, strategic_context_id });
+                    linktext = format(NIL, $str_alt40$_Debug_Link__A__A_wrt_s_A_, store_id, link_id, strategic_context_id);
                 }
             }
             {
@@ -864,7 +864,7 @@ public final class cb_inference_debugger extends SubLTranslatedFile implements V
             if (strategic_context == $TACTICAL) {
                 linktext = format(NIL, $str43$_Debug_Link__A__A_, store_id, link_id);
             } else {
-                linktext = format(NIL, $str44$_Debug_Link__A__A_wrt_s_A_, new SubLObject[]{ store_id, link_id, strategic_context_id });
+                linktext = format(NIL, $str44$_Debug_Link__A__A_wrt_s_A_, store_id, link_id, strategic_context_id);
             }
         }
         final SubLObject options_glob_id = cb_glob_id(options);
@@ -1061,9 +1061,9 @@ public final class cb_inference_debugger extends SubLTranslatedFile implements V
                 html_char(CHAR_quotation, UNPROVIDED);
                 cyc_cgi_url_int();
                 if (NIL != strategic_context_id) {
-                    format(html_macros.$html_stream$.getDynamicValue(thread), $str_alt50$_A__A__A__A__A, new SubLObject[]{ handler_string, store_id, object_id, strategic_context_id, options_glob_id });
+                    format(html_macros.$html_stream$.getDynamicValue(thread), $str_alt50$_A__A__A__A__A, handler_string, store_id, object_id, strategic_context_id, options_glob_id);
                 } else {
-                    format(html_macros.$html_stream$.getDynamicValue(thread), $str_alt51$_A__A__A__A, new SubLObject[]{ handler_string, store_id, object_id, options_glob_id });
+                    format(html_macros.$html_stream$.getDynamicValue(thread), $str_alt51$_A__A__A__A, handler_string, store_id, object_id, options_glob_id);
                 }
                 html_char(CHAR_quotation, UNPROVIDED);
                 if (NIL != frame_name_var) {
@@ -1140,9 +1140,9 @@ public final class cb_inference_debugger extends SubLTranslatedFile implements V
         html_char(CHAR_quotation, UNPROVIDED);
         cyc_cgi_url_int();
         if (NIL != strategic_context_id) {
-            format(html_macros.$html_stream$.getDynamicValue(thread), $str54$_A__A__A__A__A, new SubLObject[]{ handler_string, store_id, object_id, strategic_context_id, options_glob_id });
+            format(html_macros.$html_stream$.getDynamicValue(thread), $str54$_A__A__A__A__A, handler_string, store_id, object_id, strategic_context_id, options_glob_id);
         } else {
-            format(html_macros.$html_stream$.getDynamicValue(thread), $str55$_A__A__A__A, new SubLObject[]{ handler_string, store_id, object_id, options_glob_id });
+            format(html_macros.$html_stream$.getDynamicValue(thread), $str55$_A__A__A__A, handler_string, store_id, object_id, options_glob_id);
         }
         html_char(CHAR_quotation, UNPROVIDED);
         if (NIL != frame_name_var) {

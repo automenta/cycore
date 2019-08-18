@@ -373,7 +373,7 @@ public final class cyblack_panel extends SubLTranslatedFile implements V02 {
                 SubLObject template_visited_panels = NIL;
                 SubLObject template_current_panel = NIL;
                 if (NIL != cyblack_globals.$cyblack_tracing_on$.getDynamicValue(thread)) {
-                    format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt93$___ITERATE_OVER_ALL_POSTING_DAEMO, new SubLObject[]{ self, self, daemon_visitor });
+                    format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt93$___ITERATE_OVER_ALL_POSTING_DAEMO, self, self, daemon_visitor);
                 }
                 while (NIL != template_panel_queue) {
                     template_current_panel = template_panel_queue.first();
@@ -485,7 +485,7 @@ public final class cyblack_panel extends SubLTranslatedFile implements V02 {
                 SubLObject template_visited_panels = NIL;
                 SubLObject template_current_panel = NIL;
                 if (NIL != cyblack_globals.$cyblack_tracing_on$.getDynamicValue(thread)) {
-                    format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt103$___ITERATE_OVER_ALL_POSTINGS__S__, new SubLObject[]{ self, self, posting_visitor });
+                    format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt103$___ITERATE_OVER_ALL_POSTINGS__S__, self, self, posting_visitor);
                 }
                 while (NIL != template_panel_queue) {
                     template_current_panel = template_panel_queue.first();
@@ -2060,7 +2060,7 @@ public final class cyblack_panel extends SubLTranslatedFile implements V02 {
             }
             cyblack_object.set_cyblack_object_application(self, new_application);
             if (NIL != cyblack_globals.$cyblack_tracing_on$.getDynamicValue(thread)) {
-                format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt403$___SET_APPLICATION__S__S______S, new SubLObject[]{ self, new_application, cyblack_object.get_cyblack_object_application(self) });
+                format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt403$___SET_APPLICATION__S__S______S, self, new_application, cyblack_object.get_cyblack_object_application(self));
             }
             return new_application;
         }
@@ -3546,7 +3546,7 @@ public final class cyblack_panel extends SubLTranslatedFile implements V02 {
                 SubLObject template_visited_panels = NIL;
                 SubLObject template_current_panel = NIL;
                 if (NIL != cyblack_globals.$cyblack_tracing_on$.getDynamicValue(thread)) {
-                    format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt93$___ITERATE_OVER_ALL_POSTING_DAEMO, new SubLObject[]{ self, self, daemon_visitor });
+                    format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt93$___ITERATE_OVER_ALL_POSTING_DAEMO, self, self, daemon_visitor);
                 }
                 while (NIL != template_panel_queue) {
                     template_current_panel = template_panel_queue.first();
@@ -3658,7 +3658,7 @@ public final class cyblack_panel extends SubLTranslatedFile implements V02 {
                 SubLObject template_visited_panels = NIL;
                 SubLObject template_current_panel = NIL;
                 if (NIL != cyblack_globals.$cyblack_tracing_on$.getDynamicValue(thread)) {
-                    format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt103$___ITERATE_OVER_ALL_POSTINGS__S__, new SubLObject[]{ self, self, posting_visitor });
+                    format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt103$___ITERATE_OVER_ALL_POSTINGS__S__, self, self, posting_visitor);
                 }
                 while (NIL != template_panel_queue) {
                     template_current_panel = template_panel_queue.first();
@@ -5265,7 +5265,7 @@ public final class cyblack_panel extends SubLTranslatedFile implements V02 {
             }
             cyblack_object.set_cyblack_object_application(self, new_application);
             if (NIL != cyblack_globals.$cyblack_tracing_on$.getDynamicValue(thread)) {
-                format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt403$___SET_APPLICATION__S__S______S, new SubLObject[]{ self, new_application, cyblack_object.get_cyblack_object_application(self) });
+                format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt403$___SET_APPLICATION__S__S______S, self, new_application, cyblack_object.get_cyblack_object_application(self));
             }
             return new_application;
         }

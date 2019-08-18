@@ -13,11 +13,10 @@ import subl.type.core.SubLProcess;
 import subl.type.core.SubLString;
 import subl.type.symbol.SubLSymbol;
 
+import static com.cyc.cycjava.cycl.constant_handles.reader_make_constant_shell;
 import static com.cyc.cycjava.cycl.subl_macro_promotions.*;
 import static subl.jrtl.translatedCode.sublisp.conses_high.member;
 import static subl.jrtl.translatedCode.sublisp.conses_high.second;
-import static subl.util.SubLFiles.declareFunction;
-import static subl.util.SubLFiles.defparameter;
 import static subl.ConsesLow.cons;
 import static subl.ConsesLow.list;
 import static subl.Numbers.*;
@@ -27,6 +26,7 @@ import static subl.Threads.$is_thread_performing_cleanupP$;
 import static subl.Values.*;
 import static subl.Vectors.aref;
 import static subl.type.core.SubLObjectFactory.*;
+import static subl.util.SubLFiles.*;
 
 
 public final class syntactic_coverage extends SubLTranslatedFile implements V10 {
@@ -148,7 +148,7 @@ public final class syntactic_coverage extends SubLTranslatedFile implements V10 
         SubLObject sentence_size_percents = ZERO_INTEGER;
         SubLObject sentence_count = ZERO_INTEGER;
         final SubLObject link_options = list($OPTIONS, list($CYC_LINK_INTERFACE, linkage.$cyc_link_interface$.getDynamicValue(thread), $MAX_LINKAGE, ONE_INTEGER, $DICTIONARY_NICKNAME, $$$default, $MAX_PARSE_TIME, divide(timeout_msecs, $int$1000)));
-        SubLObject timed_out = NIL;
+//        SubLObject timed_out = NIL;
         final SubLObject tag = with_timeout_make_tag();
         try {
             thread.throwStack.push(tag);
@@ -239,7 +239,7 @@ public final class syntactic_coverage extends SubLTranslatedFile implements V10 
                 $within_with_timeout$.rebind(_prev_bind_0, thread);
             }
         } catch (final Throwable ccatch_env_var2) {
-            timed_out = Errors.handleThrowable(ccatch_env_var2, tag);
+            /*timed_out =*/ Errors.handleThrowable(ccatch_env_var2, tag);
         } finally {
             thread.throwStack.pop();
         }

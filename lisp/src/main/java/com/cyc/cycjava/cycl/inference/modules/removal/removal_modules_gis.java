@@ -790,7 +790,7 @@ public final class removal_modules_gis extends SubLTranslatedFile implements V02
             SubLObject type = determine_intersection_type(type1, type2);
             SubLObject type_string = getf($intersection_types$.getGlobalValue(), type, UNPROVIDED);
             if (NIL != type_string) {
-                return format(NIL, $str_alt86$_AIGIS__REQUEST__CALCULATE__INTER, new SubLObject[]{ type_string, id1, id2, type_string });
+                return format(NIL, $str_alt86$_AIGIS__REQUEST__CALCULATE__INTER, type_string, id1, id2, type_string);
             }
             return NIL;
         }

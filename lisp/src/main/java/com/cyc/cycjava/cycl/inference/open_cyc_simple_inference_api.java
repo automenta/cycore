@@ -792,7 +792,7 @@ public final class open_cyc_simple_inference_api extends SubLTranslatedFile impl
                                                         }
                                                         {
                                                             SubLObject s = stream;
-                                                            format(s, $str_alt31$_S_A_S_A_S__, new SubLObject[]{ string, CHAR_tab, non_lexical, CHAR_tab, kb_utilities.compact_hl_external_id_string(non_lexical) });
+                                                            format(s, $str_alt31$_S_A_S_A_S__, string, CHAR_tab, non_lexical, CHAR_tab, kb_utilities.compact_hl_external_id_string(non_lexical));
                                                         }
                                                     } finally {
                                                         {
@@ -860,7 +860,7 @@ public final class open_cyc_simple_inference_api extends SubLTranslatedFile impl
                                     Errors.error($str33$Unable_to_open__S, compound_file);
                                 }
                                 final SubLObject s = stream;
-                                format(s, $str34$_S_A_S_A_S__, new SubLObject[]{ string, CHAR_tab, non_lexical, CHAR_tab, kb_utilities.compact_hl_external_id_string(non_lexical) });
+                                format(s, $str34$_S_A_S_A_S__, string, CHAR_tab, non_lexical, CHAR_tab, kb_utilities.compact_hl_external_id_string(non_lexical));
                             } finally {
                                 final SubLObject _prev_bind_0_$7 = $is_thread_performing_cleanupP$.currentBinding(thread);
                                 try {

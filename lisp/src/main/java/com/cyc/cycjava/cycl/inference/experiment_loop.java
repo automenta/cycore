@@ -270,7 +270,7 @@ public final class experiment_loop extends SubLTranslatedFile implements V02 {
             SubLObject results_filename = (NIL != results_dir) ? ((SubLObject) (cconcatenate(results_dir, new SubLObject[]{ $str_alt38$experiment_, date_time, $str_alt39$_cfasl }))) : NIL;
             SubLObject analysis_filename = (NIL != results_dir) ? ((SubLObject) (cconcatenate(results_dir, new SubLObject[]{ $str_alt40$experiment_analysis_, date_time, $str_alt41$_text }))) : NIL;
             experiment_loop_set_flag(ZERO_INTEGER, results_filename, analysis_filename);
-            format(T, $str_alt42$Experiment_Loop__Starting_new__A_, new SubLObject[]{ name, results_filename, analysis_filename });
+            format(T, $str_alt42$Experiment_Loop__Starting_new__A_, name, results_filename, analysis_filename);
             return experiment_loop_run_experiment_int(experiment_type, $OVERWRITE, results_filename, analysis_filename, T, init_form);
         }
     }
@@ -280,7 +280,7 @@ public final class experiment_loop extends SubLTranslatedFile implements V02 {
             SubLObject name = experiment_loop_name(experiment_type);
             SubLObject new_counter = number_utilities.f_1X(counter);
             experiment_loop_set_flag(new_counter, results_filename, analysis_filename);
-            format(T, $str_alt44$Experiment_Loop__Continuing__A_ru, new SubLObject[]{ name, new_counter, results_filename, analysis_filename });
+            format(T, $str_alt44$Experiment_Loop__Continuing__A_ru, name, new_counter, results_filename, analysis_filename);
             return experiment_loop_run_experiment_int(experiment_type, $AUGMENT_OR_RERUN_ERRORS, results_filename, analysis_filename, T, init_form);
         }
     }
@@ -290,7 +290,7 @@ public final class experiment_loop extends SubLTranslatedFile implements V02 {
             SubLObject name = experiment_loop_name(experiment_type);
             experiment_loop_set_flag(NIL, NIL, NIL);
             experiment_loop_pop_experiment();
-            format(T, $str_alt46$Experiment_Loop__Terminating__A_r, new SubLObject[]{ name, results_filename, analysis_filename });
+            format(T, $str_alt46$Experiment_Loop__Terminating__A_r, name, results_filename, analysis_filename);
             experiment_loop_send_finished_email_notification(experiment_type, results_filename, analysis_filename);
             experiment_loop_send_results_email_notifications(experiment_type, results_filename, UNPROVIDED);
             if ($KCT_STANDARD == experiment_type) {
@@ -811,7 +811,7 @@ public final class experiment_loop extends SubLTranslatedFile implements V02 {
                     }
                     {
                         SubLObject s = stream;
-                        format(s, $kct_loop_standard_plot_text$.getGlobalValue(), new SubLObject[]{ start_date_string, end_date_string, start_date.numE($int$20060508) ? ((SubLObject) ($$$left_bottom)) : $$$left, image_filename, data_filename, data_filename, data_filename, data_filename });
+                        format(s, $kct_loop_standard_plot_text$.getGlobalValue(), start_date_string, end_date_string, start_date.numE($int$20060508) ? ((SubLObject) ($$$left_bottom)) : $$$left, image_filename, data_filename, data_filename, data_filename, data_filename);
                     }
                 } finally {
                     {
@@ -928,7 +928,7 @@ public final class experiment_loop extends SubLTranslatedFile implements V02 {
             SubLObject failure_count = getf(analysis, $TOTAL_FAILURE, UNPROVIDED);
             SubLObject error_count = getf(analysis, $TOTAL_ERROR, UNPROVIDED);
             SubLObject lumpy_count = getf(analysis, $TOTAL_LUMPY, UNPROVIDED);
-            format(stream, $str_alt121$_a__a__a__a__a__a__a__a__, new SubLObject[]{ datestring, error_count, datestring, success_count, datestring, failure_count, datestring, lumpy_count });
+            format(stream, $str_alt121$_a__a__a__a__a__a__a__a__, datestring, error_count, datestring, success_count, datestring, failure_count, datestring, lumpy_count);
         }
         return NIL;
     }

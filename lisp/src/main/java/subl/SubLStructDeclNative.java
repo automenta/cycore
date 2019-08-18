@@ -117,32 +117,33 @@ public class SubLStructDeclNative extends SubLStructDecl {
 
 	this.actualFieldNames = actualFieldNames;
 	int size = actualFieldNames.length;
-	fieldDecls = new Field[size];
-	int pingAt = size - 1;
-	int mustBeN = structClass.getDeclaredFields().length - 1;
-	assert Debug.assertTrue(size == mustBeN);
+
+//	int pingAt = size - 1;
+	fieldDecls = structClass.getDeclaredFields();
+	int mustBeN = fieldDecls.length - 1;
+	Debug.assertTrue(size == mustBeN);
 	Debug.assertTrue(size == slotKeywordNames.length);
 	Debug.assertTrue(size == slotNames.length);
 	Debug.assertTrue(size == getterNames.length);
 	Debug.assertTrue(size == setterNames.length);
-	try {
-	    for (int i = 0; i < size; ++i) {
-		Field f = structClass.getDeclaredField(this.actualFieldNames[i]);
-		if (i == 0 || i == pingAt) {
-		    /* FIXME TODO Make work in JDK 11
-		    FieldAccessor before = (FieldAccessor) afa.invoke(f, true);
-		    if (!(before instanceof SpyFA))
-		    {
-		    	SpyFA spy = new SpyFA(pingAt, i, before);
-		    	sfa.invoke(f, spy, true);
-		    }
-		    */
-		}
-		fieldDecls[i] = f;
-	    }
-	} catch (Exception e) {
-	    Errors.error("Got invalid struct field declaration.", e);
-	}
+//	try {
+//	    for (int i = 0; i < size; ++i) {
+//		Field f = structClass.getDeclaredField(this.actualFieldNames[i]);
+//		if (i == 0 || i == pingAt) {
+//		    /* FIXME TODO Make work in JDK 11
+//		    FieldAccessor before = (FieldAccessor) afa.invoke(f, true);
+//		    if (!(before instanceof SpyFA))
+//		    {
+//		    	SpyFA spy = new SpyFA(pingAt, i, before);
+//		    	sfa.invoke(f, spy, true);
+//		    }
+//		    */
+//		}
+//		this.fieldDecls[i] = f;
+//	    }
+//	} catch (Exception e) {
+//	    Errors.error("Got invalid struct field declaration.", e);
+//	}
     }
     //
     //	public static void main(String[] args)

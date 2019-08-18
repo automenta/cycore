@@ -1988,7 +1988,7 @@ public final class rtp_datastructures extends SubLTranslatedFile implements V12 
     }
 
     public static final SubLObject print_template_rule_alt(SubLObject v_object, SubLObject stream, SubLObject depth) {
-        format(stream, $str_alt50$__A_for__S____from_Assertion__S__, new SubLObject[]{ com.cyc.cycjava.cycl.rtp.rtp_datastructures.template_rule_category(v_object), com.cyc.cycjava.cycl.rtp.rtp_datastructures.template_rule_meaning(v_object), com.cyc.cycjava.cycl.rtp.rtp_datastructures.template_rule_assertion(v_object), com.cyc.cycjava.cycl.rtp.rtp_datastructures.template_rule_transformation(v_object) });
+        format(stream, $str_alt50$__A_for__S____from_Assertion__S__, rtp_datastructures.template_rule_category(v_object), rtp_datastructures.template_rule_meaning(v_object), rtp_datastructures.template_rule_assertion(v_object), rtp_datastructures.template_rule_transformation(v_object));
         if (NIL != com.cyc.cycjava.cycl.rtp.rtp_datastructures.template_rule_sem_test(v_object)) {
             format(stream, $str_alt51$___Subject_to_test__S, com.cyc.cycjava.cycl.rtp.rtp_datastructures.template_rule_sem_test(v_object));
         }
@@ -2001,7 +2001,7 @@ public final class rtp_datastructures extends SubLTranslatedFile implements V12 
     }
 
     public static SubLObject print_template_rule(final SubLObject v_object, final SubLObject stream, final SubLObject depth) {
-        format(stream, rtp_datastructures.$str56$__A_for__S____from_Assertion__S__, new SubLObject[]{ rtp_datastructures.template_rule_category(v_object), rtp_datastructures.template_rule_meaning(v_object), rtp_datastructures.template_rule_assertion(v_object), rtp_datastructures.template_rule_transformation(v_object) });
+        format(stream, rtp_datastructures.$str56$__A_for__S____from_Assertion__S__, rtp_datastructures.template_rule_category(v_object), rtp_datastructures.template_rule_meaning(v_object), rtp_datastructures.template_rule_assertion(v_object), rtp_datastructures.template_rule_transformation(v_object));
         if (NIL != rtp_datastructures.template_rule_sem_test(v_object)) {
             format(stream, rtp_datastructures.$str57$___Subject_to_test__S, rtp_datastructures.template_rule_sem_test(v_object));
         }
@@ -2302,12 +2302,12 @@ public final class rtp_datastructures extends SubLTranslatedFile implements V12 
     }
 
     public static final SubLObject print_template_span_item_alt(SubLObject item, SubLObject stream, SubLObject depth) {
-        format(stream, $str_alt77$__S__S__S_, new SubLObject[]{ com.cyc.cycjava.cycl.rtp.rtp_datastructures.template_span_item_template_item(item), com.cyc.cycjava.cycl.rtp.rtp_datastructures.template_span_item_start(item), com.cyc.cycjava.cycl.rtp.rtp_datastructures.template_span_item_end(item) });
+        format(stream, $str_alt77$__S__S__S_, rtp_datastructures.template_span_item_template_item(item), rtp_datastructures.template_span_item_start(item), rtp_datastructures.template_span_item_end(item));
         return item;
     }
 
     public static SubLObject print_template_span_item(final SubLObject item, final SubLObject stream, final SubLObject depth) {
-        format(stream, rtp_datastructures.$str85$__S__S__S_, new SubLObject[]{ rtp_datastructures.template_span_item_template_item(item), rtp_datastructures.template_span_item_start(item), rtp_datastructures.template_span_item_end(item) });
+        format(stream, rtp_datastructures.$str85$__S__S__S_, rtp_datastructures.template_span_item_template_item(item), rtp_datastructures.template_span_item_start(item), rtp_datastructures.template_span_item_end(item));
         return item;
     }
 
@@ -7184,7 +7184,7 @@ public final class rtp_datastructures extends SubLTranslatedFile implements V12 
      */
     @LispMethod(comment = "@param ENTRY\nrtp-chart-entry\r\n\t\t\r\n@param STREAM\r\n\t\tstream; where to send the output\r\n@return ENTRY")
     public static final SubLObject rtp_entry_print_alt(SubLObject entry, SubLObject stream, SubLObject depth) {
-        format(stream, $str_alt209$__RTP_entry______Words__S_____Sem, new SubLObject[]{ com.cyc.cycjava.cycl.rtp.rtp_datastructures.rtp_chart_entry_words(entry), com.cyc.cycjava.cycl.rtp.rtp_datastructures.rtp_chart_entry_sem(entry), com.cyc.cycjava.cycl.rtp.rtp_datastructures.rtp_chart_entry_bindings(entry), com.cyc.cycjava.cycl.rtp.rtp_datastructures.rtp_chart_entry_subconstits(entry), com.cyc.cycjava.cycl.rtp.rtp_datastructures.rtp_chart_entry_rule(entry), com.cyc.cycjava.cycl.rtp.rtp_datastructures.rtp_chart_entry_template_index(entry), com.cyc.cycjava.cycl.rtp.rtp_datastructures.rtp_chart_entry_start(entry) });
+        format(stream, $str_alt209$__RTP_entry______Words__S_____Sem, rtp_datastructures.rtp_chart_entry_words(entry), rtp_datastructures.rtp_chart_entry_sem(entry), rtp_datastructures.rtp_chart_entry_bindings(entry), rtp_datastructures.rtp_chart_entry_subconstits(entry), rtp_datastructures.rtp_chart_entry_rule(entry), rtp_datastructures.rtp_chart_entry_template_index(entry), rtp_datastructures.rtp_chart_entry_start(entry));
         return entry;
     }
 
@@ -7200,7 +7200,7 @@ public final class rtp_datastructures extends SubLTranslatedFile implements V12 
      */
     @LispMethod(comment = "@param ENTRY\nrtp-chart-entry\r\n\t\t\r\n@param STREAM\r\n\t\tstream; where to send the output\r\n@return ENTRY")
     public static SubLObject rtp_entry_print(final SubLObject entry, final SubLObject stream, final SubLObject depth) {
-        format(stream, rtp_datastructures.$str223$__RTP_entry______Words__S_____Sem, new SubLObject[]{ rtp_datastructures.rtp_chart_entry_words(entry), rtp_datastructures.rtp_chart_entry_sem(entry), rtp_datastructures.rtp_chart_entry_bindings(entry), rtp_datastructures.rtp_chart_entry_subconstits(entry), rtp_datastructures.rtp_chart_entry_rule(entry), rtp_datastructures.rtp_chart_entry_template_index(entry), rtp_datastructures.rtp_chart_entry_start(entry) });
+        format(stream, rtp_datastructures.$str223$__RTP_entry______Words__S_____Sem, rtp_datastructures.rtp_chart_entry_words(entry), rtp_datastructures.rtp_chart_entry_sem(entry), rtp_datastructures.rtp_chart_entry_bindings(entry), rtp_datastructures.rtp_chart_entry_subconstits(entry), rtp_datastructures.rtp_chart_entry_rule(entry), rtp_datastructures.rtp_chart_entry_template_index(entry), rtp_datastructures.rtp_chart_entry_start(entry));
         return entry;
     }
 

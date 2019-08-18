@@ -1608,9 +1608,9 @@ public final class sbhl_graphs extends SubLTranslatedFile implements V12 {
                             current = current.rest();
                             if (NIL == current) {
                                 if (capacity.isNegative()) {
-                                    format(T, $str_alt38$_6_A__9_A__9_A__, new SubLObject[]{ $str_alt39$___, $str_alt39$___, $str_alt39$___ });
+                                    format(T, $str_alt38$_6_A__9_A__9_A__, $str_alt39$___, $str_alt39$___, $str_alt39$___);
                                 } else {
-                                    format(T, $str_alt40$_6_d__9_d__9_d_____A__, new SubLObject[]{ capacity, hits, misses, NIL != too_small_p ? ((SubLObject) ($str_alt41$___)) : $str_alt42$ });
+                                    format(T, $str_alt40$_6_d__9_d__9_d_____A__, capacity, hits, misses, NIL != too_small_p ? ((SubLObject) ($str_alt41$___)) : $str_alt42$);
                                 }
                             } else {
                                 cdestructuring_bind_error(datum, $list_alt37);
@@ -1676,9 +1676,9 @@ public final class sbhl_graphs extends SubLTranslatedFile implements V12 {
             current = current.rest();
             if (NIL == current) {
                 if (capacity.isNegative()) {
-                    format(T, sbhl_graphs.$str40$_6_A__9_A__9_A__, new SubLObject[]{ sbhl_graphs.$str41$___, sbhl_graphs.$str41$___, sbhl_graphs.$str41$___ });
+                    format(T, sbhl_graphs.$str40$_6_A__9_A__9_A__, sbhl_graphs.$str41$___, sbhl_graphs.$str41$___, sbhl_graphs.$str41$___);
                 } else {
-                    format(T, sbhl_graphs.$str42$_6_d__9_d__9_d_____A__, new SubLObject[]{ capacity, hits, misses, NIL != too_small_p ? sbhl_graphs.$str43$___ : sbhl_graphs.$str44$ });
+                    format(T, sbhl_graphs.$str42$_6_d__9_d__9_d_____A__, capacity, hits, misses, NIL != too_small_p ? sbhl_graphs.$str43$___ : sbhl_graphs.$str44$);
                 }
             } else {
                 cdestructuring_bind_error(datum, sbhl_graphs.$list39);

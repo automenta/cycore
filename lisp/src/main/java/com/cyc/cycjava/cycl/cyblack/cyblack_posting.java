@@ -3079,7 +3079,7 @@ public final class cyblack_posting extends SubLTranslatedFile implements V02 {
             SubLObject instance_number = object.get_object_instance_number(self);
             try {
                 try {
-                    format(stream, $str_alt518$__ORDINAL_POSTING___S__OF_DATATYP, new SubLObject[]{ ord, datatype, instance_number });
+                    format(stream, $str_alt518$__ORDINAL_POSTING___S__OF_DATATYP, ord, datatype, instance_number);
                     sublisp_throw($sym517$OUTER_CATCH_FOR_CYBLACK_ORDINAL_POSTING_METHOD, self);
                 } finally {
                     {

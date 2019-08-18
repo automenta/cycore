@@ -503,7 +503,7 @@ public final class cyblack_lalr extends SubLTranslatedFile implements V02 {
     }
 
     public static final SubLObject print_lalr_rule(SubLObject v_object, SubLObject stream, SubLObject depth) {
-        format(stream, $str_alt30$__LALR_RULE__no__S__mother__S__da, new SubLObject[]{ lalr_rule_no(v_object), lalr_rule_mother(v_object), lalr_rule_daughters(v_object), lalr_rule_action(v_object), lalr_rule_method_name(v_object) });
+        format(stream, $str_alt30$__LALR_RULE__no__S__mother__S__da, lalr_rule_no(v_object), lalr_rule_mother(v_object), lalr_rule_daughters(v_object), lalr_rule_action(v_object), lalr_rule_method_name(v_object));
         return v_object;
     }
 
@@ -965,7 +965,7 @@ public final class cyblack_lalr extends SubLTranslatedFile implements V02 {
     }
 
     public static final SubLObject print_item(SubLObject v_object, SubLObject stream, SubLObject depth) {
-        format(stream, $str_alt64$__ITEM__rule__S__pos__S__la__S_, new SubLObject[]{ item_rule(v_object), item_pos(v_object), item_la(v_object) });
+        format(stream, $str_alt64$__ITEM__rule__S__pos__S__la__S_, item_rule(v_object), item_pos(v_object), item_la(v_object));
         return v_object;
     }
 
@@ -1469,7 +1469,7 @@ public final class cyblack_lalr extends SubLTranslatedFile implements V02 {
     }
 
     public static final SubLObject print_state(SubLObject v_object, SubLObject stream, SubLObject depth) {
-        format(stream, $str_alt115$__STATE__name__S__citems__S__shif, new SubLObject[]{ state_name(v_object), state_citems(v_object), state_shifts(v_object), state_conflict(v_object) });
+        format(stream, $str_alt115$__STATE__name__S__citems__S__shif, state_name(v_object), state_citems(v_object), state_shifts(v_object), state_conflict(v_object));
         return v_object;
     }
 
@@ -1742,7 +1742,7 @@ public final class cyblack_lalr extends SubLTranslatedFile implements V02 {
                                 SubLObject cdolist_list_var_5 = state_citems(state);
                                 SubLObject citem = NIL;
                                 for (citem = cdolist_list_var_5.first(); NIL != cdolist_list_var_5; cdolist_list_var_5 = cdolist_list_var_5.rest() , citem = cdolist_list_var_5.first()) {
-                                    format(T, $str_alt136$_____a________a________a_______a_, new SubLObject[]{ lalr_rule_mother(item_rule(citem)), subseq(lalr_rule_daughters(item_rule(citem)), ZERO_INTEGER, item_pos(citem)), subseq(lalr_rule_daughters(item_rule(citem)), item_pos(citem), UNPROVIDED), item_la(citem) });
+                                    format(T, $str_alt136$_____a________a________a_______a_, lalr_rule_mother(item_rule(citem)), subseq(lalr_rule_daughters(item_rule(citem)), ZERO_INTEGER, item_pos(citem)), subseq(lalr_rule_daughters(item_rule(citem)), item_pos(citem), UNPROVIDED), item_la(citem));
                                 }
                             }
                             {
@@ -1818,7 +1818,7 @@ public final class cyblack_lalr extends SubLTranslatedFile implements V02 {
                                     SubLObject cdolist_list_var_10 = filtered_items;
                                     SubLObject reduce = NIL;
                                     for (reduce = cdolist_list_var_10.first(); NIL != cdolist_list_var_10; cdolist_list_var_10 = cdolist_list_var_10.rest() , reduce = cdolist_list_var_10.first()) {
-                                        format(T, $str_alt138$______On____a___reduce____a______, new SubLObject[]{ item_la(reduce), lalr_rule_daughters(item_rule(reduce)), lalr_rule_mother(item_rule(reduce)) });
+                                        format(T, $str_alt138$______On____a___reduce____a______, item_la(reduce), lalr_rule_daughters(item_rule(reduce)), lalr_rule_mother(item_rule(reduce)));
                                     }
                                 }
                             }

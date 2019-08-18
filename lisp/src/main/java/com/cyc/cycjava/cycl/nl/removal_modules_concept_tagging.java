@@ -14,6 +14,7 @@ import subl.util.SubLTranslatedFile;
 import subl.Sort;
 import subl.SubLThread;
 
+import static com.cyc.cycjava.cycl.constant_handles.reader_make_constant_shell;
 import static com.cyc.cycjava.cycl.cyc_testing.generic_testing.define_test_case_table_int;
 import static com.cyc.cycjava.cycl.utilities_macros.note_funcall_helper_function;
 import static subl.type.core.SubLObjectFactory.*;

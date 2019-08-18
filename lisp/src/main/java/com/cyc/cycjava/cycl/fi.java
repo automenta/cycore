@@ -36,6 +36,9 @@ import static com.cyc.cycjava.cycl.forts.fort_p;
 import static com.cyc.cycjava.cycl.forts.remove_fort;
 import static com.cyc.cycjava.cycl.kb_utilities.term_order;
 import static com.cyc.cycjava.cycl.utilities_macros.*;
+import static subl.Eval.eval;
+import static subl.Functions.apply;
+import static subl.PrintLow.format;
 import static subl.type.core.SubLObjectFactory.*;
 import static subl.jrtl.translatedCode.sublisp.cdestructuring_bind.*;
 import static subl.jrtl.translatedCode.sublisp.conses_high.*;
@@ -660,7 +663,7 @@ public final class fi extends SubLTranslatedFile implements V12 {
     @LispMethod(comment = "Return a readable error string from FI-ERROR")
     public static final SubLObject fi_error_string_alt(SubLObject fi_error) {
         {
-            SubLObject error_string = NIL;
+            SubLObject error_string;
             if (second(fi_error).isString()) {
                 error_string = apply(symbol_function(FORMAT), NIL, new SubLObject[]{ second(fi_error), nthcdr(TWO_INTEGER, fi_error) });
             } else {
@@ -675,7 +678,7 @@ public final class fi extends SubLTranslatedFile implements V12 {
      */
     @LispMethod(comment = "Return a readable error string from FI-ERROR")
     public static SubLObject fi_error_string(final SubLObject fi_error) {
-        SubLObject error_string = NIL;
+        SubLObject error_string;
         if (second(fi_error).isString()) {
             error_string = apply(symbol_function(FORMAT), NIL, new SubLObject[]{ second(fi_error), nthcdr(TWO_INTEGER, fi_error) });
         } else {

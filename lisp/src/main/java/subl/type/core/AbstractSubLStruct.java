@@ -54,7 +54,7 @@ public abstract class AbstractSubLStruct extends LispObject implements SubLStruc
 			layout = SubLStructDecl.getStructDecl(symbol);
 			if (layout != null)
 				return (SubLStructDecl) layout;
-			LispClass c2 = (LispClass) LispClass.findClass((Symbol) symbol);
+			LispClass c2 = LispClass.findClass((Symbol) symbol);
 //			if (c2 == null) {
 //				c2 = (LispClass) classOf();
 //			}
@@ -120,7 +120,7 @@ public abstract class AbstractSubLStruct extends LispObject implements SubLStruc
 			// TYPE-OF.9
 			// final LispClass c2 = (LispClass) LispClass.findClass(name, false);
 			// dmiles sayz that the above line isnt right
-			final LispClass c2 = (LispClass) LispClass.findClass(name);
+			final LispClass c2 = LispClass.findClass(name);
 			if (c2 != null) {
 				return c2;
 			}
@@ -452,7 +452,7 @@ public abstract class AbstractSubLStruct extends LispObject implements SubLStruc
 					final LispObject lispObject = this.getSlotValue(i);
 					if (printCircle) {
 						StringOutputStream stream = new StringOutputStream();
-						thread.execute(Symbol.OUTPUT_OBJECT.getSymbolFunction(), (LispObject) lispObject, stream);
+						thread.execute(Symbol.OUTPUT_OBJECT.getSymbolFunction(), lispObject, stream);
 						sb.append(stream.getBufferString().getStringValue());
 					} else
 						sb.append(lispObject.printObject());

@@ -61,6 +61,7 @@ public class WeakHashTable
     implements abcl.protocol.Hashtable, LispHashTable
 {
     private static final float loadFactor = 0.75f;
+    public static final float GROWTH_FACTOR = 1.618 /* phi */;
     private final LispObject rehashSize;
     private final LispObject rehashThreshold;
     /**
@@ -533,7 +534,7 @@ public class WeakHashTable
     protected void rehash() {
         lock.lock();
         try {
-            final int newCapacity = buckets.length * 2;
+            final int newCapacity = (int) Math.ceil(buckets.length * GROWTH_FACTOR);
             threshold = (int) (newCapacity * loadFactor);
             int mask = newCapacity - 1;
             HashEntry[] newBuckets = bucketType.makeArray(newCapacity);
@@ -550,9 +551,7 @@ public class WeakHashTable
                     }
                     final int index = comparator.hash(key) & mask;
                     e.clear();
-                    newBuckets[index]
-                        = bucketType.makeInstance(key,
-                        e.hash,
+                    newBuckets[index] = bucketType.makeInstance(key, e.hash,
                                                   value,
                                                   newBuckets[index],
                                                   index);
@@ -677,9 +676,9 @@ public class WeakHashTable
         abstract void clear();
     }
 
-    private ReferenceQueue<LispObject> queue = new ReferenceQueue<>();
+    private final ReferenceQueue<LispObject> queue = new ReferenceQueue<>();
 
-    private Map<Object, HashEntry> entryLookup = new ConcurrentHashMap();
+    private final Map<Object, HashEntry> entryLookup = new ConcurrentHashMap();
 
     class HashEntryWeakKey 
         extends HashEntry
@@ -695,9 +694,7 @@ public class WeakHashTable
             this.value = value;
             this.next = next;
             this.slot = slot;
-
-            this.key = new WeakReference<>(key, queue);
-            entryLookup.put(this.key, this);
+            entryLookup.put(this.key = new WeakReference<>(key, queue), this);
         }
 
 //        @Override
@@ -707,10 +704,10 @@ public class WeakHashTable
 
         @Override
 		public void setKey(LispObject key) {
-            java.lang.ref.WeakReference<LispObject> old = this.key;
-            old.clear();
-            this.key = new WeakReference<>(key, queue);
-            entryLookup.put(this.key, this);
+            if (this.key.get() == key)
+                return;
+            this.key.clear();
+            entryLookup.put(this.key = new WeakReference<>(key, queue), this);
         }
 
         @Override

@@ -491,7 +491,7 @@ public final class sbhl_module_declarations extends SubLTranslatedFile implement
                         SubLObject key = dictionary_contents.do_dictionary_contents_key_value(iteration_state);
                         SubLObject module = thread.secondMultipleValue();
                         thread.resetMultipleValues();
-                        format(T, $str_alt75$sbhl_module__A__graph__A__tt_modu, new SubLObject[]{ sbhl_module_utilities.get_sbhl_link_pred(module), sbhl_module_vars.get_sbhl_module_graph(module).isHashtable() ? ((SubLObject) (hash_table_count(sbhl_module_vars.get_sbhl_module_graph(module)))) : $$$missing, sbhl_module_utilities.get_sbhl_transfers_through_module(module) });
+                        format(T, $str_alt75$sbhl_module__A__graph__A__tt_modu, sbhl_module_utilities.get_sbhl_link_pred(module), sbhl_module_vars.get_sbhl_module_graph(module).isHashtable() ? ((SubLObject) (hash_table_count(sbhl_module_vars.get_sbhl_module_graph(module)))) : $$$missing, sbhl_module_utilities.get_sbhl_transfers_through_module(module));
                         iteration_state = dictionary_contents.do_dictionary_contents_next(iteration_state);
                     }
                 } 
@@ -516,7 +516,7 @@ public final class sbhl_module_declarations extends SubLTranslatedFile implement
             destructuring_bind_must_consp(current, datum, $list77);
             key = current.first();
             current = module = current.rest();
-            format(T, $str78$sbhl_module__A__graph__A__tt_modu, new SubLObject[]{ sbhl_module_utilities.get_sbhl_link_pred(module), sbhl_module_vars.get_sbhl_module_graph(module).isHashtable() ? hash_table_count(sbhl_module_vars.get_sbhl_module_graph(module)) : $$$missing, sbhl_module_utilities.get_sbhl_transfers_through_module(module) });
+            format(T, $str78$sbhl_module__A__graph__A__tt_modu, sbhl_module_utilities.get_sbhl_link_pred(module), sbhl_module_vars.get_sbhl_module_graph(module).isHashtable() ? hash_table_count(sbhl_module_vars.get_sbhl_module_graph(module)) : $$$missing, sbhl_module_utilities.get_sbhl_transfers_through_module(module));
             cdolist_list_var = cdolist_list_var.rest();
             cons = cdolist_list_var.first();
         } 

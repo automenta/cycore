@@ -1116,7 +1116,7 @@ public final class learned_nouns extends SubLTranslatedFile implements V02 {
                                     if (pcase_var.eql($KNOWN_AND_LEXIFIED)) {
                                     } else
                                         if (pcase_var.eql($KNOWN_BUT_UNLEXIFIED)) {
-                                            format(T, $str_alt172$___S_means__S__confidence___S___, new SubLObject[]{ noun_string, tag, confidence });
+                                            format(T, $str_alt172$___S_means__S__confidence___S___, noun_string, tag, confidence);
                                             force_output(UNPROVIDED);
                                         } else
                                             if (pcase_var.eql($UNKNOWN)) {
@@ -1133,7 +1133,7 @@ public final class learned_nouns extends SubLTranslatedFile implements V02 {
                                                             Errors.error($str_alt167$Expecting__COLLECTION_or__INDIVID, collection_or_individualP);
                                                         }
 
-                                                    format(T, $str_alt175$___S__A__S__confidence___S___, new SubLObject[]{ noun_string, genls_or_isa, tag, confidence });
+                                                    format(T, $str_alt175$___S__A__S__confidence___S___, noun_string, genls_or_isa, tag, confidence);
                                                 }
                                                 force_output(UNPROVIDED);
                                             } else {
@@ -1188,7 +1188,7 @@ public final class learned_nouns extends SubLTranslatedFile implements V02 {
                     SubLObject cdolist_list_var = list;
                     SubLObject simple_noun = NIL;
                     for (simple_noun = cdolist_list_var.first(); NIL != cdolist_list_var; cdolist_list_var = cdolist_list_var.rest() , simple_noun = cdolist_list_var.first()) {
-                        format(T, $str_alt183$___S___S____confidence___S_, new SubLObject[]{ methods.funcall_instance_method_with_0_args(simple_noun, GET_STRING), methods.funcall_instance_method_with_0_args(simple_noun, GET_TAG), methods.funcall_instance_method_with_0_args(simple_noun, GET_CONFIDENCE_LEVEL) });
+                        format(T, $str_alt183$___S___S____confidence___S_, methods.funcall_instance_method_with_0_args(simple_noun, GET_STRING), methods.funcall_instance_method_with_0_args(simple_noun, GET_TAG), methods.funcall_instance_method_with_0_args(simple_noun, GET_CONFIDENCE_LEVEL));
                     }
                 }
                 return NIL;
@@ -2984,7 +2984,7 @@ public final class learned_nouns extends SubLTranslatedFile implements V02 {
                                                                 }
                                                             }
                                                             scores = cons(best_ranking_among_types, scores);
-                                                            format(T, $str_alt462$__Noun___S__Highest_ranked___S__R, new SubLObject[]{ noun_learner_noun_classes.get_noun_string(simple_noun), best_ranked_type, best_ranking_among_types });
+                                                            format(T, $str_alt462$__Noun___S__Highest_ranked___S__R, noun_learner_noun_classes.get_noun_string(simple_noun), best_ranked_type, best_ranking_among_types);
                                                         }
                                                     }
                                                 }
@@ -3028,7 +3028,7 @@ public final class learned_nouns extends SubLTranslatedFile implements V02 {
                             number_unranked = add(number_unranked, ONE_INTEGER);
                         }
                     }
-                    format(T, $str_alt464$__Top_ranked___S__In_top_5___S__I, new SubLObject[]{ number_top_ranked, number_in_top_5, number_in_top_10, number_in_top_25, number_in_top_50, number_unranked });
+                    format(T, $str_alt464$__Top_ranked___S__In_top_5___S__I, number_top_ranked, number_in_top_5, number_in_top_10, number_in_top_25, number_in_top_50, number_unranked);
                     format(T, $str_alt465$__Sample_size___S__, length(scores));
                 }
                 return NIL;
@@ -3368,8 +3368,8 @@ public final class learned_nouns extends SubLTranslatedFile implements V02 {
                                             SubLObject weight_summands_by_selectivenessP = eq(calculate_tag_method, $APMI_SUM_WEIGHTED_BY_SELECTIVENESS);
                                             if (NIL != calculated_tag_summand) {
                                                 format(T, $str_alt486$____As_subject____S_____S__, verb, count);
-                                                format(T, $str_alt487$__typicality_subj__S__S_____S, new SubLObject[]{ verb, calculated_tag, calculated_tag_summand });
-                                                format(T, $str_alt488$__typicality_subj__S__S_____S__, new SubLObject[]{ verb, better_tag, better_tag_summand });
+                                                format(T, $str_alt487$__typicality_subj__S__S_____S, verb, calculated_tag, calculated_tag_summand);
+                                                format(T, $str_alt488$__typicality_subj__S__S_____S__, verb, better_tag, better_tag_summand);
                                                 if (count.numG(ONE_INTEGER)) {
                                                     calculated_tag_summand = multiply(calculated_tag_summand, count);
                                                     better_tag_summand = multiply(better_tag_summand, count);
@@ -3414,8 +3414,8 @@ public final class learned_nouns extends SubLTranslatedFile implements V02 {
                                             SubLObject weight_summands_by_selectivenessP = eq(calculate_tag_method, $APMI_SUM_WEIGHTED_BY_SELECTIVENESS);
                                             if (NIL != calculated_tag_summand) {
                                                 format(T, $str_alt494$____As_object____S_____S__, verb, count);
-                                                format(T, $str_alt495$__typicality_obj__S__S_____S, new SubLObject[]{ verb, calculated_tag, calculated_tag_summand });
-                                                format(T, $str_alt496$__typicality_obj__S__S_____S__, new SubLObject[]{ verb, better_tag, better_tag_summand });
+                                                format(T, $str_alt495$__typicality_obj__S__S_____S, verb, calculated_tag, calculated_tag_summand);
+                                                format(T, $str_alt496$__typicality_obj__S__S_____S__, verb, better_tag, better_tag_summand);
                                                 if (count.numG(ONE_INTEGER)) {
                                                     calculated_tag_summand = multiply(calculated_tag_summand, count);
                                                     better_tag_summand = multiply(better_tag_summand, count);

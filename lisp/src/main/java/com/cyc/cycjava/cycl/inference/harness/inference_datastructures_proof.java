@@ -719,7 +719,7 @@ public final class inference_datastructures_proof extends SubLTranslatedFile imp
                 SubLObject subproof_suids = Mapping.mapcar(PROOF_SUID, subproofs);
                 SubLObject dependents = com.cyc.cycjava.cycl.inference.harness.inference_datastructures_proof.proof_dependent_proofs(v_object, UNPROVIDED);
                 SubLObject dependent_suids = Mapping.mapcar(PROOF_SUID, dependents);
-                format(stream, $str_alt28$_PROOF__a__a_for_link__a__a_suppo, new SubLObject[]{ store_suid, proof_suid, store_suid, link_suid, subproof_suids, dependent_suids });
+                format(stream, $str_alt28$_PROOF__a__a_for_link__a__a_suppo, store_suid, proof_suid, store_suid, link_suid, subproof_suids, dependent_suids);
             }
         }
         return NIL;
@@ -736,7 +736,7 @@ public final class inference_datastructures_proof extends SubLTranslatedFile imp
             final SubLObject subproof_suids = Mapping.mapcar(PROOF_SUID, subproofs);
             final SubLObject dependents = proof_dependent_proofs(v_object, UNPROVIDED);
             final SubLObject dependent_suids = Mapping.mapcar(PROOF_SUID, dependents);
-            format(stream, $str37$_PROOF__a__a_for_link__a__a_suppo, new SubLObject[]{ store_suid, proof_suid, store_suid, link_suid, subproof_suids, dependent_suids });
+            format(stream, $str37$_PROOF__a__a_for_link__a__a_suppo, store_suid, proof_suid, store_suid, link_suid, subproof_suids, dependent_suids);
         }
         return NIL;
     }

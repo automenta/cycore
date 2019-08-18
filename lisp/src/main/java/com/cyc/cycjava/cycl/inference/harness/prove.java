@@ -1648,7 +1648,7 @@ public final class prove extends SubLTranslatedFile implements V12 {
             if (NIL != constant_p(v_term)) {
                 {
                     SubLObject term_id = constants_high.constant_internal_id(v_term);
-                    SubLObject final_name = format(NIL, $str_alt28$_A__A__A, new SubLObject[]{ name_prefix, start_name, term_id });
+                    SubLObject final_name = format(NIL, $str_alt28$_A__A__A, name_prefix, start_name, term_id);
                     final_name = constant_completion_high.uniquify_constant_name(final_name);
                     fi.fi_rename_int(v_term, final_name);
                     return v_term;
@@ -1670,7 +1670,7 @@ public final class prove extends SubLTranslatedFile implements V12 {
         final SubLObject v_term = fi.fi_create_int(initial_name, external_id);
         if (NIL != constant_p(v_term)) {
             final SubLObject term_id = constants_high.constant_internal_id(v_term);
-            SubLObject final_name = format(NIL, $str29$_A__A__A, new SubLObject[]{ name_prefix, start_name, term_id });
+            SubLObject final_name = format(NIL, $str29$_A__A__A, name_prefix, start_name, term_id);
             final_name = constant_completion_high.uniquify_constant_name(final_name, UNPROVIDED);
             fi.fi_rename_int(v_term, final_name);
             return v_term;

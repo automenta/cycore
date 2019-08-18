@@ -92,7 +92,7 @@ public final class sbhl_link_utilities extends SubLTranslatedFile implements V12
                                                             SubLObject tv = dictionary_contents.do_dictionary_contents_key_value(iteration_state_1);
                                                             SubLObject link_nodes = thread.secondMultipleValue();
                                                             thread.resetMultipleValues();
-                                                            format(T, $str_alt0$Direction__a__Mt__a__Tv__a___a__, new SubLObject[]{ direction, mt, tv, link_nodes });
+                                                            format(T, $str_alt0$Direction__a__Mt__a__Tv__a___a__, direction, mt, tv, link_nodes);
                                                             iteration_state_1 = dictionary_contents.do_dictionary_contents_next(iteration_state_1);
                                                         }
                                                     } 
@@ -136,7 +136,7 @@ public final class sbhl_link_utilities extends SubLTranslatedFile implements V12
                             final SubLObject tv = dictionary_contents.do_dictionary_contents_key_value(iteration_state_$1);
                             final SubLObject link_nodes = thread.secondMultipleValue();
                             thread.resetMultipleValues();
-                            format(T, $str0$Direction__a__Mt__a__Tv__a___a__, new SubLObject[]{ direction, mt, tv, link_nodes });
+                            format(T, $str0$Direction__a__Mt__a__Tv__a___a__, direction, mt, tv, link_nodes);
                         }
                         dictionary_contents.do_dictionary_contents_finalize(iteration_state_$1);
                     }

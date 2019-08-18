@@ -11,6 +11,7 @@ package subl.jrtl.translatedCode.sublisp;
 
 import abcl.LispObject;
 import subl.Errors;
+import subl.PrintLow;
 import subl.StreamsLow;
 import subl.SubLThread;
 import subl.type.core.SubLList;
@@ -111,9 +112,9 @@ public class print_high extends SubLTranslatedFile {
 	    if (state == REFERENCED) {
 		counter = add(counter, ONE_INTEGER);
 		rplacd(info, counter);
-		format(stream, $str32$__D_, counter);
+		PrintLow.format(stream, $str32$__D_, counter);
 	    } else if (state.isNumber()) {
-		format(stream, $str33$__D__, state);
+			PrintLow.format(stream, $str33$__D__, state);
 		return SubLNil.NIL;
 	    }
 
@@ -237,7 +238,7 @@ public class print_high extends SubLTranslatedFile {
     }
 
     public static SubLObject print_error(SubLObject object, SubLObject stream) {
-	format(stream, $str2$__Error_printing__S_, type_of(object));
+	PrintLow.format(stream, $str2$__Error_printing__S_, type_of(object));
 	return SubLNil.NIL;
     }
 

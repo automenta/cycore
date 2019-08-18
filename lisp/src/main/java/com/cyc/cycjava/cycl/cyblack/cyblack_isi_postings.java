@@ -228,7 +228,7 @@ public final class cyblack_isi_postings extends SubLTranslatedFile implements V0
     public static final SubLObject isi_problem_print_method(SubLObject self, SubLObject stream, SubLObject depth) {
         {
             SubLObject problem = get_isi_problem_problem(self);
-            format(stream, $str_alt61$__ISI_PROBLEM__FORMULA__S__MT__S_, new SubLObject[]{ getf(problem, $FORMULA, UNPROVIDED), getf(problem, $MT, UNPROVIDED), getf(problem, $BACKCHAINS, UNPROVIDED), getf(problem, $NUMBER, UNPROVIDED), getf(problem, $TIME, UNPROVIDED), getf(problem, $DEPTH, UNPROVIDED) });
+            format(stream, $str_alt61$__ISI_PROBLEM__FORMULA__S__MT__S_, getf(problem, $FORMULA, UNPROVIDED), getf(problem, $MT, UNPROVIDED), getf(problem, $BACKCHAINS, UNPROVIDED), getf(problem, $NUMBER, UNPROVIDED), getf(problem, $TIME, UNPROVIDED), getf(problem, $DEPTH, UNPROVIDED));
             return self;
         }
     }
@@ -445,7 +445,7 @@ public final class cyblack_isi_postings extends SubLTranslatedFile implements V0
         {
             SubLObject answer_to = get_isi_query_improvement_proposal_answer_to(self);
             SubLObject solution = get_isi_query_improvement_proposal_solution(self);
-            format(stream, $str_alt132$__QUERY_IMPROVEMENT_PROPOSAL__MIS, new SubLObject[]{ solution, getf(answer_to, $FORMULA, UNPROVIDED), getf(answer_to, $MT, UNPROVIDED), getf(answer_to, $BACKCHAINS, UNPROVIDED), getf(answer_to, $NUMBER, UNPROVIDED), getf(answer_to, $TIME, UNPROVIDED), getf(answer_to, $DEPTH, UNPROVIDED) });
+            format(stream, $str_alt132$__QUERY_IMPROVEMENT_PROPOSAL__MIS, solution, getf(answer_to, $FORMULA, UNPROVIDED), getf(answer_to, $MT, UNPROVIDED), getf(answer_to, $BACKCHAINS, UNPROVIDED), getf(answer_to, $NUMBER, UNPROVIDED), getf(answer_to, $TIME, UNPROVIDED), getf(answer_to, $DEPTH, UNPROVIDED));
             return self;
         }
     }

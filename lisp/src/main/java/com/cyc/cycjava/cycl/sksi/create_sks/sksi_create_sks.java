@@ -2104,7 +2104,7 @@ public final class sksi_create_sks extends SubLTranslatedFile implements V12 {
             return subl_promotions.positive_integer_p(result);
         }
         if (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(TWO_INTEGER)) {
-            format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str13$__SKSI__A_, $str56$SQL_CREATE_DATABASE_dropt_result_), new SubLObject[]{ TWO_INTEGER, result, sql_flavor });
+            format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str13$__SKSI__A_, $str56$SQL_CREATE_DATABASE_dropt_result_), TWO_INTEGER, result, sql_flavor);
             force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
         }
         return NIL;

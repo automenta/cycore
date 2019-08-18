@@ -896,7 +896,7 @@ public final class qa_benchmarks extends SubLTranslatedFile implements V02 {
                     }
                     {
                         SubLObject days_elapsed = date_utilities.days_between_universal_dates(first_date, date);
-                        format(T, $str_alt50$_a___a_____a_total___a_answerable, new SubLObject[]{ days_elapsed, date, total_count, answerable_count, unanswerable_count, error_count, lumpy_count });
+                        format(T, $str_alt50$_a___a_____a_total___a_answerable, days_elapsed, date, total_count, answerable_count, unanswerable_count, error_count, lumpy_count);
                     }
                 }
             }
@@ -1046,7 +1046,7 @@ public final class qa_benchmarks extends SubLTranslatedFile implements V02 {
                             SubLObject halt_reason = kbq_query_run.kbq_query_run_halt_reason(query_run);
                             SubLObject error = inference_datastructures_enumerated_types.inference_error_suspend_status_message(halt_reason);
                             SubLObject query = kbq_query_run.kbq_query_run_query(query_run);
-                            format(T, $str_alt58$_s__s__s__, new SubLObject[]{ query, complete_total_time, error });
+                            format(T, $str_alt58$_s__s__s__, query, complete_total_time, error);
                         }
                     }
                 }
@@ -1241,7 +1241,7 @@ public final class qa_benchmarks extends SubLTranslatedFile implements V02 {
                     }
                     {
                         SubLObject days_elapsed = date_utilities.days_between_universal_dates(first_date, date);
-                        format(T, $str_alt64$_a___a_____a_total___a_success___, new SubLObject[]{ days_elapsed, date, total_count, success_count, failure_count, error_count, lumpy_count });
+                        format(T, $str_alt64$_a___a_____a_total___a_success___, days_elapsed, date, total_count, success_count, failure_count, error_count, lumpy_count);
                     }
                 }
             }
@@ -1338,7 +1338,7 @@ public final class qa_benchmarks extends SubLTranslatedFile implements V02 {
                                 {
                                     SubLObject most_recent_failure_date = qa_test_most_recent_failure_date(test, kct_results);
                                     SubLObject most_recent_failure_datestring = (NIL != most_recent_failure_date) ? ((SubLObject) (numeric_date_utilities.datestring(most_recent_failure_date))) : $$$never;
-                                    format(T, $str_alt70$_a__failures___a__last_failure___, new SubLObject[]{ test, failure_count, most_recent_failure_datestring });
+                                    format(T, $str_alt70$_a__failures___a__last_failure___, test, failure_count, most_recent_failure_datestring);
                                 }
                             }
                         }
@@ -1379,7 +1379,7 @@ public final class qa_benchmarks extends SubLTranslatedFile implements V02 {
                                     SubLObject failure_count = list_utilities.alist_lookup(test_failure_alist, test, UNPROVIDED, UNPROVIDED);
                                     if ((NIL == failure_count) && (NIL != subl_promotions.positive_integer_p(success_count))) {
                                         if (!((NIL != isa.isa_in_any_mtP(test, $$KBContentRegressionTest)) || (NIL != isa.not_isa_in_any_mtP(test, $$KBContentRegressionTest)))) {
-                                            format(T, $str_alt73$_a___a_failures___a_successes__, new SubLObject[]{ test, failure_count, success_count });
+                                            format(T, $str_alt73$_a___a_failures___a_successes__, test, failure_count, success_count);
                                             regression_tests = cons(test, regression_tests);
                                         }
                                     }
@@ -1456,7 +1456,7 @@ public final class qa_benchmarks extends SubLTranslatedFile implements V02 {
                                     if (answerable_count.numE(ZERO_INTEGER) && unanswerable_count.numGE(unanswerable_threshold)) {
                                         queries = cons(query, queries);
                                     } else {
-                                        format(T, $str_alt78$_a_vs___a___a___, new SubLObject[]{ answerable_count, unanswerable_count, query });
+                                        format(T, $str_alt78$_a_vs___a___a___, answerable_count, unanswerable_count, query);
                                     }
                                 }
                             }
@@ -2151,7 +2151,7 @@ public final class qa_benchmarks extends SubLTranslatedFile implements V02 {
                                 SubLObject halt_reason = kbq_query_run.kbq_query_run_halt_reason(query_run);
                                 SubLObject error = inference_datastructures_enumerated_types.inference_error_suspend_status_message(halt_reason);
                                 SubLObject test = kbq_query_run.kct_test_run_test(test_run);
-                                format(T, $str_alt58$_s__s__s__, new SubLObject[]{ test, complete_total_time, error });
+                                format(T, $str_alt58$_s__s__s__, test, complete_total_time, error);
                             }
                         }
                     }

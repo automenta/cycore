@@ -288,7 +288,7 @@ public final class sbhl_paranoia extends SubLTranslatedFile implements V12 {
             SubLTrampolineFile.checkType(level, INTEGERP);
             SubLTrampolineFile.checkType(format_str, STRINGP);
             if ($sbhl_trace_level$.getDynamicValue(thread).numGE(level)) {
-                format(T, format_str, new SubLObject[]{ arg1, arg2, arg3, arg4, arg5 });
+                format(T, format_str, arg1, arg2, arg3, arg4, arg5);
                 return NIL;
             }
             return NIL;
@@ -319,7 +319,7 @@ public final class sbhl_paranoia extends SubLTranslatedFile implements V12 {
         assert NIL != integerp(level) : "! integerp(level) " + ("Types.integerp(level) " + "CommonSymbols.NIL != Types.integerp(level) ") + level;
         assert NIL != stringp(format_str) : "! stringp(format_str) " + ("Types.stringp(format_str) " + "CommonSymbols.NIL != Types.stringp(format_str) ") + format_str;
         if ($sbhl_trace_level$.getDynamicValue(thread).numGE(level)) {
-            format(T, format_str, new SubLObject[]{ arg1, arg2, arg3, arg4, arg5 });
+            format(T, format_str, arg1, arg2, arg3, arg4, arg5);
             return NIL;
         }
         return NIL;

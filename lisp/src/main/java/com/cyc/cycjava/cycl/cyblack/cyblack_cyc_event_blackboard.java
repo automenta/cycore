@@ -145,7 +145,7 @@ public final class cyblack_cyc_event_blackboard extends SubLTranslatedFile imple
     public static final SubLObject cyblack_cyc_event_test_root_posting_print_method(SubLObject self, SubLObject stream, SubLObject depth) {
         {
             SubLObject timestamp = get_cyblack_cyc_event_test_root_posting_timestamp(self);
-            format(stream, $str_alt49$___A__KS__S__TIME__S_, new SubLObject[]{ NIL != cyblack_posting.cyblack_basic_posting_get_datatype_method(self) ? ((SubLObject) (cyblack_datatype.cyblack_datatype_get_typename(cyblack_posting.cyblack_basic_posting_get_datatype_method(self)))) : $$$Unknown, cyblack_posting.cyblack_basic_posting_get_ks_method(self), timestamp });
+            format(stream, $str_alt49$___A__KS__S__TIME__S_, NIL != cyblack_posting.cyblack_basic_posting_get_datatype_method(self) ? ((SubLObject) (cyblack_datatype.cyblack_datatype_get_typename(cyblack_posting.cyblack_basic_posting_get_datatype_method(self)))) : $$$Unknown, cyblack_posting.cyblack_basic_posting_get_ks_method(self), timestamp);
             return self;
         }
     }
@@ -346,7 +346,7 @@ public final class cyblack_cyc_event_blackboard extends SubLTranslatedFile imple
             SubLObject timestamp = get_cyblack_cyc_event_test_root_posting_timestamp(self);
             try {
                 try {
-                    format(stream, $str_alt86$___A__KS__S__TIME__S__POSTING__S_, new SubLObject[]{ NIL != cyblack_posting.cyblack_basic_posting_get_datatype_method(self) ? ((SubLObject) (cyblack_datatype.cyblack_datatype_get_typename(cyblack_posting.cyblack_basic_posting_get_datatype_method(self)))) : $$$Unknown, cyblack_posting.cyblack_basic_posting_get_ks_method(self), timestamp, removed_posting });
+                    format(stream, $str_alt86$___A__KS__S__TIME__S__POSTING__S_, NIL != cyblack_posting.cyblack_basic_posting_get_datatype_method(self) ? ((SubLObject) (cyblack_datatype.cyblack_datatype_get_typename(cyblack_posting.cyblack_basic_posting_get_datatype_method(self)))) : $$$Unknown, cyblack_posting.cyblack_basic_posting_get_ks_method(self), timestamp, removed_posting);
                     sublisp_throw($sym85$OUTER_CATCH_FOR_CYBLACK_CYC_EVENT_TEST_ACKNOWLEDGE_POSTING_REMOVA, self);
                 } finally {
                     {

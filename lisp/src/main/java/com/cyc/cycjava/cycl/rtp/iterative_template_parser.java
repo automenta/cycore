@@ -5783,7 +5783,7 @@ public final class iterative_template_parser extends SubLTranslatedFile implemen
                     write_string($str_alt159$__, stream_61, UNPROVIDED, UNPROVIDED);
                     write(type_of(v_object), new SubLObject[]{ $STREAM, stream_61 });
                     write_char(CHAR_space, stream_61);
-                    format(stream, $str_alt218$Work___D_Solution___D_KB_Mt___A, new SubLObject[]{ queues.p_queue_size(com.cyc.cycjava.cycl.rtp.iterative_template_parser.itp_state_work_set(itp_state)), length(com.cyc.cycjava.cycl.rtp.iterative_template_parser.itp_state_solution_set(itp_state)), com.cyc.cycjava.cycl.rtp.iterative_template_parser.itp_state_working_mt(itp_state) });
+                    format(stream, $str_alt218$Work___D_Solution___D_KB_Mt___A, queues.p_queue_size(iterative_template_parser.itp_state_work_set(itp_state)), length(iterative_template_parser.itp_state_solution_set(itp_state)), iterative_template_parser.itp_state_working_mt(itp_state));
                     write_char(CHAR_space, stream_61);
                     write(pointer(v_object), new SubLObject[]{ $STREAM, stream_61, $BASE, SIXTEEN_INTEGER });
                     write_char(CHAR_greater, stream_61);
@@ -5799,7 +5799,7 @@ public final class iterative_template_parser extends SubLTranslatedFile implemen
             print_not_readable(itp_state, stream);
         } else {
             print_macros.print_unreadable_object_preamble(stream, itp_state, T, T);
-            format(stream, iterative_template_parser.$str227$Work___D_Solution___D_KB_Mt___A, new SubLObject[]{ p_queue_size(iterative_template_parser.itp_state_work_set(itp_state)), length(iterative_template_parser.itp_state_solution_set(itp_state)), iterative_template_parser.itp_state_working_mt(itp_state) });
+            format(stream, iterative_template_parser.$str227$Work___D_Solution___D_KB_Mt___A, p_queue_size(iterative_template_parser.itp_state_work_set(itp_state)), length(iterative_template_parser.itp_state_solution_set(itp_state)), iterative_template_parser.itp_state_working_mt(itp_state));
             print_macros.print_unreadable_object_postamble(stream, itp_state, T, T);
         }
         return itp_state;

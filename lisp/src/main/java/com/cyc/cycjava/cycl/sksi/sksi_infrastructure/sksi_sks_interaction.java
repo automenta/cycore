@@ -3972,7 +3972,7 @@ public final class sksi_sks_interaction extends SubLTranslatedFile implements V1
         SubLObject result = NIL;
         if (NIL != sql_open_statement_p(statement)) {
             if (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(ONE_INTEGER)) {
-                format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate(sksi_sks_interaction.$str87$__SKSI__A_, sksi_sks_interaction.$str92$Executing_SQL_____Source___S____U), new SubLObject[]{ ONE_INTEGER, sksi_access_path.access_path_sks(access_path), sql });
+                format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate(sksi_sks_interaction.$str87$__SKSI__A_, sksi_sks_interaction.$str92$Executing_SQL_____Source___S____U), ONE_INTEGER, sksi_access_path.access_path_sks(access_path), sql);
                 force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
             }
             SubLObject success_var = NIL;
@@ -4186,7 +4186,7 @@ public final class sksi_sks_interaction extends SubLTranslatedFile implements V1
         SubLObject auto_generated_keys = NIL;
         if (NIL != sql_statements) {
             if (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(TWO_INTEGER)) {
-                format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate(sksi_sks_interaction.$str87$__SKSI__A_, sksi_sks_interaction.$str94$Batch_executing__s_SQL_statements), new SubLObject[]{ TWO_INTEGER, length(sql_statements), sk_source });
+                format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate(sksi_sks_interaction.$str87$__SKSI__A_, sksi_sks_interaction.$str94$Batch_executing__s_SQL_statements), TWO_INTEGER, length(sql_statements), sk_source);
                 force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
             }
             final SubLObject table_name = (NIL != get_auto_generated_keysP) ? sksi_kb_accessors.sk_source_name(sk_source) : NIL;
@@ -5918,7 +5918,7 @@ public final class sksi_sks_interaction extends SubLTranslatedFile implements V1
             final SubLObject parallelism = sksi_sks_interaction.$sparql_oracle_default_server_parallelism$.getDynamicValue(thread);
             final SubLObject timeout_pragma = (NIL != timeout) ? cconcatenate(sksi_sks_interaction.$str152$_timeout_, format_nil_a_no_copy(timeout)) : sksi_sks_interaction.$str153$;
             final SubLObject dop = (parallelism.numG(ONE_INTEGER)) ? cconcatenate(sksi_sks_interaction.$str154$_dop_, format_nil_a_no_copy(parallelism)) : sksi_sks_interaction.$str153$;
-            final SubLObject prefix_uri = format(NIL, sksi_sks_interaction.$sparql_oracle_fs_prefix_pragma_template$.getGlobalValue(), new SubLObject[]{ sparql_ticket, timeout_pragma, dop });
+            final SubLObject prefix_uri = format(NIL, sksi_sks_interaction.$sparql_oracle_fs_prefix_pragma_template$.getGlobalValue(), sparql_ticket, timeout_pragma, dop);
             sksi_csql_sparql_interpretation.sparql_write_prefix_uri_pair(prefix, prefix_uri, stream);
             prefix = sksi_sks_interaction.$str155$ORACLE_SEM_HT_NS;
             final SubLObject prefix_uri2 = format(NIL, sksi_sks_interaction.$sparql_oracle_ht_prefix_pragma_template$.getGlobalValue());

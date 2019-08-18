@@ -35,6 +35,7 @@ package abcl;
 
 import abcl.util.DecodingReader;
 import subl.type.core.SubLObjectFactory;
+import subl.type.stream.*;
 import subl.type.symbol.SubLSymbol;
 
 import java.io.*;
@@ -50,8 +51,8 @@ import java.util.*;
  * A base class for all Lisp built-in streams.
  *
  */
-public class Stream extends AbstractRandomAccessSubLStream implements ILispStream ,SubLOutputStream, SubLInputStream,
- SubLInputTextStream, SubLInputBinaryStream, SubLOutputBinaryStream, SubLOutputTextStream  {
+public class Stream extends AbstractRandomAccessSubLStream implements ILispStream , SubLOutputStream, SubLInputStream,
+	SubLInputTextStream, SubLInputBinaryStream, SubLOutputBinaryStream, SubLOutputTextStream  {
 
 
 	public static Stream createStream(Symbol structureClass, InputStream stream) {

@@ -596,7 +596,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                 control_vars.set_cyc_image_id();
             }
             {
-                SubLObject filename = format(NIL, $str_alt24$_a__a__a__a_a, new SubLObject[]{ control_vars.cyc_image_id(), $tm_op_log_identifier$.getDynamicValue(thread), cyc_month(), format(NIL, $str_alt25$_4__0D, $tm_op_log_version$.getDynamicValue(thread)), NIL != string_utilities.non_empty_stringP($tm_op_log_filename_extension$.getDynamicValue(thread)) ? ((SubLObject) (format(NIL, $str_alt26$__a, $tm_op_log_filename_extension$.getDynamicValue(thread)))) : $str_alt16$ });
+                SubLObject filename = format(NIL, $str_alt24$_a__a__a__a_a, control_vars.cyc_image_id(), $tm_op_log_identifier$.getDynamicValue(thread), cyc_month(), format(NIL, $str_alt25$_4__0D, $tm_op_log_version$.getDynamicValue(thread)), NIL != string_utilities.non_empty_stringP($tm_op_log_filename_extension$.getDynamicValue(thread)) ? ((SubLObject) (format(NIL, $str_alt26$__a, $tm_op_log_filename_extension$.getDynamicValue(thread)))) : $str_alt16$);
                 return filename;
             }
         }
@@ -694,13 +694,13 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                             SubLObject relation = tm_datastructures.tm_op_relation(operation);
                             SubLObject op_thes = second(tm_datastructures.tm_op_args(operation));
                             SubLObject thes_to_log = ((opcode == $ADD) && (relation == $$topInThesaurus)) ? ((SubLObject) (tm_mt_token_list(op_thes))) : mt_token_list.isCons() ? ((SubLObject) (mt_token_list)) : tm_mt_token_list(mt);
-                            log_string = format(NIL, $str_alt32$__s__s__s__s__s__s__s_, new SubLObject[]{ NIL != english ? ((SubLObject) (english)) : $$$No_English_available, user, result, control_vars.$cyc_image_id$.getDynamicValue(thread), cyc_date(), cyc_time(), thes_to_log });
+                            log_string = format(NIL, $str_alt32$__s__s__s__s__s__s__s_, NIL != english ? ((SubLObject) (english)) : $$$No_English_available, user, result, control_vars.$cyc_image_id$.getDynamicValue(thread), cyc_date(), cyc_time(), thes_to_log);
                         }
                     } else
                         if (operation.isString()) {
-                            log_string = format(NIL, $str_alt32$__s__s__s__s__s__s__s_, new SubLObject[]{ operation, user, result, control_vars.$cyc_image_id$.getDynamicValue(thread), cyc_date(), cyc_time(), mt_token_list.isCons() ? ((SubLObject) (mt_token_list)) : tm_mt_token_list(operation_mt) });
+                            log_string = format(NIL, $str_alt32$__s__s__s__s__s__s__s_, operation, user, result, control_vars.$cyc_image_id$.getDynamicValue(thread), cyc_date(), cyc_time(), mt_token_list.isCons() ? ((SubLObject) (mt_token_list)) : tm_mt_token_list(operation_mt));
                         } else {
-                            log_string = format(NIL, $str_alt32$__s__s__s__s__s__s__s_, new SubLObject[]{ $str_alt34$Bad_operation__No_English_availab, user, result, control_vars.$cyc_image_id$.getDynamicValue(thread), cyc_date(), cyc_time(), mt_token_list.isCons() ? ((SubLObject) (mt_token_list)) : tm_mt_token_list(operation_mt) });
+                            log_string = format(NIL, $str_alt32$__s__s__s__s__s__s__s_, $str_alt34$Bad_operation__No_English_availab, user, result, control_vars.$cyc_image_id$.getDynamicValue(thread), cyc_date(), cyc_time(), mt_token_list.isCons() ? ((SubLObject) (mt_token_list)) : tm_mt_token_list(operation_mt));
                         }
 
 
@@ -832,7 +832,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                                     SubLObject time_fragments = string_utilities.break_words(timestamp, symbol_function(DIGIT_CHAR_P), UNPROVIDED);
                                     SubLObject cyc_date = read_from_string_ignoring_errors(cconcatenate(third(time_fragments), new SubLObject[]{ time_fragments.first(), second(time_fragments) }), UNPROVIDED, UNPROVIDED, UNPROVIDED, UNPROVIDED);
                                     SubLObject cyc_time = read_from_string_ignoring_errors(cconcatenate(fourth(time_fragments), new SubLObject[]{ fifth(time_fragments), sixth(time_fragments) }), UNPROVIDED, UNPROVIDED, UNPROVIDED, UNPROVIDED);
-                                    format(out, $str_alt44$__s__s__s__s__s__s___, new SubLObject[]{ description, user, status, image_id, cyc_date, cyc_time });
+                                    format(out, $str_alt44$__s__s__s__s__s__s___, description, user, status, image_id, cyc_date, cyc_time);
                                 }
                             }
                         }
@@ -1186,7 +1186,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                 $tm_event_log_version$.setDynamicValue(ZERO_INTEGER, thread);
             }
             {
-                SubLObject filename = format(NIL, $str_alt59$_a__a__a_a, new SubLObject[]{ control_vars.cyc_image_id(), $tm_event_log_identifier$.getDynamicValue(thread), format(NIL, $str_alt25$_4__0D, $tm_event_log_version$.getDynamicValue(thread)), NIL != string_utilities.non_empty_stringP($tm_event_log_filename_extension$.getDynamicValue(thread)) ? ((SubLObject) (format(NIL, $str_alt26$__a, $tm_event_log_filename_extension$.getDynamicValue(thread)))) : $str_alt16$ });
+                SubLObject filename = format(NIL, $str_alt59$_a__a__a_a, control_vars.cyc_image_id(), $tm_event_log_identifier$.getDynamicValue(thread), format(NIL, $str_alt25$_4__0D, $tm_event_log_version$.getDynamicValue(thread)), NIL != string_utilities.non_empty_stringP($tm_event_log_filename_extension$.getDynamicValue(thread)) ? ((SubLObject) (format(NIL, $str_alt26$__a, $tm_event_log_filename_extension$.getDynamicValue(thread)))) : $str_alt16$);
                 return filename;
             }
         }
@@ -1385,7 +1385,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                 $tm_tmap_log_version$.setDynamicValue(ZERO_INTEGER, thread);
             }
             {
-                SubLObject filename = format(NIL, $str_alt59$_a__a__a_a, new SubLObject[]{ control_vars.cyc_image_id(), $tm_tmap_log_identifier$.getDynamicValue(thread), format(NIL, $str_alt25$_4__0D, $tm_tmap_log_version$.getDynamicValue(thread)), NIL != string_utilities.non_empty_stringP($tm_tmap_log_filename_extension$.getDynamicValue(thread)) ? ((SubLObject) (format(NIL, $str_alt26$__a, $tm_tmap_log_filename_extension$.getDynamicValue(thread)))) : $str_alt16$ });
+                SubLObject filename = format(NIL, $str_alt59$_a__a__a_a, control_vars.cyc_image_id(), $tm_tmap_log_identifier$.getDynamicValue(thread), format(NIL, $str_alt25$_4__0D, $tm_tmap_log_version$.getDynamicValue(thread)), NIL != string_utilities.non_empty_stringP($tm_tmap_log_filename_extension$.getDynamicValue(thread)) ? ((SubLObject) (format(NIL, $str_alt26$__a, $tm_tmap_log_filename_extension$.getDynamicValue(thread)))) : $str_alt16$);
                 return filename;
             }
         }
@@ -1609,7 +1609,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
             SubLObject day = cyc_day_integer();
             SubLObject year = cyc_year_integer();
             SubLObject month = integer_Gmonth(cyc_month_integer());
-            return format(NIL, $str_alt71$_A__A___A, new SubLObject[]{ month, day, year });
+            return format(NIL, $str_alt71$_A__A___A, month, day, year);
         }
     }
 
@@ -1631,7 +1631,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                 SubLObject day_string = format(NIL, $str_alt69$_2__0D, read_from_string_ignoring_errors(day_int_string, UNPROVIDED, UNPROVIDED, UNPROVIDED, UNPROVIDED));
                 SubLObject month_int = rassoc(month_name_string, $integer_month_name_table$.getDynamicValue(thread), symbol_function(EQUALP), UNPROVIDED).first();
                 SubLObject month_string = format(NIL, $str_alt69$_2__0D, month_int);
-                SubLObject cyc_date_string = format(NIL, $str_alt74$_a_a_a, new SubLObject[]{ year_int_string, month_string, day_string });
+                SubLObject cyc_date_string = format(NIL, $str_alt74$_a_a_a, year_int_string, month_string, day_string);
                 return read_from_string_ignoring_errors(cyc_date_string, UNPROVIDED, UNPROVIDED, UNPROVIDED, UNPROVIDED);
             }
         }
@@ -1644,7 +1644,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                 SubLObject day = subseq(date_string, SIX_INTEGER, EIGHT_INTEGER);
                 SubLObject year = subseq(date_string, TWO_INTEGER, FOUR_INTEGER);
                 SubLObject month = subseq(date_string, FOUR_INTEGER, SIX_INTEGER);
-                return format(NIL, $str_alt76$_a__a__a, new SubLObject[]{ month, day, year });
+                return format(NIL, $str_alt76$_a__a__a, month, day, year);
             }
         } else {
             return $$$UNKNOWN;
@@ -1658,7 +1658,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                 SubLObject hours = subseq(string, ZERO_INTEGER, TWO_INTEGER);
                 SubLObject minutes = subseq(string, TWO_INTEGER, FOUR_INTEGER);
                 SubLObject seconds = subseq(string, FOUR_INTEGER, SIX_INTEGER);
-                return format(NIL, $str_alt78$_a__a__a, new SubLObject[]{ hours, minutes, seconds });
+                return format(NIL, $str_alt78$_a__a__a, hours, minutes, seconds);
             }
         } else {
             return $$$UNKNOWN;
@@ -2225,7 +2225,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
             SubLObject month_int = extract_month_integer_from_date(thedate);
             SubLObject month = integer_Gmonth(month_int);
             SubLObject year_int = extract_year_integer_from_date(thedate);
-            return format(NIL, $str_alt94$_a__a__a, new SubLObject[]{ day_int, month, year_int });
+            return format(NIL, $str_alt94$_a__a__a, day_int, month, year_int);
         }
     }
 
@@ -2485,22 +2485,22 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                     if (NIL != personal_name) {
                         fill_personal = subtract($int$32, length(personal_label));
                         fillstring_personal = Strings.make_string(fill_personal, UNPROVIDED);
-                        format(stream, $str_alt118$_a_a___a, new SubLObject[]{ fillstring, string, user_name });
+                        format(stream, $str_alt118$_a_a___a, fillstring, string, user_name);
                         if (NIL != tm_internals.active_entityP(user_constant)) {
                             format(stream, $str_alt101$__);
                         } else {
                             format(stream, $str_alt119$__inactive___);
                         }
-                        format(stream, $str_alt118$_a_a___a, new SubLObject[]{ fillstring_personal, personal_label, personal_name });
+                        format(stream, $str_alt118$_a_a___a, fillstring_personal, personal_label, personal_name);
                     } else {
-                        format(stream, $str_alt118$_a_a___a, new SubLObject[]{ fillstring, string, user_name });
+                        format(stream, $str_alt118$_a_a___a, fillstring, string, user_name);
                     }
                 }
             } else {
                 if ($tm_user_print_label$.getGlobalValue().eql(string) && (!key.equalp($$$unknown))) {
-                    format(stream, $str_alt121$_a_a___a__a, new SubLObject[]{ fillstring, string, key, user_not_found });
+                    format(stream, $str_alt121$_a_a___a__a, fillstring, string, key, user_not_found);
                 } else {
-                    format(stream, $str_alt118$_a_a___a, new SubLObject[]{ fillstring, string, key });
+                    format(stream, $str_alt118$_a_a___a, fillstring, string, key);
                 }
             }
             format(stream, $str_alt101$__);
@@ -2512,7 +2512,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                     SubLObject n = find_longest_car(sorted_vals);
                     SubLObject diff = subtract(n, length(first_sorted_vals.first()));
                     SubLObject s = Strings.make_string(diff, UNPROVIDED);
-                    format(stream, $str_alt118$_a_a___a, new SubLObject[]{ s, first_sorted_vals.first(), second(first_sorted_vals) });
+                    format(stream, $str_alt118$_a_a___a, s, first_sorted_vals.first(), second(first_sorted_vals));
                     {
                         SubLObject cdolist_list_var = rest_sorted_vals;
                         SubLObject pair = NIL;
@@ -2522,7 +2522,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                                 SubLObject s2 = Strings.make_string(diff2, UNPROVIDED);
                                 format(stream, $str_alt101$__);
                                 format(stream, $str_alt124$_________________________________);
-                                format(stream, $str_alt118$_a_a___a, new SubLObject[]{ s2, pair.first(), second(pair) });
+                                format(stream, $str_alt118$_a_a___a, s2, pair.first(), second(pair));
                             }
                         }
                     }
@@ -2576,9 +2576,9 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                 SubLObject rest_sorted_vals = sorted_vals.rest();
                 format(stream, $str_alt103$____);
                 if (start_month.equalp(end_month)) {
-                    format(stream, $str_alt118$_a_a___a, new SubLObject[]{ fillstring, string, start_month });
+                    format(stream, $str_alt118$_a_a___a, fillstring, string, start_month);
                 } else {
-                    format(stream, $str_alt127$_a_a___a_to__a, new SubLObject[]{ fillstring, string, start_month, end_month });
+                    format(stream, $str_alt127$_a_a___a_to__a, fillstring, string, start_month, end_month);
                 }
                 format(stream, $str_alt101$__);
                 format(stream, $str_alt122$____________________Total_logins_, aggregate_logins);
@@ -2589,7 +2589,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                         SubLObject n = find_longest_car(sorted_vals);
                         SubLObject diff = subtract(n, length(first_sorted_vals.first()));
                         SubLObject s = Strings.make_string(diff, UNPROVIDED);
-                        format(stream, $str_alt118$_a_a___a, new SubLObject[]{ s, first_sorted_vals.first(), second(first_sorted_vals) });
+                        format(stream, $str_alt118$_a_a___a, s, first_sorted_vals.first(), second(first_sorted_vals));
                         {
                             SubLObject cdolist_list_var = rest_sorted_vals;
                             SubLObject pair = NIL;
@@ -2599,7 +2599,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                                     SubLObject s2 = Strings.make_string(diff2, UNPROVIDED);
                                     format(stream, $str_alt101$__);
                                     format(stream, $str_alt124$_________________________________);
-                                    format(stream, $str_alt118$_a_a___a, new SubLObject[]{ s2, pair.first(), second(pair) });
+                                    format(stream, $str_alt118$_a_a___a, s2, pair.first(), second(pair));
                                 }
                             }
                         }
@@ -2648,7 +2648,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                     SubLObject logins = total_logins_and_pages_accessed(month);
                     SubLObject pages = thread.secondMultipleValue();
                     thread.resetMultipleValues();
-                    format(stream, $str_alt128$_____a___a___a, new SubLObject[]{ line, pretty_month, line });
+                    format(stream, $str_alt128$_____a___a___a, line, pretty_month, line);
                     format(stream, $str_alt103$____);
                     format(stream, $str_alt129$________Total_logins_for_the_mont, logins);
                     format(stream, $str_alt101$__);
@@ -2705,7 +2705,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                 SubLObject line = Strings.make_string(ul, CHAR_hyphen);
                 SubLObject vecs_list = NIL;
                 SubLObject activityP = NIL;
-                format(stream, $str_alt128$_____a___a___a, new SubLObject[]{ line, user_print_string, line });
+                format(stream, $str_alt128$_____a___a___a, line, user_print_string, line);
                 {
                     SubLObject table = tm_datastructures.tm_value(tm_datastructures.$tm_user$.getDynamicValue(thread), $USER_EVENT_LOG_TABLE);
                     SubLObject val = gethash(user, table, UNPROVIDED);
@@ -2830,7 +2830,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                 SubLObject tot_pages_per_user_fill = Strings.make_string(subtract(main_label_align_column, tot_pages_per_user_label_length), CHAR_space);
                 SubLObject main_column_align_fill = Strings.make_string(main_label_align_column, CHAR_space);
                 SubLObject activityP = NIL;
-                format(stream, $str_alt128$_____a___a___a, new SubLObject[]{ line, thesaurus, line });
+                format(stream, $str_alt128$_____a___a___a, line, thesaurus, line);
                 {
                     SubLObject thes_table = tm_datastructures.tm_value(tm_datastructures.$tm_user$.getDynamicValue(thread), $THESAURUS_EVENT_LOG_TABLE);
                     SubLObject val = gethash(thesaurus, thes_table, UNPROVIDED);
@@ -2849,11 +2849,11 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                                     SubLObject vals = hash_table_utilities.get_table_values(table);
                                     SubLObject sorted_vals = Sort.sort(vals, symbol_function(STRING_LESSP), symbol_function(CAR));
                                     format(stream, $str_alt103$____);
-                                    format(stream, $str_alt143$_a_a__a, new SubLObject[]{ month_label_fill, month_label, readable_month(month) });
+                                    format(stream, $str_alt143$_a_a__a, month_label_fill, month_label, readable_month(month));
                                     format(stream, $str_alt101$__);
-                                    format(stream, $str_alt143$_a_a__a, new SubLObject[]{ tot_pages_accessed_fill, tot_pages_accessed_label, total_pages });
+                                    format(stream, $str_alt143$_a_a__a, tot_pages_accessed_fill, tot_pages_accessed_label, total_pages);
                                     format(stream, $str_alt101$__);
-                                    format(stream, $str_alt143$_a_a__a, new SubLObject[]{ num_users_period_fill, num_users_period_label, length(remove_duplicates(vals, symbol_function(EQUALP), symbol_function(CAR), UNPROVIDED, UNPROVIDED)) });
+                                    format(stream, $str_alt143$_a_a__a, num_users_period_fill, num_users_period_label, length(remove_duplicates(vals, symbol_function(EQUALP), symbol_function(CAR), UNPROVIDED, UNPROVIDED)));
                                     if (NIL != vals) {
                                         format(stream, $str_alt101$__);
                                         format(stream, $str_alt144$_a_a_, tot_pages_per_user_fill, tot_pages_per_user_label);
@@ -2863,7 +2863,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                                             SubLObject u = tm_print_name_for_user_in_report(form.first());
                                             SubLObject fill = subtract(n, length(u));
                                             SubLObject s = Strings.make_string(fill, UNPROVIDED);
-                                            format(stream, $str_alt118$_a_a___a, new SubLObject[]{ s, u, second(form) });
+                                            format(stream, $str_alt118$_a_a___a, s, u, second(form));
                                             {
                                                 SubLObject cdolist_list_var_14 = sorted_vals.rest();
                                                 SubLObject x = NIL;
@@ -2874,7 +2874,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                                                         SubLObject s2 = Strings.make_string(fill2, UNPROVIDED);
                                                         format(stream, $str_alt101$__);
                                                         format(stream, $str_alt145$_a_, main_column_align_fill);
-                                                        format(stream, $str_alt118$_a_a___a, new SubLObject[]{ s2, u2, second(x) });
+                                                        format(stream, $str_alt118$_a_a___a, s2, u2, second(x));
                                                     }
                                                 }
                                             }
@@ -2951,18 +2951,18 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                 {
                     SubLObject vals_users = hash_table_utilities.get_table_values(users);
                     SubLObject sorted_users = Sort.sort(vals_users, symbol_function(STRING_LESSP), symbol_function(CAR));
-                    format(stream, $str_alt128$_____a___a___a, new SubLObject[]{ line, thesaurus, line });
+                    format(stream, $str_alt128$_____a___a___a, line, thesaurus, line);
                     format(stream, $str_alt103$____);
                     if (NIL != activityP) {
                         if (start_month.equalp(end_month)) {
-                            format(stream, $str_alt143$_a_a__a, new SubLObject[]{ time_period_label_fill, time_period_label, start_month });
+                            format(stream, $str_alt143$_a_a__a, time_period_label_fill, time_period_label, start_month);
                         } else {
-                            format(stream, $str_alt146$_a_a__a_to__a, new SubLObject[]{ time_period_label_fill, time_period_label, start_month, end_month });
+                            format(stream, $str_alt146$_a_a__a_to__a, time_period_label_fill, time_period_label, start_month, end_month);
                         }
                         format(stream, $str_alt101$__);
-                        format(stream, $str_alt143$_a_a__a, new SubLObject[]{ tot_pages_accessed_fill, tot_pages_accessed_label, aggregate_pages });
+                        format(stream, $str_alt143$_a_a__a, tot_pages_accessed_fill, tot_pages_accessed_label, aggregate_pages);
                         format(stream, $str_alt101$__);
-                        format(stream, $str_alt143$_a_a__a, new SubLObject[]{ num_users_period_fill, num_users_period_label, hash_table_count(users) });
+                        format(stream, $str_alt143$_a_a__a, num_users_period_fill, num_users_period_label, hash_table_count(users));
                         if (NIL != vals_users) {
                             format(stream, $str_alt101$__);
                             format(stream, $str_alt144$_a_a_, tot_pages_per_user_fill, tot_pages_per_user_label);
@@ -2972,7 +2972,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                                 SubLObject u = tm_print_name_for_user_in_report(form.first());
                                 SubLObject fill = subtract(n, length(u));
                                 SubLObject s = Strings.make_string(fill, UNPROVIDED);
-                                format(stream, $str_alt118$_a_a___a, new SubLObject[]{ s, u, second(form) });
+                                format(stream, $str_alt118$_a_a___a, s, u, second(form));
                                 {
                                     SubLObject cdolist_list_var = sorted_users.rest();
                                     SubLObject x = NIL;
@@ -2983,7 +2983,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                                             SubLObject s2 = Strings.make_string(fill2, UNPROVIDED);
                                             format(stream, $str_alt101$__);
                                             format(stream, $str_alt145$_a_, main_column_align_fill);
-                                            format(stream, $str_alt118$_a_a___a, new SubLObject[]{ s2, u2, second(x) });
+                                            format(stream, $str_alt118$_a_a___a, s2, u2, second(x));
                                         }
                                     }
                                 }
@@ -3025,7 +3025,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                 SubLObject month = thread.secondMultipleValue();
                 SubLObject year = thread.thirdMultipleValue();
                 thread.resetMultipleValues();
-                return format(NIL, $str_alt147$_a__a__a, new SubLObject[]{ year, month, day });
+                return format(NIL, $str_alt147$_a__a__a, year, month, day);
             }
         }
     }
@@ -3048,9 +3048,9 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                         SubLObject start_date = add_day_to_month_year_integer(start_month, ONE_INTEGER);
                         SubLObject end_date = (end_month.numGE(cyc_month())) ? ((SubLObject) (cyc_date())) : add_day_to_month_year_integer(end_month, $int$31);
                         if (end_month.numGE(cyc_month())) {
-                            date = format(NIL, $str_alt150$_a__a__a_to__a__a__a, new SubLObject[]{ extract_month_integer_from_date(start_date), extract_day_integer_from_date(start_date), extract_year_integer_from_date(start_date), extract_month_integer_from_date(end_date), extract_day_integer_from_date(end_date), extract_year_integer_from_date(end_date) });
+                            date = format(NIL, $str_alt150$_a__a__a_to__a__a__a, extract_month_integer_from_date(start_date), extract_day_integer_from_date(start_date), extract_year_integer_from_date(start_date), extract_month_integer_from_date(end_date), extract_day_integer_from_date(end_date), extract_year_integer_from_date(end_date));
                         } else {
-                            date = format(NIL, $str_alt151$_a__a__a_through__a__a, new SubLObject[]{ extract_month_integer_from_date(start_date), extract_day_integer_from_date(start_date), extract_year_integer_from_date(start_date), extract_month_integer_from_date(end_date), extract_year_integer_from_date(end_date) });
+                            date = format(NIL, $str_alt151$_a__a__a_through__a__a, extract_month_integer_from_date(start_date), extract_day_integer_from_date(start_date), extract_year_integer_from_date(start_date), extract_month_integer_from_date(end_date), extract_year_integer_from_date(end_date));
                         }
                     }
                 } else {
@@ -3286,7 +3286,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                 SubLObject ul = length(application_print_string);
                 SubLObject line = Strings.make_string(ul, CHAR_hyphen);
                 SubLObject activityP = NIL;
-                format(stream, $str_alt128$_____a___a___a, new SubLObject[]{ line, application_print_string, line });
+                format(stream, $str_alt128$_____a___a___a, line, application_print_string, line);
                 {
                     SubLObject table = tm_datastructures.tm_value(tm_datastructures.$tm_user$.getDynamicValue(thread), $APPLICATION_TMAP_LOG_TABLE);
                     SubLObject val = gethash(application, table, UNPROVIDED);
@@ -3324,7 +3324,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
             SubLObject rest_sorted_vals = sorted_vals.rest();
             SubLObject activityP = T;
             format(stream, $str_alt103$____);
-            format(stream, $str_alt118$_a_a___a, new SubLObject[]{ fillstring, string, key });
+            format(stream, $str_alt118$_a_a___a, fillstring, string, key);
             format(stream, $str_alt101$__);
             format(stream, $str_alt156$____________Total_session_starts_, logins);
             if (NIL != vals) {
@@ -3334,7 +3334,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                     SubLObject n = find_longest_car(sorted_vals);
                     SubLObject diff = subtract(n, length(first_sorted_vals.first()));
                     SubLObject s = Strings.make_string(diff, UNPROVIDED);
-                    format(stream, $str_alt118$_a_a___a, new SubLObject[]{ s, first_sorted_vals.first(), second(first_sorted_vals) });
+                    format(stream, $str_alt118$_a_a___a, s, first_sorted_vals.first(), second(first_sorted_vals));
                     {
                         SubLObject cdolist_list_var = rest_sorted_vals;
                         SubLObject pair = NIL;
@@ -3344,7 +3344,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                                 SubLObject s2 = Strings.make_string(diff2, UNPROVIDED);
                                 format(stream, $str_alt101$__);
                                 format(stream, $str_alt124$_________________________________);
-                                format(stream, $str_alt118$_a_a___a, new SubLObject[]{ s2, pair.first(), second(pair) });
+                                format(stream, $str_alt118$_a_a___a, s2, pair.first(), second(pair));
                             }
                         }
                     }
@@ -3396,7 +3396,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                 SubLObject tot_commands_per_application_fill = Strings.make_string(subtract(main_label_align_column, tot_commands_per_application_label_length), CHAR_space);
                 SubLObject main_column_align_fill = Strings.make_string(main_label_align_column, CHAR_space);
                 SubLObject activityP = NIL;
-                format(stream, $str_alt128$_____a___a___a, new SubLObject[]{ line, thesaurus, line });
+                format(stream, $str_alt128$_____a___a___a, line, thesaurus, line);
                 {
                     SubLObject thes_table = tm_datastructures.tm_value(tm_datastructures.$tm_user$.getDynamicValue(thread), $THESAURUS_TMAP_LOG_TABLE);
                     SubLObject val = gethash(thesaurus, thes_table, UNPROVIDED);
@@ -3413,9 +3413,9 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                                 SubLObject vals = hash_table_utilities.get_table_values(table);
                                 SubLObject sorted_vals = Sort.sort(vals, symbol_function(STRING_LESSP), symbol_function(CAR));
                                 format(stream, $str_alt103$____);
-                                format(stream, $str_alt143$_a_a__a, new SubLObject[]{ month_label_fill, month_label, readable_month(month) });
+                                format(stream, $str_alt143$_a_a__a, month_label_fill, month_label, readable_month(month));
                                 format(stream, $str_alt101$__);
-                                format(stream, $str_alt143$_a_a__a, new SubLObject[]{ tot_commands_fill, tot_commands_label, total_commands });
+                                format(stream, $str_alt143$_a_a__a, tot_commands_fill, tot_commands_label, total_commands);
                                 if (NIL != vals) {
                                     format(stream, $str_alt101$__);
                                     format(stream, $str_alt144$_a_a_, tot_commands_per_application_fill, tot_commands_per_application_label);
@@ -3425,7 +3425,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                                         SubLObject print_name_for_app = first_app_value_pair.first();
                                         SubLObject fill = subtract(longest, length(print_name_for_app));
                                         SubLObject s = Strings.make_string(fill, UNPROVIDED);
-                                        format(stream, $str_alt118$_a_a___a, new SubLObject[]{ s, print_name_for_app, second(first_app_value_pair) });
+                                        format(stream, $str_alt118$_a_a___a, s, print_name_for_app, second(first_app_value_pair));
                                         {
                                             SubLObject cdolist_list_var_17 = sorted_vals.rest();
                                             SubLObject app_value_pair = NIL;
@@ -3436,7 +3436,7 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                                                     SubLObject s2 = Strings.make_string(fill2, UNPROVIDED);
                                                     format(stream, $str_alt101$__);
                                                     format(stream, $str_alt145$_a_, main_column_align_fill);
-                                                    format(stream, $str_alt118$_a_a___a, new SubLObject[]{ s2, app_print_name, second(app_value_pair) });
+                                                    format(stream, $str_alt118$_a_a___a, s2, app_print_name, second(app_value_pair));
                                                 }
                                             }
                                         }
@@ -3473,9 +3473,9 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                         SubLObject start_date = add_day_to_month_year_integer(start_month, ONE_INTEGER);
                         SubLObject end_date = (end_month.numGE(cyc_month())) ? ((SubLObject) (cyc_date())) : add_day_to_month_year_integer(end_month, $int$31);
                         if (end_month.numGE(cyc_month())) {
-                            date = format(NIL, $str_alt150$_a__a__a_to__a__a__a, new SubLObject[]{ extract_month_integer_from_date(start_date), extract_day_integer_from_date(start_date), extract_year_integer_from_date(start_date), extract_month_integer_from_date(end_date), extract_day_integer_from_date(end_date), extract_year_integer_from_date(end_date) });
+                            date = format(NIL, $str_alt150$_a__a__a_to__a__a__a, extract_month_integer_from_date(start_date), extract_day_integer_from_date(start_date), extract_year_integer_from_date(start_date), extract_month_integer_from_date(end_date), extract_day_integer_from_date(end_date), extract_year_integer_from_date(end_date));
                         } else {
-                            date = format(NIL, $str_alt151$_a__a__a_through__a__a, new SubLObject[]{ extract_month_integer_from_date(start_date), extract_day_integer_from_date(start_date), extract_year_integer_from_date(start_date), extract_month_integer_from_date(end_date), extract_year_integer_from_date(end_date) });
+                            date = format(NIL, $str_alt151$_a__a__a_through__a__a, extract_month_integer_from_date(start_date), extract_day_integer_from_date(start_date), extract_year_integer_from_date(start_date), extract_month_integer_from_date(end_date), extract_year_integer_from_date(end_date));
                         }
                     }
                 } else {
@@ -3572,9 +3572,9 @@ public final class tm_logging extends SubLTranslatedFile implements V02 {
                 SubLObject date = NIL;
                 if ((NIL != start_date) && (NIL != end_date)) {
                     if (start_date.numE(end_date)) {
-                        date = format(NIL, $str_alt147$_a__a__a, new SubLObject[]{ extract_month_integer_from_date(start_date), extract_day_integer_from_date(start_date), extract_year_integer_from_date(start_date) });
+                        date = format(NIL, $str_alt147$_a__a__a, extract_month_integer_from_date(start_date), extract_day_integer_from_date(start_date), extract_year_integer_from_date(start_date));
                     } else {
-                        date = format(NIL, $str_alt150$_a__a__a_to__a__a__a, new SubLObject[]{ extract_month_integer_from_date(start_date), extract_day_integer_from_date(start_date), extract_year_integer_from_date(start_date), extract_month_integer_from_date(end_date), extract_day_integer_from_date(end_date), extract_year_integer_from_date(end_date) });
+                        date = format(NIL, $str_alt150$_a__a__a_to__a__a__a, extract_month_integer_from_date(start_date), extract_day_integer_from_date(start_date), extract_year_integer_from_date(start_date), extract_month_integer_from_date(end_date), extract_day_integer_from_date(end_date), extract_year_integer_from_date(end_date));
                     }
                 } else {
                     date = make_date_identifier();

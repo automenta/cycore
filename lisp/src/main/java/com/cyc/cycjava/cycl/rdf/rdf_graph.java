@@ -5796,7 +5796,7 @@ public final class rdf_graph extends SubLTranslatedFile implements V12 {
             final SubLObject predicate_string = rdf_graph_node_abbreviation_string(v_graph, rdf_triple.rdf_triple_predicate(triple));
             final SubLObject subject_string = rdf_graph_node_abbreviation_string(v_graph, rdf_triple.rdf_triple_subject(triple));
             final SubLObject object_string = rdf_graph_node_abbreviation_string(v_graph, rdf_triple.rdf_triple_object(triple));
-            format(StreamsLow.$standard_output$.getDynamicValue(thread), rdf_graph.$str152$______A__A__A___, new SubLObject[]{ predicate_string, subject_string, object_string });
+            format(StreamsLow.$standard_output$.getDynamicValue(thread), rdf_graph.$str152$______A__A__A___, predicate_string, subject_string, object_string);
             cdolist_list_var = cdolist_list_var.rest();
             triple = cdolist_list_var.first();
         } 

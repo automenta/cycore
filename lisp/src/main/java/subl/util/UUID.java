@@ -7,14 +7,16 @@ import java.io.Serializable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class UUID implements Serializable, Comparable {
 	private UUID(byte[] data) {
-		version = -1;
-		variant = -1;
-		timestamp = -1L;
-		sequence = -1;
-		node = -1L;
+//		version = -1;
+//		variant = -1;
+//		timestamp = -1L;
+//		sequence = -1;
+//		node = -1L;
 		hashCode = -1;
 		long msb = 0L;
 		long lsb = 0L;
@@ -28,11 +30,11 @@ public class UUID implements Serializable, Comparable {
 	}
 
 	public UUID(long mostSigBits, long leastSigBits) {
-		version = -1;
-		variant = -1;
-		timestamp = -1L;
-		sequence = -1;
-		node = -1L;
+//		version = -1;
+//		variant = -1;
+//		timestamp = -1L;
+//		sequence = -1;
+//		node = -1L;
 		hashCode = -1;
 		this.mostSigBits = mostSigBits;
 		this.leastSigBits = leastSigBits;
@@ -82,9 +84,10 @@ public class UUID implements Serializable, Comparable {
 	}
 
 	public static UUID randomUUID() {
-		SecureRandom ng = UUID.numberGenerator;
-		if (ng == null)
-			ng = UUID.numberGenerator = new SecureRandom();
+//		Random ng = UUID.numberGenerator;
+//		if (ng == null)
+//			ng = UUID.numberGenerator = new SecureRandom();
+		Random ng = ThreadLocalRandom.current();
 		byte[] randomBytes = new byte[16];
 		ng.nextBytes(randomBytes);
 		byte[] array = randomBytes;
@@ -103,41 +106,41 @@ public class UUID implements Serializable, Comparable {
 		return new UUID(randomBytes);
 	}
 
-	private long mostSigBits;
-	private long leastSigBits;
-	private transient int version;
-	private transient int variant;
-	private transient volatile long timestamp;
-	private transient int sequence;
-	private transient long node;
+	private final long mostSigBits;
+	private final long leastSigBits;
+//	private transient int version;
+//	private transient int variant;
+//	private transient volatile long timestamp;
+//	private transient int sequence;
+//	private transient long node;
 	private transient int hashCode;
 	private static long serialVersionUID = -4856846361193249489L;
-	private static volatile SecureRandom numberGenerator;
-	static {
-		UUID.numberGenerator = null;
-	}
+//	private static volatile Random numberGenerator;
+//	static {
+//		UUID.numberGenerator = null;
+//	}
 
 	private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
 		in.defaultReadObject();
-		version = -1;
-		variant = -1;
-		timestamp = -1L;
-		sequence = -1;
-		node = -1L;
+//		version = -1;
+//		variant = -1;
+//		timestamp = -1L;
+//		sequence = -1;
+//		node = -1L;
 		hashCode = -1;
 	}
 
 	public int clockSequence() {
 		if (version() != 1)
 			throw new UnsupportedOperationException("Not a time-based UUID");
-		if (sequence < 0)
-			sequence = (int) ((leastSigBits & 0x3FFF000000000000L) >>> 48);
-		return sequence;
+//		if (sequence < 0)
+			/*sequence =*/ return (int) ((leastSigBits & 0x3FFF000000000000L) >>> 48);
+//		return sequence;
 	}
 
 	@Override
 	public int compareTo(Object obj) {
-		if (obj == null || !(obj instanceof UUID))
+		if (!(obj instanceof UUID))
 			throw new RuntimeException("Can't compare UUIDs to non-UUIDs: " + obj);
 		UUID val = (UUID) obj;
 		return mostSigBits < val.mostSigBits ? -1
@@ -147,6 +150,7 @@ public class UUID implements Serializable, Comparable {
 
 	@Override
 	public boolean equals(Object obj) {
+		if (this == obj) return true;
 		if (!(obj instanceof UUID))
 			return false;
 		if (((UUID) obj).variant() != variant())
@@ -173,22 +177,23 @@ public class UUID implements Serializable, Comparable {
 	public long node() {
 		if (version() != 1)
 			throw new UnsupportedOperationException("Not a time-based UUID");
-		if (node < 0L)
-			node = leastSigBits & 0xFFFFFFFFFFFFL;
-		return node;
+//		if (node < 0L)
+			/*node =*/ return leastSigBits & 0xFFFFFFFFFFFFL;
+//		return node;
 	}
 
 	public long timestamp() {
 		if (version() != 1)
 			throw new UnsupportedOperationException("Not a time-based UUID");
-		long result = timestamp;
-		if (result < 0L) {
-			result = (mostSigBits & 0xFFFL) << 48;
-			result |= (mostSigBits >> 16 & 0xFFFFL) << 32;
-			result |= mostSigBits >>> 32;
-			timestamp = result;
-		}
-		return result;
+//		long timestamp = this.timestamp;
+//		if (timestamp < 0L) {
+		long
+			timestamp = (mostSigBits & 0xFFFL) << 48;
+			timestamp |= (mostSigBits >> 16 & 0xFFFFL) << 32;
+			timestamp |= mostSigBits >>> 32;
+			//this.timestamp = result;
+		//}
+		return timestamp;
 	}
 
 	@Override
@@ -198,7 +203,8 @@ public class UUID implements Serializable, Comparable {
 	}
 
 	public int variant() {
-		if (variant < 0)
+		int variant;
+//		if (variant < 0)
 			if (leastSigBits >>> 63 == 0L)
 				variant = 0;
 			else if (leastSigBits >>> 62 == 2L)
@@ -209,8 +215,8 @@ public class UUID implements Serializable, Comparable {
 	}
 
 	public int version() {
-		if (version < 0)
-			version = (int) (mostSigBits >> 12 & 0xFL);
-		return version;
+//		if (version < 0)
+			/*version =*/ return (int) (mostSigBits >> 12 & 0xFL);
+//		return version;
 	}
 }

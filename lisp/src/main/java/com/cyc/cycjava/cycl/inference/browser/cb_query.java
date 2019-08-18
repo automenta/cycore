@@ -7958,7 +7958,7 @@ public final class cb_query extends SubLTranslatedFile implements V12 {
                         html_simple_attribute(html_macros.$html_input_checked$.getGlobalValue());
                     }
                     html_indent(ONE_INTEGER);
-                    format(html_macros.$html_stream$.getDynamicValue(thread), $cb_clear_and_set_all_radio_buttons_script$.getGlobalValue(), new SubLObject[]{ entry_name, inference_mode_field_name, $inference_mode_custom_value_number$.getGlobalValue() });
+                    format(html_macros.$html_stream$.getDynamicValue(thread), $cb_clear_and_set_all_radio_buttons_script$.getGlobalValue(), entry_name, inference_mode_field_name, $inference_mode_custom_value_number$.getGlobalValue());
                     html_char(CHAR_greater, UNPROVIDED);
                 }
             } else {
@@ -8033,7 +8033,7 @@ public final class cb_query extends SubLTranslatedFile implements V12 {
                         html_simple_attribute(html_macros.$html_input_checked$.getGlobalValue());
                     }
                     html_indent(ONE_INTEGER);
-                    format(html_macros.$html_stream$.getDynamicValue(thread), $cb_focus_and_set_all_radio_buttons_script$.getGlobalValue(), new SubLObject[]{ entry_name, inference_mode_field_name, $inference_mode_custom_value_number$.getGlobalValue() });
+                    format(html_macros.$html_stream$.getDynamicValue(thread), $cb_focus_and_set_all_radio_buttons_script$.getGlobalValue(), entry_name, inference_mode_field_name, $inference_mode_custom_value_number$.getGlobalValue());
                     html_char(CHAR_greater, UNPROVIDED);
                 }
             } else {
@@ -8073,7 +8073,7 @@ public final class cb_query extends SubLTranslatedFile implements V12 {
             html_simple_attribute($html_input_checked$.getGlobalValue());
         }
         html_char(CHAR_space, UNPROVIDED);
-        format($html_stream$.getDynamicValue(thread), cb_query.$cb_focus_and_set_all_radio_buttons_script$.getGlobalValue(), new SubLObject[]{ entry_name, inference_mode_field_name, cb_query.$inference_mode_custom_value_number$.getGlobalValue() });
+        format($html_stream$.getDynamicValue(thread), cb_query.$cb_focus_and_set_all_radio_buttons_script$.getGlobalValue(), entry_name, inference_mode_field_name, cb_query.$inference_mode_custom_value_number$.getGlobalValue());
         if (NIL != $html_input_disabledP$.getDynamicValue(thread)) {
             html_simple_attribute($html_input_disabled$.getGlobalValue());
         }
@@ -16237,9 +16237,9 @@ public final class cb_query extends SubLTranslatedFile implements V12 {
                                 SubLObject last_tuple = list_utilities.last_one(tuples);
                                 SubLObject last_time = number_utilities.significant_digits(last_tuple.first(), THREE_INTEGER);
                                 SubLObject last_answer = second(last_tuple);
-                                format(s, $str_alt734$_chds__S__S__S__S, new SubLObject[]{ ZERO_INTEGER, last_time, ZERO_INTEGER, last_answer });
+                                format(s, $str_alt734$_chds__S__S__S__S, ZERO_INTEGER, last_time, ZERO_INTEGER, last_answer);
                                 write_string($str_alt735$_chxt_x_y_x_y, s, UNPROVIDED, UNPROVIDED);
-                                format(s, $str_alt736$_chxr_0__S__S_1__S__S, new SubLObject[]{ ZERO_INTEGER, last_time, ZERO_INTEGER, last_answer });
+                                format(s, $str_alt736$_chxr_0__S__S_1__S__S, ZERO_INTEGER, last_time, ZERO_INTEGER, last_answer);
                             }
                             {
                                 SubLObject xlabel = $str_alt737$Time__seconds_;
@@ -16349,9 +16349,9 @@ public final class cb_query extends SubLTranslatedFile implements V12 {
                 final SubLObject last_tuple = last_one(tuples);
                 final SubLObject last_time = multiply(NIL != use_millisecondsP ? $int$1000 : ONE_INTEGER, significant_digits(last_tuple.first(), THREE_INTEGER));
                 final SubLObject last_answer = max(TWO_INTEGER, second(last_tuple));
-                format(s, cb_query.$str795$_chds__S__S__S__S, new SubLObject[]{ ZERO_INTEGER, last_time, ZERO_INTEGER, last_answer });
+                format(s, cb_query.$str795$_chds__S__S__S__S, ZERO_INTEGER, last_time, ZERO_INTEGER, last_answer);
                 write_string(cb_query.$str796$_chxt_x_y_x_y, s, UNPROVIDED, UNPROVIDED);
-                format(s, cb_query.$str797$_chxr_0__S__S_1__S__S, new SubLObject[]{ ZERO_INTEGER, last_time, ZERO_INTEGER, last_answer });
+                format(s, cb_query.$str797$_chxr_0__S__S_1__S__S, ZERO_INTEGER, last_time, ZERO_INTEGER, last_answer);
                 final SubLObject xunits = (NIL != use_millisecondsP) ? cb_query.$$$milliseconds : cb_query.$$$seconds;
                 final SubLObject xlabel = cconcatenate(cb_query.$str800$Time__, new SubLObject[]{ format_nil_a_no_copy(xunits), cb_query.$str577$_ });
                 final SubLObject ylabel = cb_query.$str801$Answer__;
@@ -16573,7 +16573,7 @@ public final class cb_query extends SubLTranslatedFile implements V12 {
                 html_markup(html_macros.$html_anchor_href$.getGlobalValue());
                 html_char(CHAR_quotation, UNPROVIDED);
                 cyc_cgi_url_int();
-                format(html_macros.$html_stream$.getDynamicValue(thread), $str_alt756$cb_inference_strengthen_propertie, new SubLObject[]{ store_suid, inference_suid, mode });
+                format(html_macros.$html_stream$.getDynamicValue(thread), $str_alt756$cb_inference_strengthen_propertie, store_suid, inference_suid, mode);
                 html_char(CHAR_quotation, UNPROVIDED);
                 if (NIL != frame_name_var) {
                     html_markup(html_macros.$html_anchor_target$.getGlobalValue());
@@ -16616,7 +16616,7 @@ public final class cb_query extends SubLTranslatedFile implements V12 {
         html_markup($html_anchor_href$.getGlobalValue());
         html_char(CHAR_quotation, UNPROVIDED);
         cyc_cgi_url_int();
-        format($html_stream$.getDynamicValue(thread), cb_query.$str819$cb_inference_strengthen_propertie, new SubLObject[]{ store_suid, inference_suid, mode });
+        format($html_stream$.getDynamicValue(thread), cb_query.$str819$cb_inference_strengthen_propertie, store_suid, inference_suid, mode);
         html_char(CHAR_quotation, UNPROVIDED);
         if (NIL != frame_name_var) {
             html_markup($html_anchor_target$.getGlobalValue());
@@ -18646,13 +18646,13 @@ public final class cb_query extends SubLTranslatedFile implements V12 {
                 SubLObject utility = inference_analysis.transformation_rule_historical_utility(rule);
                 SubLObject pcase_var = verbosity;
                 if (pcase_var.eql($TERSE)) {
-                    format(html_macros.$html_stream$.getDynamicValue(thread), $str_alt822$_S__S___S_____utility____S, new SubLObject[]{ success, considered, number_utilities.significant_digits(multiply($int$100, probability), FOUR_INTEGER), utility });
+                    format(html_macros.$html_stream$.getDynamicValue(thread), $str_alt822$_S__S___S_____utility____S, success, considered, number_utilities.significant_digits(multiply($int$100, probability), FOUR_INTEGER), utility);
                 } else {
                     format(html_macros.$html_stream$.getDynamicValue(thread), $str_alt823$_S_utility, utility);
                     if (considered.isZero()) {
                         html_princ($str_alt824$__never_considered);
                     } else {
-                        format(html_macros.$html_stream$.getDynamicValue(thread), $str_alt825$__due_to__S___success___S__S_, new SubLObject[]{ number_utilities.significant_digits(multiply($int$100, probability), FOUR_INTEGER), success, considered });
+                        format(html_macros.$html_stream$.getDynamicValue(thread), $str_alt825$__due_to__S___success___S__S_, number_utilities.significant_digits(multiply($int$100, probability), FOUR_INTEGER), success, considered);
                     }
                 }
             }
@@ -18668,14 +18668,14 @@ public final class cb_query extends SubLTranslatedFile implements V12 {
         final SubLObject utility = transformation_rule_historical_utility(rule);
         if (verbosity.eql($TERSE)) {
             cb_query.cb_show_transformation_rule_utility_keyword(utility);
-            format($html_stream$.getDynamicValue(thread), cb_query.$str885$__S__S___S_____utility____S, new SubLObject[]{ success, considered, significant_digits(multiply($int$100, probability), FOUR_INTEGER), utility });
+            format($html_stream$.getDynamicValue(thread), cb_query.$str885$__S__S___S_____utility____S, success, considered, significant_digits(multiply($int$100, probability), FOUR_INTEGER), utility);
         } else {
             cb_query.cb_show_transformation_rule_utility_keyword(utility);
             format($html_stream$.getDynamicValue(thread), cb_query.$str886$__S_utility, utility);
             if (considered.isZero()) {
                 html_princ(cb_query.$str887$__never_considered);
             } else {
-                format($html_stream$.getDynamicValue(thread), cb_query.$str888$__due_to__S___success___S__S_, new SubLObject[]{ significant_digits(multiply($int$100, probability), FOUR_INTEGER), success, considered });
+                format($html_stream$.getDynamicValue(thread), cb_query.$str888$__due_to__S___success___S__S_, significant_digits(multiply($int$100, probability), FOUR_INTEGER), success, considered);
             }
         }
         return rule;

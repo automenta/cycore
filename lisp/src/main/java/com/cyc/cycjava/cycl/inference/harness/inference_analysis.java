@@ -3566,7 +3566,7 @@ public final class inference_analysis extends SubLTranslatedFile implements V12 
 			SubLObject success = com.cyc.cycjava.cycl.inference.harness.inference_analysis.transformation_rule_success_count(rule);
 			SubLObject probability = com.cyc.cycjava.cycl.inference.harness.inference_analysis.transformation_rule_success_probability(rule, UNPROVIDED);
 			SubLObject utility = com.cyc.cycjava.cycl.inference.harness.inference_analysis.transformation_rule_historical_utility(rule);
-			format(stream, $str_alt47$________S__S___S_____utility____S, new SubLObject[] { success, considered, number_utilities.significant_digits(multiply($int$100, probability), FOUR_INTEGER), utility, rule });
+			format(stream, $str_alt47$________S__S___S_____utility____S, success, considered, number_utilities.significant_digits(multiply($int$100, probability), FOUR_INTEGER), utility, rule);
 		    }
 		}
 	    }
@@ -3593,7 +3593,7 @@ public final class inference_analysis extends SubLTranslatedFile implements V12 
 	    final SubLObject success = transformation_rule_success_count(rule);
 	    final SubLObject probability = transformation_rule_success_probability(rule, UNPROVIDED);
 	    final SubLObject utility = transformation_rule_historical_utility(rule);
-	    format(stream, $str49$________S__S___S_____utility____S, new SubLObject[] { success, considered, number_utilities.significant_digits(multiply($int$100, probability), FOUR_INTEGER), utility, rule });
+	    format(stream, $str49$________S__S___S_____utility____S, success, considered, number_utilities.significant_digits(multiply($int$100, probability), FOUR_INTEGER), utility, rule);
 	    cdolist_list_var = cdolist_list_var.rest();
 	    rule = cdolist_list_var.first();
 	}

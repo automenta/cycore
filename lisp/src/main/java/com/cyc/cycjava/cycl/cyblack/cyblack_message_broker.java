@@ -3602,7 +3602,7 @@ public final class cyblack_message_broker extends SubLTranslatedFile implements 
             SubLObject external_module_name = get_cyblack_external_module_external_module_name(self);
             try {
                 try {
-                    format(stream, $str_alt510$__CYBLACK_EXTERNAL_MODULE_INSTANC, new SubLObject[]{ external_module_name, external_module_id, external_module_port });
+                    format(stream, $str_alt510$__CYBLACK_EXTERNAL_MODULE_INSTANC, external_module_name, external_module_id, external_module_port);
                     sublisp_throw($sym509$OUTER_CATCH_FOR_CYBLACK_EXTERNAL_MODULE_INSTANCE_METHOD, self);
                 } finally {
                     {

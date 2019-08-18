@@ -1499,7 +1499,7 @@ public final class sksi_conjunctive_removal_modules_applicability extends SubLTr
                 thread.resetMultipleValues();
                 if (NIL != error_message) {
                     if (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(FIVE_INTEGER)) {
-                        format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str_alt21$SKSI_, new SubLObject[]{ $str_alt22$Could_not_form_a_CSQL_query_with_, $str_alt23$__ }), new SubLObject[]{ meaning_sentence_gafs, append(asents, comparison_asents, evaluate_asents, sksi_unknown_sentence_asents), error_message });
+                        format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str_alt21$SKSI_, new SubLObject[]{ $str_alt22$Could_not_form_a_CSQL_query_with_, $str_alt23$__ }), meaning_sentence_gafs, append(asents, comparison_asents, evaluate_asents, sksi_unknown_sentence_asents), error_message);
                         force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
                     }
                 }
@@ -1519,7 +1519,7 @@ public final class sksi_conjunctive_removal_modules_applicability extends SubLTr
             sksi_conjunctive_removal_module_utilities.$csql_simplification_wrt_field_equivalance_enabledP$.rebind(_prev_bind_0, thread);
         }
         if ((NIL != error_message) && (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(FIVE_INTEGER))) {
-            format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str23$__SKSI__A_, $str24$Could_not_form_a_CSQL_query_with_), new SubLObject[]{ FIVE_INTEGER, meaning_sentence_gafs, append(asents, comparison_asents, evaluate_asents, sksi_unknown_sentence_asents), error_message });
+            format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str23$__SKSI__A_, $str24$Could_not_form_a_CSQL_query_with_), FIVE_INTEGER, meaning_sentence_gafs, append(asents, comparison_asents, evaluate_asents, sksi_unknown_sentence_asents), error_message);
             force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
         }
         return sublisp_null(error_message);
@@ -1551,7 +1551,7 @@ public final class sksi_conjunctive_removal_modules_applicability extends SubLTr
                             final SubLObject sql = sksi_csql_interpretation.csql_to_sql(csql, sksi_kb_accessors.sk_source_sql_flavor(sksi_query_datastructures.sks_profile_sks(sks_profile)), UNPROVIDED);
                             if (NIL == sql) {
                                 if (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(FIVE_INTEGER)) {
-                                    format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str23$__SKSI__A_, $str27$Could_not_form_a_SQL_query_with__), new SubLObject[]{ FIVE_INTEGER, meaning_sentence_gafs, append(asents, comparison_asents, evaluate_asents, sksi_unknown_sentence_asents), error_message });
+                                    format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str23$__SKSI__A_, $str27$Could_not_form_a_SQL_query_with__), FIVE_INTEGER, meaning_sentence_gafs, append(asents, comparison_asents, evaluate_asents, sksi_unknown_sentence_asents), error_message);
                                     force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
                                 }
                                 return NIL;
@@ -1569,7 +1569,7 @@ public final class sksi_conjunctive_removal_modules_applicability extends SubLTr
                 }
             }
             if ((NIL != error_message) && (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(FIVE_INTEGER))) {
-                format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str23$__SKSI__A_, $str24$Could_not_form_a_CSQL_query_with_), new SubLObject[]{ FIVE_INTEGER, meaning_sentence_gafs, append(asents, comparison_asents, evaluate_asents, sksi_unknown_sentence_asents), error_message });
+                format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str23$__SKSI__A_, $str24$Could_not_form_a_CSQL_query_with_), FIVE_INTEGER, meaning_sentence_gafs, append(asents, comparison_asents, evaluate_asents, sksi_unknown_sentence_asents), error_message);
                 force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
             }
             return sublisp_null(error_message);

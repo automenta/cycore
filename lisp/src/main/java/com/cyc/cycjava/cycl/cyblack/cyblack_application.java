@@ -852,7 +852,7 @@ public final class cyblack_application extends SubLTranslatedFile implements V02
                     {
                         SubLObject class_name = subloop_structures.class_name(subloop_structures.instance_class(self));
                         SubLObject application_name_1 = cyblack_basic_application_get_application_name_method(self);
-                        format(stream, $str_alt155$___S__A___S_, new SubLObject[]{ class_name, application_name_1, instance_number });
+                        format(stream, $str_alt155$___S__A___S_, class_name, application_name_1, instance_number);
                         sublisp_throw($sym154$OUTER_CATCH_FOR_CYBLACK_BASIC_APPLICATION_METHOD, self);
                     }
                 } finally {

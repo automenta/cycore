@@ -599,7 +599,7 @@ public final class ccf_report_generation extends SubLTranslatedFile implements V
     }
 
     public static final SubLObject print_exc_state(SubLObject v_object, SubLObject stream, SubLObject depth) {
-        format(stream, $str_alt39$__a_EXCLUSIVITY_STATE__a__a__a_, new SubLObject[]{ exc_state_satisfied_yetP(v_object), exc_state_exc_value(v_object), exc_state_default_value(v_object), exc_state_phys_fields(v_object) });
+        format(stream, $str_alt39$__a_EXCLUSIVITY_STATE__a__a__a_, exc_state_satisfied_yetP(v_object), exc_state_exc_value(v_object), exc_state_default_value(v_object), exc_state_phys_fields(v_object));
         return NIL;
     }
 

@@ -1734,7 +1734,7 @@ public final class sksi_hl_storage_module_generation extends SubLTranslatedFile 
     public static SubLObject sksi_sentence_hl_storage_module_assert(final SubLObject argument_spec, final SubLObject cnf, final SubLObject mt, final SubLObject direction, final SubLObject variable_map) {
         final SubLThread thread = SubLProcess.currentSubLThread();
         if (NIL != sksi_debugging.sksi_trace_level_exceeds_minimumP(NINE_INTEGER)) {
-            format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str50$__SKSI__A_, $str51$_sksi_sentence_hl_storage_module_), new SubLObject[]{ NINE_INTEGER, argument_spec, cnf, mt, direction, variable_map });
+            format(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread), cconcatenate($str50$__SKSI__A_, $str51$_sksi_sentence_hl_storage_module_), NINE_INTEGER, argument_spec, cnf, mt, direction, variable_map);
             force_output(sksi_debugging.$sksi_trace_stream$.getDynamicValue(thread));
         }
         final SubLObject asent = clause_utilities.gaf_cnf_literal(cnf);

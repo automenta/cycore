@@ -370,11 +370,11 @@ public final class washington_post_restaurants_widgets extends SubLTranslatedFil
     }
 
     public static final SubLObject washpost_rest_instantiate_query_alt(SubLObject cuisine, SubLObject price, SubLObject neighborhood) {
-        return format(NIL, $washpost_rest_url_query_template$.getGlobalValue(), new SubLObject[]{ cuisine, price, neighborhood });
+        return format(NIL, $washpost_rest_url_query_template$.getGlobalValue(), cuisine, price, neighborhood);
     }
 
     public static SubLObject washpost_rest_instantiate_query(final SubLObject cuisine, final SubLObject price, final SubLObject neighborhood) {
-        return format(NIL, $washpost_rest_url_query_template$.getGlobalValue(), new SubLObject[]{ cuisine, price, neighborhood });
+        return format(NIL, $washpost_rest_url_query_template$.getGlobalValue(), cuisine, price, neighborhood);
     }
 
     public static final SubLObject washpost_rest_update_cookie_stash_alt(SubLObject http_header) {
@@ -692,7 +692,7 @@ public final class washington_post_restaurants_widgets extends SubLTranslatedFil
             cuisines = current.first();
             current = current.rest();
             if (NIL == current) {
-                format(stream, $str_alt31$The_Restaurant__A_with_the_addres, new SubLObject[]{ name, address, phone_number });
+                format(stream, $str_alt31$The_Restaurant__A_with_the_addres, name, address, phone_number);
                 {
                     SubLObject cdolist_list_var = cuisines;
                     SubLObject cuisine = NIL;
@@ -739,7 +739,7 @@ public final class washington_post_restaurants_widgets extends SubLTranslatedFil
         cuisines = current.first();
         current = current.rest();
         if (NIL == current) {
-            format(stream, $str33$The_Restaurant__A_with_the_addres, new SubLObject[]{ name, address, phone_number });
+            format(stream, $str33$The_Restaurant__A_with_the_addres, name, address, phone_number);
             SubLObject cdolist_list_var = cuisines;
             SubLObject cuisine = NIL;
             cuisine = cdolist_list_var.first();

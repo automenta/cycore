@@ -2501,7 +2501,7 @@ public final class rdf_parser extends SubLTranslatedFile implements V12 {
                     }
                 }
                 format(T, $str_alt88$__Failed___S__, failed);
-                format(T, $str_alt89$__Summary___D_Parsed___D_Rightly_, new SubLObject[]{ length(parsed), length(rightly_errored), length(failed) });
+                format(T, $str_alt89$__Summary___D_Parsed___D_Rightly_, length(parsed), length(rightly_errored), length(failed));
                 return length(failed);
             }
         }
@@ -2627,7 +2627,7 @@ public final class rdf_parser extends SubLTranslatedFile implements V12 {
             $progress_note$.rebind(_prev_bind_0, thread);
         }
         format(T, $str87$__Failed___S__, failed);
-        format(T, $str88$__Summary___D_Parsed___D_Rightly_, new SubLObject[]{ length(parsed), length(rightly_errored), length(failed) });
+        format(T, $str88$__Summary___D_Parsed___D_Rightly_, length(parsed), length(rightly_errored), length(failed));
         return length(failed);
     }
 

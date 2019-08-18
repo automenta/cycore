@@ -551,7 +551,7 @@ public final class opencyc_diagnostics extends SubLTranslatedFile implements V02
             SubLObject cdolist_list_var = $opencyc_classes_to_count$.getGlobalValue();
             SubLObject v_class = NIL;
             for (v_class = cdolist_list_var.first(); NIL != cdolist_list_var; cdolist_list_var = cdolist_list_var.rest() , v_class = cdolist_list_var.first()) {
-                format(T, $str_alt44$___S___S___S_unique___, new SubLObject[]{ v_class, rdf_graph.rdf_graph_count_instances($opencyc_graph$.getGlobalValue(), v_class), length(rdf_graph.rdf_graph_instances($opencyc_graph$.getGlobalValue(), v_class, UNPROVIDED)) });
+                format(T, $str_alt44$___S___S___S_unique___, v_class, rdf_graph.rdf_graph_count_instances($opencyc_graph$.getGlobalValue(), v_class), length(rdf_graph.rdf_graph_instances($opencyc_graph$.getGlobalValue(), v_class, UNPROVIDED)));
             }
         }
         return NIL;
@@ -870,14 +870,14 @@ public final class opencyc_diagnostics extends SubLTranslatedFile implements V02
                                                     if (NIL == current) {
                                                         {
                                                             SubLObject canonical_uri = cconcatenate($str_alt85$_, new SubLObject[]{ format_nil.format_nil_a_no_copy(owl_opencyc_base_uri), format_nil.format_nil_a_no_copy(external_id), $str_alt86$_ });
-                                                            format(out_stream, $str_alt87$_A_A__A_A__A_A_AN__, new SubLObject[]{ canonical_uri, CHAR_tab, owl_opencyc_base_uri_dated, human_readable_name, CHAR_tab, comment, CHAR_tab });
-                                                            format(out_stream, $str_alt87$_A_A__A_A__A_A_AN__, new SubLObject[]{ canonical_uri, CHAR_tab, owl_opencyc_base_uri_dated, external_id, CHAR_tab, comment, CHAR_tab });
+                                                            format(out_stream, $str_alt87$_A_A__A_A__A_A_AN__, canonical_uri, CHAR_tab, owl_opencyc_base_uri_dated, human_readable_name, CHAR_tab, comment, CHAR_tab);
+                                                            format(out_stream, $str_alt87$_A_A__A_A__A_A_AN__, canonical_uri, CHAR_tab, owl_opencyc_base_uri_dated, external_id, CHAR_tab, comment, CHAR_tab);
                                                             {
                                                                 SubLObject cdolist_list_var = previous_base_uris;
                                                                 SubLObject deprecated_base_uri = NIL;
                                                                 for (deprecated_base_uri = cdolist_list_var.first(); NIL != cdolist_list_var; cdolist_list_var = cdolist_list_var.rest() , deprecated_base_uri = cdolist_list_var.first()) {
-                                                                    format(out_stream, $str_alt88$_A_A__A_A__A_A_AY__, new SubLObject[]{ canonical_uri, CHAR_tab, deprecated_base_uri, human_readable_name, CHAR_tab, comment, CHAR_tab });
-                                                                    format(out_stream, $str_alt88$_A_A__A_A__A_A_AY__, new SubLObject[]{ canonical_uri, CHAR_tab, deprecated_base_uri, external_id, CHAR_tab, comment, CHAR_tab });
+                                                                    format(out_stream, $str_alt88$_A_A__A_A__A_A_AY__, canonical_uri, CHAR_tab, deprecated_base_uri, human_readable_name, CHAR_tab, comment, CHAR_tab);
+                                                                    format(out_stream, $str_alt88$_A_A__A_A__A_A_AY__, canonical_uri, CHAR_tab, deprecated_base_uri, external_id, CHAR_tab, comment, CHAR_tab);
                                                                 }
                                                             }
                                                         }
@@ -1011,14 +1011,14 @@ public final class opencyc_diagnostics extends SubLTranslatedFile implements V02
                                                             if (NIL == current) {
                                                                 {
                                                                     SubLObject canonical_uri = cconcatenate($str_alt85$_, new SubLObject[]{ format_nil.format_nil_a_no_copy(owl_opencyc_base_uri), format_nil.format_nil_a_no_copy(external_id), $str_alt86$_ });
-                                                                    format(out_stream, $str_alt91$_A_A__A_A__A_A__, new SubLObject[]{ canonical_uri, CHAR_tab, owl_opencyc_base_uri_dated, human_readable_name, CHAR_tab, comment });
-                                                                    format(out_stream, $str_alt91$_A_A__A_A__A_A__, new SubLObject[]{ canonical_uri, CHAR_tab, owl_opencyc_base_uri_dated, external_id, CHAR_tab, comment });
+                                                                    format(out_stream, $str_alt91$_A_A__A_A__A_A__, canonical_uri, CHAR_tab, owl_opencyc_base_uri_dated, human_readable_name, CHAR_tab, comment);
+                                                                    format(out_stream, $str_alt91$_A_A__A_A__A_A__, canonical_uri, CHAR_tab, owl_opencyc_base_uri_dated, external_id, CHAR_tab, comment);
                                                                     {
                                                                         SubLObject cdolist_list_var = previous_base_uris;
                                                                         SubLObject deprecated_base_uri = NIL;
                                                                         for (deprecated_base_uri = cdolist_list_var.first(); NIL != cdolist_list_var; cdolist_list_var = cdolist_list_var.rest() , deprecated_base_uri = cdolist_list_var.first()) {
-                                                                            format(out_stream, $str_alt91$_A_A__A_A__A_A__, new SubLObject[]{ canonical_uri, CHAR_tab, deprecated_base_uri, human_readable_name, CHAR_tab, comment });
-                                                                            format(out_stream, $str_alt91$_A_A__A_A__A_A__, new SubLObject[]{ canonical_uri, CHAR_tab, deprecated_base_uri, external_id, CHAR_tab, comment });
+                                                                            format(out_stream, $str_alt91$_A_A__A_A__A_A__, canonical_uri, CHAR_tab, deprecated_base_uri, human_readable_name, CHAR_tab, comment);
+                                                                            format(out_stream, $str_alt91$_A_A__A_A__A_A__, canonical_uri, CHAR_tab, deprecated_base_uri, external_id, CHAR_tab, comment);
                                                                             format(dep_out_stream, $str_alt92$__A_A___, deprecated_base_uri, human_readable_name);
                                                                             format(dep_out_stream, $str_alt92$__A_A___, deprecated_base_uri, external_id);
                                                                         }

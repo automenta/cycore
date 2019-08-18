@@ -1678,7 +1678,7 @@ public final class cyblack_defksb extends SubLTranslatedFile implements V02 {
             SubLObject port_id = get_cyblack_defksb_defks_eks_reference_port_id(self);
             SubLObject external_module_name = get_cyblack_defksb_defks_eks_reference_external_module_name(self);
             if (NIL != port_id) {
-                format(stream, $str_alt296$__KS__S__EXTERNAL_MODULE_NAME__S_, new SubLObject[]{ ks_name, external_module_name, port_id });
+                format(stream, $str_alt296$__KS__S__EXTERNAL_MODULE_NAME__S_, ks_name, external_module_name, port_id);
             } else {
                 format(stream, $str_alt297$__KS__S__EXTERNAL_MODULE_NAME__S_, ks_name, external_module_name);
             }

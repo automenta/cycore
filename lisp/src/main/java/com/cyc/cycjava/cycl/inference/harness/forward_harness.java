@@ -517,7 +517,7 @@ public final class forward_harness extends SubLTranslatedFile implements V10 {
             final SubLObject triggerings_count = forward_propagation_state_triggerings_size(v_object);
             final SubLObject skeletal_count = forward_propagation_state_skeletal_proofs_size(v_object);
             final SubLObject placeable_count = forward_propagation_state_placeable_proofs_size(v_object);
-            format(stream, $str30$__A__A__A__A_, new SubLObject[]{ assertions_count, triggerings_count, skeletal_count, placeable_count });
+            format(stream, $str30$__A__A__A__A_, assertions_count, triggerings_count, skeletal_count, placeable_count);
             print_macros.print_unreadable_object_postamble(stream, v_object, T, T);
         }
         return v_object;
@@ -1266,7 +1266,7 @@ public final class forward_harness extends SubLTranslatedFile implements V10 {
             print_not_readable(v_object, stream);
         } else {
             print_macros.print_unreadable_object_preamble(stream, v_object, T, T);
-            format(stream, $str144$_A_S_in__S, new SubLObject[]{ $TRUE == concluded_truth ? $str83$ : $str84$__not_, concluded_asent, concluded_mt });
+            format(stream, $str144$_A_S_in__S, $TRUE == concluded_truth ? $str83$ : $str84$__not_, concluded_asent, concluded_mt);
             print_macros.print_unreadable_object_postamble(stream, v_object, T, T);
         }
         return v_object;

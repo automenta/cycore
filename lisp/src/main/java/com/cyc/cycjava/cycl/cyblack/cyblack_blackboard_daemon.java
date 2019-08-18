@@ -506,7 +506,7 @@ public final class cyblack_blackboard_daemon extends SubLTranslatedFile implemen
             SubLObject instance_number = object.get_object_instance_number(self);
             try {
                 try {
-                    format(stream, $str_alt102$___S__S__S__, new SubLObject[]{ subloop_structures.class_name(subloop_structures.instance_class(self)), instance_number, stimulating_posting });
+                    format(stream, $str_alt102$___S__S__S__, subloop_structures.class_name(subloop_structures.instance_class(self)), instance_number, stimulating_posting);
                     sublisp_throw($sym101$OUTER_CATCH_FOR_CYBLACK_BASIC_POSTING_DAEMON_METHOD, self);
                 } finally {
                     {

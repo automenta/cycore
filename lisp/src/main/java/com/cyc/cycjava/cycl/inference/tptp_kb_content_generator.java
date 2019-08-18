@@ -594,7 +594,7 @@ public final class tptp_kb_content_generator extends SubLTranslatedFile implemen
     }
 
     public static final SubLObject print_tptp_kb_content(SubLObject v_object, SubLObject stream, SubLObject depth) {
-        format(stream, $str_alt65$_TPTP_KB_CONTENT___a__a__a__a____, new SubLObject[]{ tptp_kbc_col(v_object), tptp_kbc_part_types_pred(v_object), tptp_kbc_parts_pred(v_object), tptp_kbc_spindle_head_mt(v_object), tptp_kbc_object_pred(v_object), tptp_kbc_geo_spindle_head_mt(v_object), vector_utilities.first_aref(tptp_kbc_geo_collections(v_object)) });
+        format(stream, $str_alt65$_TPTP_KB_CONTENT___a__a__a__a____, tptp_kbc_col(v_object), tptp_kbc_part_types_pred(v_object), tptp_kbc_parts_pred(v_object), tptp_kbc_spindle_head_mt(v_object), tptp_kbc_object_pred(v_object), tptp_kbc_geo_spindle_head_mt(v_object), vector_utilities.first_aref(tptp_kbc_geo_collections(v_object)));
         return v_object;
     }
 

@@ -156,7 +156,7 @@ public final class cyblack_derived_panels extends SubLTranslatedFile implements 
                 SubLObject iterator_visited_panels = NIL;
                 SubLObject iterator_current_panel = NIL;
                 if (NIL != cyblack_globals.$cyblack_tracing_on$.getDynamicValue(thread)) {
-                    format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt45$___ITERATE_OVER_ALL_POSTINGS__S__, new SubLObject[]{ self, self, posting_visitor });
+                    format(cyblack_globals.$cyblack_tracing_output_stream$.getDynamicValue(thread), $str_alt45$___ITERATE_OVER_ALL_POSTINGS__S__, self, self, posting_visitor);
                 }
                 while (NIL != iterator_panel_queue) {
                     iterator_current_panel = iterator_panel_queue.first();

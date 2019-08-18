@@ -591,14 +591,14 @@ public final class removal_modules_math extends SubLTranslatedFile implements V1
 
     public static SubLObject java_link_slope_and_intercept_of_x_y_regression(final SubLObject x_y_values) {
         final SubLObject regression = JavaLink.java_new($str35$org_apache_commons_math_stat_regr, EMPTY_SUBL_OBJECT_ARRAY);
-        final SubLObject add_data_method = JavaLink.java_method($str35$org_apache_commons_math_stat_regr, $$$addData, new SubLObject[]{ $$$double, $$$double });
+        final SubLObject add_data_method = JavaLink.java_method($str35$org_apache_commons_math_stat_regr, $$$addData, $$$double, $$$double);
         final SubLObject slope_method = JavaLink.java_method($str35$org_apache_commons_math_stat_regr, $$$getSlope, EMPTY_SUBL_OBJECT_ARRAY);
         final SubLObject intercept_method = JavaLink.java_method($str35$org_apache_commons_math_stat_regr, $$$getIntercept, EMPTY_SUBL_OBJECT_ARRAY);
         SubLObject cdolist_list_var = x_y_values;
         SubLObject x_y_value = NIL;
         x_y_value = cdolist_list_var.first();
         while (NIL != cdolist_list_var) {
-            JavaLink.java_call(add_data_method, regression, new SubLObject[]{ x_y_value.first(), second(x_y_value) });
+            JavaLink.java_call(add_data_method, regression, x_y_value.first(), second(x_y_value));
             cdolist_list_var = cdolist_list_var.rest();
             x_y_value = cdolist_list_var.first();
         } 
@@ -610,11 +610,11 @@ public final class removal_modules_math extends SubLTranslatedFile implements V1
             return NIL;
         }
         final SubLObject interpolator = JavaLink.java_new($str42$org_apache_commons_math_analysis_, EMPTY_SUBL_OBJECT_ARRAY);
-        final SubLObject interpolate_method = JavaLink.java_method($str42$org_apache_commons_math_analysis_, $$$interpolate, new SubLObject[]{ $str44$_D, $str44$_D });
-        final SubLObject value_method = JavaLink.java_method($str45$org_apache_commons_math_analysis_, $$$value, new SubLObject[]{ $$$double });
+        final SubLObject interpolate_method = JavaLink.java_method($str42$org_apache_commons_math_analysis_, $$$interpolate, $str44$_D, $str44$_D);
+        final SubLObject value_method = JavaLink.java_method($str45$org_apache_commons_math_analysis_, $$$value, $$$double);
         x_y_values = Sort.sort(x_y_values, $sym47$_, FIRST);
-        final SubLObject poly_spline_function = JavaLink.java_call(interpolate_method, interpolator, new SubLObject[]{ Mapping.mapcar(FIRST, x_y_values), Mapping.mapcar(SECOND, x_y_values) });
-        return JavaLink.java_call(value_method, poly_spline_function, new SubLObject[]{ x_value });
+        final SubLObject poly_spline_function = JavaLink.java_call(interpolate_method, interpolator, Mapping.mapcar(FIRST, x_y_values), Mapping.mapcar(SECOND, x_y_values));
+        return JavaLink.java_call(value_method, poly_spline_function, x_value);
     }
 
     public static SubLObject java_link_x_y_piecewise_linear_find_y_for_x(SubLObject x_y_values, final SubLObject x_value) {
@@ -622,26 +622,26 @@ public final class removal_modules_math extends SubLTranslatedFile implements V1
             return NIL;
         }
         final SubLObject interpolator = JavaLink.java_new($str49$org_apache_commons_math_analysis_, EMPTY_SUBL_OBJECT_ARRAY);
-        final SubLObject interpolate_method = JavaLink.java_method($str49$org_apache_commons_math_analysis_, $$$interpolate, new SubLObject[]{ $str44$_D, $str44$_D });
-        final SubLObject value_method = JavaLink.java_method($str45$org_apache_commons_math_analysis_, $$$value, new SubLObject[]{ $$$double });
+        final SubLObject interpolate_method = JavaLink.java_method($str49$org_apache_commons_math_analysis_, $$$interpolate, $str44$_D, $str44$_D);
+        final SubLObject value_method = JavaLink.java_method($str45$org_apache_commons_math_analysis_, $$$value, $$$double);
         x_y_values = Sort.sort(x_y_values, $sym47$_, FIRST);
-        final SubLObject poly_spline_function = JavaLink.java_call(interpolate_method, interpolator, new SubLObject[]{ Mapping.mapcar(FIRST, x_y_values), Mapping.mapcar(SECOND, x_y_values) });
-        return JavaLink.java_call(value_method, poly_spline_function, new SubLObject[]{ x_value });
+        final SubLObject poly_spline_function = JavaLink.java_call(interpolate_method, interpolator, Mapping.mapcar(FIRST, x_y_values), Mapping.mapcar(SECOND, x_y_values));
+        return JavaLink.java_call(value_method, poly_spline_function, x_value);
     }
 
     public static SubLObject java_link_x_y_regression_find_y_for_x(final SubLObject x_y_values, final SubLObject x_value) {
         final SubLObject regression = JavaLink.java_new($str35$org_apache_commons_math_stat_regr, EMPTY_SUBL_OBJECT_ARRAY);
-        final SubLObject add_data_method = JavaLink.java_method($str35$org_apache_commons_math_stat_regr, $$$addData, new SubLObject[]{ $$$double, $$$double });
-        final SubLObject predict_method = JavaLink.java_method($str35$org_apache_commons_math_stat_regr, $$$predict, new SubLObject[]{ $$$double });
+        final SubLObject add_data_method = JavaLink.java_method($str35$org_apache_commons_math_stat_regr, $$$addData, $$$double, $$$double);
+        final SubLObject predict_method = JavaLink.java_method($str35$org_apache_commons_math_stat_regr, $$$predict, $$$double);
         SubLObject cdolist_list_var = x_y_values;
         SubLObject x_y_value = NIL;
         x_y_value = cdolist_list_var.first();
         while (NIL != cdolist_list_var) {
-            JavaLink.java_call(add_data_method, regression, new SubLObject[]{ x_y_value.first(), second(x_y_value) });
+            JavaLink.java_call(add_data_method, regression, x_y_value.first(), second(x_y_value));
             cdolist_list_var = cdolist_list_var.rest();
             x_y_value = cdolist_list_var.first();
         } 
-        return JavaLink.java_call(predict_method, regression, new SubLObject[]{ x_value });
+        return JavaLink.java_call(predict_method, regression, x_value);
     }
 
     public static SubLObject java_link_x_y_regression_find_y_for_x_with_error_bars(final SubLObject x_y_values, final SubLObject x_value) {
@@ -650,20 +650,20 @@ public final class removal_modules_math extends SubLTranslatedFile implements V1
         }
         final SubLObject number_of_points = length(x_y_values);
         final SubLObject regression = JavaLink.java_new($str35$org_apache_commons_math_stat_regr, EMPTY_SUBL_OBJECT_ARRAY);
-        final SubLObject add_data_method = JavaLink.java_method($str35$org_apache_commons_math_stat_regr, $$$addData, new SubLObject[]{ $$$double, $$$double });
+        final SubLObject add_data_method = JavaLink.java_method($str35$org_apache_commons_math_stat_regr, $$$addData, $$$double, $$$double);
         final SubLObject sse_method = JavaLink.java_method($str35$org_apache_commons_math_stat_regr, $$$getSumSquaredErrors, EMPTY_SUBL_OBJECT_ARRAY);
-        final SubLObject predict_method = JavaLink.java_method($str35$org_apache_commons_math_stat_regr, $$$predict, new SubLObject[]{ $$$double });
+        final SubLObject predict_method = JavaLink.java_method($str35$org_apache_commons_math_stat_regr, $$$predict, $$$double);
         SubLObject cdolist_list_var = x_y_values;
         SubLObject x_y_value = NIL;
         x_y_value = cdolist_list_var.first();
         while (NIL != cdolist_list_var) {
-            JavaLink.java_call(add_data_method, regression, new SubLObject[]{ x_y_value.first(), second(x_y_value) });
+            JavaLink.java_call(add_data_method, regression, x_y_value.first(), second(x_y_value));
             cdolist_list_var = cdolist_list_var.rest();
             x_y_value = cdolist_list_var.first();
         } 
         final SubLObject sum_of_squared_errors = JavaLink.java_call(sse_method, regression, EMPTY_SUBL_OBJECT_ARRAY);
         final SubLObject y_error = sqrt(divide(sum_of_squared_errors, subtract(number_of_points, TWO_INTEGER)));
-        return values(JavaLink.java_call(predict_method, regression, new SubLObject[]{ x_value }), y_error);
+        return values(JavaLink.java_call(predict_method, regression, x_value), y_error);
     }
 
     public static SubLObject java_link_point_intersection_of_two_x_y_regressions(final SubLObject x_y_values_1, final SubLObject x_y_values_2) {
@@ -672,8 +672,8 @@ public final class removal_modules_math extends SubLTranslatedFile implements V1
         }
         final SubLObject regression_1 = JavaLink.java_new($str35$org_apache_commons_math_stat_regr, EMPTY_SUBL_OBJECT_ARRAY);
         final SubLObject regression_2 = JavaLink.java_new($str35$org_apache_commons_math_stat_regr, EMPTY_SUBL_OBJECT_ARRAY);
-        final SubLObject add_data_method = JavaLink.java_method($str35$org_apache_commons_math_stat_regr, $$$addData, new SubLObject[]{ $$$double, $$$double });
-        final SubLObject predict_method = JavaLink.java_method($str35$org_apache_commons_math_stat_regr, $$$predict, new SubLObject[]{ $$$double });
+        final SubLObject add_data_method = JavaLink.java_method($str35$org_apache_commons_math_stat_regr, $$$addData, $$$double, $$$double);
+        final SubLObject predict_method = JavaLink.java_method($str35$org_apache_commons_math_stat_regr, $$$predict, $$$double);
         final SubLObject l1_p1_x = x_y_values_1.first().first();
         final SubLObject l1_p2_x = second(x_y_values_1).first();
         final SubLObject l2_p1_x = x_y_values_2.first().first();
@@ -682,7 +682,7 @@ public final class removal_modules_math extends SubLTranslatedFile implements V1
         SubLObject x_y_value_1 = NIL;
         x_y_value_1 = cdolist_list_var.first();
         while (NIL != cdolist_list_var) {
-            JavaLink.java_call(add_data_method, regression_1, new SubLObject[]{ x_y_value_1.first(), second(x_y_value_1) });
+            JavaLink.java_call(add_data_method, regression_1, x_y_value_1.first(), second(x_y_value_1));
             cdolist_list_var = cdolist_list_var.rest();
             x_y_value_1 = cdolist_list_var.first();
         } 
@@ -690,22 +690,22 @@ public final class removal_modules_math extends SubLTranslatedFile implements V1
         SubLObject x_y_value_2 = NIL;
         x_y_value_2 = cdolist_list_var.first();
         while (NIL != cdolist_list_var) {
-            JavaLink.java_call(add_data_method, regression_2, new SubLObject[]{ x_y_value_2.first(), second(x_y_value_2) });
+            JavaLink.java_call(add_data_method, regression_2, x_y_value_2.first(), second(x_y_value_2));
             cdolist_list_var = cdolist_list_var.rest();
             x_y_value_2 = cdolist_list_var.first();
         } 
-        final SubLObject l1_p1_y = JavaLink.java_call(predict_method, regression_1, new SubLObject[]{ l1_p1_x });
-        final SubLObject l1_p2_y = JavaLink.java_call(predict_method, regression_1, new SubLObject[]{ l1_p2_x });
-        final SubLObject l2_p1_y = JavaLink.java_call(predict_method, regression_2, new SubLObject[]{ l2_p1_x });
-        final SubLObject l2_p2_y = JavaLink.java_call(predict_method, regression_2, new SubLObject[]{ l2_p2_x });
+        final SubLObject l1_p1_y = JavaLink.java_call(predict_method, regression_1, l1_p1_x);
+        final SubLObject l1_p2_y = JavaLink.java_call(predict_method, regression_1, l1_p2_x);
+        final SubLObject l2_p1_y = JavaLink.java_call(predict_method, regression_2, l2_p1_x);
+        final SubLObject l2_p2_y = JavaLink.java_call(predict_method, regression_2, l2_p2_x);
         final SubLObject line_class_name = $str52$org_apache_commons_math_geometry_;
         final SubLObject vector2d_class_name = $str53$org_apache_commons_math_geometry_;
-        final SubLObject line_new_method = JavaLink.java_method(line_class_name, NIL, new SubLObject[]{ vector2d_class_name, vector2d_class_name });
-        final SubLObject vector2d_new_method = JavaLink.java_method(vector2d_class_name, NIL, new SubLObject[]{ $$$double, $$$double });
-        final SubLObject line_1 = JavaLink.java_new(line_new_method, new SubLObject[]{ JavaLink.java_new(vector2d_new_method, new SubLObject[]{ l1_p1_x, l1_p1_y }), JavaLink.java_new(vector2d_new_method, new SubLObject[]{ l1_p2_x, l1_p2_y }) });
-        final SubLObject line_2 = JavaLink.java_new(line_new_method, new SubLObject[]{ JavaLink.java_new(vector2d_new_method, new SubLObject[]{ l2_p1_x, l2_p1_y }), JavaLink.java_new(vector2d_new_method, new SubLObject[]{ l2_p2_x, l2_p2_y }) });
-        final SubLObject intersection_method = JavaLink.java_method(line_class_name, $$$intersection, new SubLObject[]{ $str55$org_apache_commons_math_geometry_ });
-        final SubLObject intersection_2dvector = JavaLink.java_call(intersection_method, line_1, new SubLObject[]{ line_2 });
+        final SubLObject line_new_method = JavaLink.java_method(line_class_name, NIL, vector2d_class_name, vector2d_class_name);
+        final SubLObject vector2d_new_method = JavaLink.java_method(vector2d_class_name, NIL, $$$double, $$$double);
+        final SubLObject line_1 = JavaLink.java_new(line_new_method, JavaLink.java_new(vector2d_new_method, l1_p1_x, l1_p1_y), JavaLink.java_new(vector2d_new_method, l1_p2_x, l1_p2_y));
+        final SubLObject line_2 = JavaLink.java_new(line_new_method, JavaLink.java_new(vector2d_new_method, l2_p1_x, l2_p1_y), JavaLink.java_new(vector2d_new_method, l2_p2_x, l2_p2_y));
+        final SubLObject intersection_method = JavaLink.java_method(line_class_name, $$$intersection, $str55$org_apache_commons_math_geometry_);
+        final SubLObject intersection_2dvector = JavaLink.java_call(intersection_method, line_1, line_2);
         if (NIL != intersection_2dvector) {
             final SubLObject vector2d_getx_method = JavaLink.java_method(vector2d_class_name, $$$getX, EMPTY_SUBL_OBJECT_ARRAY);
             final SubLObject vector2d_gety_method = JavaLink.java_method(vector2d_class_name, $$$getY, EMPTY_SUBL_OBJECT_ARRAY);
@@ -720,19 +720,19 @@ public final class removal_modules_math extends SubLTranslatedFile implements V1
         }
         final SubLObject interpolator_string = (interpolator.eql($$CubicSpline)) ? $str42$org_apache_commons_math_analysis_ : interpolator.eql($const59$LinearPolynomialFunction_Piecewis) ? $str49$org_apache_commons_math_analysis_ : $str42$org_apache_commons_math_analysis_;
         final SubLObject interpolator_$1 = JavaLink.java_new(interpolator_string, EMPTY_SUBL_OBJECT_ARRAY);
-        final SubLObject interpolate_method = JavaLink.java_method(interpolator_string, $$$interpolate, new SubLObject[]{ $str44$_D, $str44$_D });
-        final SubLObject value_method = JavaLink.java_method($str45$org_apache_commons_math_analysis_, $$$value, new SubLObject[]{ $$$double });
+        final SubLObject interpolate_method = JavaLink.java_method(interpolator_string, $$$interpolate, $str44$_D, $str44$_D);
+        final SubLObject value_method = JavaLink.java_method($str45$org_apache_commons_math_analysis_, $$$value, $$$double);
         final SubLObject derivative_method = JavaLink.java_method($str45$org_apache_commons_math_analysis_, $$$derivative, EMPTY_SUBL_OBJECT_ARRAY);
         SubLObject derivative_x_y_values = NIL;
         x_y_values = Sort.sort(copy_list(x_y_values), $sym47$_, FIRST);
-        final SubLObject poly_spline_function = JavaLink.java_call(interpolate_method, interpolator_$1, new SubLObject[]{ Mapping.mapcar(FIRST, x_y_values), Mapping.mapcar(SECOND, x_y_values) });
+        final SubLObject poly_spline_function = JavaLink.java_call(interpolate_method, interpolator_$1, Mapping.mapcar(FIRST, x_y_values), Mapping.mapcar(SECOND, x_y_values));
         final SubLObject poly_spline_derivative = JavaLink.java_call(derivative_method, poly_spline_function, EMPTY_SUBL_OBJECT_ARRAY);
         SubLObject cdolist_list_var = x_y_values;
         SubLObject x_y_value = NIL;
         x_y_value = cdolist_list_var.first();
         while (NIL != cdolist_list_var) {
             final SubLObject x_value = x_y_value.first();
-            derivative_x_y_values = cons(list(x_value, JavaLink.java_call(value_method, poly_spline_derivative, new SubLObject[]{ x_value })), derivative_x_y_values);
+            derivative_x_y_values = cons(list(x_value, JavaLink.java_call(value_method, poly_spline_derivative, x_value)), derivative_x_y_values);
             cdolist_list_var = cdolist_list_var.rest();
             x_y_value = cdolist_list_var.first();
         } 

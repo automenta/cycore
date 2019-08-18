@@ -3235,9 +3235,9 @@ public final class inference_datastructures_inference extends SubLTranslatedFile
 	    format(stream, $str_alt264$_Invalid_INFERENCE__s_, com.cyc.cycjava.cycl.inference.harness.inference_datastructures_inference.infrnc_suid(v_object));
 	} else {
 	    format(stream, $str_alt265$_INFERENCE__a__a__a__a_in__a_,
-		    new SubLObject[] { inference_datastructures_problem_store.problem_store_suid(com.cyc.cycjava.cycl.inference.harness.inference_datastructures_inference.inference_problem_store(v_object)),
-			    com.cyc.cycjava.cycl.inference.harness.inference_datastructures_inference.inference_suid(v_object), com.cyc.cycjava.cycl.inference.harness.inference_datastructures_inference.inference_status(v_object),
-			    com.cyc.cycjava.cycl.inference.harness.inference_datastructures_inference.inference_input_el_query(v_object), com.cyc.cycjava.cycl.inference.harness.inference_datastructures_inference.inference_input_mt(v_object) });
+			inference_datastructures_problem_store.problem_store_suid(inference_datastructures_inference.inference_problem_store(v_object)),
+			inference_datastructures_inference.inference_suid(v_object), inference_datastructures_inference.inference_status(v_object),
+			inference_datastructures_inference.inference_input_el_query(v_object), inference_datastructures_inference.inference_input_mt(v_object));
 	}
 	return NIL;
     }
@@ -3246,8 +3246,8 @@ public final class inference_datastructures_inference extends SubLTranslatedFile
 	if (NIL != inference_datastructures_inference.inference_invalid_p(v_object)) {
 	    format(stream, inference_datastructures_inference.$str282$_Invalid_INFERENCE__s_, inference_datastructures_inference.infrnc_suid(v_object));
 	} else {
-	    format(stream, inference_datastructures_inference.$str283$_INFERENCE__a__a__a__s_in__s_, new SubLObject[] { inference_datastructures_problem_store.problem_store_suid(inference_datastructures_inference.inference_problem_store(v_object)),
-		    inference_datastructures_inference.inference_suid(v_object), inference_datastructures_inference.inference_status(v_object), inference_datastructures_inference.inference_input_el_query(v_object), inference_datastructures_inference.inference_input_mt(v_object) });
+	    format(stream, inference_datastructures_inference.$str283$_INFERENCE__a__a__a__s_in__s_, inference_datastructures_problem_store.problem_store_suid(inference_datastructures_inference.inference_problem_store(v_object)),
+			inference_datastructures_inference.inference_suid(v_object), inference_datastructures_inference.inference_status(v_object), inference_datastructures_inference.inference_input_el_query(v_object), inference_datastructures_inference.inference_input_mt(v_object));
 	}
 	return NIL;
     }
@@ -10095,7 +10095,7 @@ public final class inference_datastructures_inference extends SubLTranslatedFile
 		SubLObject store = com.cyc.cycjava.cycl.inference.harness.inference_datastructures_inference.inference_problem_store(inference);
 		SubLObject store_suid = (NIL != inference_datastructures_problem_store.problem_store_p(store)) ? ((SubLObject) (inference_datastructures_problem_store.problem_store_suid(store))) : NIL;
 		format(stream, $str_alt442$_INFERENCE_ANSWER__a_for_INFERENC,
-			new SubLObject[] { com.cyc.cycjava.cycl.inference.harness.inference_datastructures_inference.inference_answer_suid(v_object), store_suid, inf_suid, com.cyc.cycjava.cycl.inference.harness.inference_datastructures_inference.inference_answer_bindings(v_object) });
+			inference_datastructures_inference.inference_answer_suid(v_object), store_suid, inf_suid, inference_datastructures_inference.inference_answer_bindings(v_object));
 	    }
 	}
 	return NIL;
@@ -10109,7 +10109,7 @@ public final class inference_datastructures_inference extends SubLTranslatedFile
 	    final SubLObject inf_suid = inference_datastructures_inference.inference_suid(inference);
 	    final SubLObject store = inference_datastructures_inference.inference_problem_store(inference);
 	    final SubLObject store_suid = (NIL != inference_datastructures_problem_store.problem_store_p(store)) ? inference_datastructures_problem_store.problem_store_suid(store) : NIL;
-	    format(stream, inference_datastructures_inference.$str467$_INFERENCE_ANSWER__a_for_INFERENC, new SubLObject[] { inference_datastructures_inference.inference_answer_suid(v_object), store_suid, inf_suid, inference_datastructures_inference.inference_answer_bindings(v_object) });
+	    format(stream, inference_datastructures_inference.$str467$_INFERENCE_ANSWER__a_for_INFERENC, inference_datastructures_inference.inference_answer_suid(v_object), store_suid, inf_suid, inference_datastructures_inference.inference_answer_bindings(v_object));
 	}
 	return NIL;
     }

@@ -130,7 +130,7 @@ public final class core extends SubLTranslatedFile implements V12 {
             }
             format(stream, $str_alt110$_fi_assert_int__);
             format_cycl_expression.format_cycl_expression(formula, stream, TWO_INTEGER);
-            format(stream, $str_alt111$___S__S__S___, new SubLObject[]{ mt, strength, direction });
+            format(stream, $str_alt111$___S__S__S___, mt, strength, direction);
         }
         return NIL;
     }
@@ -2188,7 +2188,7 @@ public final class core extends SubLTranslatedFile implements V12 {
                         format(s, $str_alt46$______A, output_filename);
                         format(s, $str_alt46$______A, numeric_date_utilities.timestring(UNPROVIDED));
                         format(s, $str_alt45$____);
-                        format(s, $str_alt47$_____Core_KB_for_CycL_version__A_, new SubLObject[]{ system_info.cyc_revision_string(), kb_loaded(), operation_communication.kb_op_number() });
+                        format(s, $str_alt47$_____Core_KB_for_CycL_version__A_, system_info.cyc_revision_string(), kb_loaded(), operation_communication.kb_op_number());
                         format(s, $str_alt45$____);
                         format(s, $str_alt48$_____This_file_is_automatically_g);
                         format(s, $str_alt49$_________________________________);
@@ -2647,7 +2647,7 @@ public final class core extends SubLTranslatedFile implements V12 {
             format(s, $str45$______A, output_filename);
             format(s, $str45$______A, numeric_date_utilities.timestring(UNPROVIDED));
             format(s, $str44$____);
-            format(s, $str46$_____Core_KB_for_CycL_version__A_, new SubLObject[]{ system_info.cyc_revision_string(), kb_loaded(), operation_communication.kb_op_number() });
+            format(s, $str46$_____Core_KB_for_CycL_version__A_, system_info.cyc_revision_string(), kb_loaded(), operation_communication.kb_op_number());
             format(s, $str44$____);
             format(s, $str47$_____This_file_is_automatically_g);
             format(s, $str48$_________________________________);
@@ -4194,7 +4194,7 @@ public final class core extends SubLTranslatedFile implements V12 {
         }
         format(stream, $str119$_fi_assert_int__);
         format_cycl_expression.format_cycl_expression(formula, stream, TWO_INTEGER);
-        format(stream, $str120$___S__S__S___, new SubLObject[]{ mt, strength, direction });
+        format(stream, $str120$___S__S__S___, mt, strength, direction);
         return NIL;
     }
 
@@ -4222,7 +4222,7 @@ public final class core extends SubLTranslatedFile implements V12 {
             }
             format(stream, $str_alt110$_fi_assert_int__);
             format_cycl_expression.format_cycl_expression(formula, stream, TWO_INTEGER);
-            format(stream, $str_alt111$___S__S__S___, new SubLObject[]{ mt, strength, direction });
+            format(stream, $str_alt111$___S__S__S___, mt, strength, direction);
         }
         return NIL;
     }
@@ -4248,7 +4248,7 @@ public final class core extends SubLTranslatedFile implements V12 {
         }
         format(stream, $str119$_fi_assert_int__);
         format_cycl_expression.format_cycl_expression(formula, stream, TWO_INTEGER);
-        format(stream, $str120$___S__S__S___, new SubLObject[]{ mt, strength, direction });
+        format(stream, $str120$___S__S__S___, mt, strength, direction);
         return NIL;
     }
 

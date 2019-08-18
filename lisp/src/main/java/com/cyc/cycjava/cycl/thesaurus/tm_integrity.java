@@ -716,7 +716,7 @@ public final class tm_integrity extends SubLTranslatedFile implements V02 {
     }
 
     public static final SubLObject print_tmi_fix(SubLObject v_object, SubLObject stream, SubLObject depth) {
-        format(stream, $str_alt49$__fix__S__S__S_, new SubLObject[]{ tmi_fix_module(v_object), tmi_fix_op(v_object), tmi_fix_violator(v_object) });
+        format(stream, $str_alt49$__fix__S__S__S_, tmi_fix_module(v_object), tmi_fix_op(v_object), tmi_fix_violator(v_object));
         return v_object;
     }
 
@@ -1714,7 +1714,7 @@ public final class tm_integrity extends SubLTranslatedFile implements V02 {
                 SubLObject term1 = tm_datastructures.concept_term(assertions_high.gaf_arg1(data), thesaurus);
                 SubLObject term2 = tm_datastructures.concept_term(assertions_high.gaf_arg2(data), thesaurus);
                 SubLObject relation = tm_internals.tm_pred_arg_symbol(assertions_high.gaf_arg0(data), ONE_INTEGER);
-                return format(NIL, $str_alt109$___A___A___A___is_part_of_a_BT_cy, new SubLObject[]{ term1, relation, term2, tm_internals.thesaurus_name(thesaurus) });
+                return format(NIL, $str_alt109$___A___A___A___is_part_of_a_BT_cy, term1, relation, term2, tm_internals.thesaurus_name(thesaurus));
             }
         } else {
             return $str_alt110$Unable_to_print_violation__some_t;
@@ -1771,7 +1771,7 @@ public final class tm_integrity extends SubLTranslatedFile implements V02 {
                 SubLObject term1 = tm_datastructures.concept_term(assertions_high.gaf_arg1(data), thesaurus);
                 SubLObject term2 = tm_datastructures.concept_term(assertions_high.gaf_arg2(data), thesaurus);
                 SubLObject relation = tm_internals.tm_pred_arg_symbol(assertions_high.gaf_arg0(data), ONE_INTEGER);
-                return format(NIL, $str_alt115$___A___A___A___is_a_redundant_BT_, new SubLObject[]{ term1, relation, term2, tm_internals.thesaurus_name(thesaurus) });
+                return format(NIL, $str_alt115$___A___A___A___is_a_redundant_BT_, term1, relation, term2, tm_internals.thesaurus_name(thesaurus));
             }
         } else {
             return $str_alt116$Unable_to_print_violation__some_p;
@@ -1928,7 +1928,7 @@ public final class tm_integrity extends SubLTranslatedFile implements V02 {
                             $use_for_string$.rebind(_prev_bind_0, thread);
                         }
                     }
-                    return format(NIL, $str_alt130$__A__is_a_preferred_term_in__A__s, new SubLObject[]{ use_for, tm_internals.thesaurus_name(thesaurus), use_for_facts });
+                    return format(NIL, $str_alt130$__A__is_a_preferred_term_in__A__s, use_for, tm_internals.thesaurus_name(thesaurus), use_for_facts);
                 }
             } else {
                 return $str_alt131$Unable_to_print_violation__Some_t;
@@ -2295,9 +2295,9 @@ public final class tm_integrity extends SubLTranslatedFile implements V02 {
                         SubLObject thesaurus = assertions_high.assertion_mt(assertion);
                         SubLObject cyc_name = (NIL != constant_handles.constant_p(concept)) ? ((SubLObject) (constants_high.constant_name(concept))) : string_utilities.object_to_string(narts_high.nart_el_formula(concept));
                         if (predicate == $$topInThesaurus) {
-                            return format(NIL, $str_alt163$The_concept__A_has_no_preferred_t, new SubLObject[]{ cyc_name, tm_internals.thesaurus_name(arg2), tm_internals.thesaurus_name(arg2) });
+                            return format(NIL, $str_alt163$The_concept__A_has_no_preferred_t, cyc_name, tm_internals.thesaurus_name(arg2), tm_internals.thesaurus_name(arg2));
                         } else {
-                            return format(NIL, $str_alt164$The_concept__A_has_no_preferred_t, new SubLObject[]{ cyc_name, tm_internals.thesaurus_name(thesaurus), concept == arg1 ? ((SubLObject) (tm_internals.tm_pt_or_string_in_thesaurus(arg2, thesaurus))) : tm_internals.tm_pt_or_string_in_thesaurus(arg1, thesaurus), concept == arg1 ? ((SubLObject) (tm_internals.tm_pred_arg_symbol(predicate, ONE_INTEGER))) : tm_internals.tm_pred_arg_symbol(predicate, TWO_INTEGER) });
+                            return format(NIL, $str_alt164$The_concept__A_has_no_preferred_t, cyc_name, tm_internals.thesaurus_name(thesaurus), concept == arg1 ? ((SubLObject) (tm_internals.tm_pt_or_string_in_thesaurus(arg2, thesaurus))) : tm_internals.tm_pt_or_string_in_thesaurus(arg1, thesaurus), concept == arg1 ? ((SubLObject) (tm_internals.tm_pred_arg_symbol(predicate, ONE_INTEGER))) : tm_internals.tm_pred_arg_symbol(predicate, TWO_INTEGER));
                         }
                     }
                 } else {
@@ -2449,7 +2449,7 @@ public final class tm_integrity extends SubLTranslatedFile implements V02 {
                                 }
                             }
                         }
-                        return format(NIL, $str_alt170$__A__can_be_related_to_at_most_on, new SubLObject[]{ ind_term, relation, string_utilities.stringify_items(dep_terms, symbol_function(IDENTITY), $str_alt128$__, $str_alt129$_and_) });
+                        return format(NIL, $str_alt170$__A__can_be_related_to_at_most_on, ind_term, relation, string_utilities.stringify_items(dep_terms, symbol_function(IDENTITY), $str_alt128$__, $str_alt129$_and_));
                     }
                 } else {
                     return $str_alt171$Unable_to_print_violation__some_t;
@@ -2564,7 +2564,7 @@ public final class tm_integrity extends SubLTranslatedFile implements V02 {
                                 }
                             }
                         }
-                        return format(NIL, $str_alt170$__A__can_be_related_to_at_most_on, new SubLObject[]{ ind_term, relation, string_utilities.stringify_items(dep_terms, symbol_function(IDENTITY), $str_alt128$__, $str_alt129$_and_) });
+                        return format(NIL, $str_alt170$__A__can_be_related_to_at_most_on, ind_term, relation, string_utilities.stringify_items(dep_terms, symbol_function(IDENTITY), $str_alt128$__, $str_alt129$_and_));
                     }
                 } else {
                     return $str_alt174$Unable_to_print_violation__some_t;
@@ -2645,7 +2645,7 @@ public final class tm_integrity extends SubLTranslatedFile implements V02 {
                         }
                     }
                 }
-                return format(NIL, $str_alt176$The_concept_underlying___A__can_b, new SubLObject[]{ concept, tm_internals.thesaurus_name(thesaurus), string_utilities.stringify_items(dep_terms, symbol_function(TM_SINGLE_QUOTE), $str_alt128$__, $str_alt129$_and_) });
+                return format(NIL, $str_alt176$The_concept_underlying___A__can_b, concept, tm_internals.thesaurus_name(thesaurus), string_utilities.stringify_items(dep_terms, symbol_function(TM_SINGLE_QUOTE), $str_alt128$__, $str_alt129$_and_));
             }
         } else {
             return $str_alt178$Unable_to_print_violation__Some_c;
@@ -2719,7 +2719,7 @@ public final class tm_integrity extends SubLTranslatedFile implements V02 {
                 SubLObject term1 = tm_datastructures.concept_term(concept1, thesaurus);
                 SubLObject concept2 = el_utilities.literal_arg2(formula, UNPROVIDED);
                 SubLObject term2 = tm_datastructures.concept_term(concept2, thesaurus);
-                return format(NIL, $str_alt183$___A__BT___A___and____A__RT___A__, new SubLObject[]{ term1, term2, term1, term2, tm_internals.thesaurus_name(thesaurus) });
+                return format(NIL, $str_alt183$___A__BT___A___and____A__RT___A__, term1, term2, term1, term2, tm_internals.thesaurus_name(thesaurus));
             }
         } else {
             return $str_alt184$Unable_to_print_violation__Some_p;
@@ -2905,7 +2905,7 @@ public final class tm_integrity extends SubLTranslatedFile implements V02 {
                         SubLObject tm_pred = tm_internals.tm_pred_arg_symbol(predicate, ONE_INTEGER);
                         SubLObject tm_miss = tm_internals.tm_pred_arg_symbol(missing_link, ONE_INTEGER);
                         SubLObject tm_link = tm_internals.tm_pred_arg_symbol(linking_pred, ONE_INTEGER);
-                        return format(NIL, $str_alt188$_a_cannot_be_related_both_to__a_b, new SubLObject[]{ tm_datastructures.concept_term(pivot_term, thesaurus), tm_datastructures.concept_term(non_pivot_term, thesaurus), NIL != tm_pred ? ((SubLObject) (tm_pred)) : predicate, tm_datastructures.concept_term(indirect_term, thesaurus), NIL != tm_link ? ((SubLObject) (tm_link)) : linking_pred, tm_datastructures.concept_term(non_pivot_term, thesaurus), tm_datastructures.concept_term(indirect_term, thesaurus), NIL != tm_miss ? ((SubLObject) (tm_miss)) : missing_link, tm_internals.thesaurus_name(thesaurus) });
+                        return format(NIL, $str_alt188$_a_cannot_be_related_both_to__a_b, tm_datastructures.concept_term(pivot_term, thesaurus), tm_datastructures.concept_term(non_pivot_term, thesaurus), NIL != tm_pred ? ((SubLObject) (tm_pred)) : predicate, tm_datastructures.concept_term(indirect_term, thesaurus), NIL != tm_link ? ((SubLObject) (tm_link)) : linking_pred, tm_datastructures.concept_term(non_pivot_term, thesaurus), tm_datastructures.concept_term(indirect_term, thesaurus), NIL != tm_miss ? ((SubLObject) (tm_miss)) : missing_link, tm_internals.thesaurus_name(thesaurus));
                     }
                 } else {
                     return $str_alt189$Unable_to_print_violation_;
@@ -4892,7 +4892,7 @@ public final class tm_integrity extends SubLTranslatedFile implements V02 {
                         tm_datastructures.$tm_user$.rebind(_prev_bind_0, thread);
                     }
                 }
-                return format(NIL, $str_alt272$_A_uses_of__A_A_were_removed_from, new SubLObject[]{ success_count, relation_name, NIL != inverse ? ((SubLObject) (format(NIL, $str_alt273$_and_of_its_inverse___A, inverse))) : $str_alt91$, thesaurus_name, failure_count });
+                return format(NIL, $str_alt272$_A_uses_of__A_A_were_removed_from, success_count, relation_name, NIL != inverse ? ((SubLObject) (format(NIL, $str_alt273$_and_of_its_inverse___A, inverse))) : $str_alt91$, thesaurus_name, failure_count);
             }
         }
     }

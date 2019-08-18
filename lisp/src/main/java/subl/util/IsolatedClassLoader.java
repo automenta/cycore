@@ -111,8 +111,9 @@ public class IsolatedClassLoader extends URLClassLoader {
 			}
 		}
 		URL[] urls = Lisp.getURLs(o);
+		String uu = url.toString();
 		for (int i = 0; i < urls.length; ++i) {
-			if (urls[i].toString().equalsIgnoreCase(url.toString()))
+			if (urls[i].toString().equalsIgnoreCase(uu))
 				return o;
 		}
 		try {
@@ -155,9 +156,11 @@ public class IsolatedClassLoader extends URLClassLoader {
 		if (c != null)
 			return c;
 		DataInputStream dis = new DataInputStream(new FileInputStream(jfile));
-		int size = dis.available();
-		byte[] byteArray = new byte[size];
-		dis.read(byteArray, 0, size);
+		byte[] byteArray = dis.readAllBytes();
+		int size = byteArray.length;
+//		int size = dis.available();
+//		byte[] byteArray = new byte[size];
+//		dis.read(byteArray, 0, size);
 		try {
 			c = this.defineClass(null, byteArray, 0, size);
 			String className = c.getName();
@@ -216,12 +219,12 @@ public class IsolatedClassLoader extends URLClassLoader {
 		String simpleName = c.getSimpleName();
 		scanForInners(jfile.getParentFile(), simpleName);
 		resolveClass(Class.forName(className, false, this));
-		Class[] inners = c.getDeclaredClasses();
+//		Class[] inners = c.getDeclaredClasses();
 		return c;
 	}
 
 	public void addCode(String stringTyped) {
-		URI uri = URI.create(stringTyped);
+//		URI uri = URI.create(stringTyped);
 		File jfile = new File(stringTyped);
 		stringTyped = jfile.getAbsolutePath();
 		if (!jfile.exists()) {
@@ -257,13 +260,13 @@ public class IsolatedClassLoader extends URLClassLoader {
 			Errors.error("Error finding file:: " + stringTyped);
 	}
 
-	public void addDirectory(File jfile) throws IOException {
-		URL url = new URL("file", "", slashify(jfile.getAbsolutePath(), false));
-		addURL(url);
-		File[] jfiles = jfile.listFiles();
-		for (int i = 0; i < jfiles.length; ++i)
-			scanFiles(jfiles[i], false);
-	}
+//	public void addDirectory(File jfile) throws IOException {
+//		URL url = new URL("file", "", slashify(jfile.getAbsolutePath(), false));
+//		addURL(url);
+//		File[] jfiles = jfile.listFiles();
+//		for (int i = 0; i < jfiles.length; ++i)
+//			scanFiles(jfiles[i], false);
+//	}
 
 	public void addJar(File jfile) throws IOException {
 		URL url = new URL("jar:file://" + jfile.getPath() + "!/");

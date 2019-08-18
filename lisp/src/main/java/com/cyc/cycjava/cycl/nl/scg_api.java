@@ -15,19 +15,20 @@ import subl.type.core.SubLString;
 import subl.type.number.SubLInteger;
 import subl.type.symbol.SubLSymbol;
 
+import static com.cyc.cycjava.cycl.constant_handles.reader_make_constant_shell;
 import static com.cyc.cycjava.cycl.cyc_testing.generic_testing.define_test_case_table_int;
 import static com.cyc.cycjava.cycl.el_utilities.make_formula;
+import static subl.Sequences.cconcatenate;
 import static subl.jrtl.translatedCode.sublisp.conses_high.getf;
 import static subl.jrtl.translatedCode.sublisp.reader.read_from_string_ignoring_errors;
 import static subl.jrtl.translatedCode.sublisp.streams_high.make_private_string_input_stream;
-import static subl.util.SubLFiles.declareFunction;
-import static subl.util.SubLFiles.defparameter;
 import static subl.ConsesLow.*;
 import static subl.Functions.funcall;
 import static subl.Numbers.*;
 import static subl.Sequences.length;
 import static subl.Values.*;
 import static subl.type.core.SubLObjectFactory.*;
+import static subl.util.SubLFiles.*;
 
 
 public final class scg_api extends SubLTranslatedFile implements V10 {

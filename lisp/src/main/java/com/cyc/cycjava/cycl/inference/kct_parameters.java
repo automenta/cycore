@@ -510,7 +510,7 @@ public final class kct_parameters extends SubLTranslatedFile implements V02 {
                         SubLObject mutual = thread.secondMultipleValue();
                         SubLObject only_2 = thread.thirdMultipleValue();
                         thread.resetMultipleValues();
-                        format(T, $str_alt58$Total___________s__s__s__, new SubLObject[]{ only_1, mutual, only_2 });
+                        format(T, $str_alt58$Total___________s__s__s__, only_1, mutual, only_2);
                     }
                     format(stream, $str_alt59$____Key___BASELINE_VALUE__EXPERIM);
                     format(stream, $str_alt54$____Basic_analysis____);
@@ -1654,7 +1654,7 @@ public final class kct_parameters extends SubLTranslatedFile implements V02 {
                     current = current.rest();
                     if (NIL == current) {
                         if (param == prev_param) {
-                            format(T, $str_alt135$_s__s_____s__, new SubLObject[]{ param, prev_value, value });
+                            format(T, $str_alt135$_s__s_____s__, param, prev_value, value);
                             force_output(UNPROVIDED);
                             if (NIL != efficiencyP) {
                                 {
@@ -2291,7 +2291,7 @@ public final class kct_parameters extends SubLTranslatedFile implements V02 {
                     current = current.rest();
                     if (NIL == current) {
                         if (param == prev_param) {
-                            format(T, $str_alt135$_s__s_____s__, new SubLObject[]{ param, prev_value, value });
+                            format(T, $str_alt135$_s__s_____s__, param, prev_value, value);
                             force_output(UNPROVIDED);
                             if (NIL != efficiencyP) {
                                 {
@@ -2370,7 +2370,7 @@ public final class kct_parameters extends SubLTranslatedFile implements V02 {
                 SubLObject speedup = thread.fifthMultipleValue();
                 thread.resetMultipleValues();
                 format(T, $str_alt157$_s_____s__, dim, value);
-                format(T, $str_alt158$g__s___s___s_____s, new SubLObject[]{ number_utilities.significant_digits(speedup, FOUR_INTEGER), number_utilities.significant_digits(completeness_gain, FOUR_INTEGER), number_utilities.significant_digits(alpha, FOUR_INTEGER), number_utilities.significant_digits(goodness, FOUR_INTEGER) });
+                format(T, $str_alt158$g__s___s___s_____s, number_utilities.significant_digits(speedup, FOUR_INTEGER), number_utilities.significant_digits(completeness_gain, FOUR_INTEGER), number_utilities.significant_digits(alpha, FOUR_INTEGER), number_utilities.significant_digits(goodness, FOUR_INTEGER));
                 {
                     SubLObject next_point = inference_parameter_matrix_point_replace_value_wrt_strategist(point, dim, value);
                     print(next_point, UNPROVIDED);
@@ -2663,7 +2663,7 @@ public final class kct_parameters extends SubLTranslatedFile implements V02 {
                                                                                                 force_output(UNPROVIDED);
                                                                                                 dictionary.dictionary_enter(verified, query, verified_properties);
                                                                                             } else {
-                                                                                                format(T, $str_alt170$___a__a__a__a__, new SubLObject[]{ halt_reason, query, result });
+                                                                                                format(T, $str_alt170$___a__a__a__a__, halt_reason, query, result);
                                                                                                 force_output(UNPROVIDED);
                                                                                                 dictionary.dictionary_enter(unverified, query, halt_reason);
                                                                                                 dictionary_utilities.dictionary_increment(halt_dict, halt_reason, UNPROVIDED);
@@ -2724,7 +2724,7 @@ public final class kct_parameters extends SubLTranslatedFile implements V02 {
                                                                                                     force_output(UNPROVIDED);
                                                                                                     dictionary.dictionary_enter(verified, query, verified_properties);
                                                                                                 } else {
-                                                                                                    format(T, $str_alt170$___a__a__a__a__, new SubLObject[]{ halt_reason, query, result });
+                                                                                                    format(T, $str_alt170$___a__a__a__a__, halt_reason, query, result);
                                                                                                     force_output(UNPROVIDED);
                                                                                                     dictionary.dictionary_enter(unverified, query, halt_reason);
                                                                                                     dictionary_utilities.dictionary_increment(halt_dict, halt_reason, UNPROVIDED);
@@ -3778,7 +3778,7 @@ public final class kct_parameters extends SubLTranslatedFile implements V02 {
                         SubLObject _prev_bind_0 = $read_default_float_format$.currentBinding(thread);
                         try {
                             $read_default_float_format$.bind(DOUBLE_FLOAT, thread);
-                            format(T, $str_alt216$_s_clusters___s__completeness_los, new SubLObject[]{ n, number_utilities.percent(subtract(ONE_INTEGER, completeness_gain), ONE_INTEGER, THREE_INTEGER), number_utilities.percent(subtract(ONE_INTEGER, speedup), ONE_INTEGER, THREE_INTEGER), number_utilities.percent(goodness, ONE_INTEGER, THREE_INTEGER), alpha });
+                            format(T, $str_alt216$_s_clusters___s__completeness_los, n, number_utilities.percent(subtract(ONE_INTEGER, completeness_gain), ONE_INTEGER, THREE_INTEGER), number_utilities.percent(subtract(ONE_INTEGER, speedup), ONE_INTEGER, THREE_INTEGER), number_utilities.percent(goodness, ONE_INTEGER, THREE_INTEGER), alpha);
                         } finally {
                             $read_default_float_format$.rebind(_prev_bind_0, thread);
                         }
@@ -3918,7 +3918,7 @@ public final class kct_parameters extends SubLTranslatedFile implements V02 {
                     {
                         SubLObject new_value = (NIL != inference_parameters.query_property_value_more_completeP(param, old_value, kb_value)) ? ((SubLObject) (kb_value)) : old_value;
                         if (!old_value.equal(new_value)) {
-                            format(T, $str_alt225$Unstrengthening__s_from__s_to__s_, new SubLObject[]{ param, old_value, new_value });
+                            format(T, $str_alt225$Unstrengthening__s_from__s_to__s_, param, old_value, new_value);
                         }
                         new_plist = putf(new_plist, param, new_value);
                     }
@@ -4021,7 +4021,7 @@ public final class kct_parameters extends SubLTranslatedFile implements V02 {
                         SubLObject _prev_bind_0 = $read_default_float_format$.currentBinding(thread);
                         try {
                             $read_default_float_format$.bind(DOUBLE_FLOAT, thread);
-                            format(T, $str_alt230$Reducing_to__s_clusters_yields_a_, new SubLObject[]{ length(merged_clusters), number_utilities.significant_digits(least_bad_speedup, SIX_INTEGER), number_utilities.significant_digits(total_speedup_so_far, SIX_INTEGER) });
+                            format(T, $str_alt230$Reducing_to__s_clusters_yields_a_, length(merged_clusters), number_utilities.significant_digits(least_bad_speedup, SIX_INTEGER), number_utilities.significant_digits(total_speedup_so_far, SIX_INTEGER));
                             force_output(UNPROVIDED);
                         } finally {
                             $read_default_float_format$.rebind(_prev_bind_0, thread);
@@ -4661,7 +4661,7 @@ public final class kct_parameters extends SubLTranslatedFile implements V02 {
                         SubLObject _prev_bind_0 = $read_default_float_format$.currentBinding(thread);
                         try {
                             $read_default_float_format$.bind(DOUBLE_FLOAT, thread);
-                            format(T, $str_alt264$_____2D_______________4D___2D____, new SubLObject[]{ i, add(lumpy, other_error), lumpy, count, metric_query_count, answerable, number_utilities.significant_digits(metric, FOUR_INTEGER), param, value });
+                            format(T, $str_alt264$_____2D_______________4D___2D____, i, add(lumpy, other_error), lumpy, count, metric_query_count, answerable, number_utilities.significant_digits(metric, FOUR_INTEGER), param, value);
                         } finally {
                             $read_default_float_format$.rebind(_prev_bind_0, thread);
                         }

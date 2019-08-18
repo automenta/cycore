@@ -22,8 +22,7 @@ import subl.util.SubLFile;
 import subl.util.SubLTranslatedFile;
 
 import static subl.ConsesLow.*;
-import static subl.Sequences.nreverse;
-import static subl.Sequences.remove;
+import static subl.Sequences.*;
 import static subl.Symbols.*;
 import static subl.Values.values;
 import static subl.jrtl.translatedCode.sublisp.conses_high.*;
