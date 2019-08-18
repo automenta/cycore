@@ -61,7 +61,7 @@ public class WeakHashTable
     implements abcl.protocol.Hashtable, LispHashTable
 {
     private static final float loadFactor = 0.75f;
-    public static final float GROWTH_FACTOR = 1.618 /* phi */;
+    public static final float GROWTH_FACTOR = 1.618f /* phi */;
     private final LispObject rehashSize;
     private final LispObject rehashThreshold;
     /**

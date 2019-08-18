@@ -128,8 +128,8 @@ public class Resourcer extends RuntimeException {
 	}
 
 	public Resourcer() {
-		sublArrayListListIteratorPool = new SubLArrayListListIteratorObjectPool().init();
-		sublConsListListIteratorPool = new SubLConsListListIteratorObjectPool().init();
+//		sublArrayListListIteratorPool = new SubLArrayListListIteratorObjectPool().init();
+//		sublConsListListIteratorPool = new SubLConsListListIteratorObjectPool().init();
 		hashtableKeyEntryPool = new HashtableKeyEntryPool().init();
 		objectArrayObjectPools = new ObjectArrayObjectPool[24];
 		sublObjectArrayObjectPools = new SubLObjectArrayObjectPool[24];
@@ -143,7 +143,7 @@ public class Resourcer extends RuntimeException {
 		return SubLProcess.currentSubLThread().getResourcer();
 	}
 
-	private ObjectPool sublArrayListListIteratorPool;
+//	private ObjectPool sublArrayListListIteratorPool;
 	private ObjectPool sublConsListListIteratorPool;
 	private ObjectPool hashtableKeyEntryPool;
 	private ObjectPool[] objectArrayObjectPools;
@@ -163,20 +163,20 @@ public class Resourcer extends RuntimeException {
 		return (Object[]) objectArrayObjectPools[size].acquire();
 	}
 
-	public SubLListListIterator acquireSubLListListIterator(SubLList list) {
+	public static SubLListListIterator acquireSubLListListIterator(SubLList list) {
 		return this.acquireSubLListListIterator(list, 0, -1);
 	}
 
-	public SubLListListIterator acquireSubLListListIterator(SubLList list, int start) {
+	public static SubLListListIterator acquireSubLListListIterator(SubLList list, int start) {
 		return this.acquireSubLListListIterator(list, start, list == null ? 0 : -1);
 	}
 
-	public SubLListListIterator acquireSubLListListIterator(SubLList list, int start, int end) {
-		SubLListListIterator iter = null;
+	public static SubLListListIterator acquireSubLListListIterator(SubLList list, int start, int end) {
+		SubLListListIterator iter;// = null;
 		if (list.isArrayBased())
-			iter = (SubLListListIterator) sublArrayListListIteratorPool.acquire();
+			iter = new SubLArrayListListIterator(); // (SubLListListIterator) sublArrayListListIteratorPool.acquire();
 		else
-			iter = (SubLListListIterator) sublConsListListIteratorPool.acquire();
+			iter = new SubLConsListListIterator(); //(SubLListListIterator) sublConsListListIteratorPool.acquire();
 		iter.init(list, start, end);
 		return iter;
 	}
@@ -226,13 +226,13 @@ public class Resourcer extends RuntimeException {
 		objectArrayObjectPools[array.length].release(array);
 	}
 
-	public void releaseSubLListListIterator(SubLListListIterator iter) {
-		if (iter == null)
-			return;
-		if (iter.isArrayBased())
-			sublArrayListListIteratorPool.release(iter);
-		else
-			sublConsListListIteratorPool.release(iter);
+	@Deprecated public void releaseSubLListListIterator(SubLListListIterator iter) {
+//		if (iter == null)
+//			return;
+//		if (iter.isArrayBased())
+//			sublArrayListListIteratorPool.release(iter);
+//		else
+//			sublConsListListIteratorPool.release(iter);
 	}
 
 	public void releaseSubLObjectArray(SubLObject[] array) {

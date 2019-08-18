@@ -11,6 +11,7 @@ package subl.jrtl.translatedCode.sublisp;
 
 
 import subl.Errors;
+import subl.PrintLow;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLString;
 import subl.type.symbol.SubLNil;
@@ -53,7 +54,7 @@ public class visitation extends SubLTranslatedFile {
     }
 
     public static SubLObject print_visitor(SubLObject obj, SubLObject phase, SubLObject slot, SubLObject value) {
-        return format(T, $str10$_A__A__A___A__, new SubLObject[]{ phase, obj, slot, value });
+        return PrintLow.format(T, $str10$_A__A__A___A__, phase, obj, slot, value);
     }
 
     public static SubLObject setup_visitation_file() {

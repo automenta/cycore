@@ -13,6 +13,7 @@ import subl.type.core.SubLString;
 import subl.type.core.SubLStructNative;
 import subl.type.symbol.SubLSymbol;
 
+import static com.cyc.cycjava.cycl.constant_handles.reader_make_constant_shell;
 import static subl.jrtl.translatedCode.sublisp.conses_high.*;
 import static subl.jrtl.translatedCode.sublisp.print_high.$print_object_method_table$;
 import static subl.jrtl.translatedCode.sublisp.streams_high.write_string;

@@ -560,7 +560,7 @@ public class print_functions extends SubLTranslatedFile {
                     print_not_readable(vector, stream);
                 else {
                     print_macros.print_unreadable_object_preamble(stream, vector, T, T);
-                    format(stream, $str22$_D, length);
+                    PrintLow.format(stream, $str22$_D, length);
                     print_macros.print_unreadable_object_postamble(stream, vector, T, T);
                 }
 

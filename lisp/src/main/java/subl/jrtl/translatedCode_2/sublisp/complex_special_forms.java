@@ -34,8 +34,7 @@ import java.util.Map.Entry;
 
 import static subl.ConsesLow.*;
 import static subl.type.core.SubLObjectFactory.*;
-import static subl.util.SubLFiles.declareFunction;
-import static subl.util.SubLFiles.declareMacro;
+import static subl.util.SubLFiles.*;
 
 public  final class complex_special_forms extends SubLTranslatedFile {
 

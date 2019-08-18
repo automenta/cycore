@@ -22,18 +22,18 @@ public class Dynamic extends SubLTrampolineFile {
 	SubLList valuesTyped = values.toList();
 	SubLListListIterator iter = null;
 	SubLListListIterator iter2 = null;
-	Resourcer resourcer = Resourcer.getInstance();
-	try {
-	    iter = resourcer.acquireSubLListListIterator(variablesTyped);
-	    iter2 = resourcer.acquireSubLListListIterator(valuesTyped);
+//	Resourcer resourcer = Resourcer.getInstance();
+//	try {
+	    iter = Resourcer.acquireSubLListListIterator(variablesTyped);
+	    iter2 = Resourcer.acquireSubLListListIterator(valuesTyped);
 	    while (iter.hasNext() && iter2.hasNext())
 		bind(iter.nextSubLObject().toSymbol(), iter2.nextSubLObject());
 	    while (iter.hasNext())
 		bind(iter.nextSubLObject().toSymbol(), SubLSymbol.UNBOUND);
-	} finally {
-	    resourcer.releaseSubLListListIterator(iter);
-	    resourcer.releaseSubLListListIterator(iter2);
-	}
+//	} finally {
+//	    resourcer.releaseSubLListListIterator(iter);
+//	    resourcer.releaseSubLListListIterator(iter2);
+//	}
     }
 
     public static SubLObject currentBinding(SubLSymbol symbol) {

@@ -14,11 +14,12 @@ public class ComparatorGenericKey<T> implements Comparator<T> {
 		this.key = key;
 	}
 
-	private BinaryFunction pred;
-	private UnaryFunction key;
+	private final BinaryFunction pred;
+	private final UnaryFunction key;
 
 	@Override
 	public int compare(T o1, T o2) {
+		if (o1==o2) return 0;
 		SubLObject obj1 = this.key.processItem((SubLObject) o1);
 		SubLObject obj2 = this.key.processItem((SubLObject) o2);
 		boolean val1 = this.pred.processItem(obj1, obj2) == SubLNil.NIL;
@@ -26,11 +27,11 @@ public class ComparatorGenericKey<T> implements Comparator<T> {
 		return val1 ? val2 ? 0 : 1 : val2 ? -1 : 0;
 	}
 
-	public ComparatorGenericKey init(BinaryFunction pred, UnaryFunction key) {
-		this.pred = pred;
-		this.key = key;
-		return this;
-	}
+//	public ComparatorGenericKey init(BinaryFunction pred, UnaryFunction key) {
+//		this.pred = pred;
+//		this.key = key;
+//		return this;
+//	}
 
 	@Override
 	public String toString() {

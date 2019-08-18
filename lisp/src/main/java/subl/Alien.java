@@ -38,11 +38,7 @@ public class Alien implements SubLFile
   {
     return Errors.unimplementedMethod( "Alien.unload_shared_object()" );
   }
-  public static SubLFile me;
-  static
-  {
-    me = new Alien();
-  }
+  public static final SubLFile me = new Alien();
 
   @Override
   public void declareFunctions()

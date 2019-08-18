@@ -28,10 +28,10 @@ import subl.util.SubLFile;
 import subl.util.SubLTranslatedFile;
 
 import static subl.ConsesLow.cons;
+import static subl.ConsesLow.list;
 import static subl.type.core.SubLObjectFactory.makeInteger;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static subl.util.SubLFiles.declareFunction;
-import static subl.util.SubLFiles.defconstant;
+import static subl.util.SubLFiles.*;
 
 public  final class math_utilities extends SubLTranslatedFile {
 
