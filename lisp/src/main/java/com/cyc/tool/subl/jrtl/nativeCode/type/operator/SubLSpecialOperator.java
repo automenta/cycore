@@ -27,11 +27,6 @@ public abstract class SubLSpecialOperator extends Operator implements SubLOperat
 
 
 	@Override
-	public boolean isSpecialRestOnly() {
-		return false;
-	}
-
-	@Override
 	abstract public LispObject execute(LispObject args, Environment env);
 
 	@Override
@@ -51,11 +46,6 @@ public abstract class SubLSpecialOperator extends Operator implements SubLOperat
 
 	@Override
 	public boolean isFunction() {
-		return false;
-	}
-
-	@Override
-	public boolean isFunctionSpec() {
 		return false;
 	}
 

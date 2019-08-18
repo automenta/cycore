@@ -78,21 +78,6 @@ public class SubLSpecialOperatorImpl extends SpecialOperator implements SubLOper
 	}
 
 	@Override
-	public boolean isSpecial() {
-		return true;
-	}
-
-	@Override
-	public boolean isFunction() {
-		return false;
-	}
-
-	@Override
-	public boolean isFunctionSpec() {
-		return false;
-	}
-
-	@Override
 	public SubLSpecialOperator toSpecialOperator() {
 		return this;
 	}

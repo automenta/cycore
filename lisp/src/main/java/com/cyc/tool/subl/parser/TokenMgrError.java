@@ -73,8 +73,4 @@ public class TokenMgrError extends RuntimeException {
 	static int INVALID_LEXICAL_STATE = 2;
 	static int LOOP_DETECTED = 3;
 
-	@Override
-	public String getMessage() {
-		return super.getMessage();
-	}
 }

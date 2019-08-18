@@ -304,14 +304,6 @@ public abstract class AbstractSubLStream extends StructureObject implements SubL
 
 
 	@Override
-	public void checkType(SubLSymbol predicate) throws SubLException {
-	}
-
-	@Override
-	public void checkTypeInternal(SubLSymbol predicate) throws SubLException {
-	}
-
-	  @Override
 	public Object clone()
 	  {
 		  Object result = null;
@@ -332,10 +324,6 @@ public abstract class AbstractSubLStream extends StructureObject implements SubL
 		if (SubLNil.NIL == Function.processItem(this))
 			Errors.error(SubLObjectFactory.makeString("Got invalid type for object: " + this + "." + " Wanted type: "
 					+ predicate + " Actual type: " + toTypeName()));
-	}
-
-	@Override
-	public void enforceTypeInternal(SubLSymbol predicate) throws SubLException {
 	}
 
 	@Override
@@ -388,18 +376,6 @@ public abstract class AbstractSubLStream extends StructureObject implements SubL
 	}
 
 	@Override
-	public SubLObject makeCopy() {
-		Errors.unimplementedMethod("makeCopy()");
-		return null;
-	}
-
-	@Override
-	public SubLObject makeDeepCopy() {
-		Errors.unimplementedMethod("makeDeepCopy()");
-		return null;
-	}
-
-	@Override
 	public SubLObject mult(SubLObject num) {
 		return Errors.error("Not a number: " + this + "");
 	}
@@ -417,12 +393,6 @@ public abstract class AbstractSubLStream extends StructureObject implements SubL
 		return false;
 	}
 
-	@Override
-	public boolean isNil() {
-		return false;
-	}
-
-
 
 	@Override
 	public boolean isStream() {
@@ -438,16 +408,6 @@ public abstract class AbstractSubLStream extends StructureObject implements SubL
 		return false;
 	}
 
-
-	@Override
-	public boolean isAlien() {
-		return false;
-	}
-
-	@Override
-	public boolean isAtom() {
-		return true;
-	}
 
 	protected void setStreamElementType(LispObject streamElementType) {
 		this.elementType = streamElementType.toLispObject();

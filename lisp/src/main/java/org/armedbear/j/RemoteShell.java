@@ -244,13 +244,7 @@ public class RemoteShell extends Shell
         SwingUtilities.invokeLater(r);
     }
 
-    @Override
-	protected String stdErrFilter(String s)
-    {
-        return s;
-    }
-
-    private final String getHost()
+	private final String getHost()
     {
         return host;
     }

@@ -99,12 +99,7 @@ public final class URLStream extends Stream
         return super.typep(typeSpecifier);
     }
 
-    @Override
-	public void setExternalFormat(LispObject format) {
-        super.setExternalFormat(format);
-    }
-
-    public Pathname getPathname()
+	public Pathname getPathname()
     {
         return pathname;
     }

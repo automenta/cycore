@@ -103,12 +103,7 @@ public class SubLOutputTextStreamImpl extends AbstractSubLTextStream implements 
 	}
     }
 
-    @Override
-    public boolean freshLine() {
-	return freshLine;
-    }
-
-    @Override
+	@Override
     public SubLStream getStream(boolean followSynonymStream) {
 	return this;
     }

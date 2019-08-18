@@ -34,18 +34,8 @@ package org.armedbear.lisp;
 
 public abstract class ReaderMacroFunction extends Function
 {
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.armedbear.lisp.Operator#isSubLispBased()
-   */
-  @Override
-  public boolean isSubLispBased()
-  {
-    return false;
-  }
 
-  public ReaderMacroFunction( String name )
+	public ReaderMacroFunction( String name )
   {
     super( name );
   }

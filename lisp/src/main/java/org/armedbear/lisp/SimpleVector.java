@@ -127,13 +127,7 @@ public final class SimpleVector extends AbstractVector
     return true;
   }
 
-  @Override
-  public boolean hasFillPointer()
-  {
-    return false;
-  }
-
-  @Override
+	@Override
   public boolean isAdjustable()
   {
     return false;

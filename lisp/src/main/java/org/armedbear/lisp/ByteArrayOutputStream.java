@@ -67,13 +67,7 @@ public final class ByteArrayOutputStream extends Stream
         return BuiltInClass.STREAM; //TODO
     }
 
-    @Override
-	public LispObject typep(LispObject type)
-    {
-        return super.typep(type); //TODO
-    }
-
-    @Override
+	@Override
 	protected long _getFilePosition()
     {
         if (getStreamElementType() == NIL)

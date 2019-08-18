@@ -38,14 +38,7 @@ public class SubLSystem {
 	public String toString() {
 	    return "UNKNOWN " + super.toString();
 	}
-	/* (non-Javadoc)
-	 * @see com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSystem#findSymbol(java.lang.String)
-	 */
-	@Override
-	public Symbol findSymbol(String symbolName) {
-	    return super.findSymbol(symbolName);
-	}
-    };
+	};
     static SubLSystem SUBL_SYSTEM = new SubLSystem() {
 	@Override
 	public String toString() {

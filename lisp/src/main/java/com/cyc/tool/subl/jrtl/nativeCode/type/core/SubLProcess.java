@@ -407,15 +407,7 @@ public abstract class SubLProcess extends SafeRunnable implements Runnable, SubL
         return '\0';
     }
 
-    @Override
-    public void checkType(SubLSymbol predicate) throws SubLException {
-    }
-
-    @Override
-    public void checkTypeInternal(SubLSymbol predicate) throws SubLException {
-    }
-
-    @Override
+	@Override
     public Object clone() {
         return this;
     }
@@ -450,11 +442,7 @@ public abstract class SubLProcess extends SafeRunnable implements Runnable, SubL
                     + toTypeName());
     }
 
-    @Override
-    public void enforceTypeInternal(SubLSymbol predicate) throws SubLException {
-    }
-
-    @Override
+	@Override
     public boolean eql(SubLObject obj) {
         return lispEquals(obj);
     }
@@ -747,12 +735,7 @@ public abstract class SubLProcess extends SafeRunnable implements Runnable, SubL
         return state == SubLProcess.RUN_STATE;
     }
 
-    @Override
-    public boolean isAlien() {
-        return false;
-    }
-
-    @Override
+	@Override
     public boolean isArrayBased() {
         org.armedbear.lisp.Lisp.lisp_type_error(this, "LIST");
         return true;
@@ -763,216 +746,21 @@ public abstract class SubLProcess extends SafeRunnable implements Runnable, SubL
         return true;
     }
 
-    @Override
-    public boolean isBigIntegerBignum() {
-        return false;
-    }
-
-    @Override
-    public boolean isBignum() {
-        return false;
-    }
-
-    @Override
-    public boolean isBoolean() {
-        return false;
-    }
-
-    @Override
-    public boolean isChar() {
-        return false;
-    }
-
-    @Override
-    public boolean isCons() {
-        return false;
-    }
-
-    @Override
-    public boolean isDouble() {
-        return false;
-    }
-
-    @Override
-    public boolean isEnvironment() {
-        return false;
-    }
-
-    @Override
-    public boolean isError() {
-        return false;
-    }
-
-    @Override
-    public boolean isFixnum() {
-        return false;
-    }
-
-    @Override
-    public boolean isFunction() {
-        return false;
-    }
-
-    @Override
-    public boolean isFunctionSpec() {
-        return false;
-    }
-
-    @Override
-    public boolean isGuid() {
-        return false;
-    }
-
-    @Override
-    public boolean isHashtable() {
-        return false;
-    }
-
-    @Override
-    public boolean isHashtableIterator() {
-        return false;
-    }
-
-    @Override
-    public boolean isIntBignum() {
-        return false;
-    }
-
-    @Override
-    public boolean isInteger() {
-        return false;
-    }
-
-    @Override
-    public boolean isKeyhash() {
-        return false;
-    }
-
-    @Override
-    public boolean isKeyhashIterator() {
-        return false;
-    }
-
-    @Override
-    public boolean isKeyword() {
-        return false;
-    }
-
-    @Override
-    public boolean isList() {
-        return false;
-    }
-
-    @Override
-    public boolean isLock() {
-        return false;
-    }
-
-    @Override
-    public boolean isLongBignum() {
-        return false;
-    }
-
-    @Override
-    public boolean isMacroOperator() {
-        return false;
-    }
-
-    @Override
-    public boolean isNegative() {
-        return false;
-    }
-
-    @Override
-    public boolean isNil() {
-        return false;
-    }
-
-    public boolean isNotInterruptible() {
+	public boolean isNotInterruptible() {
         return Threads.$is_thread_performing_cleanupP$ == null
                 || Threads.$is_thread_performing_cleanupP$.getDynamicValue() != SubLNil.NIL;
     }
 
-    @Override
-    public boolean isNumber() {
-        return false;
-    }
-
-    @Override
-    public boolean isPackage() {
-        return false;
-    }
-
-    @Override
-    public boolean isPackageIterator() {
-        return false;
-    }
-
-    @Override
-    public boolean isPositive() {
-        return false;
-    }
-
-    @Override
+	@Override
     public boolean isProcess() {
         return true;
     }
 
-    @Override
-    public boolean isReadWriteLock() {
-        return false;
-    }
-
-    @Override
-    public boolean isRegexPattern() {
-        return false;
-    }
-
-    public boolean isRunning() {
+	public boolean isRunning() {
         return isRunning;
     }
 
-    @Override
-    public boolean isSemaphore() {
-        return false;
-    }
-
-    @Override
-    public boolean isSequence() {
-        return false;
-    }
-
-    @Override
-    public boolean isStream() {
-        return false;
-    }
-
-    @Override
-    public boolean isString() {
-        return false;
-    }
-
-    @Override
-    public boolean isStructure() {
-        return false;
-    }
-
-    @Override
-    public boolean isSymbol() {
-        return false;
-    }
-
-    @Override
-    public boolean isVector() {
-        return false;
-    }
-
-    @Override
-    public boolean isZero() {
-        return false;
-    }
-
-    public void killProcess() {
+	public void killProcess() {
         this.addInterrupt(DefaultThunk.requestTermination());
     }
 

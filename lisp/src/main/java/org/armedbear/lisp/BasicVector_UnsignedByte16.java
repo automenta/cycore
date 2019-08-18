@@ -84,19 +84,7 @@ public final class BasicVector_UnsignedByte16 extends AbstractVector
         return UNSIGNED_BYTE_16;
     }
 
-    @Override
-	public boolean isSimpleVector()
-    {
-        return false;
-    }
-
-    @Override
-	public boolean hasFillPointer()
-    {
-        return false;
-    }
-
-    @Override
+	@Override
 	public boolean isAdjustable()
     {
         return false;

@@ -45,16 +45,6 @@ abstract public class Primitive extends Function {
 		return this; // self-evaluating
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see org.armedbear.lisp.Operator#isSubLispBased()
-	 */
-	@Override
-	public boolean isSubLispBased() {
-		return false;
-	}
-
 	public Primitive(LispObject name) {
 		super(name);
 	}

@@ -61,13 +61,7 @@ public final class ByteArrayInputStream extends Stream
         return BuiltInClass.STREAM; //TODO
     }
 
-    @Override
-	public LispObject typep(LispObject type)
-    {
-        return super.typep(type); //TODO
-    }
-
-    // ### %make-byte-array-input-stream
+	// ### %make-byte-array-input-stream
     // %make-byte-array-input-stream bytes &optional element-type => byte-array-input-stream
     private static final Primitive MAKE_BYTE_ARRAY_INPUT_STREAM =
         new Primitive("%make-byte-array-input-stream", PACKAGE_SYS, false,

@@ -27,7 +27,6 @@ import org.armedbear.lisp.*;
 import javax.swing.*;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.net.ServerSocket;
 import java.net.Socket;
 
 public final class JLisp extends LispShell
@@ -57,13 +56,7 @@ public final class JLisp extends LispShell
         history = new History("jlisp.history", 30);
     }
 
-    @Override
-	public String toString()
-    {
-        return title;
-    }
-
-    // Returns true if underlying process is alive and well.
+	// Returns true if underlying process is alive and well.
     @Override
 	protected boolean checkProcess()
     {

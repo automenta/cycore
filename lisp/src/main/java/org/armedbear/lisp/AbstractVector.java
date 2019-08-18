@@ -169,13 +169,7 @@ public abstract void shrink(int n);
 
   }
 
-  @Override
-public void setFillPointer(int n)
-  {
-    noFillPointer();
-  }
-
-  @Override
+	@Override
 public void setFillPointer(LispObject obj)
   {
     noFillPointer();

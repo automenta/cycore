@@ -209,13 +209,7 @@ public abstract class BroadcastStream extends Stream
             return streams[streams.length-1]._getFilePosition();
     }
 
-    @Override
-	protected boolean _setFilePosition(LispObject arg)
-    {
-        return false;
-    }
-
-    @Override
+	@Override
 	public void _close()
     {
         setOpen(false);

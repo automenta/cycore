@@ -41,11 +41,6 @@ import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLInteger;
  */
 abstract public class LispInteger extends AbstractSubLNumber implements java.io.Serializable, SubLInteger
 {
-    @Override
-    public LispInteger toLispObject()
-    {
-    	return this;
-    }
 
 
   public static LispInteger makeInteger(long l) { 

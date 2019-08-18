@@ -578,144 +578,14 @@ abstract public class SubLPackage extends SLispObject implements SubLObject {
     }
 
     @Override
-    public boolean isAlien() {
-        return false;
-    }
-
-    @Override
     public boolean isAtom() {
         return true;
     }
 
-    @Override
-    public boolean isBigIntegerBignum() {
-        return false;
-    }
-
-    @Override
-    public boolean isBignum() {
-        return false;
-    }
-
-    @Override
-    public boolean isBoolean() {
-        return false;
-    }
-
-    @Override
-    public boolean isChar() {
-        return false;
-    }
-
-    @Override
-    public boolean isCons() {
-        return false;
-    }
-
-    @Override
-    public boolean isDouble() {
-        return false;
-    }
-
-    @Override
-    public boolean isEnvironment() {
-        return false;
-    }
-
-    @Override
-    public boolean isError() {
-        return false;
-    }
-
     abstract public boolean isExported(SubLSymbol symbol);
-
-    @Override
-    public boolean isFixnum() {
-        return false;
-    }
-
-    @Override
-    public boolean isFunction() {
-        return false;
-    }
-
-    @Override
-    public boolean isFunctionSpec() {
-        return false;
-    }
-
-    @Override
-    public boolean isGuid() {
-        return false;
-    }
-
-    @Override
-    public boolean isHashtable() {
-        return false;
-    }
-
-    @Override
-    public boolean isHashtableIterator() {
-        return false;
-    }
-
-    @Override
-    public boolean isIntBignum() {
-        return false;
-    }
-
-    @Override
-    public boolean isInteger() {
-        return false;
-    }
-
-    @Override
-    public boolean isKeyhash() {
-        return false;
-    }
-
-    @Override
-    public boolean isKeyhashIterator() {
-        return false;
-    }
-
-    @Override
-    public boolean isKeyword() {
-        return false;
-    }
-
-    @Override
-    public boolean isList() {
-        return false;
-    }
-
-    @Override
-    public boolean isLock() {
-        return false;
-    }
 
     public boolean isLocked() {
         return isLocked;
-    }
-
-    @Override
-    public boolean isLongBignum() {
-        return false;
-    }
-
-    @Override
-    public boolean isMacroOperator() {
-        return false;
-    }
-
-    @Override
-    public boolean isNil() {
-        return false;
-    }
-
-    @Override
-    public boolean isNumber() {
-        return false;
     }
 
     @Override
@@ -723,60 +593,6 @@ abstract public class SubLPackage extends SLispObject implements SubLObject {
         return true;
     }
 
-    @Override
-    public boolean isPackageIterator() {
-        return false;
-    }
-
-    @Override
-    public boolean isProcess() {
-        return false;
-    }
-
-    @Override
-    public boolean isReadWriteLock() {
-        return false;
-    }
-
-    @Override
-    public boolean isRegexPattern() {
-        return false;
-    }
-
-    @Override
-    public boolean isSemaphore() {
-        return false;
-    }
-
-    @Override
-    public boolean isSequence() {
-        return false;
-    }
-
-    @Override
-    public boolean isStream() {
-        return false;
-    }
-
-    @Override
-    public boolean isString() {
-        return false;
-    }
-
-    @Override
-    public boolean isStructure() {
-        return false;
-    }
-
-    @Override
-    public boolean isSymbol() {
-        return false;
-    }
-
-    @Override
-    public boolean isVector() {
-        return false;
-    }
     //
     // public SubLSymbol retrieveSymbol(SubLString symbolName) {
     // synchronized (SubLThread.getInterruptLock()) {

@@ -17,10 +17,12 @@ import com.cyc.tool.subl.util.SubLFiles;
 import com.cyc.tool.subl.util.SubLTrampolineFile;
 import com.google.common.collect.Lists;
 import cyc.CYC;
-import org.armedbear.lisp.*;
+import org.armedbear.lisp.ControlTransfer;
+import org.armedbear.lisp.JavaException;
+import org.armedbear.lisp.Lisp;
+import org.armedbear.lisp.LispError;
 
 import java.io.PrintStream;
-import java.util.ArrayList;
 import java.util.List;
 
 //import org.logicmoo.system.BeanShellCntrl;

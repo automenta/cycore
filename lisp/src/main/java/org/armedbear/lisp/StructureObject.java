@@ -83,15 +83,6 @@ public class StructureObject extends SubLStructInterpreted implements SubLStruct
 	}
 
 	@Override
-	protected LispObject badIndex(int n) {
-		StringBuilder sb = new StringBuilder("Invalid slot index ");
-		sb.append(Fixnum.getInstance(n).princToString());
-		sb.append(" for ");
-		sb.append(princToString());
-		return error(new LispError(sb.toString()));
-	}
-
-	@Override
 	public int getFieldCount() {
 		return slots.length;
 	}
@@ -738,12 +729,6 @@ public class StructureObject extends SubLStructInterpreted implements SubLStruct
 			return null;
 		lo = ((LispClass) lo).getLispClassName();
 		return (SubLSymbol) lo;
-	}
-
-	// @Override
-	@Override
-	public SubLObject[] getSlots() {
-		return slots;
 	}
 
 	//

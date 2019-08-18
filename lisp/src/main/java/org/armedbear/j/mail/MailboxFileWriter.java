@@ -85,15 +85,4 @@ public final class MailboxFileWriter extends BufferedWriter
         ++offset;
     }
 
-    @Override
-	public void flush() throws IOException
-    {
-        super.flush();
-    }
-
-    @Override
-	public void close() throws IOException
-    {
-        super.close();
-    }
 }

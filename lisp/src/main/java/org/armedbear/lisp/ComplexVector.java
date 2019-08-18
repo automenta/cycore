@@ -144,13 +144,7 @@ public final class ComplexVector extends AbstractVector
         return T;
     }
 
-    @Override
-    public boolean isSimpleVector()
-    {
-        return false;
-    }
-
-    @Override
+	@Override
     public int capacity()
     {
         return capacity;

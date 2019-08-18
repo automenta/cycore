@@ -52,9 +52,4 @@ public final class CompilationMode extends AbstractMode implements Constants, Mo
         km.mapKey('q', "tempBufferQuit");
     }
 
-    @Override
-	public Formatter getFormatter(Buffer buffer)
-    {
-        return new PlainTextFormatter(buffer);
-    }
 }

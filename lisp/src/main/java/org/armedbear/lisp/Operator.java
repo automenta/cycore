@@ -33,11 +33,8 @@
 
 package org.armedbear.lisp;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.CommonSymbols;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Types;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLFixnum;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.AbstractSubLFunction;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLOperator;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLSpecialOperator;
@@ -197,40 +194,17 @@ public abstract class Operator extends AbstractSubLFunction implements SubLOpera
     return unreadableString(sb.toString());
   }
 
-  @Override
-  protected void extraInfo(StringBuilder sb) {
-  }
-
-  @Override
-  public boolean isMacroOperator() {
-    return false;
-  }
-  //	protected AbstractSubLOperator() {
+	//	protected AbstractSubLOperator() {
   //		this(null);
   //	}
 
   //abstract public SubLOperator toSubLObject();
   abstract public LispObject funcallCL(LispObject... args);
 
-  @Override
-  public SubLSymbol getType() {
-    return Types.$dtp_function$;
-  }
-
-  @Override
-  public SubLFixnum getTypeCode() {
-    return CommonSymbols.FIVE_INTEGER;
-  }
-
-  //protected SubLSymbol lambdaName;
+	//protected SubLSymbol lambdaName;
   //public static String SPECIAL_OPERATOR_NAME = "SPECIAL-OPERATOR";
 
-  @Override
-  public boolean canFastHash() {
-    return true;
-  }
-
-  @Override
+	@Override
   public SubLSymbol getFunctionSymbol() {
     if (this.lambdaName != null)
       return (SubLSymbol) this.lambdaName;

@@ -225,12 +225,7 @@ public final class DoubleFloat extends SubLDoubleFloat
         return value;
     }
 
-    @Override
-    public double doubleValue() {
-        return value;
-    }
-
-    @Override
+	@Override
     public Object javaInstance()
     {
         return Double.valueOf(value);

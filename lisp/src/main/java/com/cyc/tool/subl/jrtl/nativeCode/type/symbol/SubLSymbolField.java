@@ -212,12 +212,7 @@ public SubLObject eval(SubLEnvironment env)
 
  // public static String SYMBOL_TYPE_NAME = "SYMBOL";
 
-  @Override
-public String toTypeName() {
-    return SYMBOL_TYPE_NAME;
-  }
-
-  @Override
+	@Override
 public void forceGlobalValue(SubLObject newValue) {
    // throw new SubLException("Cannot set the value of keyword: " + this + ".");
     setValue(newValue);

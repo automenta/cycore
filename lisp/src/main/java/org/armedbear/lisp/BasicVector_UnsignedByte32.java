@@ -85,19 +85,7 @@ public LispObject getElementType()
     return UNSIGNED_BYTE_32;
   }
 
-  @Override
-public boolean isSimpleVector()
-  {
-    return false;
-  }
-
-  @Override
-public boolean hasFillPointer()
-  {
-    return false;
-  }
-
-  @Override
+	@Override
 public boolean isAdjustable()
   {
     return false;

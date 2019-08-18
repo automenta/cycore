@@ -18,7 +18,9 @@ import org.armedbear.lisp.Lisp;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class Loader {
     private static final List<Runnable>[] Passes = new List[] { new ArrayList<Runnable>(), new ArrayList<Runnable>(), new ArrayList<Runnable>() };

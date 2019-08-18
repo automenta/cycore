@@ -1065,19 +1065,7 @@ loop:
     return new String(it.hideSyntacticWhitespace(s)).trim();
   }
 
-  @Override
-public boolean isIdentifierStart(char c)
-  {
-    return Character.isJavaIdentifierStart(c);
-  }
-
-  @Override
-public boolean isIdentifierPart(char c)
-  {
-    return Character.isJavaIdentifierPart(c);
-  }
-
-  @Override
+	@Override
 public boolean isInComment(Buffer buffer, Position pos)
   {
     if (buffer == null || pos == null)

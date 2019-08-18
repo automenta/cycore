@@ -22,18 +22,8 @@ package org.armedbear.lisp;
 
 public class Primitive0R extends Function
 {
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.armedbear.lisp.Operator#isSubLispBased()
-   */
-  @Override
-  public boolean isSubLispBased()
-  {
-    return false;
-  }
 
-  public Primitive0R( LispObject name )
+	public Primitive0R( LispObject name )
   {
     super( name );
   }

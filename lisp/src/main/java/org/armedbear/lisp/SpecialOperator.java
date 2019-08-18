@@ -49,21 +49,6 @@ abstract public class SpecialOperator extends SubLSpecialOperator
 		return false;
 	}
 
-	@Override
-	public boolean isSpecial() {
-		return true;
-	}
-
-	@Override
-	public boolean isFunction() {
-		return false;
-	}
-
-	@Override
-	public boolean isFunctionSpec() {
-		return false;
-	}
-
 
 	@Override
 	public SubLObject evalViaApply(SubLCons form, SubLEnvironment env) {

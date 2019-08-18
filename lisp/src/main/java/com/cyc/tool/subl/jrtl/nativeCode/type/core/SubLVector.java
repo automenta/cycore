@@ -2,10 +2,8 @@
 package com.cyc.tool.subl.jrtl.nativeCode.type.core;
 
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.BinaryFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.CommonSymbols;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.UnaryFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLFixnum;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
 import com.cyc.tool.subl.util.ComparatorGenericKey;
 import com.cyc.tool.subl.util.ComparatorIdentityKey;
@@ -43,11 +41,6 @@ public class SubLVector extends AbstractSubLVector implements SubLSequence {
 	final public static SubLVector EMPTY_VECTOR = new SubLVector(0);
 
 	@Override
-	public boolean canFastHash() {
-		return false;
-	}
-
-	@Override
 	public Object clone() {
 		return makeCopy();
 	}
@@ -77,28 +70,6 @@ public class SubLVector extends AbstractSubLVector implements SubLSequence {
 		return this;
 	}
 
-
-	@Override
-	public SubLFixnum getTypeCode() {
-		return CommonSymbols.THIRTY_THREE_INTEGER;
-	}
-
-
-	@Override
-	public boolean isString() {
-		return false;
-	}
-
-	@Override
-	public boolean isStructure() {
-		return false;
-	}
-
-
-	@Override
-	public boolean isVector() {
-		return true;
-	}
 
 	@Override
 	public SubLObject makeCopy() {

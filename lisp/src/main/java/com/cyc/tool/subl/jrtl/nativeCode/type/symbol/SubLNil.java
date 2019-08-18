@@ -6,13 +6,15 @@ import com.cyc.tool.subl.jrtl.nativeCode.subLisp.PrologSync.IPrologifiable;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.*;
 import com.cyc.tool.subl.jrtl.nativeCode.type.exception.InvalidSubLExpressionException;
 import com.cyc.tool.subl.jrtl.nativeCode.type.exception.SubLException;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLFixnum;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLFunction;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLOperator;
 import com.cyc.tool.subl.jrtl.nativeCode.type.stream.*;
 import com.cyc.tool.subl.util.SubLFiles;
 import cyc.CYC;
-import org.armedbear.lisp.*;
+import org.armedbear.lisp.Lisp;
+import org.armedbear.lisp.LispObject;
+import org.armedbear.lisp.Nil;
+import org.armedbear.lisp.Symbol;
 import org.jpl7.JPL;
 import org.jpl7.Term;
 
@@ -227,17 +229,7 @@ abstract public class SubLNil extends Symbol implements SubLList, SubLSymbol, Su
         return NIL_SYMBOL_NAME_SUBLSTRING;
     }
 
-    @Override
-    public SubLSymbol getType() {
-        return Types.$dtp_symbol$;
-    }
-
-    @Override
-    public SubLFixnum getTypeCode() {
-        return CommonSymbols.TWO_INTEGER;
-    }
-
-    @Override
+	@Override
     public SubLObject getValue() {
         return this;
     }
@@ -250,82 +242,27 @@ abstract public class SubLNil extends Symbol implements SubLList, SubLSymbol, Su
         return 0;
     }
 
-    @Override
-    public boolean isAlien() {
-        return false;
-    }
-
-    @Override
+	@Override
     public boolean isArrayBased() {
         return true;
     }
 
-    @Override
-    public boolean isAtom() {
-        return true;
-    }
-
-    @Override
-    public boolean isBigIntegerBignum() {
-        return false;
-    }
-
-    @Override
-    public boolean isBignum() {
-        return false;
-    }
-
-    @Override
+	@Override
     public boolean isBoolean() {
         return true;
     }
 
-    @Override
-    public boolean isChar() {
-        return false;
-    }
-
-    @Override
-    public boolean isCons() {
-        return false;
-    }
-
-    @Override
+	@Override
     public boolean isConstantSymbol() {
         return true;
     }
 
-    @Override
-    public boolean isDouble() {
-        return false;
-    }
-
-    @Override
+	@Override
     public boolean isDynamic() {
         return false;
     }
 
-    @Override
-    public boolean isEnvironment() {
-        return false;
-    }
-
-    @Override
-    public boolean isError() {
-        return false;
-    }
-
-    @Override
-    public boolean isFixnum() {
-        return false;
-    }
-
-    @Override
-    public boolean isFunction() {
-        return false;
-    }
-
-    @Override
+	@Override
     public boolean isFunctionSpec() {
         return false;
     }
@@ -335,42 +272,7 @@ abstract public class SubLNil extends Symbol implements SubLList, SubLSymbol, Su
         return true;
     }
 
-    @Override
-    public boolean isGuid() {
-        return false;
-    }
-
-    @Override
-    public boolean isHashtable() {
-        return false;
-    }
-
-    @Override
-    public boolean isHashtableIterator() {
-        return false;
-    }
-
-    @Override
-    public boolean isIntBignum() {
-        return false;
-    }
-
-    @Override
-    public boolean isInteger() {
-        return false;
-    }
-
-    @Override
-    public boolean isKeyhash() {
-        return false;
-    }
-
-    @Override
-    public boolean isKeyhashIterator() {
-        return false;
-    }
-
-    @Override
+	@Override
     public boolean isKeyword() {
         return false;
     }
@@ -380,17 +282,7 @@ abstract public class SubLNil extends Symbol implements SubLList, SubLSymbol, Su
         return true;
     }
 
-    @Override
-    public boolean isLock() {
-        return false;
-    }
-
-    @Override
-    public boolean isLongBignum() {
-        return false;
-    }
-
-    @Override
+	@Override
     public boolean isMacroOperator() {
         return false;
     }
@@ -400,77 +292,17 @@ abstract public class SubLNil extends Symbol implements SubLList, SubLSymbol, Su
         return true;
     }
 
-    @Override
-    public boolean isNumber() {
-        return false;
-    }
-
-    @Override
-    public boolean isPackage() {
-        return false;
-    }
-
-    @Override
-    public boolean isPackageIterator() {
-        return false;
-    }
-
-    @Override
-    public boolean isProcess() {
-        return false;
-    }
-
-    @Override
-    public boolean isReadWriteLock() {
-        return false;
-    }
-
-    @Override
-    public boolean isRegexPattern() {
-        return false;
-    }
-
-    @Override
-    public boolean isSemaphore() {
-        return false;
-    }
-
-    @Override
+	@Override
     public boolean isSequence() {
         return true;
     }
 
-    @Override
-    public boolean isStream() {
-        return false;
-    }
-
-    @Override
-    public boolean isString() {
-        return false;
-    }
-
-    @Override
-    public boolean isStructure() {
-        return false;
-    }
-
-    @Override
-    public boolean isSymbol() {
-        return true;
-    }
-
-    @Override
+	@Override
     public boolean isUndeclared() {
         return false;
     }
 
-    @Override
-    public boolean isVector() {
-        return false;
-    }
-
-    @Override
+	@Override
     public SubLObject last(int n) {
         if (n > 1)
             Errors.error("Can't take the last n items of NIL: " + n);

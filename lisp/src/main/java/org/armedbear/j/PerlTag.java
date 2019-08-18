@@ -38,13 +38,7 @@ public final class PerlTag extends LocalTag
             return name;
     }
 
-    @Override
-	public String getLongName()
-    {
-        return name;
-    }
-
-    @Override
+	@Override
 	public String toString()
     {
         return name;

@@ -40,9 +40,9 @@ import org.armedbear.lisp.HashTable.HTComparator;
 import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
 
 
@@ -60,9 +60,9 @@ public class WeakHashTable
     extends SLispObject
     implements org.armedbear.lisp.protocol.Hashtable, LispHashTable
 {
-    protected static final float loadFactor = 0.75f;
-    protected final LispObject rehashSize;
-    protected final LispObject rehashThreshold;
+    private static final float loadFactor = 0.75f;
+    private final LispObject rehashSize;
+    private final LispObject rehashThreshold;
     /**
      * The rounded product of the capacity and the load factor. When the number
      * of elements exceeds the threshold, the implementation calls rehash().
@@ -71,12 +71,15 @@ public class WeakHashTable
     /** Array containing the actual key-value mappings. */
     @SuppressWarnings("VolatileArrayField")
     protected volatile HashEntry[] buckets;
-    /** The actual current number of key-value pairs. */
-    protected volatile int count;
-    final HTComparator comparator;
+
+    /**
+     * The actual current number of key-value pairs.
+     */
+    protected final AtomicInteger count = new AtomicInteger();
+    private final HTComparator comparator;
     final private ReentrantLock lock = new ReentrantLock();
-    HashEntry bucketType;
-    final LispObject weakness;
+    private HashEntry bucketType;
+    public final LispObject weakness;
 
     private WeakHashTable(HTComparator c, int size, LispObject rehashSize, 
                           LispObject rehashThreshold, LispObject weakness) 
@@ -103,67 +106,72 @@ public class WeakHashTable
         comparator = c;
     }
 
-    protected static int calculateInitialCapacity(int size) {
-        int capacity = 1;
-        while (capacity < size) {
-            capacity <<= 1;
-        }
-        return capacity;
+    @Override
+    public LispObject getWeakness() {
+        return weakness;
     }
 
-    // XXX only WEAK references types are implemented for WeakHashTable.
-    // XXX This enum is currently unused in this code
-    enum ReferenceType {
-        NORMAL, 
-        WEAK, 
-        SOFT
-    }
-  
-    // XXX This enum is currently unused in this code
-    enum WeaknessType {
-            /** KEY means that the key of an entry must be live to
-                guarantee that the entry is preserved. */
-        KEY,
-            /** VALUE means that the value of an entry must be live to
-                guarantee that the entry is preserved. */
-        VALUE,
-            /** KEY-AND-VALUE means that both the key and the value
-                must be live to guarantee that the entry is preserved. */
-        KEY_AND_VALUE,
-            /** KEY-OR-VALUE means that either the key or the value
-                must be live to guarantee that the entry is preserved. */
-        KEY_OR_VALUE
-    }
+//    protected static int calculateInitialCapacity(int size) {
+//        int capacity = 1;
+//        while (capacity < size) {
+//            capacity <<= 1;
+//        }
+//        return capacity;
+//    }
 
-    public static WeakHashTable newEqHashTable(int size, LispObject rehashSize,
-                                               LispObject rehashThreshold,
-                                               LispObject weakness) 
+//    // XXX only WEAK references types are implemented for WeakHashTable.
+//    // XXX This enum is currently unused in this code
+//    enum ReferenceType {
+//        NORMAL,
+//        WEAK,
+//        SOFT
+//    }
+//
+//    // XXX This enum is currently unused in this code
+//    enum WeaknessType {
+//            /** KEY means that the key of an entry must be live to
+//                guarantee that the entry is preserved. */
+//        KEY,
+//            /** VALUE means that the value of an entry must be live to
+//                guarantee that the entry is preserved. */
+//        VALUE,
+//            /** KEY-AND-VALUE means that both the key and the value
+//                must be live to guarantee that the entry is preserved. */
+//        KEY_AND_VALUE,
+//            /** KEY-OR-VALUE means that either the key or the value
+//                must be live to guarantee that the entry is preserved. */
+//        KEY_OR_VALUE
+//    }
+
+    static WeakHashTable newEqHashTable(int size, LispObject rehashSize,
+                                        LispObject rehashThreshold,
+                                        LispObject weakness)
     {
-        return new WeakHashTable(new HashTable.EqComparator(), size, 
+        return new WeakHashTable(HashTable.EqComparator, size,
                                  rehashSize, rehashThreshold, weakness);
     }
 
-    public static WeakHashTable newEqlHashTable(int size, LispObject rehashSize,
-                                                LispObject rehashThreshold,
-                                                LispObject weakness) 
+    static WeakHashTable newEqlHashTable(int size, LispObject rehashSize,
+                                         LispObject rehashThreshold,
+                                         LispObject weakness)
     {
-        return new WeakHashTable(new HashTable.EqlComparator(), size, 
+        return new WeakHashTable(HashTable.EqlComparator, size,
                                  rehashSize, rehashThreshold, weakness);
     }
 
-    public static WeakHashTable newEqualHashTable(int size, LispObject rehashSize,
-                                                  LispObject rehashThreshold,
-                                                  LispObject weakness) 
+    static WeakHashTable newEqualHashTable(int size, LispObject rehashSize,
+                                           LispObject rehashThreshold,
+                                           LispObject weakness)
     {
-        return new WeakHashTable(new HashTable.EqualComparator(), size, 
+        return new WeakHashTable(HashTable.EqualComparator, size,
                                  rehashSize, rehashThreshold, weakness);
     }
 
-    public static WeakHashTable newEqualpHashTable(int size, LispObject rehashSize,
-                                                   LispObject rehashThreshold,
-                                                   LispObject weakness) 
+    static WeakHashTable newEqualpHashTable(int size, LispObject rehashSize,
+                                            LispObject rehashThreshold,
+                                            LispObject weakness)
     {
-        return new WeakHashTable(new HashTable.EqualpComparator(), size, 
+        return new WeakHashTable(HashTable.EqualpComparator, size,
                                  rehashSize, rehashThreshold, weakness);
     }
 
@@ -198,7 +206,7 @@ public class WeakHashTable
     @Override
 	public int getCount() {
         getTable(); // To force gc on entries
-        return count;
+        return count.get();
     }
 
     @Override
@@ -261,7 +269,7 @@ public class WeakHashTable
         for (int i = 0; i < b.length; i++) {
             HashEntry e = b[i];
             while (e != null) {
-                LispObject key = e.getKey();
+                LispObject key = e.key;
                 LispObject value = e.getValue();
                 if (key != null && value != null) {
                     parts = parts.push(new Cons("KEY [bucket " + i + "]", key));
@@ -270,7 +278,7 @@ public class WeakHashTable
                     assert false
                         : "Dangling hash entries encountered.";
                 }
-                e = e.getNext();
+                e = e.next;
             }
         }
         return parts.nreverse();
@@ -284,7 +292,7 @@ public class WeakHashTable
         lock.lock();
         try {
             buckets = bucketType.makeArray(buckets.length);
-            count = 0;
+            count.set(0);
             while (queue.poll() != null)
                 ;
         } finally {
@@ -370,8 +378,8 @@ public class WeakHashTable
             sb.append("WEAKNESS :KEY-OR-VALUE");
         }
         sb.append(' ');
-        sb.append(count);
-        if (count == 1) {
+        sb.append(count.get());
+        if (count.get() == 1) {
             sb.append(" entry");
         } else {
             sb.append(" entries");
@@ -389,16 +397,8 @@ public class WeakHashTable
 	public Symbol getTestSymbol() {
         return comparator.getTestSymbol();
     }
-    
-    /* (non-Javadoc)
-	 * @see org.armedbear.lisp.WLispHashTable#getWeakness()
-	 */
-   // @Override
-	public LispObject getWeakness() {
-        return weakness;
-    }
 
-    HashEntry[] getTable() {
+    private HashEntry[] getTable() {
         lock.lock();
         try {
             bucketType.expungeQueue();
@@ -408,17 +408,17 @@ public class WeakHashTable
         }
     }
 
-    protected HashEntry getEntry(LispObject key) {
+    private HashEntry getEntry(LispObject key) {
         HashEntry[] b = getTable();
         int hash = comparator.hash(key);
         HashEntry e = b[hash & (b.length - 1)];
         while (e != null) {
-            if (hash == e.getHash() 
-                && (key == e.getKey() 
-                    || comparator.keysEqual(key, e.getKey()))) {
+            if (hash == e.hash
+                && (key == e.key
+                    || comparator.keysEqual(key, e.key))) {
                 return e;
             }
-            e = e.getNext();
+            e = e.next;
         }
         return null;
     }
@@ -447,7 +447,7 @@ public class WeakHashTable
             e.setValue(value);
         } else {
             // Not found. We need to add a new entry.
-            if (++count > threshold) {
+            if (count.incrementAndGet() > threshold) {
                 rehash();
             }
             int hash = comparator.hash(key);
@@ -471,27 +471,27 @@ public class WeakHashTable
             HashEntry e = buckets[index];
             HashEntry last = null;
             while (e != null) {
-                LispObject entryKey = e.getKey();
+                LispObject entryKey = e.key;
                 if (entryKey == null) {
                     e.clear();
                     if (last == null) {
-                        buckets[index] = e.getNext();
+                        buckets[index] = e.next;
                     } else {
-                        last.setNext(e.getNext());
+                        last.setNext(e.next);
                     }
-                    --count;
+                    count.decrementAndGet();
                 } else if (comparator.keysEqual(key, entryKey)) {
                     e.clear();
                     if (last == null) {
-                        buckets[index] = e.getNext();
+                        buckets[index] = e.next;
                     } else {
-                        last.setNext(e.getNext());
+                        last.setNext(e.next);
                     }
-                    --count;
+                    count.decrementAndGet();
                     return e.getValue();
                 }
                 last = e;
-                e = e.getNext();
+                e = e.next;
             }
             return null;
         } finally {
@@ -512,21 +512,21 @@ public class WeakHashTable
         if (entry == null) {
             return; // XXX how does this happen?
         }
-        int index = entry.getSlot();
+        int index = entry.slot;
         HashEntry e = this.buckets[index];
         HashEntry last = null;
         while (e != null) {
             if (e.equals(entry)) {
                 if (last == null) {
-                    this.buckets[index] = e.getNext();
+                    this.buckets[index] = e.next;
                 } else {
-                    last.setNext(e.getNext());
+                    last.setNext(e.next);
                 }
-                --count;
+                count.decrementAndGet();
                 break;
             }
             last = e;
-            e = e.getNext();
+            e = e.next;
         }
     }
 
@@ -541,22 +541,22 @@ public class WeakHashTable
             for (int i = buckets.length; i-- > 0;) {
                 HashEntry e = buckets[i];
                 while (e != null) {
-                    LispObject key = e.getKey();
+                    LispObject key = e.key;
                     LispObject value = e.getValue();
                     if (key == null || value == null) {
                         e.clear();
-                        e = e.getNext();
+                        e = e.next;
                         continue;
                     }
                     final int index = comparator.hash(key) & mask;
                     e.clear();
-                    newBuckets[index] 
-                        = bucketType.makeInstance(key, 
-                                                  e.getHash(), 
+                    newBuckets[index]
+                        = bucketType.makeInstance(key,
+                        e.hash,
                                                   value,
                                                   newBuckets[index],
                                                   index);
-                    e = e.getNext();
+                    e = e.next;
                 }
             }
             buckets = newBuckets;
@@ -584,15 +584,16 @@ public class WeakHashTable
         for (int i = b.length; i-- > 0;) {
             HashEntry e = b[i];
             while (e != null) {
-                LispObject key = e.getKey();
-                LispObject value = e.getValue();
-                if (key != null && value != null) {
-                    list = new Cons(new Cons(key, value), list);
-                } else {
-                    assert false 
-                        : "ENTRIES encounted dangling entries.";
+                LispObject key = e.key;
+                if (key != null) {
+                    LispObject value = e.getValue();
+                    if (value != null) {
+                        list = new Cons(new Cons(key, value), list);
+                        e = e.next;
+                        continue;
+                    }
                 }
-                e = e.getNext();
+                throw new RuntimeException("MAPHASH encountered dangling entries.");
             }
         }
         return list;
@@ -607,21 +608,23 @@ public class WeakHashTable
         for (int i = b.length; i-- > 0;) {
             HashEntry e = b[i];
             while (e != null) {
-                LispObject key = e.getKey();
-                LispObject value = e.getValue();
-                if (key != null && value != null) {
-                    function.execute(key, value);
-                } else {
-                    assert false 
-                        : "MAPHASH encountered dangling entries.";
+                LispObject key = e.key;
+                if (key != null) {
+                    LispObject value = e.getValue();
+                    if (value != null) {
+                        function.execute(key, value);
+                        e = e.next;
+                        continue;
+                    }
                 }
-                e = e.getNext();
+
+                throw new RuntimeException("MAPHASH encountered dangling entries.");
             }
         }
         return NIL;
     }
 
-    abstract class HashEntry
+    private abstract class HashEntry
     {
         LispObject key;
         int hash;
@@ -629,28 +632,20 @@ public class WeakHashTable
         HashEntry next;
         int slot;
 
-        public HashEntry() {};
+        HashEntry() {};
 
-        public HashEntry(LispObject key, int hash, LispObject value, 
-                         HashEntry next, int slot)
-        {
-            this.key = key;
-            this.hash = hash;
-            this.value = value;
-            this.next = next;
-            this.slot = slot;
-        }
-
-        public LispObject getKey() {
-            return key;
-        }
+//        public HashEntry(LispObject key, int hash, LispObject value,
+//                         HashEntry next, int slot)
+//        {
+//            this.key = key;
+//            this.hash = hash;
+//            this.value = value;
+//            this.next = next;
+//            this.slot = slot;
+//        }
 
         public void setKey(LispObject key) {
             this.key = key;
-        }
-
-        public int getHash() {
-            return hash;
         }
 
         public void setHash(int hash) {
@@ -665,18 +660,10 @@ public class WeakHashTable
             this.value = value;
         }
 
-        public HashEntry getNext() {
-            return next;
-        }
-
         public void setNext(HashEntry next) {
             this.next = next;
         }
 
-        public int getSlot() {
-            return slot;
-        }
-        
         public void setSlot(int slot) {
             this.slot = slot;
         }
@@ -690,41 +677,39 @@ public class WeakHashTable
         abstract void clear();
     }
 
-    ReferenceQueue<LispObject> queue 
-        = new ReferenceQueue<LispObject>();
+    private ReferenceQueue<LispObject> queue = new ReferenceQueue<>();
 
-    Map<Object, HashEntry> entryLookup
-        = Collections.synchronizedMap(new HashMap<Object, HashEntry>());
+    private Map<Object, HashEntry> entryLookup = new ConcurrentHashMap();
 
     class HashEntryWeakKey 
         extends HashEntry
     {
         private WeakReference<LispObject> key;
         
-        public HashEntryWeakKey() {};
+        HashEntryWeakKey() {};
 
-        public HashEntryWeakKey(LispObject key, int hash, LispObject value, 
-                                HashEntry next, int slot)
+        HashEntryWeakKey(LispObject key, int hash, LispObject value,
+                         HashEntry next, int slot)
         {
             this.hash = hash;
             this.value = value;
             this.next = next;
             this.slot = slot;
 
-            this.key = new WeakReference<LispObject>(key, queue);
+            this.key = new WeakReference<>(key, queue);
             entryLookup.put(this.key, this);
         }
 
-        @Override
-		public LispObject getKey() {
-            return key.get();
-        }
+//        @Override
+//		public LispObject getKey() {
+//            return key.get();
+//        }
 
         @Override
 		public void setKey(LispObject key) {
             java.lang.ref.WeakReference<LispObject> old = this.key;
             old.clear();
-            this.key = new WeakReference<LispObject>(key, queue);
+            this.key = new WeakReference<>(key, queue);
             entryLookup.put(this.key, this);
         }
 
@@ -754,9 +739,7 @@ public class WeakHashTable
         @Override
 		void clear() {
             key.clear();
-            assert entryLookup.containsKey(key) 
-                : "Key was not in lookup table";
-            entryLookup.remove(key);
+            HashEntry removed = entryLookup.remove(key); assert(removed!=null): "Key was not in lookup table";
         }
     }
 
@@ -765,22 +748,22 @@ public class WeakHashTable
     {
         private WeakReference<LispObject> value;
         
-        public HashEntryWeakValue() {};
+        HashEntryWeakValue() {};
 
-        public HashEntryWeakValue(LispObject key, int hash, LispObject value, 
-                                  HashEntry next, int slot)
+        HashEntryWeakValue(LispObject key, int hash, LispObject value,
+                           HashEntry next, int slot)
         {
             this.hash = hash;
             this.key = key;
             this.next = next;
             this.slot = slot;
 
-            this.value = new WeakReference<LispObject>(value, queue);
+            this.value = new WeakReference<>(value, queue);
             entryLookup.put(this.value, this);
         }
 
         @Override
-		public LispObject getValue() {
+        public LispObject getValue() {
             return value.get();
         }
 
@@ -788,7 +771,7 @@ public class WeakHashTable
 		public void setValue(LispObject value) {
             java.lang.ref.WeakReference<LispObject> old = this.value;
             old.clear();
-            this.value = new WeakReference<LispObject>(value, queue);
+            this.value = new WeakReference<>(value, queue);
             entryLookup.put(this.value, this);
         }
 
@@ -818,10 +801,7 @@ public class WeakHashTable
         @Override
 		void clear() {
             value.clear();
-            assert entryLookup.containsKey(value) 
-                : "Value was not in lookup table.";
-            entryLookup.remove(value);
-        }
+            HashEntry removed = entryLookup.remove(value); assert(removed!=null): "Value was not in lookup table";        }
     }
 
     class HashEntryWeakKeyAndValue
@@ -830,26 +810,25 @@ public class WeakHashTable
         private WeakReference<LispObject> key;
         private WeakReference<LispObject> value;
         
-        public HashEntryWeakKeyAndValue() {};
+        HashEntryWeakKeyAndValue() {};
 
-        public HashEntryWeakKeyAndValue(LispObject key, int hash, 
-                                        LispObject value, 
-                                        HashEntry next, int slot)
+        HashEntryWeakKeyAndValue(LispObject key, int hash,
+                                 LispObject value,
+                                 HashEntry next, int slot)
         {
             this.hash = hash;
             this.next = next;
             this.slot = slot;
             
-            this.key = new WeakReference<LispObject>(key, queue);
+            this.key = new WeakReference<>(key, queue);
             entryLookup.put(this.key, this);
 
-            this.value = new WeakReference<LispObject>(value, queue);
+            this.value = new WeakReference<>(value, queue);
             entryLookup.put(this.value, this);
             
         }
 
-        @Override
-		public LispObject getKey() {
+        public LispObject getKey() {
             return key.get();
         }
 
@@ -858,7 +837,7 @@ public class WeakHashTable
             java.lang.ref.WeakReference<LispObject> old = this.key;
             entryLookup.remove(old);
             old.clear();
-            this.key = new WeakReference<LispObject>(key, queue);
+            this.key = new WeakReference<>(key, queue);
             entryLookup.put(this.key, this);
         }
 
@@ -872,7 +851,7 @@ public class WeakHashTable
             java.lang.ref.WeakReference<LispObject> old = this.value;
             entryLookup.remove(old);
             old.clear();
-            this.value = new WeakReference<LispObject>(value, queue);
+            this.value = new WeakReference<>(value, queue);
             entryLookup.put(this.value, this);
         }
 
@@ -898,7 +877,7 @@ public class WeakHashTable
                     ref = queue.poll();
                     continue;
                 }
-                if (entry.getKey() == null
+                if (entry.key == null
                     && entry.getValue() == null) {
                     WeakHashTable.this.remove(ref);
                     entryLookup.remove(ref);
@@ -922,11 +901,11 @@ public class WeakHashTable
     class HashEntryWeakKeyOrValue
         extends HashEntryWeakKeyAndValue
     {
-        public HashEntryWeakKeyOrValue() {};
+        HashEntryWeakKeyOrValue() {};
 
-        public HashEntryWeakKeyOrValue(LispObject key, int hash, 
-                                       LispObject value, 
-                                       HashEntry next, int slot)
+        HashEntryWeakKeyOrValue(LispObject key, int hash,
+                                LispObject value,
+                                HashEntry next, int slot)
         {
             super(key, hash, value, next, slot);
         }
@@ -964,7 +943,7 @@ public class WeakHashTable
     @Override
 	public int psxhash() {
         long result = 2062775257; // Chosen at random.
-        result = mix(result, count);
+        result = mix(result, count.get());
         result = mix(result, getTestSymbol().sxhash());
         return (int) (result & 0x7fffffff);
     }

@@ -350,14 +350,8 @@ public abstract class AbstractArray extends AbstractSubLVector implements java.i
         return (int) (result & 0x7fffffff);
     }
 
-    @Override
-	public int sxhash()
-    {
-      return superHash() & 0x7fffffff;
-    }
 
-
-    /** Returns a newly allocated array or the current array with
+	/** Returns a newly allocated array or the current array with
      * adjusted dimensions.
      *
      * @param dims

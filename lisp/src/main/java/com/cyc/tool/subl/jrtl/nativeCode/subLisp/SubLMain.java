@@ -5,6 +5,7 @@
  */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
+import com.cyc.misc.rcycl;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.*;
 import com.cyc.tool.subl.jrtl.nativeCode.type.exception.ResumeException;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLFunction;
@@ -15,10 +16,9 @@ import com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader;
 import com.cyc.tool.subl.util.PatchFileLoader;
 import com.cyc.tool.subl.util.SubLFiles;
 import com.cyc.tool.subl.util.SubLTranslatedFile;
-import com.cyc.misc.rcycl;
+import cyc.CYC;
 import org.armedbear.lisp.Interpreter;
 import org.armedbear.lisp.Lisp;
-import cyc.CYC;
 import org.jpl7.JPL;
 import org.jpl7.Query;
 

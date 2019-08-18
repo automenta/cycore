@@ -339,13 +339,7 @@ public double doubleValue() {
           return null;
   }
 
-  @Override
-public int intValue()
-  {
-    return value;
-  }
-
-  @Override
+	@Override
 public long longValue()
   {
     return (long) value;

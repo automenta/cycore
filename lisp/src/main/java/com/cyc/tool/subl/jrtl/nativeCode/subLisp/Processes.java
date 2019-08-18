@@ -12,9 +12,9 @@ import com.cyc.tool.subl.jrtl.translatedCode.sublisp.print_high;
 import com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high;
 import com.cyc.tool.subl.util.SubLFiles;
 import com.cyc.tool.subl.util.SubLTrampolineFile;
+import cyc.CYC;
 import org.armedbear.lisp.Keyword;
 import org.armedbear.lisp.Lisp;
-import cyc.CYC;
 
 import java.io.IOException;
 import java.io.InputStream;

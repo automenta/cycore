@@ -99,11 +99,6 @@ abstract public class SubLEnvironment extends FromSubLisp {
 	}
 
 	@Override
-	public int hashCode(int currentDepth) {
-		return super.superHash();
-	}
-
-	@Override
 	public boolean isAtom() {
 		return true;
 	}

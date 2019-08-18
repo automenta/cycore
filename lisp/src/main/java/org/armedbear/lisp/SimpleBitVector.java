@@ -88,13 +88,7 @@ public final class SimpleBitVector extends AbstractBitVector
         return super.typep(type);
     }
 
-    @Override
-	public boolean hasFillPointer()
-    {
-        return false;
-    }
-
-    @Override
+	@Override
 	public boolean isAdjustable()
     {
         return false;

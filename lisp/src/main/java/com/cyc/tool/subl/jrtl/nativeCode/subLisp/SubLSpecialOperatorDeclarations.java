@@ -10,8 +10,8 @@ import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high;
 import com.cyc.tool.subl.util.SubLFiles;
 import com.cyc.tool.subl.util.SubLTrampolineFile;
-import org.armedbear.lisp.Lisp;
 import cyc.CYC;
+import org.armedbear.lisp.Lisp;
 import org.armedbear.lisp.Package;
 import org.armedbear.lisp.Symbol;
 

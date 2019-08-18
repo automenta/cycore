@@ -148,14 +148,6 @@ public abstract class AbstractSubLNumber extends FromSubLisp implements SubLNumb
 	}
 
 	@Override
-	public void checkType(SubLSymbol predicate) throws SubLException {
-	}
-
-	@Override
-	public void checkTypeInternal(SubLSymbol predicate) throws SubLException {
-	}
-
-	@Override
 	public Object clone() {
 		return this;
 	}
@@ -243,10 +235,6 @@ public abstract class AbstractSubLNumber extends FromSubLisp implements SubLNumb
 		if (SubLNil.NIL == Function.processItem(this))
 			Errors.error("Got invalid type for object: " + this + "." + "\nWanted: " + predicate + "\nGot: "
 					+ this.toTypeName());
-	}
-
-	@Override
-	public void enforceTypeInternal(SubLSymbol predicate) throws SubLException {
 	}
 
 	@Override

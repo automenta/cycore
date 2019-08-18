@@ -8,9 +8,9 @@ import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
 import com.cyc.tool.subl.jrtl.nativeCode.type.exception.InvalidSubLExpressionException;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLPackage;
+import cyc.CYC;
 import org.armedbear.lisp.ControlTransfer;
 import org.armedbear.lisp.Lisp;
-import cyc.CYC;
 import org.armedbear.lisp.Package;
 
 import java.util.logging.Level;

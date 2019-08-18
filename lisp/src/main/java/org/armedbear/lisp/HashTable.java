@@ -46,9 +46,9 @@ public class HashTable
 		return NIL;
 	}
 
-	protected static final float loadFactor = 0.75f;
-    protected final LispObject rehashSize;
-    protected final LispObject rehashThreshold;
+	private static final float loadFactor = 0.75f;
+    private final LispObject rehashSize;
+    private final LispObject rehashThreshold;
     // The rounded product of the capacity and the load factor. When the number
     // of elements exceeds the threshold, the implementation calls rehash().
     protected int threshold;
@@ -57,7 +57,7 @@ public class HashTable
     protected volatile HashEntry[] buckets;
     // The number of key-value pairs.
     protected volatile int count;
-    final HTComparator comparator;
+    private final HTComparator comparator;
     final private ReentrantLock lock = new ReentrantLock();
 
     protected HashTable(HTComparator c, int size, LispObject rehashSize,
@@ -78,24 +78,24 @@ public class HashTable
         }
         return capacity;
     }
-    public static HashTable newEqHashTable(int size, LispObject rehashSize,
-            LispObject rehashThreshold) {
-        return new HashTable(new EqComparator(), size, rehashSize, rehashThreshold);
+    static HashTable newEqHashTable(int size, LispObject rehashSize,
+                                    LispObject rehashThreshold) {
+        return new HashTable(EqComparator, size, rehashSize, rehashThreshold);
     }
 
-    public static HashTable newEqlHashTable(int size, LispObject rehashSize,
-            LispObject rehashThreshold) {
-        return new HashTable(new EqlComparator(), size, rehashSize, rehashThreshold);
+    static HashTable newEqlHashTable(int size, LispObject rehashSize,
+                                     LispObject rehashThreshold) {
+        return new HashTable(EqlComparator, size, rehashSize, rehashThreshold);
     }
 
-    public static HashTable newEqualHashTable(int size, LispObject rehashSize,
-            LispObject rehashThreshold) {
-        return new HashTable(new EqualComparator(), size, rehashSize, rehashThreshold);
+    static HashTable newEqualHashTable(int size, LispObject rehashSize,
+                                       LispObject rehashThreshold) {
+        return new HashTable(EqualComparator, size, rehashSize, rehashThreshold);
     }
 
-    public static LispObject newEqualpHashTable(int size, LispObject rehashSize,
-            LispObject rehashThreshold) {
-        return new HashTable(new EqualpComparator(), size, rehashSize, rehashThreshold);
+    static LispObject newEqualpHashTable(int size, LispObject rehashSize,
+                                         LispObject rehashThreshold) {
+        return new HashTable(EqualpComparator, size, rehashSize, rehashThreshold);
     }
 
     /* (non-Javadoc)
@@ -327,7 +327,7 @@ public class HashTable
         return comparator.getTestSymbol();
     }
 
-    protected HashEntry getEntry(LispObject key) {
+    private HashEntry getEntry(LispObject key) {
         HashEntry[] b = buckets;
         int hash = comparator.hash(key);
         HashEntry e = b[hash & (b.length - 1)];
@@ -460,7 +460,7 @@ public class HashTable
         for (int i = b.length; i-- > 0;) {
             HashEntry e = b[i];
             while (e != null) {
-                list = new Cons(new Cons(e.key, e.value), list);
+                list = new Cons(e.cons(), list);
                 e = e.next;
             }
         }
@@ -486,9 +486,9 @@ public class HashTable
         }
         return NIL;
     }
-    
-    protected interface HTComparator
-    {
+
+    /** TODO enum */
+    protected interface HTComparator {
         Symbol getTestSymbol();
 
         boolean keysEqual(LispObject key1, LispObject key2);
@@ -496,7 +496,7 @@ public class HashTable
         int hash(LispObject key);
     }
     
-    public static class EqComparator implements HTComparator {
+    static final HTComparator EqComparator = new HTComparator() {
 
         @Override
         public Symbol getTestSymbol() {
@@ -512,9 +512,9 @@ public class HashTable
         public int hash(LispObject key) {
             return key.sxhash();
         }
-    }
+    };
 
-    public static class EqlComparator implements HTComparator {
+    static final HTComparator EqlComparator = new HTComparator() {
 
         @Override
         public Symbol getTestSymbol() {
@@ -531,10 +531,10 @@ public class HashTable
             return key.sxhash();
         }
 
-    }
+    };
     
 
-    public static class EqualComparator implements HTComparator {
+    static final HTComparator EqualComparator = new HTComparator() {
 
         @Override
         public Symbol getTestSymbol() {
@@ -550,9 +550,9 @@ public class HashTable
         public int hash(LispObject key) {
             return key.sxhash();
         }
-    }
+    };
 
-    public static class EqualpComparator implements HTComparator {
+    static final HTComparator EqualpComparator = new HTComparator() {
 
         @Override
         public Symbol getTestSymbol() {
@@ -568,12 +568,12 @@ public class HashTable
         public int hash(LispObject key) {
             return key.psxhash();
         }
-    }
+    };
 
     protected static class HashEntry {
 
-        LispObject key;
-        int hash;
+        final LispObject key;
+        final int hash;
         volatile LispObject value;
         HashEntry next;
 
@@ -582,6 +582,10 @@ public class HashTable
             this.hash = hash;
             this.value = value;
             this.next = next;
+        }
+
+        public Cons cons() {
+            return new Cons(key, value);
         }
     }
 

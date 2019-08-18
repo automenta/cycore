@@ -145,13 +145,7 @@ public final class ComplexVector_UnsignedByte32 extends AbstractVector
         return UNSIGNED_BYTE_32;
     }
 
-    @Override
-	public boolean isSimpleVector()
-    {
-        return false;
-    }
-
-    @Override
+	@Override
 	public int capacity()
     {
         return capacity;

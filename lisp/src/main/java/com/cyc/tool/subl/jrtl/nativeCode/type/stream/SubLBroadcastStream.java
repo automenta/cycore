@@ -53,11 +53,6 @@ public class SubLBroadcastStream extends BroadcastStream implements SubLOutputTe
 	}
 
 	@Override
-	public boolean freshLine() {
-		return freshLine;
-	}
-
-	@Override
 	public FileDescriptor getFD() {
 		Errors.error("Illegal operation on a non-random access stream.");
 		return null;
@@ -82,11 +77,6 @@ public class SubLBroadcastStream extends BroadcastStream implements SubLOutputTe
 	@Override
 	public SubLList getStreams() {
 		return SubLObjectFactory.makeList(streams);
-	}
-
-	@Override
-	public boolean isClosed() {
-		return isClosed;
 	}
 
 	@Override

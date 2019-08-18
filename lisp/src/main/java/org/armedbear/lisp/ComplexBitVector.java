@@ -228,13 +228,7 @@ public final class ComplexBitVector extends AbstractBitVector
         error(new LispError());
     }
 
-    @Override
-	public boolean isSimpleVector()
-    {
-        return false;
-    }
-
-    // FIXME
+	// FIXME
     @Override
 	public void vectorPushExtend(LispObject element)
     {

@@ -181,13 +181,7 @@ public final class SimpleString extends AbstractString
         return T;
     }
 
-    @Override
-    public boolean hasFillPointer()
-    {
-        return false;
-    }
-
-    @Override
+	@Override
     public boolean isAdjustable()
     {
         return false;

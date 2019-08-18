@@ -79,17 +79,7 @@ public class SubLMacro extends MacroObject {
         return false;
     }
 
-    @Override
-    public boolean isSpecial() {
-        return false;
-    }
-
-    @Override
-    public boolean isFunctionSpec() {
-        return false;
-    }
-
-    @Override
+	@Override
     public boolean isInterpreted() {
         return ((SubLFunction) macroExpander).isInterpreted();
     }

@@ -84,13 +84,7 @@ public final class ImageLine extends AbstractLine implements Line
     {
     }
 
-    @Override
-	public String getText()
-    {
-        return null;
-    }
-
-    @Override
+	@Override
 	public final void setText(String s)
     {
     }

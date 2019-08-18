@@ -18,10 +18,10 @@ import com.cyc.tool.subl.util.IsolatedClassLoader;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLFiles;
 import com.cyc.tool.subl.util.SubLPatcher;
+import cyc.CYC;
 import org.armedbear.lisp.Keyword;
 import org.armedbear.lisp.Lisp;
 import org.armedbear.lisp.LispObject;
-import cyc.CYC;
 
 import java.io.File;
 import java.security.MessageDigest;

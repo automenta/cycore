@@ -371,12 +371,7 @@ public class Stream extends AbstractRandomAccessSubLStream implements ILispStrea
     	return b1;
     }
 
-    @Override
-	public boolean isInteractive() {
-        return interactive;
-    }
-
-    @Override
+	@Override
 	public void setInteractive(boolean b) {
         interactive = b;
     }

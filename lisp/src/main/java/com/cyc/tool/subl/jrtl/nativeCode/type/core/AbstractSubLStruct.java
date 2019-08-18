@@ -376,15 +376,6 @@ public abstract class AbstractSubLStruct extends LispObject implements SubLStruc
 		if (iPlus2 < 0)
 			return null;
 		return new LispSharedSlot() {
-			/*
-			 * (non-Javadoc)
-			 * 
-			 * @see org.armedbear.lisp.SLispObject#printObjectImpl()
-			 */
-			@Override
-			public String printObjectImpl() {
-				return printUglyObjectImpl();
-			}
 
 			@Override
 			public void setCdr(LispObject obj) {
@@ -568,11 +559,6 @@ public abstract class AbstractSubLStruct extends LispObject implements SubLStruc
 	}
 
 	@Override
-	public boolean isAlien() {
-		return false;
-	}
-
-	@Override
 	public boolean isAtom() {
 		return true;
 	}
@@ -599,16 +585,6 @@ public abstract class AbstractSubLStruct extends LispObject implements SubLStruc
 		SubLStructDecl structDecl = getStructDecl();
 		for (int size = structDecl.getFieldCount(), i = 0; i < size; ++i)
 			this.setField(i, SubLNil.NIL);
-	}
-
-	@Override
-	public boolean isSymbol() {
-		return false;
-	}
-
-	@Override
-	public boolean isVector() {
-		return false;
 	}
 
 	public boolean isTracked() {

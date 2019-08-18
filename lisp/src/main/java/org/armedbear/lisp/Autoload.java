@@ -38,15 +38,8 @@ package org.armedbear.lisp;
  */
 public class Autoload extends Function
 {
-    /* (non-Javadoc)
-     * @see org.armedbear.lisp.Operator#isSubLispBased()
-     */
-    @Override
-    public boolean isSubLispBased() {
-        return false;
-    }
 
-    protected final String fileName;
+	protected final String fileName;
     protected final String className;
 
     protected final Symbol symbol;

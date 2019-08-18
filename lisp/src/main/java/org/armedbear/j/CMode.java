@@ -56,21 +56,7 @@ public class CMode extends JavaMode implements Constants, Mode
         return mode;
     }
 
-    @Override
-	public String getCommentStart()
-    {
-//         return "/*";
-        return "// ";
-    }
-
-    @Override
-	public String getCommentEnd()
-    {
-//         return "*/";
-        return null;
-    }
-
-    @Override
+	@Override
 	public Formatter getFormatter(Buffer buffer)
     {
         return new CFormatter(buffer, LANGUAGE_C);

@@ -65,11 +65,6 @@ abstract public class SlotClass extends LispClass {
 		return result.nreverse();
 	}
 
-	@Override
-	public LispObject typep(LispObject type) {
-		return super.typep(type);
-	}
-
 	public LispObject getDirectSlotDefinitions() {
 		return directSlotDefinitions;
 	}
