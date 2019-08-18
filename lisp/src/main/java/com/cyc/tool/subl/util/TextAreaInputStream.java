@@ -1,7 +1,7 @@
 /* For LarKC */
 package com.cyc.tool.subl.util;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
+import subl.Errors;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;

@@ -10,29 +10,30 @@
 package com.cyc.tool.subl.jrtl.translatedCode.sublisp;
 
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.*;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.*;
+import subl.type.core.SubLList;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLProcess;
+import subl.type.core.SubLString;
+import subl.type.symbol.SubLNil;
+import subl.type.symbol.SubLSymbol;
 
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.*;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Functions.funcall;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Locks.*;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.*;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Symbols.*;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Types.listp;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Types.symbolp;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.values;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Vectors.make_vector;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.*;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.*;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.*;
 import static com.cyc.tool.subl.util.SubLFiles.*;
+import static subl.ConsesLow.*;
+import static subl.Functions.funcall;
+import static subl.Locks.*;
+import static subl.Sequences.delete;
+import static subl.Sequences.length;
+import static subl.Symbols.*;
+import static subl.Types.listp;
+import static subl.Types.symbolp;
+import static subl.Values.values;
+import static subl.Vectors.make_vector;
+import static subl.type.core.SubLObjectFactory.*;
 
 
 public class foreign extends SubLTranslatedFile {

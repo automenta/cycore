@@ -9,17 +9,17 @@ import static com.cyc.cycjava.cycl.utilities_macros.register_api_predefined_func
 import static com.cyc.cycjava.cycl.utilities_macros.register_api_predefined_host_function;
 import static com.cyc.cycjava.cycl.utilities_macros.register_api_predefined_host_macro;
 import static com.cyc.cycjava.cycl.utilities_macros.register_api_predefined_macro;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.append;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.list;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.maybeMake;
+import static subl.ConsesLow.append;
+import static subl.ConsesLow.list;
+import static subl.type.core.SubLObjectFactory.makeSymbol;
+import static subl.type.core.SubLObjectFactory.maybeMake;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.bq_cons;
 import static com.cyc.tool.subl.util.SubLFiles.declareMacro;
 import static com.cyc.tool.subl.util.SubLFiles.deflexical;
 
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import subl.type.core.SubLList;
+import subl.type.core.SubLObject;
+import subl.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLFiles;
 import com.cyc.tool.subl.util.SubLFiles.LispMethod;

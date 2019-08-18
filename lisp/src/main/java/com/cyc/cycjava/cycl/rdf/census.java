@@ -4,14 +4,14 @@
 package com.cyc.cycjava.cycl.rdf;
 
 
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.cons;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.list;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.add;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.length;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Symbols.symbol_function;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Threads.$is_thread_performing_cleanupP$;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Time.get_universal_time;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeString;
+import static subl.ConsesLow.cons;
+import static subl.ConsesLow.list;
+import static subl.Numbers.add;
+import static subl.Sequences.length;
+import static subl.Symbols.symbol_function;
+import static subl.Threads.$is_thread_performing_cleanupP$;
+import static subl.Time.get_universal_time;
+import static subl.type.core.SubLObjectFactory.makeString;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.member;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.second;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.close;
@@ -24,11 +24,11 @@ import com.cyc.cycjava.cycl.czer_main;
 import com.cyc.cycjava.cycl.operation_communication;
 import com.cyc.cycjava.cycl.utilities_macros;
 import com.cyc.cycjava.cycl.owl.owl_importer2;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
+import subl.SubLThread;
+import subl.type.core.SubLList;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLProcess;
+import subl.type.core.SubLString;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLTranslatedFile;
 

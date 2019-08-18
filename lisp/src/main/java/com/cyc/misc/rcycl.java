@@ -2,10 +2,10 @@
 //
 package com.cyc.misc;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Loader;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
 import com.cyc.tool.subl.util.*;
+import subl.Loader;
+import subl.type.core.SubLObject;
+import subl.type.symbol.SubLNil;
 
 import static com.cyc.tool.subl.util.SubLFiles.INEXACT;
 

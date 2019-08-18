@@ -1,65 +1,32 @@
 package com.cyc.cycjava.cycl.nl;
 
 
-import static com.cyc.cycjava.cycl.constant_handles.reader_make_constant_shell;
-import static com.cyc.cycjava.cycl.subl_macro_promotions.$with_timeout_nesting_depth$;
-import static com.cyc.cycjava.cycl.subl_macro_promotions.$within_with_timeout$;
-import static com.cyc.cycjava.cycl.subl_macro_promotions.with_timeout_make_tag;
-import static com.cyc.cycjava.cycl.subl_macro_promotions.with_timeout_start_timer;
-import static com.cyc.cycjava.cycl.subl_macro_promotions.with_timeout_stop_timer;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.cons;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.list;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.add;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.divide;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.subtract;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.length;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Symbols.symbol_function;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Threads.$is_thread_performing_cleanupP$;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.arg2;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.getValuesAsVector;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.multiple_value_list;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.resetMultipleValues;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.restoreValuesFromVector;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.values;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Vectors.aref;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeBoolean;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeKeyword;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeString;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeSymbol;
+import com.cyc.cycjava.cycl.*;
+import com.cyc.cycjava.cycl.sbhl.sbhl_marking_vars;
+import com.cyc.tool.subl.util.SubLFile;
+import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.Errors;
+import subl.SubLThread;
+import subl.type.core.SubLList;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLProcess;
+import subl.type.core.SubLString;
+import subl.type.symbol.SubLSymbol;
+
+import static com.cyc.cycjava.cycl.subl_macro_promotions.*;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.member;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.second;
 import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.deflexical;
 import static com.cyc.tool.subl.util.SubLFiles.defparameter;
-
-import com.cyc.cycjava.cycl.V10;
-import com.cyc.cycjava.cycl.builder_utilities;
-import com.cyc.cycjava.cycl.cycl_string;
-import com.cyc.cycjava.cycl.cycl_utilities;
-import com.cyc.cycjava.cycl.dictionary;
-import com.cyc.cycjava.cycl.dictionary_contents;
-import com.cyc.cycjava.cycl.document;
-import com.cyc.cycjava.cycl.fort_types_interface;
-import com.cyc.cycjava.cycl.instances;
-import com.cyc.cycjava.cycl.iteration;
-import com.cyc.cycjava.cycl.kb_mapping_macros;
-import com.cyc.cycjava.cycl.lexicon_accessors;
-import com.cyc.cycjava.cycl.linkage;
-import com.cyc.cycjava.cycl.list_utilities;
-import com.cyc.cycjava.cycl.memoization_state;
-import com.cyc.cycjava.cycl.methods;
-import com.cyc.cycjava.cycl.narts_high;
-import com.cyc.cycjava.cycl.subl_promotions;
-import com.cyc.cycjava.cycl.sbhl.sbhl_marking_vars;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import static subl.ConsesLow.cons;
+import static subl.ConsesLow.list;
+import static subl.Numbers.*;
+import static subl.Sequences.length;
+import static subl.Symbols.symbol_function;
+import static subl.Threads.$is_thread_performing_cleanupP$;
+import static subl.Values.*;
+import static subl.Vectors.aref;
+import static subl.type.core.SubLObjectFactory.*;
 
 
 public final class syntactic_coverage extends SubLTranslatedFile implements V10 {

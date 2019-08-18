@@ -2,29 +2,29 @@ package com.cyc.cycjava.cycl;
 
 
 import static com.cyc.cycjava.cycl.control_vars.$average_all_genls_count$;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.list;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.add;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.divide;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.multiply;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.subtract;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.length;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Symbols.symbol_function;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Threads.$is_thread_performing_cleanupP$;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.arg2;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.getValuesAsVector;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.multiple_value_list;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.restoreValuesFromVector;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.values;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeSymbol;
+import static subl.ConsesLow.list;
+import static subl.Numbers.add;
+import static subl.Numbers.divide;
+import static subl.Numbers.multiply;
+import static subl.Numbers.subtract;
+import static subl.Sequences.length;
+import static subl.Symbols.symbol_function;
+import static subl.Threads.$is_thread_performing_cleanupP$;
+import static subl.Values.arg2;
+import static subl.Values.getValuesAsVector;
+import static subl.Values.multiple_value_list;
+import static subl.Values.restoreValuesFromVector;
+import static subl.Values.values;
+import static subl.type.core.SubLObjectFactory.makeSymbol;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.copy_list;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.nintersection;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.second;
 import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import subl.SubLThread;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLProcess;
+import subl.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLTranslatedFile;
 

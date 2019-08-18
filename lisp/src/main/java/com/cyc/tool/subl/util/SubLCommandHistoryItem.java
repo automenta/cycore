@@ -1,12 +1,12 @@
 /* For LarKC */
 package com.cyc.tool.subl.util;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Types;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
 import com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high;
 import com.cyc.tool.subl.jrtl.translatedCode.sublisp.print_high;
+import subl.Types;
+import subl.type.core.SubLList;
+import subl.type.core.SubLObject;
+import subl.type.symbol.SubLNil;
 
 import java.text.DecimalFormat;
 

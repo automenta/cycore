@@ -4,30 +4,30 @@
 package com.cyc.cycjava.cycl;
 
 
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.cons;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.list;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Equality.equal;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.delete;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.delete_duplicates;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.find;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.nreverse;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Symbols.symbol_function;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeString;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeSymbol;
+import static subl.ConsesLow.cons;
+import static subl.ConsesLow.list;
+import static subl.Equality.equal;
+import static subl.Sequences.delete;
+import static subl.Sequences.delete_duplicates;
+import static subl.Sequences.find;
+import static subl.Sequences.nreverse;
+import static subl.Symbols.symbol_function;
+import static subl.type.core.SubLObjectFactory.makeString;
+import static subl.type.core.SubLObjectFactory.makeSymbol;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.cdestructuring_bind_error;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.second;
 import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
 import static com.cyc.tool.subl.util.SubLFiles.defparameter;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Mapping;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import subl.Errors;
+import subl.Mapping;
+import subl.SubLThread;
+import subl.type.core.SubLList;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLProcess;
+import subl.type.core.SubLString;
+import subl.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLFiles.LispMethod;
 import com.cyc.tool.subl.util.SubLTranslatedFile;

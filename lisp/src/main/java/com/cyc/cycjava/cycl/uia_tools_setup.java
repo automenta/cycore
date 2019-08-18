@@ -2,19 +2,19 @@
  * Copyright (c) 1995 - 2019 Cycorp, Inc.  All rights reserved.
  */
 package com.cyc.cycjava.cycl;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.cons;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.list;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.listS;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.PrintLow.format;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Threads.sleep;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.nth_value_step_1;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.nth_value_step_2;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.values;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeBoolean;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeKeyword;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeString;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeUninternedSymbol;
+import static subl.ConsesLow.cons;
+import static subl.ConsesLow.list;
+import static subl.ConsesLow.listS;
+import static subl.PrintLow.format;
+import static subl.Threads.sleep;
+import static subl.Values.nth_value_step_1;
+import static subl.Values.nth_value_step_2;
+import static subl.Values.values;
+import static subl.type.core.SubLObjectFactory.makeBoolean;
+import static subl.type.core.SubLObjectFactory.makeKeyword;
+import static subl.type.core.SubLObjectFactory.makeString;
+import static subl.type.core.SubLObjectFactory.makeSymbol;
+import static subl.type.core.SubLObjectFactory.makeUninternedSymbol;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.cdestructuring_bind_error;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.property_list_member;
@@ -27,14 +27,14 @@ import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.remf;
 import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
 import static com.cyc.tool.subl.util.SubLFiles.deflexical;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Mapping;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sort;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import subl.Mapping;
+import subl.Sort;
+import subl.SubLThread;
+import subl.type.core.SubLList;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLProcess;
+import subl.type.core.SubLString;
+import subl.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLTranslatedFile;
 

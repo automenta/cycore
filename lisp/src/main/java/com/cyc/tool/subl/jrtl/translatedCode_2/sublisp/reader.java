@@ -19,20 +19,20 @@
 
 package  com.cyc.tool.subl.jrtl.translatedCode_2.sublisp;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.*;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.*;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLFloat;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLInteger;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.*;
+import subl.type.core.*;
+import subl.type.number.SubLFloat;
+import subl.type.number.SubLInteger;
+import subl.type.symbol.SubLSymbol;
 
 import java.util.Iterator;
 import java.util.Map.Entry;
 
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.*;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.*;
 import static com.cyc.tool.subl.util.SubLFiles.*;
+import static subl.ConsesLow.*;
+import static subl.type.core.SubLObjectFactory.*;
 
 public  final class reader extends SubLTranslatedFile {
 

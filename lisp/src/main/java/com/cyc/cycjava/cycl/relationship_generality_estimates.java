@@ -4,28 +4,28 @@
 package com.cyc.cycjava.cycl;
 
 
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.list;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.$most_positive_fixnum$;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.add;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.log;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.multiply;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.numL;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.truncate;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.arg2;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.multiple_value_list;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.resetMultipleValues;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.values;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeDouble;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeKeyword;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeSymbol;
+import static subl.ConsesLow.list;
+import static subl.Numbers.$most_positive_fixnum$;
+import static subl.Numbers.add;
+import static subl.Numbers.log;
+import static subl.Numbers.multiply;
+import static subl.Numbers.numL;
+import static subl.Numbers.truncate;
+import static subl.Values.arg2;
+import static subl.Values.multiple_value_list;
+import static subl.Values.resetMultipleValues;
+import static subl.Values.values;
+import static subl.type.core.SubLObjectFactory.makeDouble;
+import static subl.type.core.SubLObjectFactory.makeKeyword;
+import static subl.type.core.SubLObjectFactory.makeSymbol;
 import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
 import static com.cyc.tool.subl.util.SubLFiles.deflexical;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLFloat;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import subl.SubLThread;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLProcess;
+import subl.type.number.SubLFloat;
+import subl.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLFiles.LispMethod;
 import com.cyc.tool.subl.util.SubLTranslatedFile;

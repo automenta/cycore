@@ -4,12 +4,12 @@
 package com.cyc.cycjava.cycl.cyblack;
 
 
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.list;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.listS;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Symbols.symbol_name;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeBoolean;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeKeyword;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeSymbol;
+import static subl.ConsesLow.list;
+import static subl.ConsesLow.listS;
+import static subl.Symbols.symbol_name;
+import static subl.type.core.SubLObjectFactory.makeBoolean;
+import static subl.type.core.SubLObjectFactory.makeKeyword;
+import static subl.type.core.SubLObjectFactory.makeSymbol;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.cdestructuring_bind_error;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.assoc;
@@ -23,9 +23,9 @@ import com.cyc.cycjava.cycl.V02;
 import com.cyc.cycjava.cycl.list_utilities;
 import com.cyc.cycjava.cycl.rkf_collaborator_powerloom;
 import com.cyc.cycjava.cycl.string_utilities;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import subl.type.core.SubLList;
+import subl.type.core.SubLObject;
+import subl.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLTranslatedFile;
 

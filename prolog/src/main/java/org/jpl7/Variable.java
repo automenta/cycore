@@ -6,14 +6,14 @@ import org.jpl7.fli.term_t;
 import java.math.BigInteger;
 import java.util.Map;
 
-//import org.armedbear.lisp.Lisp;
+//import abcl.Lisp;
 ////import org.logicmoo.system.BeanShellCntrl;
 
 //import com.cyc.cycjava.cycl.variables;
-//import com.cyc.tool.subl.jrtl.nativeCode.subLisp.CommonSymbols;
-//import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLReader;
-//import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-//import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
+//import subl.CommonSymbols;
+//import subl.SubLReader;
+//import subl.type.core.SubLObject;
+//import subl.type.core.SubLObjectFactory;
 
 /**
  * This class supports Java representations of Prolog variables.

@@ -5,14 +5,14 @@ package com.cyc.cycjava.cycl.inference.harness;
 
 
 import static com.cyc.cycjava.cycl.utilities_macros.note_funcall_helper_function;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.plusp;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeBoolean;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeSymbol;
+import static subl.Numbers.plusp;
+import static subl.type.core.SubLObjectFactory.makeBoolean;
+import static subl.type.core.SubLObjectFactory.makeSymbol;
 import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
 
 import com.cyc.cycjava.cycl.V12;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import subl.type.core.SubLObject;
+import subl.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLFiles.LispMethod;
 import com.cyc.tool.subl.util.SubLTrampolineFile;

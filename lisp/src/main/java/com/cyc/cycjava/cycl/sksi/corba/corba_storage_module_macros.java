@@ -4,11 +4,11 @@
 package com.cyc.cycjava.cycl.sksi.corba;
 
 
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.list;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeKeyword;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeString;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeUninternedSymbol;
+import static subl.ConsesLow.list;
+import static subl.type.core.SubLObjectFactory.makeKeyword;
+import static subl.type.core.SubLObjectFactory.makeString;
+import static subl.type.core.SubLObjectFactory.makeSymbol;
+import static subl.type.core.SubLObjectFactory.makeUninternedSymbol;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.cdestructuring_bind_error;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.bq_cons;
@@ -16,10 +16,10 @@ import static com.cyc.tool.subl.util.SubLFiles.declareMacro;
 
 import com.cyc.cycjava.cycl.V10;
 import com.cyc.cycjava.cycl.constant_handles;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import subl.type.core.SubLList;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLString;
+import subl.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLTranslatedFile;
 

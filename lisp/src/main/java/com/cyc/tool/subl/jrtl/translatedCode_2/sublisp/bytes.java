@@ -19,17 +19,17 @@
 
 package com.cyc.tool.subl.jrtl.translatedCode_2.sublisp;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLInteger;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.Errors;
+import subl.Numbers;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLString;
+import subl.type.number.SubLInteger;
+import subl.type.symbol.SubLSymbol;
 
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.*;
 import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.type.core.SubLObjectFactory.*;
 
 public final class bytes extends SubLTranslatedFile {
 

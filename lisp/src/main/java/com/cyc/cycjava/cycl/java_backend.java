@@ -9,67 +9,67 @@ import static com.cyc.cycjava.cycl.constant_handles.constant_p;
 import static com.cyc.cycjava.cycl.subl_macro_promotions.declare_defglobal;
 import static com.cyc.cycjava.cycl.utilities_macros.cyc_api_symbol_p;
 import static com.cyc.cycjava.cycl.utilities_macros.note_funcall_helper_function;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Characters.CHAR_hyphen;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Characters.CHAR_period;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Characters.CHAR_plus;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Characters.CHAR_slash;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Characters.CHAR_underbar;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Characters.alphanumericp;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Characters.char_code;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Characters.digit_char_p;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.append;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.cons;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.list;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.listS;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Dynamic.bind;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Dynamic.currentBinding;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Dynamic.rebind;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Functions.apply;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Functions.funcall;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.add;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.expt;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.max;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.min;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.minus;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.numG;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.subtract;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Packages.$package$;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Packages.find_symbol;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Packages.package_name;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.PrintLow.format;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.cconcatenate;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.length;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.nreverse;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.nsubstitute;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.position;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.remove;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.reverse;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.substitute;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Symbols.fboundp;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Symbols.get;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Symbols.make_symbol;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Symbols.symbol_function;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Symbols.symbol_name;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Symbols.symbol_package;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Threads.$is_thread_performing_cleanupP$;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Threads.current_process;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Time.get_decoded_time;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Time.get_universal_time;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Types.consp;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Types.stringp;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Types.symbolp;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.arg2;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.getValuesAsVector;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.multiple_value_list;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.resetMultipleValues;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.restoreValuesFromVector;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.values;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeBoolean;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeInteger;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeKeyword;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeString;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeUninternedSymbol;
+import static subl.Characters.CHAR_hyphen;
+import static subl.Characters.CHAR_period;
+import static subl.Characters.CHAR_plus;
+import static subl.Characters.CHAR_slash;
+import static subl.Characters.CHAR_underbar;
+import static subl.Characters.alphanumericp;
+import static subl.Characters.char_code;
+import static subl.Characters.digit_char_p;
+import static subl.ConsesLow.append;
+import static subl.ConsesLow.cons;
+import static subl.ConsesLow.list;
+import static subl.ConsesLow.listS;
+import static subl.Dynamic.bind;
+import static subl.Dynamic.currentBinding;
+import static subl.Dynamic.rebind;
+import static subl.Functions.apply;
+import static subl.Functions.funcall;
+import static subl.Numbers.add;
+import static subl.Numbers.expt;
+import static subl.Numbers.max;
+import static subl.Numbers.min;
+import static subl.Numbers.minus;
+import static subl.Numbers.numG;
+import static subl.Numbers.subtract;
+import static subl.Packages.$package$;
+import static subl.Packages.find_symbol;
+import static subl.Packages.package_name;
+import static subl.PrintLow.format;
+import static subl.Sequences.cconcatenate;
+import static subl.Sequences.length;
+import static subl.Sequences.nreverse;
+import static subl.Sequences.nsubstitute;
+import static subl.Sequences.position;
+import static subl.Sequences.remove;
+import static subl.Sequences.reverse;
+import static subl.Sequences.substitute;
+import static subl.Symbols.fboundp;
+import static subl.Symbols.get;
+import static subl.Symbols.make_symbol;
+import static subl.Symbols.symbol_function;
+import static subl.Symbols.symbol_name;
+import static subl.Symbols.symbol_package;
+import static subl.Threads.$is_thread_performing_cleanupP$;
+import static subl.Threads.current_process;
+import static subl.Time.get_decoded_time;
+import static subl.Time.get_universal_time;
+import static subl.Types.consp;
+import static subl.Types.stringp;
+import static subl.Types.symbolp;
+import static subl.Values.arg2;
+import static subl.Values.getValuesAsVector;
+import static subl.Values.multiple_value_list;
+import static subl.Values.resetMultipleValues;
+import static subl.Values.restoreValuesFromVector;
+import static subl.Values.values;
+import static subl.type.core.SubLObjectFactory.makeBoolean;
+import static subl.type.core.SubLObjectFactory.makeInteger;
+import static subl.type.core.SubLObjectFactory.makeKeyword;
+import static subl.type.core.SubLObjectFactory.makeString;
+import static subl.type.core.SubLObjectFactory.makeSymbol;
+import static subl.type.core.SubLObjectFactory.makeUninternedSymbol;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.cdestructuring_bind_error;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_listp;
@@ -98,19 +98,19 @@ import static com.cyc.tool.subl.util.SubLFiles.deflexical;
 import static com.cyc.tool.subl.util.SubLFiles.defparameter;
 import static com.cyc.tool.subl.util.SubLFiles.defvar;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Guids;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Mapping;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sort;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.StreamsLow;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Strings;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLInteger;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import subl.Errors;
+import subl.Guids;
+import subl.Mapping;
+import subl.Sort;
+import subl.StreamsLow;
+import subl.Strings;
+import subl.SubLThread;
+import subl.type.core.SubLList;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLProcess;
+import subl.type.core.SubLString;
+import subl.type.number.SubLInteger;
+import subl.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.jrtl.translatedCode.sublisp.compatibility;
 import com.cyc.tool.subl.jrtl.translatedCode.sublisp.stream_macros;
 import com.cyc.tool.subl.util.SubLFile;
@@ -338,23 +338,23 @@ public final class java_backend extends SubLTranslatedFile {
 
     private static final SubLString $str55$__import_java_util_ArrayList_ = makeString("~%import java.util.ArrayList;");
 
-    private static final SubLString $str56$__import_com_cyc_tool_subl_jrtl_n = makeString("~%import com.cyc.tool.subl.jrtl.nativeCode.subLisp.*;");
+    private static final SubLString $str56$__import_com_cyc_tool_subl_jrtl_n = makeString("~%import subl.*;");
 
-    private static final SubLString $str57$__import_com_cyc_tool_subl_jrtl_n = makeString("~%import com.cyc.tool.subl.jrtl.nativeCode.type.core.*;");
+    private static final SubLString $str57$__import_com_cyc_tool_subl_jrtl_n = makeString("~%import subl.type.core.*;");
 
-    private static final SubLString $str58$__import_com_cyc_tool_subl_jrtl_n = makeString("~%import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.*;");
+    private static final SubLString $str58$__import_com_cyc_tool_subl_jrtl_n = makeString("~%import subl.type.symbol.*;");
 
-    private static final SubLString $str59$__import_com_cyc_tool_subl_jrtl_n = makeString("~%import com.cyc.tool.subl.jrtl.nativeCode.type.number.*;");
+    private static final SubLString $str59$__import_com_cyc_tool_subl_jrtl_n = makeString("~%import subl.type.number.*;");
 
     private static final SubLString $str60$__import_com_cyc_tool_subl_jrtl_t = makeString("~%import com.cyc.tool.subl.jrtl.translatedCode.sublisp.*;");
 
     private static final SubLString $str61$__import_com_cyc_tool_subl_util__ = makeString("~%import com.cyc.tool.subl.util.*;");
 
-    private static final SubLString $str62$__import_static_com_cyc_tool_subl = makeString("~%import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.~A;");
+    private static final SubLString $str62$__import_static_com_cyc_tool_subl = makeString("~%import static subl.type.core.SubLObjectFactory.~A;");
 
     private static final SubLList $list63 = list(new SubLObject[]{ makeString("makeBoolean"), makeString("makeInteger"), makeString("makeDouble"), makeString("makeChar"), makeString("makeString"), makeString("makeSymbol"), makeString("makeKeyword"), makeString("makeUninternedSymbol"), makeString("makeGuid") });
 
-    private static final SubLString $str64$__import_static_com_cyc_tool_subl = makeString("~%import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.~A;");
+    private static final SubLString $str64$__import_static_com_cyc_tool_subl = makeString("~%import static subl.ConsesLow.~A;");
 
     private static final SubLList $list65 = list(makeString("cons"), makeString("list"), makeString("listS"));
 
@@ -11030,13 +11030,13 @@ public final class java_backend extends SubLTranslatedFile {
 
     public static final SubLString $str_alt21$__import_java_util_ArrayList_ = makeString("~%import java.util.ArrayList;");
 
-    public static final SubLString $str_alt22$__import_com_cyc_tool_subl_jrtl_n = makeString("~%import com.cyc.tool.subl.jrtl.nativeCode.subLisp.*;");
+    public static final SubLString $str_alt22$__import_com_cyc_tool_subl_jrtl_n = makeString("~%import subl.*;");
 
-    public static final SubLString $str_alt23$__import_com_cyc_tool_subl_jrtl_n = makeString("~%import com.cyc.tool.subl.jrtl.nativeCode.type.core.*;");
+    public static final SubLString $str_alt23$__import_com_cyc_tool_subl_jrtl_n = makeString("~%import subl.type.core.*;");
 
-    public static final SubLString $str_alt24$__import_com_cyc_tool_subl_jrtl_n = makeString("~%import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.*;");
+    public static final SubLString $str_alt24$__import_com_cyc_tool_subl_jrtl_n = makeString("~%import subl.type.symbol.*;");
 
-    public static final SubLString $str_alt25$__import_com_cyc_tool_subl_jrtl_n = makeString("~%import com.cyc.tool.subl.jrtl.nativeCode.type.number.*;");
+    public static final SubLString $str_alt25$__import_com_cyc_tool_subl_jrtl_n = makeString("~%import subl.type.number.*;");
 
     public static final SubLString $str_alt26$__import_com_cyc_tool_subl_jrtl_t = makeString("~%import com.cyc.tool.subl.jrtl.translatedCode.sublisp.*;");
 
@@ -11064,11 +11064,11 @@ public final class java_backend extends SubLTranslatedFile {
         return listS(patcher_filename, class_pathnames);
     }
 
-    public static final SubLString $str_alt28$__import_static_com_cyc_tool_subl = makeString("~%import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.~A;");
+    public static final SubLString $str_alt28$__import_static_com_cyc_tool_subl = makeString("~%import static subl.type.core.SubLObjectFactory.~A;");
 
     public static final SubLList $list_alt29 = list(new SubLObject[]{ makeString("makeBoolean"), makeString("makeInteger"), makeString("makeDouble"), makeString("makeChar"), makeString("makeString"), makeString("makeSymbol"), makeString("makeKeyword"), makeString("makeUninternedSymbol"), makeString("makeGuid") });
 
-    public static final SubLString $str_alt30$__import_static_com_cyc_tool_subl = makeString("~%import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.~A;");
+    public static final SubLString $str_alt30$__import_static_com_cyc_tool_subl = makeString("~%import static subl.ConsesLow.~A;");
 
     public static final SubLObject java_backend_note_function_call_rest_arity_alt(SubLObject operator, SubLObject rest_arity) {
         {

@@ -10,24 +10,24 @@
 package com.cyc.tool.subl.jrtl.translatedCode.sublisp;
 
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLInteger;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.SubLThread;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLProcess;
+import subl.type.number.SubLInteger;
+import subl.type.symbol.SubLNil;
+import subl.type.symbol.SubLSymbol;
 
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.cons;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.list;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Functions.funcall;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.*;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Symbols.symbol_function;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.values;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeInteger;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.util.SubLFiles.*;
+import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static com.cyc.tool.subl.util.SubLFiles.defconstant;
+import static subl.ConsesLow.cons;
+import static subl.Functions.funcall;
+import static subl.Numbers.*;
+import static subl.Symbols.symbol_function;
+import static subl.Values.values;
+import static subl.type.core.SubLObjectFactory.makeInteger;
+import static subl.type.core.SubLObjectFactory.makeSymbol;
 
 
 public class math_utilities extends SubLTranslatedFile {

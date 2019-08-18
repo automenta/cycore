@@ -4,18 +4,18 @@
 package com.cyc.cycjava.cycl.thesaurus;
 
 
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeString;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeSymbol;
+import static subl.type.core.SubLObjectFactory.makeString;
+import static subl.type.core.SubLObjectFactory.makeSymbol;
 import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
 
 import com.cyc.cycjava.cycl.V02;
 import com.cyc.cycjava.cycl.assertions_high;
 import com.cyc.cycjava.cycl.constant_handles;
 import com.cyc.cycjava.cycl.utilities_macros;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import subl.Errors;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLString;
+import subl.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLTranslatedFile;
 

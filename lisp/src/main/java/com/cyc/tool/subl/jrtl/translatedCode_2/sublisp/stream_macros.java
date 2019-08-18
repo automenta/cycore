@@ -19,19 +19,19 @@
 
 package  com.cyc.tool.subl.jrtl.translatedCode_2.sublisp;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Symbols;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.ConsesLow;
+import subl.Symbols;
+import subl.type.core.SubLList;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLString;
+import subl.type.symbol.SubLSymbol;
 
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.list;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.listS;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.*;
 import static com.cyc.tool.subl.util.SubLFiles.*;
+import static subl.ConsesLow.list;
+import static subl.ConsesLow.listS;
+import static subl.type.core.SubLObjectFactory.*;
 
 public  final class stream_macros extends SubLTranslatedFile {
 

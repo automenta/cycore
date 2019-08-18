@@ -19,23 +19,23 @@
 
 package  com.cyc.tool.subl.jrtl.translatedCode_2.sublisp;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.*;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLInteger;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.*;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLProcess;
+import subl.type.core.SubLString;
+import subl.type.number.SubLInteger;
+import subl.type.symbol.SubLSymbol;
 
 import java.util.Iterator;
 import java.util.Map.Entry;
 
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.list;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeInteger;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeString;
 import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
 import static com.cyc.tool.subl.util.SubLFiles.defvar;
+import static subl.ConsesLow.list;
+import static subl.type.core.SubLObjectFactory.makeInteger;
+import static subl.type.core.SubLObjectFactory.makeString;
 
 public  final class character_names extends SubLTranslatedFile {
 

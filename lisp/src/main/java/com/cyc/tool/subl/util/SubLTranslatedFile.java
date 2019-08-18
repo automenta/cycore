@@ -1,14 +1,14 @@
 /* For LarKC */
 package com.cyc.tool.subl.util;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.CommonSymbols;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.CommonSymbols_CYC;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Resourcer;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLStruct;
-import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLFunction;
+import subl.CommonSymbols;
+import subl.CommonSymbols_CYC;
+import subl.Resourcer;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLObjectFactory;
+import subl.type.core.SubLProcess;
+import subl.type.core.SubLStruct;
+import subl.type.operator.SubLFunction;
 
 import java.util.Deque;
 

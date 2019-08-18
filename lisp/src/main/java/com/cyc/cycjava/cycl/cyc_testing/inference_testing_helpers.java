@@ -4,25 +4,25 @@
 package com.cyc.cycjava.cycl.cyc_testing;
 
 
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Characters.CHAR_hyphen;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.append;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.cons;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.list;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Functions.apply;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.delete;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.reverse;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Symbols.symbol_function;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Symbols.symbol_name;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeSymbol;
+import static subl.Characters.CHAR_hyphen;
+import static subl.ConsesLow.append;
+import static subl.ConsesLow.cons;
+import static subl.ConsesLow.list;
+import static subl.Functions.apply;
+import static subl.Sequences.delete;
+import static subl.Sequences.reverse;
+import static subl.Symbols.symbol_function;
+import static subl.Symbols.symbol_name;
+import static subl.type.core.SubLObjectFactory.makeSymbol;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.bq_cons;
 import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
 
 import com.cyc.cycjava.cycl.V12;
 import com.cyc.cycjava.cycl.genls;
 import com.cyc.cycjava.cycl.list_utilities;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Strings;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import subl.Strings;
+import subl.type.core.SubLObject;
+import subl.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLTranslatedFile;
 

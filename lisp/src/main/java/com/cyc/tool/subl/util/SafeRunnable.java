@@ -1,17 +1,17 @@
 /* For LarKC */
 package com.cyc.tool.subl.util;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.FromSubLisp;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLEnvironment;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
-import com.cyc.tool.subl.jrtl.nativeCode.type.exception.InvalidSubLExpressionException;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLPackage;
+import abcl.ControlTransfer;
+import abcl.Lisp;
+import abcl.Package;
 import cyc.CYC;
-import org.armedbear.lisp.ControlTransfer;
-import org.armedbear.lisp.Lisp;
-import org.armedbear.lisp.Package;
+import subl.Errors;
+import subl.type.core.FromSubLisp;
+import subl.type.core.SubLEnvironment;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLProcess;
+import subl.type.exception.InvalidSubLExpressionException;
+import subl.type.symbol.SubLPackage;
 
 import java.util.logging.Level;
 

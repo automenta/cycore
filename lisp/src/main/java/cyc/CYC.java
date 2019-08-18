@@ -31,16 +31,16 @@ package cyc;/*
  * exception statement from your version.
  */
 
-//import static org.armedbear.lisp.Options.*;
+//import static abcl.Options.*;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Eval;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLMain;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess.TerminationRequest;
-import org.armedbear.lisp.Interpreter;
-import org.armedbear.lisp.Lisp;
-import org.armedbear.lisp.ProcessingTerminated;
+import subl.Eval;
+import subl.SubLMain;
+import subl.SubLThread;
+import subl.type.core.SubLProcess;
+import subl.type.core.SubLProcess.TerminationRequest;
+import abcl.Interpreter;
+import abcl.Lisp;
+import abcl.ProcessingTerminated;
 import org.logicmoo.system.UpdateZip;
 
 import java.io.PrintStream;

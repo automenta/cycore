@@ -5,17 +5,17 @@ package com.cyc.cycjava.cycl.inference.harness;
 
 
 import static com.cyc.cycjava.cycl.utilities_macros.note_funcall_helper_function;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Equality.eq;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeBoolean;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeString;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeSymbol;
+import static subl.Equality.eq;
+import static subl.type.core.SubLObjectFactory.makeBoolean;
+import static subl.type.core.SubLObjectFactory.makeString;
+import static subl.type.core.SubLObjectFactory.makeSymbol;
 import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
 
 import com.cyc.cycjava.cycl.V12;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import subl.Errors;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLString;
+import subl.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLFiles.LispMethod;
 import com.cyc.tool.subl.util.SubLTrampolineFile;

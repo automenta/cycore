@@ -6,18 +6,18 @@ package com.cyc.cycjava.cycl;
 
 import static com.cyc.cycjava.cycl.control_vars.$rkf_mt$;
 import static com.cyc.cycjava.cycl.el_utilities.make_negation;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.cons;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.nreverse;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Symbols.symbol_function;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeString;
+import static subl.ConsesLow.cons;
+import static subl.Sequences.nreverse;
+import static subl.Symbols.symbol_function;
+import static subl.type.core.SubLObjectFactory.makeString;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.subst;
 import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
+import subl.Errors;
+import subl.SubLThread;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLProcess;
+import subl.type.core.SubLString;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLFiles.LispMethod;
 import com.cyc.tool.subl.util.SubLTranslatedFile;

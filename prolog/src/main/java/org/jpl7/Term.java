@@ -5,7 +5,7 @@ import org.jpl7.fli.*;
 import java.math.BigInteger;
 import java.util.Map;
 
-//import org.armedbear.lisp.Cons;
+//import abcl.Cons;
 
 /**
  * Term is the abstract base class for Compound, Atom, Variable, Integer and Float, which comprise a Java-oriented

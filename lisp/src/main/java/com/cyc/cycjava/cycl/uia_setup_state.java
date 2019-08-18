@@ -2,33 +2,33 @@
  * Copyright (c) 1995 - 2019 Cycorp, Inc.  All rights reserved.
  */
 package com.cyc.cycjava.cycl;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.cons;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.list;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.listS;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Equality.eql;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.add;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.zerop;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.cconcatenate;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Threads.$is_thread_performing_cleanupP$;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Threads.current_process;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.arg2;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.multiple_value_list;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeKeyword;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeString;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeSymbol;
+import static subl.ConsesLow.cons;
+import static subl.ConsesLow.list;
+import static subl.ConsesLow.listS;
+import static subl.Equality.eql;
+import static subl.Numbers.add;
+import static subl.Numbers.zerop;
+import static subl.Sequences.cconcatenate;
+import static subl.Threads.$is_thread_performing_cleanupP$;
+import static subl.Threads.current_process;
+import static subl.Values.arg2;
+import static subl.Values.multiple_value_list;
+import static subl.type.core.SubLObjectFactory.makeKeyword;
+import static subl.type.core.SubLObjectFactory.makeString;
+import static subl.type.core.SubLObjectFactory.makeSymbol;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.second;
 import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
 import static com.cyc.tool.subl.util.SubLFiles.deflexical;
 import static com.cyc.tool.subl.util.SubLFiles.defparameter;
 
 import com.cyc.cycjava.cycl.inference.ask_utilities;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import subl.Errors;
+import subl.SubLThread;
+import subl.type.core.SubLList;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLProcess;
+import subl.type.core.SubLString;
+import subl.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLTranslatedFile;
 

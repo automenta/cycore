@@ -2,7 +2,6 @@ package org.jpl7.util;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SwingGadget2 extends JFrame {

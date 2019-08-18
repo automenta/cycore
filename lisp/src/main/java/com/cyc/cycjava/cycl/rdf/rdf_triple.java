@@ -4,28 +4,28 @@
 package com.cyc.cycjava.cycl.rdf;
 
 
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.list;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Equality.equal;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.add;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.subtract;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.find;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.length;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.position;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Vectors.aref;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Vectors.make_vector;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Vectors.set_aref;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Vectors.vector;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeBoolean;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeKeyword;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeSymbol;
+import static subl.ConsesLow.list;
+import static subl.Equality.equal;
+import static subl.Numbers.add;
+import static subl.Numbers.subtract;
+import static subl.Sequences.find;
+import static subl.Sequences.length;
+import static subl.Sequences.position;
+import static subl.Vectors.aref;
+import static subl.Vectors.make_vector;
+import static subl.Vectors.set_aref;
+import static subl.Vectors.vector;
+import static subl.type.core.SubLObjectFactory.makeBoolean;
+import static subl.type.core.SubLObjectFactory.makeKeyword;
+import static subl.type.core.SubLObjectFactory.makeSymbol;
 import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
 import static com.cyc.tool.subl.util.SubLFiles.deflexical;
 
 import com.cyc.cycjava.cycl.V12;
 import com.cyc.cycjava.cycl.list_utilities;
 import com.cyc.cycjava.cycl.vector_utilities;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import subl.type.core.SubLObject;
+import subl.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLFiles.LispMethod;
 import com.cyc.tool.subl.util.SubLTrampolineFile;

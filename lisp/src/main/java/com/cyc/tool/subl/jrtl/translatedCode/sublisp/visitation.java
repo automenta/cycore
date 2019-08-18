@@ -10,25 +10,24 @@
 package com.cyc.tool.subl.jrtl.translatedCode.sublisp;
 
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.Errors;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLString;
+import subl.type.symbol.SubLNil;
+import subl.type.symbol.SubLSymbol;
 
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Functions.funcall;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.PrintLow.format;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Structures.method_func;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Structures.register_method;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Symbols.symbol_function;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Types.*;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Vectors.make_vector;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeString;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeSymbol;
 import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
 import static com.cyc.tool.subl.util.SubLFiles.deflexical;
+import static subl.Functions.funcall;
+import static subl.Structures.method_func;
+import static subl.Structures.register_method;
+import static subl.Symbols.symbol_function;
+import static subl.Types.*;
+import static subl.Vectors.make_vector;
+import static subl.type.core.SubLObjectFactory.makeString;
+import static subl.type.core.SubLObjectFactory.makeSymbol;
 
 
 public class visitation extends SubLTranslatedFile {

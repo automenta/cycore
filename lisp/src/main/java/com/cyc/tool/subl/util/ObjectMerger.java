@@ -32,22 +32,22 @@
  */
 package com.cyc.tool.subl.util;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.CommonSymbols_KW;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLHashtable;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLHashtable.SubLHashtableKeyEntry;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLStruct;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLT;
-import org.armedbear.lisp.*;
+import abcl.*;
+import subl.CommonSymbols_KW;
+import subl.Errors;
+import subl.Sequences;
+import subl.type.core.SubLHashtable;
+import subl.type.core.SubLHashtable.SubLHashtableKeyEntry;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLStruct;
+import subl.type.symbol.SubLT;
 
 import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.armedbear.lisp.Lisp.NIL;
-import static org.armedbear.lisp.Lisp.T;
+import static abcl.Lisp.NIL;
+import static abcl.Lisp.T;
 
 //import org.logicmoo.system.SystemCurrent;
 

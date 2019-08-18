@@ -5,7 +5,7 @@ import org.jpl7.fli.term_t;
 
 import java.util.Map;
 
-//import org.armedbear.lisp.Lisp;
+//import abcl.Lisp;
 
 /**
  * Atom is a specialised Term, representing a Prolog atom with the same name. An Atom is constructed with a String

@@ -4,10 +4,10 @@
 package com.cyc.cycjava.cycl.sksi.corba;
 
 
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.cons;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Equality.equal;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeString;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeSymbol;
+import static subl.ConsesLow.cons;
+import static subl.Equality.equal;
+import static subl.type.core.SubLObjectFactory.makeString;
+import static subl.type.core.SubLObjectFactory.makeSymbol;
 import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
 
 import com.cyc.cycjava.cycl.V10;
@@ -19,8 +19,8 @@ import com.cyc.cycjava.cycl.cycl_utilities;
 import com.cyc.cycjava.cycl.el_utilities;
 import com.cyc.cycjava.cycl.hl_storage_modules;
 import com.cyc.cycjava.cycl.sksi.sksi_infrastructure.sksi_sks_accessors;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import subl.type.core.SubLObject;
+import subl.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLTrampolineFile;
 import com.cyc.tool.subl.util.SubLTranslatedFile;

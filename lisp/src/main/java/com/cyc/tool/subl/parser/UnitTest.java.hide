@@ -6,17 +6,17 @@ package com.cyc.tool.subl.parser;
 import java.io.Reader;
 import java.io.StringReader;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLMain;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThreadPool;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLCharacter;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLEnvironment;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLVector;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLDoubleFloat;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import subl.SubLMain;
+import subl.SubLThreadPool;
+import subl.type.core.SubLCharacter;
+import subl.type.core.SubLEnvironment;
+import subl.type.core.SubLList;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLProcess;
+import subl.type.core.SubLString;
+import subl.type.core.SubLVector;
+import subl.type.number.SubLDoubleFloat;
+import subl.type.symbol.SubLSymbol;
 
 import junit.framework.Assert;
 import junit.framework.AssertionFailedError;
@@ -730,17 +730,17 @@ public class UnitTest extends TestCase {
 	}
 
 	public void testUnusualSpaceRegression() {
-		com.cyc.tool.subl.jrtl.nativeCode.subLisp.UnitTest.testEvalError("(identity:foo)");
-		com.cyc.tool.subl.jrtl.nativeCode.subLisp.UnitTest.testEvalError(" keyword : foo ");
-		com.cyc.tool.subl.jrtl.nativeCode.subLisp.UnitTest.testEvalError("keyword: foo");
-		com.cyc.tool.subl.jrtl.nativeCode.subLisp.UnitTest.testEvalError("keyword :foo");
-		com.cyc.tool.subl.jrtl.nativeCode.subLisp.UnitTest.testEvalEquals(" :foo", ":foo");
-		com.cyc.tool.subl.jrtl.nativeCode.subLisp.UnitTest.testEvalEquals(" :foo", "    :foo");
-		com.cyc.tool.subl.jrtl.nativeCode.subLisp.UnitTest.testEvalError(": foo");
-		com.cyc.tool.subl.jrtl.nativeCode.subLisp.UnitTest.testEvalEquals("(identity :foo)", ":foo");
-		com.cyc.tool.subl.jrtl.nativeCode.subLisp.UnitTest.testEvalEquals(" ( identity :foo ) ", ":foo");
-		com.cyc.tool.subl.jrtl.nativeCode.subLisp.UnitTest.testEvalEquals("'  a", "'a");
-		com.cyc.tool.subl.jrtl.nativeCode.subLisp.UnitTest.testEvalEquals("'  a", "   '   a");
+		subl.UnitTest.testEvalError("(identity:foo)");
+		subl.UnitTest.testEvalError(" keyword : foo ");
+		subl.UnitTest.testEvalError("keyword: foo");
+		subl.UnitTest.testEvalError("keyword :foo");
+		subl.UnitTest.testEvalEquals(" :foo", ":foo");
+		subl.UnitTest.testEvalEquals(" :foo", "    :foo");
+		subl.UnitTest.testEvalError(": foo");
+		subl.UnitTest.testEvalEquals("(identity :foo)", ":foo");
+		subl.UnitTest.testEvalEquals(" ( identity :foo ) ", ":foo");
+		subl.UnitTest.testEvalEquals("'  a", "'a");
+		subl.UnitTest.testEvalEquals("'  a", "   '   a");
 	}
 
 	public void testVectors() {

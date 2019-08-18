@@ -10,22 +10,14 @@
 package com.cyc.tool.subl.jrtl.translatedCode.sublisp;
 
 
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.type.core.SubLList;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLString;
+import subl.type.symbol.SubLNil;
+import subl.type.symbol.SubLSymbol;
 
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Characters.CHAR_greater;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Characters.CHAR_space;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.*;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Equality.pointer;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.PrintLow.write;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Symbols.make_symbol;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Types.type_of;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.*;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.*;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.cadr;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.member;
@@ -33,6 +25,14 @@ import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.write_c
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.write_string;
 import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
 import static com.cyc.tool.subl.util.SubLFiles.declareMacro;
+import static subl.Characters.CHAR_greater;
+import static subl.Characters.CHAR_space;
+import static subl.ConsesLow.*;
+import static subl.Equality.pointer;
+import static subl.PrintLow.write;
+import static subl.Symbols.make_symbol;
+import static subl.Types.type_of;
+import static subl.type.core.SubLObjectFactory.*;
 
 
 public class print_macros extends SubLTranslatedFile {

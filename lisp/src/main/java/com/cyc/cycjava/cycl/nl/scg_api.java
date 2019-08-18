@@ -1,62 +1,33 @@
 package com.cyc.cycjava.cycl.nl;
 
 
-import static com.cyc.cycjava.cycl.constant_handles.reader_make_constant_shell;
+import com.cyc.cycjava.cycl.*;
+import com.cyc.cycjava.cycl.inference.ask_utilities;
+import com.cyc.tool.subl.util.SubLFile;
+import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.Errors;
+import subl.Mapping;
+import subl.SubLThread;
+import subl.type.core.SubLList;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLProcess;
+import subl.type.core.SubLString;
+import subl.type.number.SubLInteger;
+import subl.type.symbol.SubLSymbol;
+
 import static com.cyc.cycjava.cycl.cyc_testing.generic_testing.define_test_case_table_int;
 import static com.cyc.cycjava.cycl.el_utilities.make_formula;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.cons;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.list;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.listS;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Functions.funcall;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.add;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.max;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.multiply;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.subtract;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.cconcatenate;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.length;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.arg2;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.multiple_value_list;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.resetMultipleValues;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.values;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeInteger;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeKeyword;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeString;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeSymbol;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.getf;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.read_from_string_ignoring_errors;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.make_private_string_input_stream;
 import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.deflexical;
 import static com.cyc.tool.subl.util.SubLFiles.defparameter;
-
-import com.cyc.cycjava.cycl.V10;
-import com.cyc.cycjava.cycl.cycl_grammar;
-import com.cyc.cycjava.cycl.cycl_utilities;
-import com.cyc.cycjava.cycl.format_nil;
-import com.cyc.cycjava.cycl.http_kernel;
-import com.cyc.cycjava.cycl.iteration;
-import com.cyc.cycjava.cycl.kb_mapping;
-import com.cyc.cycjava.cycl.list_utilities;
-import com.cyc.cycjava.cycl.memoization_state;
-import com.cyc.cycjava.cycl.misc_utilities;
-import com.cyc.cycjava.cycl.mt_relevance_macros;
-import com.cyc.cycjava.cycl.string_utilities;
-import com.cyc.cycjava.cycl.system_parameters;
-import com.cyc.cycjava.cycl.web_utilities;
-import com.cyc.cycjava.cycl.xml_parsing_utilities;
-import com.cyc.cycjava.cycl.xml_utilities;
-import com.cyc.cycjava.cycl.inference.ask_utilities;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Mapping;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLInteger;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import static subl.ConsesLow.*;
+import static subl.Functions.funcall;
+import static subl.Numbers.*;
+import static subl.Sequences.length;
+import static subl.Values.*;
+import static subl.type.core.SubLObjectFactory.*;
 
 
 public final class scg_api extends SubLTranslatedFile implements V10 {

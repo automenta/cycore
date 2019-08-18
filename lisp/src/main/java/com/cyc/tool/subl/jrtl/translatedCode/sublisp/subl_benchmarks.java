@@ -10,35 +10,35 @@
 package com.cyc.tool.subl.jrtl.translatedCode.sublisp;
 
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sort;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Storage;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Strings;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
+import subl.Errors;
+import subl.Sort;
+import subl.Storage;
+import subl.Strings;
+import subl.type.core.SubLObject;
+import subl.type.symbol.SubLNil;
+import subl.type.symbol.SubLSymbol;
 
 import java.util.Iterator;
 import java.util.Map;
 
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.CommonSymbols.*;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.cons;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.nth;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Hashtables.*;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Locks.*;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.*;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.cconcatenate;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.length;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Symbols.*;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Threads.make_process;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Threads.sleep;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Time.get_internal_real_time;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Vectors.*;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.*;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.copy_list;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.print_high.princ_to_string;
 import static com.cyc.tool.subl.util.SubLFiles.*;
+import static subl.CommonSymbols.*;
+import static subl.ConsesLow.cons;
+import static subl.ConsesLow.nth;
+import static subl.Hashtables.*;
+import static subl.Locks.*;
+import static subl.Numbers.*;
+import static subl.Sequences.cconcatenate;
+import static subl.Sequences.length;
+import static subl.Symbols.*;
+import static subl.Threads.make_process;
+import static subl.Threads.sleep;
+import static subl.Time.get_internal_real_time;
+import static subl.Vectors.*;
+import static subl.type.core.SubLObjectFactory.*;
 
 //import org.logicmoo.system.BeanShellCntrl;
 

@@ -4,17 +4,17 @@
 package com.cyc.cycjava.cycl.cyblack;
 
 
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.list;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.listS;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Equality.identity;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Structures.def_csetf;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Structures.makeStructDeclNative;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Structures.register_method;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Symbols.make_symbol;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Symbols.symbol_function;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeKeyword;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeString;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeSymbol;
+import static subl.ConsesLow.list;
+import static subl.ConsesLow.listS;
+import static subl.Equality.identity;
+import static subl.Structures.def_csetf;
+import static subl.Structures.makeStructDeclNative;
+import static subl.Structures.register_method;
+import static subl.Symbols.make_symbol;
+import static subl.Symbols.symbol_function;
+import static subl.type.core.SubLObjectFactory.makeKeyword;
+import static subl.type.core.SubLObjectFactory.makeString;
+import static subl.type.core.SubLObjectFactory.makeSymbol;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.cadr;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.cddr;
@@ -23,19 +23,19 @@ import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
 import static com.cyc.tool.subl.util.SubLFiles.declareMacro;
 import static com.cyc.tool.subl.util.SubLFiles.defconstant;
 
-import org.armedbear.lisp.Lisp;
+import abcl.Lisp;
 
 import com.cyc.cycjava.cycl.V02;
 import com.cyc.cycjava.cycl.utilities_macros;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLStructDecl;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLStructDeclNative;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.UnaryFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLStructNative;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import subl.Errors;
+import subl.SubLStructDecl;
+import subl.SubLStructDeclNative;
+import subl.UnaryFunction;
+import subl.type.core.SubLList;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLString;
+import subl.type.core.SubLStructNative;
+import subl.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.jrtl.translatedCode.sublisp.compatibility;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLTrampolineFile;

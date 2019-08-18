@@ -2,10 +2,10 @@ package com.cyc.misc;
 
 //
 
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLStruct;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLStruct;
 
-import static com.cyc.cycjava.cycl.assertions_low.$assertion_content_native.*;
+import static com.cyc.cycjava.cycl.assertions_low.$assertion_content_native.structDecl;
 
 public final class assertion_content_holder {
     public static SubLStruct makeNewInstance() {

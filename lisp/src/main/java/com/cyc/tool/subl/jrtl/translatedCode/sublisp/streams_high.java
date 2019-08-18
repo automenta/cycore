@@ -9,25 +9,25 @@
  */
 package com.cyc.tool.subl.jrtl.translatedCode.sublisp;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.StreamsLow;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLMain;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.*;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLNumberFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.*;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
+import abcl.Fixnum;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLTrampolineFile;
-import org.armedbear.lisp.Fixnum;
+import subl.Errors;
+import subl.StreamsLow;
+import subl.SubLMain;
+import subl.type.core.*;
+import subl.type.number.SubLNumberFactory;
+import subl.type.stream.*;
+import subl.type.symbol.SubLNil;
 
 import java.math.BigInteger;
 
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Dynamic.bind;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Dynamic.rebind;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.values;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.*;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.end_of_file_error;
 import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.Dynamic.bind;
+import static subl.Dynamic.rebind;
+import static subl.Values.values;
+import static subl.type.core.SubLObjectFactory.*;
 
 public class streams_high extends SubLTrampolineFile {
     private static SubLObject peekChar(SubLInputTextStream stream, SubLObject eof_error_p, SubLObject eof_value) {

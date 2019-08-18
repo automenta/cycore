@@ -1,9 +1,9 @@
 /* For LarKC */
 package com.cyc.tool.subl.util;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import org.armedbear.lisp.JavaClassLoader;
-import org.armedbear.lisp.Lisp;
+import abcl.JavaClassLoader;
+import abcl.Lisp;
+import subl.Errors;
 
 import java.io.DataInputStream;
 import java.io.File;

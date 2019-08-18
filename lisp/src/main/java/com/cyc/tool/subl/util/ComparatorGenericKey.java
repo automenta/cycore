@@ -1,10 +1,10 @@
 /* For LarKC */
 package com.cyc.tool.subl.util;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.BinaryFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.UnaryFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
+import subl.BinaryFunction;
+import subl.UnaryFunction;
+import subl.type.core.SubLObject;
+import subl.type.symbol.SubLNil;
 
 import java.util.Comparator;
 

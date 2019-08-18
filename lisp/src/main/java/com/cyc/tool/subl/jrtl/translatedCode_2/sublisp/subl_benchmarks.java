@@ -19,13 +19,13 @@
 
 package  com.cyc.tool.subl.jrtl.translatedCode_2.sublisp;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.*;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLFiles;
+import subl.*;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLObjectFactory;
+import subl.type.symbol.SubLNil;
+import subl.type.symbol.SubLSymbol;
 
 import java.util.Iterator;
 import java.util.Map.Entry;

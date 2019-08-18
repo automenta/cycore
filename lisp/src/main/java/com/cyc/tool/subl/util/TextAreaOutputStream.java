@@ -1,8 +1,8 @@
 /* For LarKC */
 package com.cyc.tool.subl.util;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
+import subl.Errors;
+import subl.SubLThread;
 
 import javax.swing.*;
 import java.io.IOException;

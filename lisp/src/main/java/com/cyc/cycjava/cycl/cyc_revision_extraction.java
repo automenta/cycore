@@ -4,21 +4,21 @@
 package com.cyc.cycjava.cycl;
 
 
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Characters.CHAR_period;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Characters.CHAR_space;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.cons;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Dynamic.bind;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Dynamic.currentBinding;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Dynamic.rebind;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.add;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.length;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.nreverse;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.position;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.subseq;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Symbols.symbol_function;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Threads.$is_thread_performing_cleanupP$;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.getValuesAsVector;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.restoreValuesFromVector;
+import static subl.Characters.CHAR_period;
+import static subl.Characters.CHAR_space;
+import static subl.ConsesLow.cons;
+import static subl.Dynamic.bind;
+import static subl.Dynamic.currentBinding;
+import static subl.Dynamic.rebind;
+import static subl.Numbers.add;
+import static subl.Sequences.length;
+import static subl.Sequences.nreverse;
+import static subl.Sequences.position;
+import static subl.Sequences.subseq;
+import static subl.Symbols.symbol_function;
+import static subl.Threads.$is_thread_performing_cleanupP$;
+import static subl.Values.getValuesAsVector;
+import static subl.Values.restoreValuesFromVector;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.print_high.princ;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.read_from_string_ignoring_errors;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.close;
@@ -26,7 +26,7 @@ import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.get_out
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.make_private_string_output_stream;
 import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
 
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
+import subl.type.core.SubLObject;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLTranslatedFile;
 

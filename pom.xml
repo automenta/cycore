@@ -12,12 +12,9 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>core</module>
 		<module>lisp</module>
 		<module>prolog</module>
 		<module>beanshell</module>
-		<module>logicmoo</module>
-		<module>cyc</module>
 	</modules>
 	<build>
 
@@ -35,8 +32,8 @@
 					<encoding>UTF-8</encoding>
 <!--					<detail>true</detail>-->
 					<compilerReuseStrategy>reuseSame</compilerReuseStrategy>
-					<maxmem>4096m</maxmem>
-					<staleMillis>1000</staleMillis>
+					<maxmem>2048m</maxmem>
+<!--					<staleMillis>1000</staleMillis>-->
 
 					<useIncrementalCompilation>true</useIncrementalCompilation>
 					<verbose>true</verbose>

@@ -1,8 +1,8 @@
 /* For LarKC */
 package com.cyc.tool.subl.util;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Eval;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
+import subl.Eval;
+import subl.type.core.SubLObjectFactory;
 
 public abstract class AbstractSubLPatcher implements SubLPatcher {
 	@Override

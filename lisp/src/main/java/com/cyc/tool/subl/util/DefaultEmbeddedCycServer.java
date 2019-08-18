@@ -1,18 +1,18 @@
 /* For LarKC */
 package com.cyc.tool.subl.util;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Eval;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Functions;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLMain;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.exception.SubLException;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLInputStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLOutputStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbolFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLT;
+import subl.Eval;
+import subl.Functions;
+import subl.SubLMain;
+import subl.SubLThread;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLObjectFactory;
+import subl.type.core.SubLString;
+import subl.type.exception.SubLException;
+import subl.type.stream.SubLInputStream;
+import subl.type.stream.SubLOutputStream;
+import subl.type.symbol.SubLSymbolFactory;
+import subl.type.symbol.SubLT;
 
 import java.io.InputStream;
 import java.io.OutputStream;

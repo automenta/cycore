@@ -10,7 +10,7 @@ import bsh.Interpreter;
 import bsh.Capabilities;
 import bsh.util.JConsole;
 import com.netbreeze.bbowl.gui.*;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.*;
+import subl.*;
 import org.logicmoo.system.*;
 
 /*

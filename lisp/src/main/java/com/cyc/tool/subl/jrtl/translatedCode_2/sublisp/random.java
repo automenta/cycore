@@ -19,14 +19,14 @@
 
 package  com.cyc.tool.subl.jrtl.translatedCode_2.sublisp;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Time;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLInteger;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLNumberFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLFiles;
 import com.cyc.tool.subl.util.SubLTrampolineFile;
+import subl.Time;
+import subl.type.core.SubLObject;
+import subl.type.number.SubLInteger;
+import subl.type.number.SubLNumberFactory;
+import subl.type.symbol.SubLSymbol;
 
 import java.util.Random;
 

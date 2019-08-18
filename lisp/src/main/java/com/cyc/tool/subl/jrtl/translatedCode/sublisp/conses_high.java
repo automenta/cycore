@@ -9,30 +9,30 @@
  */
 package com.cyc.tool.subl.jrtl.translatedCode.sublisp;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.BinaryFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLSpecialOperatorDeclarations;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.*;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLInteger;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLNumberFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.BinaryFunction;
+import subl.Errors;
+import subl.SubLSpecialOperatorDeclarations;
+import subl.SubLThread;
+import subl.type.core.*;
+import subl.type.number.SubLInteger;
+import subl.type.number.SubLNumberFactory;
+import subl.type.symbol.SubLNil;
+import subl.type.symbol.SubLSymbol;
 
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.*;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Equality.eq;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Equality.eql;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Functions.funcall;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.add;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.nreverse;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences.reverse;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Symbols.symbol_function;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Types.*;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.*;
 import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
 import static com.cyc.tool.subl.util.SubLFiles.deflexical;
+import static subl.ConsesLow.*;
+import static subl.Equality.eq;
+import static subl.Equality.eql;
+import static subl.Functions.funcall;
+import static subl.Numbers.add;
+import static subl.Sequences.nreverse;
+import static subl.Sequences.reverse;
+import static subl.Symbols.symbol_function;
+import static subl.Types.*;
+import static subl.type.core.SubLObjectFactory.*;
 
 public class conses_high extends SubLTranslatedFile {
     public static class $union$BinaryFunction extends BinaryFunction {

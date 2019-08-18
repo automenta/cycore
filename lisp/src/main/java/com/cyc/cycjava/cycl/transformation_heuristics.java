@@ -4,7 +4,7 @@
 package com.cyc.cycjava.cycl;
 
 
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
+import subl.type.core.SubLObject;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLTranslatedFile;
 

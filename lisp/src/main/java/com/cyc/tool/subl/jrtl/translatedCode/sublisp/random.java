@@ -10,20 +10,20 @@
 package com.cyc.tool.subl.jrtl.translatedCode.sublisp;
 
 
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLInteger;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLNumberFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLTrampolineFile;
+import subl.type.core.SubLObject;
+import subl.type.number.SubLInteger;
+import subl.type.number.SubLNumberFactory;
+import subl.type.symbol.SubLNil;
+import subl.type.symbol.SubLSymbol;
 
 import java.util.Random;
 
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Time.get_internal_real_time;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeSymbol;
 import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
 import static com.cyc.tool.subl.util.SubLFiles.defconstant;
+import static subl.Time.get_internal_real_time;
+import static subl.type.core.SubLObjectFactory.makeSymbol;
 
 
 public class random extends SubLTrampolineFile {

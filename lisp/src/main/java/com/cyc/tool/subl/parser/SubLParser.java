@@ -1,12 +1,12 @@
 /* For LarKC */
 package com.cyc.tool.subl.parser;
 
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.*;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLNumber;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLPackage;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLQuote;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import subl.type.core.*;
+import subl.type.number.SubLNumber;
+import subl.type.symbol.SubLNil;
+import subl.type.symbol.SubLPackage;
+import subl.type.symbol.SubLQuote;
+import subl.type.symbol.SubLSymbol;
 
 import java.io.InputStream;
 import java.io.Reader;

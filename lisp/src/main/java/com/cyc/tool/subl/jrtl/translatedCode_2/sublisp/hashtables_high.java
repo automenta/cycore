@@ -19,12 +19,12 @@
 
 package  com.cyc.tool.subl.jrtl.translatedCode_2.sublisp;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLFiles;
+import subl.Errors;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLObjectFactory;
+import subl.type.symbol.SubLNil;
 
 public  final class hashtables_high implements SubLFile {
   

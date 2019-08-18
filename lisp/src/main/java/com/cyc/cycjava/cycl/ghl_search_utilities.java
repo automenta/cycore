@@ -5,26 +5,26 @@ package com.cyc.cycjava.cycl;
 
 
 import static com.cyc.cycjava.cycl.constant_handles.reader_make_constant_shell;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.list;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.listS;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Dynamic.bind;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Dynamic.currentBinding;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Dynamic.rebind;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Functions.funcall;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Numbers.add;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Symbols.symbol_function;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Threads.$is_thread_performing_cleanupP$;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Types.hash_table_p;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.getValuesAsVector;
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values.restoreValuesFromVector;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeBoolean;
+import static subl.ConsesLow.list;
+import static subl.ConsesLow.listS;
+import static subl.Dynamic.bind;
+import static subl.Dynamic.currentBinding;
+import static subl.Dynamic.rebind;
+import static subl.Functions.funcall;
+import static subl.Numbers.add;
+import static subl.Symbols.symbol_function;
+import static subl.Threads.$is_thread_performing_cleanupP$;
+import static subl.Types.hash_table_p;
+import static subl.Values.getValuesAsVector;
+import static subl.Values.restoreValuesFromVector;
+import static subl.type.core.SubLObjectFactory.makeBoolean;
 import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
 
 import com.cyc.cycjava.cycl.sbhl.sbhl_module_utilities;
 import com.cyc.cycjava.cycl.sbhl.sbhl_module_vars;
 import com.cyc.cycjava.cycl.sksi.sks_indexing.sksi_tva_utilities;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
+import subl.type.core.SubLList;
+import subl.type.core.SubLObject;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLTranslatedFile;
 

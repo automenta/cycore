@@ -4,8 +4,8 @@
 package com.cyc.cycjava.cycl.sksi.sksi_widgets;
 
 
-import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow.list;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeString;
+import static subl.ConsesLow.list;
+import static subl.type.core.SubLObjectFactory.makeString;
 import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.cadr;
 import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
 
@@ -14,8 +14,8 @@ import com.cyc.cycjava.cycl.list_utilities;
 import com.cyc.cycjava.cycl.string_utilities;
 import com.cyc.cycjava.cycl.web_utilities;
 import com.cyc.cycjava.cycl.xml_parsing_utilities;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
+import subl.type.core.SubLObject;
+import subl.type.core.SubLString;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLFiles.LispMethod;
 import com.cyc.tool.subl.util.SubLTranslatedFile;

@@ -16,9 +16,9 @@ import bsh.util.Util;
 import java.awt.Component;
 import bsh.Capabilities;
 import com.netbreeze.bbowl.gui.*;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.*;
+import subl.*;
 import org.logicmoo.system.*;
-// import org.armedbear.lisp.*;
+// import abcl.*;
 
 
 sdesktop()

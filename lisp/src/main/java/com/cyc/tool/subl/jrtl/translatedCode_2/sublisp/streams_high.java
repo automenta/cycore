@@ -19,17 +19,17 @@
 
 package com.cyc.tool.subl.jrtl.translatedCode_2.sublisp;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Dynamic;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.StreamsLow;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.*;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLNumberFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.*;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLFiles;
 import com.cyc.tool.subl.util.SubLTrampolineFile;
+import subl.Dynamic;
+import subl.Errors;
+import subl.StreamsLow;
+import subl.Values;
+import subl.type.core.*;
+import subl.type.number.SubLNumberFactory;
+import subl.type.stream.*;
+import subl.type.symbol.SubLNil;
 
 public final class streams_high extends SubLTrampolineFile {
 
