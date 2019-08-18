@@ -21,8 +21,8 @@
 
 package org.armedbear.j;
 
-import java.awt.Graphics;
-import javax.swing.JMenuBar;
+import javax.swing.*;
+import java.awt.*;
 
 public final class MenuBar extends JMenuBar
 {

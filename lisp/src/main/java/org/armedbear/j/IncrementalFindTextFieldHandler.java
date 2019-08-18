@@ -21,10 +21,10 @@
 
 package org.armedbear.j;
 
-import java.awt.Color;
-import java.awt.event.KeyEvent;
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 import javax.swing.undo.CompoundEdit;
+import java.awt.*;
+import java.awt.event.KeyEvent;
 
 public final class IncrementalFindTextFieldHandler extends DefaultTextFieldHandler
     implements Constants

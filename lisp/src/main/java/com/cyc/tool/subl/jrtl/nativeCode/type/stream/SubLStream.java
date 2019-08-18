@@ -1,16 +1,15 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.stream;
 
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
+import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import org.armedbear.lisp.Stream;
+
 import java.io.File;
 import java.io.FileDescriptor;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
-
-import org.armedbear.lisp.Stream;
-
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 
 public interface SubLStream extends SubLObject {
 	public static String DEFAULT_NEWLINE = System.getProperty("line.separator");

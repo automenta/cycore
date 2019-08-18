@@ -1,8 +1,6 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.core;
 
-import org.armedbear.lisp.NLispObject;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.CommonSymbols;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Types;
 import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLFixnum;
@@ -10,6 +8,7 @@ import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLInteger;
 import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLNumberFactory;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.UUID;
+import org.armedbear.lisp.NLispObject;
 
 public class SubLGuid extends NLispObject implements SubLObject, Comparable<SubLGuid> {
 	SubLGuid() {

@@ -1,18 +1,11 @@
 package org.jpl7;
 
+import org.jpl7.fli.*;
+
 import java.math.BigInteger;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 //import org.armedbear.lisp.Cons;
-import org.jpl7.fli.DoubleHolder;
-import org.jpl7.fli.Int64Holder;
-import org.jpl7.fli.IntHolder;
-import org.jpl7.fli.ObjectHolder;
-import org.jpl7.fli.Prolog;
-import org.jpl7.fli.StringHolder;
-import org.jpl7.fli.term_t;
 
 /**
  * Term is the abstract base class for Compound, Atom, Variable, Integer and Float, which comprise a Java-oriented
@@ -175,8 +168,8 @@ public abstract class Term {
 	 */
 	protected static void getSubsts(Map<String, Term> varnames_to_Terms, Map<term_t, Variable> vars_to_Vars,
 			Term[] args) {
-		for (int i = 0; i < args.length; ++i) {
-			args[i].getSubst(varnames_to_Terms, vars_to_Vars);
+		for (Term arg : args) {
+			arg.getSubst(varnames_to_Terms, vars_to_Vars);
 		}
 	}
 
@@ -196,14 +189,14 @@ public abstract class Term {
 		ObjectHolder hObject;
 		switch (Prolog.term_type(term)) {
 		case Prolog.VARIABLE: // 1
-			for (Iterator<term_t> i = vars_to_Vars.keySet().iterator(); i.hasNext();) {
-				term_t varX = (term_t) i.next(); // a previously seen Prolog
-													// variable
-				if (Prolog.compare(varX, term) == 0) { // identical Prolog
-														// variables?
-					return (Term) vars_to_Vars.get(varX); // return the
-															// associated JPL
-															// Variable
+			// a previously seen Prolog
+			for (Map.Entry<term_t, Variable> entry : vars_to_Vars.entrySet()) {
+				// variable
+				if (Prolog.compare(entry.getKey(), term) == 0) { // identical Prolog
+					// variables?
+					return entry.getValue(); // return the
+					// associated JPL
+					// Variable
 				}
 			}
 			// otherwise, the Prolog variable in term has not been seen before
@@ -247,7 +240,7 @@ public abstract class Term {
 			hString = new StringHolder();
 			hInt = new IntHolder();
 			Prolog.get_name_arity(term, hString, hInt); // assume it succeeds
-			Term args[] = new Term[hInt.value];
+			Term[] args = new Term[hInt.value];
 			// term_t term1 = Prolog.new_term_refs(hArity.value);
 			for (int i = 1; i <= hInt.value; i++) {
 				term_t termi = Prolog.new_term_ref();
@@ -273,9 +266,9 @@ public abstract class Term {
 		}
 	}
 
-	protected static Term getTerm(term_t term) {
-		return getTerm(new HashMap<term_t, Variable>(), term);
-	}
+//	protected static Term getTerm(term_t term) {
+//		return getTerm(new HashMap<term_t, Variable>(), term);
+//	}
 
 	/**
 	 * Whether this Term's functor has 'name' and 'arity' (c.f. behaviour of SWI Prolog's functor/3)
@@ -398,7 +391,7 @@ public abstract class Term {
 	 * @see org.jpl7.Term#isBig()
 	 */
 	public boolean isBigInteger() {
-		return this instanceof Integer && ((Integer) this).isBig();
+		return this instanceof Integer && this.isBig();
 	}
 
 	/**
@@ -574,7 +567,7 @@ public abstract class Term {
 	 * @deprecated Use {@link JPL#newJRef}
 	 */
     @Deprecated
-	public static final Term objectToJRef(Object object) {
+	public static Term objectToJRef(Object object) {
 		if (object == null) {
 			return JPL.JNULL;
 		} else if (object instanceof String) {
@@ -609,9 +602,9 @@ public abstract class Term {
 	// instances, keyed on Variable names.
 	// ==================================================================/
 
-	protected void put(term_t term) { // was public
-		put(new HashMap<String, term_t>(), term);
-	}
+//	protected void put(term_t term) { // was public
+//		put(new HashMap<String, term_t>(), term);
+//	}
 
 	/**
 	 * Cache the reference to the Prolog term_t here.
@@ -649,7 +642,7 @@ public abstract class Term {
 		return putParams(ps);
 	}
 
-	protected Term putParams1(IntHolder next, Term[] ps) {
+	private Term putParams1(IntHolder next, Term[] ps) {
 		switch (this.type()) {
 		case Prolog.COMPOUND:
 			return new Compound(this.name(), putParams2(this.args(), next, ps));
@@ -666,7 +659,7 @@ public abstract class Term {
 		}
 	}
 
-	static protected Term[] putParams2(Term[] ts, IntHolder next, Term[] ps) {
+	private static Term[] putParams2(Term[] ts, IntHolder next, Term[] ps) {
 		int n = ts.length;
 		Term[] ts2 = new Term[n];
 		for (int i = 0; i < n; i++) {
@@ -675,14 +668,14 @@ public abstract class Term {
 		return ts2;
 	}
 
-	// experiment: for jni_jobject_to_term_byval/2 in jpl.c
-	public static void putTerm(Object obj, term_t termref) {
-		if (obj instanceof Term) {
-			((Term) obj).put(termref);
-		} else {
-			throw new JPLException("not a Term");
-		}
-	}
+//	// experiment: for jni_jobject_to_term_byval/2 in jpl.c
+//	public static void putTerm(Object obj, term_t termref) {
+//		if (obj instanceof Term) {
+//			((Term) obj).put(termref);
+//		} else {
+//			throw new JPLException("not a Term");
+//		}
+//	}
 
 	/**
 	 * This static method converts an array of Terms to a *consecutive* sequence of term_t objects. Note that the first
@@ -760,29 +753,6 @@ public abstract class Term {
 	// ==================================================================/
 
 	/**
-	 * This method is used (by Compound.equals) to determine whether two Term arrays are pairwise equal, where two
-	 * Terms are equal if they satisfy the equals predicate (defined differently in each Term subclass).
-	 *
-	 * @param t1
-	 *            an array of Terms
-	 * @param t2
-	 *            another array of Terms
-	 * @return whether corresponding Terms in the (same-length) arrays are pairwise equal
-	 */
-	protected static boolean terms_equals(Term[] t1, Term[] t2) {
-		if (t1.length != t2.length) {
-			return false;
-		} else {
-			for (int i = 0; i < t1.length; ++i) {
-				if (!t1[i].equals(t2[i])) {
-					return false;
-				}
-			}
-			return true;
-		}
-	}
-
-	/**
 	 * Converts a list of Terms to a String.
 	 *
 	 * @param args
@@ -790,14 +760,14 @@ public abstract class Term {
 	 * @return String representation of a list of Terms
 	 */
 	public static String toString(Term[] args) {
-		String s = "";
-		for (int i = 0; i < args.length; ++i) {
-			s += args[i].toString();
-			if (i != args.length - 1) {
-				s += ", ";
-			}
+		int n = args.length;
+		StringBuilder s = new StringBuilder(n*64 /*estimate*/);
+		for (int i = 0; i < n; ++i) {
+			s.append(args[i]);
+			if (i != n - 1)
+				s.append(", ");
 		}
-		return s;
+		return s.toString();
 	}
 
 	/**

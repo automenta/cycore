@@ -2,19 +2,12 @@
 
 package org.armedbear.lisp.java.awt;
 
-import java.awt.BorderLayout;
-import java.awt.Dialog;
-import java.awt.FlowLayout;
-import java.awt.Frame;
-import java.awt.Label;
-import java.awt.Panel;
-import java.awt.TextField;
+import org.armedbear.lisp.java.DialogPromptStream;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-
-import org.armedbear.lisp.java.DialogPromptStream;
 
 public class AwtDialogPromptStream extends DialogPromptStream {
 

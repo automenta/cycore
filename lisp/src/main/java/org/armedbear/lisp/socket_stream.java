@@ -33,9 +33,9 @@
 
 package org.armedbear.lisp;
 
-import java.net.Socket;
-
 import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLSocketStream;
+
+import java.net.Socket;
 
 // ### %socket-stream
 public final class socket_stream extends Primitive

@@ -1,23 +1,18 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.stream;
 
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.Socket;
-import java.nio.ByteBuffer;
-
-import org.armedbear.lisp.Keyword;
-import org.armedbear.lisp.Lisp;
-import org.armedbear.lisp.Stream;
-import org.armedbear.lisp.Symbol;
-import org.armedbear.lisp.TwoWayStream;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.exception.SubLStreamNilException;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import org.armedbear.lisp.*;
+
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+import java.nio.ByteBuffer;
 
 public class SubLStreamFactory {
 	public static void main(String[] args) {

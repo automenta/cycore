@@ -21,15 +21,9 @@
 
 package org.armedbear.j.mail;
 
-import javax.swing.SwingUtilities;
-import org.armedbear.j.BackgroundProcess;
-import org.armedbear.j.Debug;
-import org.armedbear.j.Editor;
-import org.armedbear.j.Headers;
-import org.armedbear.j.Log;
-import org.armedbear.j.MessageDialog;
-import org.armedbear.j.ProgressNotifier;
-import org.armedbear.j.StatusBarProgressNotifier;
+import org.armedbear.j.*;
+
+import javax.swing.*;
 
 public final class ImapMessageBuffer extends MessageBuffer
 {

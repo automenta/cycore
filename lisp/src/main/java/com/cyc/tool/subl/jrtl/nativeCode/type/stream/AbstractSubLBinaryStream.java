@@ -3,13 +3,12 @@
 //
 package com.cyc.tool.subl.jrtl.nativeCode.type.stream;
 
-import static org.armedbear.lisp.Keyword.BINARY_KEYWORD;
-
+import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
+import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import org.armedbear.lisp.Stream;
 import org.armedbear.lisp.Symbol;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import static org.armedbear.lisp.Keyword.BINARY_KEYWORD;
 
 public abstract class AbstractSubLBinaryStream extends Stream
 {

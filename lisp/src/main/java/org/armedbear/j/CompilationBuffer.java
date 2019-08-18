@@ -21,12 +21,12 @@
 
 package org.armedbear.j;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import javax.swing.SwingUtilities;
 
 public final class CompilationBuffer extends CompilationErrorBuffer
     implements Runnable

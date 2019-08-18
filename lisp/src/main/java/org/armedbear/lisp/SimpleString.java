@@ -33,9 +33,9 @@
 
 package org.armedbear.lisp;
 
-import java.util.Arrays;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
+
+import java.util.Arrays;
 
 public final class SimpleString extends AbstractString
 {

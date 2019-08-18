@@ -1,6 +1,10 @@
 /* For LarKC */
 package com.cyc.tool.subl.util;
 
+import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
+import org.armedbear.lisp.JavaClassLoader;
+import org.armedbear.lisp.Lisp;
+
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,11 +18,6 @@ import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.armedbear.lisp.JavaClassLoader;
-import org.armedbear.lisp.Lisp;
-
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
 
 public class IsolatedClassLoader extends URLClassLoader {
 	public IsolatedClassLoader() {

@@ -21,13 +21,7 @@
 
 package org.armedbear.j.jdb;
 
-import org.armedbear.j.Buffer;
-import org.armedbear.j.Editor;
-import org.armedbear.j.FormatTable;
-import org.armedbear.j.Formatter;
-import org.armedbear.j.Line;
-import org.armedbear.j.LineSegmentList;
-import org.armedbear.j.Utilities;
+import org.armedbear.j.*;
 
 public final class JdbFormatter extends Formatter
 {

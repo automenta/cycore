@@ -24,11 +24,11 @@ package org.armedbear.j;
 import gnu.regexp.RE;
 import gnu.regexp.REMatch;
 import gnu.regexp.UncheckedRE;
+
+import javax.swing.*;
+import javax.swing.undo.CompoundEdit;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
-import javax.swing.JMenuItem;
-import javax.swing.JPopupMenu;
-import javax.swing.undo.CompoundEdit;
 
 public class JavaMode extends AbstractMode implements Constants, Mode
 {

@@ -1,15 +1,6 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
-import org.armedbear.lisp.Lisp;
-
 import com.cyc.cycjava.cycl.V02;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
@@ -21,6 +12,13 @@ import com.cyc.tool.subl.util.PatchFileLoader;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLFiles;
 import com.cyc.tool.subl.util.SubLTranslatedFile;
+import com.google.common.collect.Sets;
+import org.armedbear.lisp.Lisp;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.*;
 
 public class Loader {
     private static final List<Runnable>[] Passes = new List[] { new ArrayList<Runnable>(), new ArrayList<Runnable>(), new ArrayList<Runnable>() };
@@ -30,9 +28,9 @@ public class Loader {
     public static String baseCheck = null;
     public static SubLFile currentFile;
     public static Object currentStage = "NUN";
-    public static List<String> notAgain = new ArrayList<String>();
-    public static List<String> shouldOverride = new ArrayList<String>();
-    public static List<String> skippedClasses = new ArrayList<String>();
+    public static Collection<String> notAgain = Sets.newConcurrentHashSet();
+    public static Collection<String> shouldOverride = Sets.newConcurrentHashSet();
+    public static Collection<String> skippedClasses = Sets.newConcurrentHashSet();
     public static boolean usePrevious = true;
     public static boolean else_do = true;
     public static String suffix = "";
@@ -101,14 +99,13 @@ public class Loader {
      * TODO Describe the purpose of this method.
      */
     public static void completePass() {
-	for (int n = 0; n < Passes.length; n++) {
-	    List<Runnable> Pass1 = new ArrayList<Runnable>(Passes[n]);
-	    Passes[n].clear();
-	    for (Iterator iterator = Pass1.iterator(); iterator.hasNext();) {
-		Runnable runnable = (Runnable) iterator.next();
-		runnable.run();
-	    }
-	}
+		for (List<Runnable> pass : Passes) {
+			List<Runnable> Pass1 = new ArrayList<Runnable>(pass);
+			pass.clear();
+			for (Runnable runnable : Pass1) {
+				runnable.run();
+			}
+		}
     }
 
     /**
@@ -141,7 +138,7 @@ public class Loader {
 	boolean wasUUSE_V2 = SubLFiles.USE_V2;
 	boolean pass2 = false;
 
-	String wasoriginalFileClassName = "" + SubLFiles.originalFileClassName;
+	String wasoriginalFileClassName = SubLFiles.originalFileClassName;
 
 	if (wasoriginalFileClassName.contains(".cycjava.")) {
 	    SubLFiles.USE_V1 = true;
@@ -151,7 +148,7 @@ public class Loader {
 	    SubLFiles.USE_V2 = true;
 	    pass2 = true;
 	}
-	if (V02.class.isInstance(file)) {
+	if (file instanceof V02) {
 	    else_do = true;
 	}
 
@@ -360,13 +357,10 @@ public class Loader {
      * TODO Describe the purpose of this method.
      * @param shortName
      * @param superCl
-     * @throws NoSuchMethodException
      * @throws SecurityException
-     * @throws IllegalAccessException
      * @throws IllegalArgumentException
-     * @throws InvocationTargetException
-     */
-    static boolean maybeCallBaseMethod(int n, String prefix, Class fileClass, boolean superClass) throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+	 */
+    static boolean maybeCallBaseMethod(int n, String prefix, Class fileClass, boolean superClass) throws SecurityException, IllegalArgumentException {
 	Class superCl = fileClass.getSuperclass();
 	if (superCl == java.lang.Object.class || superCl == null)
 	    return false;
@@ -438,12 +432,12 @@ public class Loader {
 	final boolean alwaysRedefine = SubLMain.Always_REDEFINE;
 
 	try {
-	    List<Class> parameterTypes = new ArrayList<Class>();
+	    List<Class> parameterTypes = new ArrayList<>();
 	    for (int i = 0; i < requiredArgCount + optionalArgCount; i++)
 		parameterTypes.add(SubLObject.class);
 	    if (allowsRest)
 		parameterTypes.add(SubLObject[].class);
-	    Class[] parameterArray = parameterTypes.toArray(new Class[parameterTypes.size()]);
+	    Class[] parameterArray = parameterTypes.toArray(new Class[0]);
 	    Method meth = null;
 
 	    if (file != null) {

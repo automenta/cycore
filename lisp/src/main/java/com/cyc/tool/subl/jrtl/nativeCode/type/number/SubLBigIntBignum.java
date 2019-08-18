@@ -1,15 +1,14 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.number;
 
-import java.math.BigInteger;
-
-import org.armedbear.lisp.Bignum;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.CommonSymbols;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Types;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import org.armedbear.lisp.Bignum;
+
+import java.math.BigInteger;
 
 public class SubLBigIntBignum extends Bignum implements SubLBignum, SubLInteger, SubLNumber, SubLObject {
 	public SubLBigIntBignum(BigInteger theBigInt) {

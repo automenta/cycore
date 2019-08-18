@@ -18,14 +18,13 @@
 */
 package com.cyc.tool.subl.jrtl.nativeCode.type.symbol;
 
-import org.armedbear.lisp.Symbol;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLOperator;
 import com.cyc.tool.subl.util.SubLFiles.VariableAccessMode;
+import org.armedbear.lisp.Symbol;
 
 /**
  * <P>SubLSymbol is designed to...

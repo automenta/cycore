@@ -21,44 +21,15 @@
 
 package org.armedbear.j.jdb;
 
-import com.sun.jdi.IncompatibleThreadStateException;
-import com.sun.jdi.Method;
-import com.sun.jdi.ObjectReference;
-import com.sun.jdi.ReferenceType;
-import com.sun.jdi.StackFrame;
-import com.sun.jdi.ThreadReference;
-import com.sun.jdi.VMDisconnectedException;
-import com.sun.jdi.Value;
-import com.sun.jdi.event.BreakpointEvent;
-import com.sun.jdi.event.ClassPrepareEvent;
-import com.sun.jdi.event.ClassUnloadEvent;
-import com.sun.jdi.event.Event;
-import com.sun.jdi.event.EventIterator;
-import com.sun.jdi.event.EventQueue;
-import com.sun.jdi.event.EventSet;
-import com.sun.jdi.event.ExceptionEvent;
-import com.sun.jdi.event.LocatableEvent;
-import com.sun.jdi.event.MethodEntryEvent;
-import com.sun.jdi.event.MethodExitEvent;
-import com.sun.jdi.event.StepEvent;
-import com.sun.jdi.event.ThreadDeathEvent;
-import com.sun.jdi.event.ThreadStartEvent;
-import com.sun.jdi.event.VMDeathEvent;
-import com.sun.jdi.event.VMDisconnectEvent;
-import com.sun.jdi.event.VMStartEvent;
-import com.sun.jdi.event.WatchpointEvent;
+import com.sun.jdi.*;
+import com.sun.jdi.event.*;
 import com.sun.jdi.request.BreakpointRequest;
 import com.sun.jdi.request.EventRequest;
-import java.util.ArrayList;
+import org.armedbear.j.*;
+
+import javax.swing.*;
 import java.util.Iterator;
 import java.util.List;
-import javax.swing.SwingUtilities;
-import org.armedbear.j.Buffer;
-import org.armedbear.j.Editor;
-import org.armedbear.j.FastStringBuffer;
-import org.armedbear.j.File;
-import org.armedbear.j.Log;
-import org.armedbear.j.Platform;
 
 public final class EventHandler implements Runnable
 {

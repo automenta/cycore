@@ -21,25 +21,15 @@
 
 package org.armedbear.j.mail;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
+import org.armedbear.j.File;
+import org.armedbear.j.*;
+
+import java.io.*;
 import java.net.MalformedURLException;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
-import org.armedbear.j.Directories;
-import org.armedbear.j.File;
-import org.armedbear.j.FastStringBuffer;
-import org.armedbear.j.Headers;
-import org.armedbear.j.Log;
-import org.armedbear.j.Utilities;
 
 public final class ImapMessageCache
 {

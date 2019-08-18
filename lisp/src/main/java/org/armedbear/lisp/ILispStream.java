@@ -1,12 +1,12 @@
 package org.armedbear.lisp;
 
+import org.armedbear.lisp.Stream.EolStyle;
+import org.armedbear.lisp.Stream.ReadtableAccessor;
+
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PushbackReader;
 import java.io.Writer;
-
-import org.armedbear.lisp.Stream.EolStyle;
-import org.armedbear.lisp.Stream.ReadtableAccessor;
 
 public interface ILispStream {
 

@@ -33,38 +33,17 @@
 
 package org.armedbear.lisp;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.PushbackInputStream;
-import java.io.PushbackReader;
-import java.io.Reader;
-import java.io.StringWriter;
-import java.io.Writer;
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
+import com.cyc.tool.subl.jrtl.nativeCode.type.stream.*;
+import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import org.armedbear.lisp.util.DecodingReader;
+
+import java.io.*;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
-import java.util.BitSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
-import java.util.SortedMap;
+import java.util.*;
 
-import org.armedbear.lisp.util.DecodingReader;
 //import org.logicmoo.system.BeanShellCntrl;
-
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.AbstractRandomAccessSubLStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLInputBinaryStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLInputStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLInputTextStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLOutputBinaryStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLOutputStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLOutputTextStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 
 
 /** The stream class

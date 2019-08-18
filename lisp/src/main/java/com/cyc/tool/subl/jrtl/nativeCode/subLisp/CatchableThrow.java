@@ -1,13 +1,12 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import java.util.Deque;
-
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
 import org.armedbear.lisp.ControlTransfer;
 import org.armedbear.lisp.LispObject;
 
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
+import java.util.Deque;
 
 public abstract class CatchableThrow extends ControlTransfer {
 

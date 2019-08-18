@@ -1,37 +1,8 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.stream;
 
-import java.io.File;
-import java.io.FileDescriptor;
-import java.io.PrintStream;
-import java.math.BigInteger;
-import java.nio.ByteBuffer;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
-import org.armedbear.lisp.LispObject;
-import org.armedbear.lisp.Stream;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLCharacter;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLCons;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLEnvironment;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLGuid;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLHashtable;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLHashtableIterator;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLKeyhash;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLKeyhashIterator;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLLock;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLReadWriteLock;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLRegexPattern;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLSemaphore;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLSequence;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLStruct;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLVector;
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.*;
 import com.cyc.tool.subl.jrtl.nativeCode.type.exception.InvalidSubLExpressionException;
 import com.cyc.tool.subl.jrtl.nativeCode.type.exception.SubLException;
 import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLDoubleFloat;
@@ -43,6 +14,16 @@ import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLMacro;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLPackage;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLPackageIterator;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import org.armedbear.lisp.LispObject;
+import org.armedbear.lisp.Stream;
+
+import java.io.File;
+import java.io.FileDescriptor;
+import java.io.PrintStream;
+import java.math.BigInteger;
+import java.nio.ByteBuffer;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class SubLDigestInputTextStream extends LispObject implements SubLStream, SubLInputTextStream {
 	public SubLDigestInputTextStream(SubLInputTextStream outerStream, MessageDigest digest) {

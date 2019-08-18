@@ -1,15 +1,14 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.stream;
 
-import java.io.File;
-import java.io.FileDescriptor;
-
-import org.armedbear.lisp.BroadcastStream;
-import org.armedbear.lisp.Stream;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
+import org.armedbear.lisp.BroadcastStream;
+import org.armedbear.lisp.Stream;
+
+import java.io.File;
+import java.io.FileDescriptor;
 
 public class SubLBroadcastStream extends BroadcastStream implements SubLOutputTextStream, SubLOutputBinaryStream {
 	SubLBroadcastStream() {

@@ -1,16 +1,10 @@
 package org.jpl7.test;
 
-import java.util.Map;
-
-import org.jpl7.Atom;
-import org.jpl7.Compound;
 import org.jpl7.Integer;
-import org.jpl7.JPL;
-import org.jpl7.Query;
-import org.jpl7.Term;
-import org.jpl7.Util;
-import org.jpl7.Variable;
+import org.jpl7.*;
 import org.jpl7.fli.Prolog;
+
+import java.util.Map;
 
 // This class is nearly obsolete; most of its tests have been migrated to TestJUnit.
 public class TestOLD {
@@ -19,7 +13,7 @@ public class TestOLD {
 		System.err.println("  java_lib_version = " + JPL.version_string());
 		System.err.println("  c_lib_version = " + org.jpl7.fli.Prolog.get_c_lib_version());
 		System.err.println(
-				"  pl_lib_version = " + new Query(new Compound("jpl_pl_lib_version", new Term[] { new Variable("V") }))
+				"  pl_lib_version = " + new Query(new Compound("jpl_pl_lib_version", new Variable("V")))
 						.oneSolution().get("V"));
 		System.err.println("  java.version = " + System.getProperty("java.version"));
 		System.err.println("  os.name = " + System.getProperty("os.name"));
@@ -31,11 +25,11 @@ public class TestOLD {
 	private static void test10j() {
 		Term l2 = Util.termArrayToList(
 				new Term[] { new Atom("a"), new Atom("b"), new Atom("c"), new Atom("d"), new Atom("e") });
-		Query q9 = new Query(new Compound("append", new Term[] { new Variable("Xs"), new Variable("Ys"), l2 }));
+		Query q9 = new Query(new Compound("append", new Variable("Xs"), new Variable("Ys"), l2));
 		Map<String, Term>[] s9s = q9.allSolutions();
 		System.err.println("test10j:");
-		for (int i = 0; i < s9s.length; i++) {
-			System.err.println("  append(Xs,Ys,[a,b,c,d,e]) -> " + Util.toString(s9s[i]));
+		for (Map<String, Term> s9 : s9s) {
+			System.err.println("  append(Xs,Ys,[a,b,c,d,e]) -> " + Util.toString(s9));
 		}
 		System.err.println();
 	}
@@ -51,19 +45,19 @@ public class TestOLD {
 		} else {
 			which = "default";
 		}
-		for (int i = 0; i < args.length; i++) {
-			s = s + args[i] + " ";
+		for (String arg : args) {
+			s = s + arg + " ";
 		}
 		System.err.println("  " + which + "_init_args = " + s + '\n');
 	}
 
 	private static void test10l() {
-		Query q5 = new Query(new Compound("length", new Term[] { new Variable("Zs"), new org.jpl7.Integer(5) }));
+		Query q5 = new Query(new Compound("length", new Variable("Zs"), new Integer(5)));
 		Map<String, Term> s5 = q5.oneSolution();
 		System.err.println("test10l:");
 		System.err.println("  length(Zs,5)");
 		System.err.println("  " + Util.toString(s5));
-		System.err.println("  Zs = " + (Term) s5.get("Zs"));
+		System.err.println("  Zs = " + s5.get("Zs"));
 		System.err.println();
 	}
 
@@ -73,8 +67,8 @@ public class TestOLD {
 		Map<String, Term>[] ss = q.allSolutions();
 		System.err.println("test10m:");
 		System.err.println("  all solutions of " + text);
-		for (int i = 0; i < ss.length; i++) {
-			System.err.println("  " + Util.toString(ss[i]));
+		for (Map<String, Term> s : ss) {
+			System.err.println("  " + Util.toString(s));
 		}
 		System.err.println();
 	}
@@ -83,17 +77,17 @@ public class TestOLD {
 		System.err.println("test10o:");
 		Term l2b = Util.termArrayToList(new Term[] { new Variable("A"), new Variable("B"), new Variable("C"),
 				new Variable("D"), new Variable("E") });
-		Query q9b = new Query(new Compound("append", new Term[] { new Variable("Xs"), new Variable("Ys"), l2b }));
+		Query q9b = new Query(new Compound("append", new Variable("Xs"), new Variable("Ys"), l2b));
 		Map<String, Term>[] s9bs = q9b.allSolutions();
-		for (int i = 0; i < s9bs.length; i++) {
-			System.err.println("  append(Xs,Ys,[A,B,C,D,E]) -> " + Util.toString(s9bs[i]));
+		for (Map<String, Term> s9b : s9bs) {
+			System.err.println("  append(Xs,Ys,[A,B,C,D,E]) -> " + Util.toString(s9b));
 		}
 		System.err.println();
 	}
 
 	private static void test10q() {
 		System.err.println("test10q:");
-		System.err.println((new Compound("Bad Name", new Term[] { new Atom("3 3") })).toString());
+		System.err.println((new Compound("Bad Name", new Atom("3 3"))).toString());
 		System.err.println();
 	}
 
@@ -101,15 +95,12 @@ public class TestOLD {
 	private static void test10s() {
 		final Query q = new Query("jpl_slow_goal"); // 10 successive sleep(1)
 		System.err.println("test10s:");
-		Thread t = new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					System.err.println("q.hasSolution() ... ");
-					System.err.println(q.hasSolution() ? "finished" : "failed");
-				} catch (Exception e) {
-					System.err.println("q.hasSolution() threw " + e);
-				}
+		Thread t = new Thread(() -> {
+			try {
+				System.err.println("q.hasSolution() ... ");
+				System.err.println(q.hasSolution() ? "finished" : "failed");
+			} catch (Exception e) {
+				System.err.println("q.hasSolution() threw " + e);
 			}
 		});
 		t.start(); // call the query in a separate thread
@@ -117,7 +108,6 @@ public class TestOLD {
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
-			;
 		} // wait a coupla seconds for it to get started
 			// (new Query("set_prolog_flag(abort_with_exception,
 			// true)")).hasSolution();
@@ -147,7 +137,7 @@ public class TestOLD {
 		// test10t();
 		// test10u();
 		// test10v();
-		String s = new String("" + '\0' + '\377');
+		String s = "" + '\0' + '\377';
 		System.err.println("s.length = " + s.length());
 		for (int i = 0; i < s.length(); i++) {
 			System.err.print((new Integer(s.charAt(i))).toString() + " ");

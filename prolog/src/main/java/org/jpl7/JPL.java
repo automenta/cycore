@@ -1,8 +1,8 @@
 package org.jpl7;
 
-import java.io.File;
-
 import org.jpl7.fli.Prolog;
+
+import java.io.File;
 
 /**
  * The jpl.JPL class contains static methods which allow (i) inspection and
@@ -48,10 +48,10 @@ import org.jpl7.fli.Prolog;
 public class JPL {
 	protected static final boolean DEBUG = false;
 
-	public static final Term JFALSE = new Compound("@", new Term[] { new Atom("false") });
-	public static final Term JTRUE = new Compound("@", new Term[] { new Atom("true") });
-	public static final Term JNULL = new Compound("@", new Term[] { new Atom("null") });
-	public static final Term JVOID = new Compound("@", new Term[] { new Atom("void") });
+	public static final Term JFALSE = new Compound("@", new Atom("false"));
+	public static final Term JTRUE = new Compound("@", new Atom("true"));
+	public static final Term JNULL = new Compound("@", new Atom("null"));
+	public static final Term JVOID = new Compound("@", new Atom("void"));
 
 	protected static boolean modeDontTellMe = true;
 
@@ -213,12 +213,12 @@ public class JPL {
 		int qtyTrad = 0; // provisional # occurrences of "--traditional" in
 							// given args (oughta be 0 or 1, but we cope with
 							// 2+)
-		for (int iA = 0; iA < argsA.length; iA++) {
-			if (argsA[iA].equals("--traditional")) {
+		for (String s : argsA) {
+			if (s.equals("--traditional")) {
 				qtyTrad++;
 			}
 		}
-		String argsB[] = new String[argsA.length - qtyTrad]; // for given args
+		String[] argsB = new String[argsA.length - qtyTrad]; // for given args
 																// stripped of
 																// all
 																// "--traditional"

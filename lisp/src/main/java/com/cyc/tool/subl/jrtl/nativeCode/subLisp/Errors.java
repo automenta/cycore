@@ -1,18 +1,6 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.armedbear.lisp.ControlTransfer;
-import org.armedbear.lisp.JavaException;
-import org.armedbear.lisp.Lisp;
-import org.armedbear.lisp.LispError;
-import org.armedbear.lisp.Main;
-//import org.logicmoo.system.BeanShellCntrl;
-//import org.logicmoo.system.SystemCurrent;
-
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
@@ -27,6 +15,16 @@ import com.cyc.tool.subl.util.SubLErrorHistory;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLFiles;
 import com.cyc.tool.subl.util.SubLTrampolineFile;
+import com.google.common.collect.Lists;
+import cyc.CYC;
+import org.armedbear.lisp.*;
+
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
+
+//import org.logicmoo.system.BeanShellCntrl;
+//import org.logicmoo.system.SystemCurrent;
 
 public class Errors extends SubLTrampolineFile {
 
@@ -102,7 +100,7 @@ public class Errors extends SubLTrampolineFile {
 	private static String possiblyCallErrorHandler(String errorMessage, Throwable e) {
 		if (errorMessage != null)
 			errorMessage = errorMessage.trim();
-		if (errorMessage == null || "".equals(errorMessage))
+		if (errorMessage == null || errorMessage.isEmpty())
 			errorMessage = SubLException
 					.getStringForException(e == null ? new Exception("possiblyCallErrorHandler") : e);
 		else if (NIL != CommonSymbols.APPEND_STACK_TRACES_TO_ERROR_MESSAGES.getDynamicValue())
@@ -171,7 +169,7 @@ public class Errors extends SubLTrampolineFile {
 	public static SubLObject cerror(String continueStr, String errorStr, Throwable t) {
 		if (t instanceof Error)
 			throw (Error) t;
-		if (errorStr != null && !"".equals(errorStr))
+		if (errorStr != null && !errorStr.isEmpty())
 			errorStr = errorStr + "\n" + SubLException.getStringForException(t);
 		else
 			errorStr = SubLException.getStringForException(t);
@@ -179,7 +177,7 @@ public class Errors extends SubLTrampolineFile {
 	}
 
 	public static SubLObject cerror(SubLObject continue_string, SubLObject formatString) {
-		return cerrorVA(continue_string, formatString, Resourcer.EMPTY_SUBL_OBJECT_ARRAY);
+		return cerrorVA(continue_string, formatString, Resourcer.EmptySublObjectArray);
 	}
 
 	public static SubLObject cerror(SubLObject continue_string, SubLObject formatString, SubLObject arg1) {
@@ -259,7 +257,7 @@ public class Errors extends SubLTrampolineFile {
 				return error(errorString, e2);
 			}
 		}
-		final boolean isSubLisp = Main.isSubLisp();
+		final boolean isSubLisp = CYC.isSubLisp();
 		if (!isSubLisp) {
 			if (e == null)
 				return Lisp.error(new LispError(errorString));
@@ -282,7 +280,7 @@ public class Errors extends SubLTrampolineFile {
 		errorString = possiblyCallErrorHandler(errorString, e);
 		SubLException se = createErrorException(errorString, e);
 		SubLErrorHistory.me.add(se);
-		final boolean noDebug = Main.isNoDebug();
+		final boolean noDebug = CYC.isNoDebug();
 		if (noDebug) {
 			throw se;
 		}
@@ -395,7 +393,7 @@ public class Errors extends SubLTrampolineFile {
 			if (e instanceof Unhandleable)
 				throw (Unhandleable) e;
 			if (!(e instanceof SubLException))
-				e = SubLObjectFactory.makeException(description == null || "".equals(description)
+				e = SubLObjectFactory.makeException(description == null || description.isEmpty()
 						? e instanceof SubLException ? e.getMessage() : e.toString()
 						: description, e);
 			SubLException se = (SubLException) e;
@@ -465,7 +463,7 @@ public class Errors extends SubLTrampolineFile {
 	}
 
 	public static SubLObject sublisp_break(SubLObject format_string) {
-		return sublisp_break(format_string, Resourcer.EMPTY_SUBL_OBJECT_ARRAY);
+		return sublisp_break(format_string, Resourcer.EmptySublObjectArray);
 	}
 
 	public static SubLObject sublisp_break(SubLObject format_string, SubLObject[] arguments) {
@@ -500,7 +498,7 @@ public class Errors extends SubLTrampolineFile {
 	}
 
 	public static SubLObject unimplementedMethod(String methodName) {
-		if (Main.isNoDebug())
+		if (CYC.isNoDebug())
 			throw new SubLException(methodName);
 		error("Unimplemented method : " + methodName + ".");
 		throw SubLObjectFactory.makeException("Unexpected situation.");
@@ -556,7 +554,7 @@ public class Errors extends SubLTrampolineFile {
 		return NIL;
 	}
 
-	public static SubLFile me;
+	public static final SubLFile me = new Errors();
 	public static SubLSymbol $break_on_errorP$;
 	public static SubLSymbol $break_on_warnP$;
 	public static SubLSymbol $continue_cerrorP$;
@@ -571,49 +569,31 @@ public class Errors extends SubLTrampolineFile {
 	public static SubLSymbol $append_stack_traces_to_error_messagesP$;
 	public static SubLSymbol $force_error_message_outputP$;
 	public static boolean DEBUG_MODE = true;
-	public static Object errorLock;
-	public static Object handleErrorLock;
-	public static Object handleErrorInternalLock;
-	public static Object breakLock;
-	public static Object cerrorLock;
+	public static final Object errorLock = new Object();
+	public static final Object handleErrorLock = new Object();
+	public static final Object handleErrorInternalLock = new Object();
+	public static final Object breakLock = new Object();
+	public static final Object cerrorLock = new Object();
 	private static List<Restarter> ERROR_RESTARTS;
 	private static boolean SHOW_WARNING_STACK_TRACES = false;
 	public static boolean isReady;
 	static {
-		me = new Errors();
-		errorLock = new Object();
-		handleErrorLock = new Object();
-		handleErrorInternalLock = new Object();
-		breakLock = new Object();
-		cerrorLock = new Object();
-		(ERROR_RESTARTS = new ArrayList<Restarter>(3)).add(new Restarter("Show stack trace.", new RestartMethod() {
-			@Override
-			public boolean process(SubLReader reader, String message, SubLException se) {
-				if (se == null)
-					reader.showStackTrace(new Exception());
-				else
-					reader.showStackTrace(se);
-				return true;
-			}
-		}));
-		Errors.ERROR_RESTARTS.add(new Restarter("Return to top level read loop.", new RestartMethod() {
-			@Override
-			public boolean process(SubLReader reader, String message, SubLException se) {
-				throw new ResumeException(message);
-			}
-		}));
-		Errors.ERROR_RESTARTS.add(new Restarter("Rethrow error.", new RestartMethod() {
-			@Override
-			public boolean process(SubLReader reader, String message, SubLException se) {
-				throw se;
-			}
-		}));
-		Errors.ERROR_RESTARTS.add(new Restarter("Exit program.", new RestartMethod() {
-			@Override
-			public boolean process(SubLReader reader, String message, SubLException se) {
-				SubLMain.me.doSystemCleanupAndExit(-1);
-				return false;
-			}
+		ERROR_RESTARTS = Lists.newArrayList(new Restarter("Show stack trace.", (reader, message, se) -> {
+			if (se == null)
+				reader.showStackTrace(new Exception());
+			else
+				reader.showStackTrace(se);
+			return true;
+		}),
+		new Restarter("Return to top level read loop.", (reader, message, se) -> {
+			throw new ResumeException(message);
+		}),
+		new Restarter("Rethrow error.", (reader, message, se) -> {
+			throw se;
+		}),
+		new Restarter("Exit program.", (reader, message, se) -> {
+			SubLMain.me.doSystemCleanupAndExit(-1);
+			return false;
 		}));
 	}
 

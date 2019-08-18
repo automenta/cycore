@@ -3,29 +3,16 @@
 //
 package com.cyc.tool.subl.jrtl.nativeCode.type.operator;
 
+import com.cyc.tool.subl.jrtl.nativeCode.subLisp.*;
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
+import com.cyc.tool.subl.util.PatchFileLoader;
+import org.objectweb.asm.*;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.objectweb.asm.ClassWriter;
-import org.objectweb.asm.FieldVisitor;
-import org.objectweb.asm.Label;
-import org.objectweb.asm.MethodVisitor;
-import org.objectweb.asm.Type;
-
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.BinaryFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.CommonSymbols;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.QuataryFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.QuintaryFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Resourcer;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.TernaryFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.UnaryFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.ZeroArityFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.util.PatchFileLoader;
 
 public abstract class FixedArityFunctor implements CommonSymbols {
     public interface Arity10Funct {

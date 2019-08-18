@@ -21,7 +21,7 @@
 
 package org.armedbear.j;
 
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 
 public class IdleThreadTask implements Runnable
 {

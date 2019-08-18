@@ -21,8 +21,8 @@
 
 package org.armedbear.j;
 
-import java.awt.Component;
-import javax.swing.JSplitPane;
+import javax.swing.*;
+import java.awt.*;
 
 public final class SplitPane extends JSplitPane
 {

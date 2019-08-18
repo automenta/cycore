@@ -1,13 +1,10 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
+
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class SubLThreadPool extends ThreadPoolExecutor {
 	public SubLThreadPool() {
@@ -62,7 +59,7 @@ public class SubLThreadPool extends ThreadPoolExecutor {
 	private static int MAX_MIN_THREADS = Integer.MAX_VALUE;
 	private static int MIN_MAX_THREADS = 140;
 	private static int MAX_MAX_THREADS = Integer.MAX_VALUE;
-	private static volatile int threadNum;
+	private static final AtomicInteger threadNum = new AtomicInteger();
 	private static ThreadGroup defaultThreadGroup;
 	private static int MIN_THREADS;
 	private static int MAX_THREADS;
@@ -72,24 +69,19 @@ public class SubLThreadPool extends ThreadPoolExecutor {
 	private static BlockingQueue<Runnable> DEFAULT_WORK_QUEUE;
 	private static SubLThreadPool defaultSubLThreadPool;
 	static {
-		SubLThreadPool.threadNum = 1;
+		SubLThreadPool.threadNum.set(1);
 		defaultThreadGroup = new ThreadGroup("SubL Thread Group");
 		MIN_THREADS = getMinThreads();
 		MAX_THREADS = getMaxThreads();
 		KEEP_ALIVE_UNITS = TimeUnit.SECONDS;
-		DEFAULT_THREAD_FACTORY = new ThreadFactory() {
-			@Override
-			public Thread newThread(Runnable command) {
-				return makeSubLThreadReal(command);
-			}
-		};
-		DEFAULT_WORK_QUEUE = new SynchronousQueue<Runnable>();
+		DEFAULT_THREAD_FACTORY = command -> makeSubLThreadReal(command);
+		DEFAULT_WORK_QUEUE = new SynchronousQueue<>();
 		defaultSubLThreadPool = new SubLThreadPool();
 	}
 
 	synchronized static Thread makeSubLThreadReal(Runnable command) {
 		SubLThread t = new SubLThread(SubLThreadPool.defaultThreadGroup, command,
-				"SubL Thread #" + SubLThreadPool.threadNum++);
+				"SubL Thread #" + SubLThreadPool.threadNum.getAndIncrement());
 		// should not do this? t.setDaemon(true);
 		return t.asJavaTread();
 	}

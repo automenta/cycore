@@ -21,15 +21,14 @@
 
 package org.armedbear.j;
 
-import java.awt.Color;
-import java.awt.event.MouseEvent;
-import java.util.List;
-import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JMenuItem;
-import javax.swing.JPopupMenu;
 import org.armedbear.lisp.Interpreter;
 import org.armedbear.lisp.JavaObject;
 import org.armedbear.lisp.LispObject;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.util.List;
 
 public abstract class AbstractMode implements Constants, Mode
 {

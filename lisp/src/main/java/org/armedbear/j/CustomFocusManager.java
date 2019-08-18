@@ -21,10 +21,9 @@
 
 package org.armedbear.j;
 
-import java.awt.Component;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyEvent;
-import javax.swing.DefaultFocusManager;
-import javax.swing.JDialog;
 
 public final class CustomFocusManager extends DefaultFocusManager
 {

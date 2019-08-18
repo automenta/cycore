@@ -1,8 +1,6 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import java.util.ArrayList;
-
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
@@ -11,6 +9,8 @@ import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLFiles;
 import com.cyc.tool.subl.util.SubLTrampolineFile;
+
+import java.util.ArrayList;
 
 public class Dynamic extends SubLTrampolineFile {
     public static void bind(SubLSymbol symbol, SubLObject newValue) {
@@ -43,7 +43,7 @@ public class Dynamic extends SubLTrampolineFile {
     public static ArrayList<SubLObject> extract_dynamic_values(SubLObject variables) {
 	SubLThread $thread = SubLProcess.currentSubLThread();
 	SubLObject[] $bindings = $thread.bindingsList;
-	ArrayList<SubLObject> oldValues = new ArrayList<SubLObject>();
+	ArrayList<SubLObject> oldValues = new ArrayList<>();
 	for (SubLObject cur = variables; cur != SubLNil.NIL; cur = cur.rest()) {
 	    SubLSymbol sym = cur.first().toSymbol();
 	    if (!sym.isDynamic())

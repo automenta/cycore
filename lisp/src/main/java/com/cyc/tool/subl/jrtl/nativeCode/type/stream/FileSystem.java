@@ -1,14 +1,14 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.stream;
 
-import java.io.File;
-import java.util.ArrayList;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Resourcer;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLListListIterator;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
+
+import java.io.File;
+import java.util.ArrayList;
 
 public class FileSystem {
 	static public String constructFileName(SubLList directoryList, String pathname, String extension,

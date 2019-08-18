@@ -1,9 +1,9 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.number;
 
-import java.math.BigInteger;
-
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
+
+import java.math.BigInteger;
 
 public interface SubLNumber extends SubLObject, Comparable {
 	public static int FOUR_BYTE_INTEGER = 0;

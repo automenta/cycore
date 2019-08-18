@@ -21,17 +21,12 @@
 
 package org.armedbear.j;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Toolkit;
-import javax.swing.BorderFactory;
-import javax.swing.UIDefaults;
-import javax.swing.UIManager;
+import javax.swing.*;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.plaf.metal.DefaultMetalTheme;
 import javax.swing.plaf.metal.MetalLookAndFeel;
+import java.awt.*;
 
 public final class DefaultLookAndFeel extends DefaultMetalTheme
 {

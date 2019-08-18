@@ -1,22 +1,17 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.core;
 
-import java.util.List;
-
-import org.armedbear.lisp.Cons;
-import org.armedbear.lisp.LispObject;
-
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.BinaryFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.CommonSymbols;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Types;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.UnaryFunction;
+import com.cyc.tool.subl.jrtl.nativeCode.subLisp.*;
 import com.cyc.tool.subl.jrtl.nativeCode.type.exception.InvalidSubLExpressionException;
 import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLFixnum;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLFunction;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLT;
+import org.armedbear.lisp.Cons;
+import org.armedbear.lisp.LispObject;
+
+import java.util.List;
 
 public class SubLConsFacade extends AbstractSubLSequence
 		implements SubLObject, SubLSequence, SubLCons, SubLList, Cloneable {

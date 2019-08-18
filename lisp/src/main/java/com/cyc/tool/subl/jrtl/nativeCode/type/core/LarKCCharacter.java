@@ -1,10 +1,9 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.core;
 
-import org.armedbear.lisp.LispHashTable;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.BinaryFunction;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
+import org.armedbear.lisp.LispHashTable;
 
 public class LarKCCharacter {
 	private static class CharE_Desc implements CharCompareDesc, CaseSensitiveDesc {

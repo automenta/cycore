@@ -19,48 +19,22 @@
 
 package com.cyc.tool.subl.jrtl.nativeCode.type.number;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-
-import org.armedbear.lisp.Lisp;
-import org.armedbear.lisp.LispError;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.UnaryFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.FromSubLisp;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLCharacter;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLCons;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLEnvironment;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLGuid;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLHashtable;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLHashtableIterator;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLKeyhash;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLKeyhashIterator;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLLock;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLReadWriteLock;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLRegexPattern;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLSemaphore;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLSequence;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLStruct;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLVector;
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.*;
 import com.cyc.tool.subl.jrtl.nativeCode.type.exception.SubLException;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLFunction;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLMacro;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLInputBinaryStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLInputStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLInputTextStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLOutputBinaryStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLOutputStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLOutputTextStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLStream;
+import com.cyc.tool.subl.jrtl.nativeCode.type.stream.*;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLPackage;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLPackageIterator;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import org.armedbear.lisp.Lisp;
+import org.armedbear.lisp.LispError;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
 
 public abstract class AbstractSubLNumber extends FromSubLisp implements SubLNumber, SubLObject, Comparable {
 	private void structFieldError(int fieldNum) {

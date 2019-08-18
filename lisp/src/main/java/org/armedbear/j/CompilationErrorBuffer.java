@@ -21,7 +21,7 @@
 
 package org.armedbear.j;
 
-import javax.swing.Icon;
+import javax.swing.*;
 
 public abstract class CompilationErrorBuffer extends Buffer
 {

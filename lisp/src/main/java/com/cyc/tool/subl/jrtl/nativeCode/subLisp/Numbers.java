@@ -1,25 +1,19 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import java.math.BigInteger;
-import java.util.Arrays;
-
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
 import com.cyc.tool.subl.jrtl.nativeCode.type.exception.InvalidSubLExpressionException;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLBigIntBignum;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLDoubleFloat;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLFixnum;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLFloat;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLInteger;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLNumber;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLNumberFactory;
+import com.cyc.tool.subl.jrtl.nativeCode.type.number.*;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.jrtl.translatedCode.sublisp.bytes;
 import com.cyc.tool.subl.util.SubLFiles;
 import com.cyc.tool.subl.util.SubLTrampolineFile;
+
+import java.math.BigInteger;
+import java.util.Arrays;
 
 public class Numbers extends SubLTrampolineFile {
 	private static class AdditionDescription implements MultiArgMathFuncDesc {
@@ -362,10 +356,9 @@ public class Numbers extends SubLTrampolineFile {
 		int size = Math.max(arg1.getNumSize(), arg2.getNumSize());
 		switch (size) {
 		case 0:
-			return LONG_PROCESSING_FUNC;
-		case 1:
-			return LONG_PROCESSING_FUNC;
-		case 2:
+			case 1:
+				return LONG_PROCESSING_FUNC;
+			case 2:
 			return BIGINT_PROCESSING_FUNC;
 		case 3:
 			return DOUBLE_PROCESSING_FUNC;
@@ -385,11 +378,11 @@ public class Numbers extends SubLTrampolineFile {
 			if (!arg.isNumber())
 				throw new InvalidSubLExpressionException("'" + arg + "' is not of the expected type 'NUMBER'.");
 			if (arg.isIntBignum())
-				minType = 1 > minType ? 1 : minType;
+				minType = Math.max(1, minType);
 			else if (arg.isLongBignum())
-				minType = 1 > minType ? 1 : minType;
+				minType = Math.max(1, minType);
 			else if (arg.isBigIntegerBignum())
-				minType = 2 > minType ? 2 : minType;
+				minType = Math.max(2, minType);
 			else {
 				if (arg.isDouble())
 					return funcProcessing[3];
@@ -914,8 +907,7 @@ public class Numbers extends SubLTrampolineFile {
 		if (numbers.length == 0)
 			return number.toNumber();
 		SubLObject newMax = number;
-		for (int i = 0, size = numbers.length; i < size; ++i) {
-			SubLObject currentNum = numbers[i];
+		for (SubLObject currentNum : numbers) {
 			if (SubLNil.NIL != numG(currentNum, newMax))
 				newMax = currentNum;
 		}
@@ -930,8 +922,7 @@ public class Numbers extends SubLTrampolineFile {
 		if (numbers.length == 0)
 			return number.toNumber();
 		SubLObject newMin = number;
-		for (int i = 0, size = numbers.length; i < size; ++i) {
-			SubLObject currentNum = numbers[i];
+		for (SubLObject currentNum : numbers) {
 			if (SubLNil.NIL != numL(currentNum, newMin))
 				newMin = currentNum;
 		}

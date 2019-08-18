@@ -21,13 +21,14 @@
 
 package org.armedbear.j.mail;
 
+import org.armedbear.j.Log;
+import org.armedbear.j.Netrc;
+import org.armedbear.j.SocketConnection;
+
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.net.SocketException;
-import org.armedbear.j.Log;
-import org.armedbear.j.Netrc;
-import org.armedbear.j.SocketConnection;
 
 public final class PopSession
 {

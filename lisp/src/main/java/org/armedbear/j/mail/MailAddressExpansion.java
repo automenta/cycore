@@ -21,12 +21,9 @@
 
 package org.armedbear.j.mail;
 
+import org.armedbear.j.*;
+
 import java.util.ArrayList;
-import org.armedbear.j.Debug;
-import org.armedbear.j.Expansion;
-import org.armedbear.j.Line;
-import org.armedbear.j.Position;
-import org.armedbear.j.Utilities;
 
 public final class MailAddressExpansion extends Expansion
 {

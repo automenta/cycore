@@ -1,11 +1,12 @@
 package org.jpl7;
 
+import org.jpl7.fli.Prolog;
+import org.jpl7.fli.term_t;
+
 import java.math.BigInteger;
 import java.util.Map;
 
 //import org.armedbear.lisp.Lisp;
-import org.jpl7.fli.Prolog;
-import org.jpl7.fli.term_t;
 ////import org.logicmoo.system.BeanShellCntrl;
 
 //import com.cyc.cycjava.cycl.variables;
@@ -83,7 +84,7 @@ public class Variable extends Term
 	 */
 	public Variable()
 	{
-		this.name = "_" + Long.toString(n++); // e.g. _0, _1 etc.
+		this.name = "_" + n++; // e.g. _0, _1 etc.
 	}
 
 	/**
@@ -99,7 +100,7 @@ public class Variable extends Term
 		{
 			throw new JPLException("name cannot be null");
 		}
-		else if (name.equals(""))
+		else if (name.isEmpty())
 		{
 			throw new JPLException("name cannot be empty String");
 		}
@@ -128,7 +129,7 @@ public class Variable extends Term
 	public int arity()
 	{
 		throw new JPLException("arity() is undefined for Variable");
-	};
+	}
 
 	/**
 	 * A Variable is equal to another if their names are the same and they are
@@ -236,7 +237,7 @@ public class Variable extends Term
 	{
 		term_t var;
 		// if this var is anonymous or as yet unseen, put a new Prolog variable
-		if (this.name.equals("_") || (var = (term_t) varnames_to_vars.get(this.name)) == null)
+		if (this.name.equals("_") || (var = varnames_to_vars.get(this.name)) == null)
 		{
 			this.term_ = term;
 			this.index = varnames_to_vars.size(); // i.e. first var in is #0
@@ -262,7 +263,7 @@ public class Variable extends Term
 	 * @return whether, according to prevailing policy and this Variable's name,
 	 *         its binding (if any) should be returned in a substitution
 	 */
-	private final boolean tellThem()
+	private boolean tellThem()
 	{
 		return !(this.name.equals("_") || org.jpl7.JPL.modeDontTellMe && this.name.charAt(0) == '_');
 	}

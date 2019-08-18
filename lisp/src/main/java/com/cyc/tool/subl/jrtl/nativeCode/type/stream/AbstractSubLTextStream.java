@@ -1,13 +1,12 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.stream;
 
+import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
+import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import org.armedbear.lisp.Keyword;
 import org.armedbear.lisp.Lisp;
 import org.armedbear.lisp.Stream;
 import org.armedbear.lisp.Symbol;
-
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 
 public abstract class AbstractSubLTextStream extends Stream {
 	AbstractSubLTextStream(String fileName, SubLSymbol elementType, SubLSymbol direction, SubLSymbol ifExists,

@@ -21,11 +21,10 @@
 
 package org.armedbear.j;
 
-import java.io.OutputStreamWriter;
-
-import javax.swing.SwingUtilities;
-
 import com.cyc.tool.subl.util.SubLFiles.LispMethod;
+
+import javax.swing.*;
+import java.io.OutputStreamWriter;
 
 
 public class RemoteShell extends Shell

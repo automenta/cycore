@@ -3,22 +3,7 @@
 //
 package com.cyc.tool.subl.jrtl.nativeCode.type.operator;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import org.armedbear.lisp.ControlTransfer;
-import org.armedbear.lisp.Function;
-import org.armedbear.lisp.Lisp;
-import org.armedbear.lisp.LispObject;
-
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.CatchableThrow;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.CommonSymbols;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Loader;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLMain;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values;
+import com.cyc.tool.subl.jrtl.nativeCode.subLisp.*;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
@@ -26,6 +11,15 @@ import com.cyc.tool.subl.jrtl.nativeCode.type.exception.Unhandleable;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLPackage;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.PatchFileLoader;
+import org.armedbear.lisp.ControlTransfer;
+import org.armedbear.lisp.Function;
+import org.armedbear.lisp.Lisp;
+import org.armedbear.lisp.LispObject;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SubLCompiledFunction extends Function implements SubLFunction {
     public class FuncallCounts {

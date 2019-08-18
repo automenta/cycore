@@ -1,20 +1,14 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.stream;
 
-import java.io.FileDescriptor;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.PushbackInputStream;
-import java.io.PushbackReader;
-import java.net.SocketTimeoutException;
-
-import org.armedbear.lisp.Keyword;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Threads;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import org.armedbear.lisp.Keyword;
+
+import java.io.*;
+import java.net.SocketTimeoutException;
 
 public class SubLInputBinaryStreamImpl extends AbstractSubLBinaryStream implements SubLInputBinaryStream {
 	SubLInputBinaryStreamImpl(FileDescriptor fileDesc, SubLSymbol ifExists, SubLSymbol ifNotExists) {

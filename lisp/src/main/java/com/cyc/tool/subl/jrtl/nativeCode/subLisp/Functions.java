@@ -1,10 +1,6 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
@@ -17,6 +13,10 @@ import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLFiles;
 import com.cyc.tool.subl.util.SubLTrampolineFile;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class Functions extends SubLTrampolineFile {
 	public static class SubLFuncallCountComaprator implements Comparator<SubLCompiledFunction.FuncallCounts> {
@@ -79,7 +79,7 @@ public class Functions extends SubLTrampolineFile {
 		loopVar = loopVar.rest();
 		if (loopVar == SubLNil.NIL)
 			return funcall(function, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10);
-		return apply(function, arg, Resourcer.EMPTY_SUBL_OBJECT_ARRAY);
+		return apply(function, arg, Resourcer.EmptySublObjectArray);
 	}
 
 	public static SubLObject apply(SubLObject function, SubLObject arg, SubLObject otherArgs) {
@@ -126,12 +126,11 @@ public class Functions extends SubLTrampolineFile {
 
 	public static SubLObject applyVA(SubLObject function, SubLObject arg, SubLObject... restArgs) {
 		int restLength = restArgs.length;
-		ArrayList<SubLObject> list = new ArrayList<SubLObject>(1 + restLength + 16);
+		ArrayList<SubLObject> list = new ArrayList<>(1 + restLength + 16);
 		SubLObject lastList = arg;
 		if (restLength > 0) {
 			list.add(arg);
-			for (int i = 0; i < restLength - 1; ++i)
-				list.add(restArgs[i]);
+			list.addAll(Arrays.asList(restArgs).subList(0, restLength - 1));
 			lastList = restArgs[restLength - 1];
 		}
 		if (!lastList.isList())
@@ -245,11 +244,10 @@ public class Functions extends SubLTrampolineFile {
 		ArrayList<SubLCompiledFunction.FuncallCounts> list = SubLCompiledFunction.funcallCountsArray;
 		for (int i = 0, size = 51; i < size; ++i) {
 			SubLCompiledFunction.FuncallCounts[] results = list
-					.toArray(new SubLCompiledFunction.FuncallCounts[list.size()]);
+					.toArray(new SubLCompiledFunction.FuncallCounts[0]);
 			Arrays.sort(results, new SubLFuncallCountComaprator(i));
 			boolean hasPrintHeader = false;
-			for (int j = 0, size2 = results.length; j < size2; ++j) {
-				SubLCompiledFunction.FuncallCounts obj1 = results[j];
+			for (SubLCompiledFunction.FuncallCounts obj1 : results) {
 				if (obj1.counts[i] < minNumOfCalls.intValue())
 					break;
 				if (!hasPrintHeader) {

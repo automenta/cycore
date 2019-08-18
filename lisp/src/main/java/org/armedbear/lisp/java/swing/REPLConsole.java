@@ -34,33 +34,22 @@
 
 package org.armedbear.lisp.java.swing;
 
-import java.awt.Window;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.Reader;
-import java.io.Writer;
+import org.armedbear.lisp.*;
 
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultStyledDocument;
 import javax.swing.text.JTextComponent;
-
-import org.armedbear.lisp.Function;
-import org.armedbear.lisp.Interpreter;
-import org.armedbear.lisp.LispObject;
-import org.armedbear.lisp.LispThread;
-import org.armedbear.lisp.SpecialBindingsMark;
-import org.armedbear.lisp.Stream;
-import org.armedbear.lisp.Symbol;
-import org.armedbear.lisp.TwoWayStream;
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.Reader;
+import java.io.Writer;
 
 public class REPLConsole extends DefaultStyledDocument {
 
@@ -301,13 +290,8 @@ public class REPLConsole extends DefaultStyledDocument {
   }
 	
   public static void main(String[] args) {
-    LispObject repl = null;
-    try {		
-      repl = Interpreter.createInstance().eval("#'top-level::top-level-loop");
-    } catch (Throwable e) {
-      e.printStackTrace();
-      System.exit(1);  // Ok. We haven't done anything useful yet.
-    }
+    LispObject repl = Interpreter.createInstance().eval("#'top-level::top-level-loop");
+
     final REPLConsole d = new REPLConsole(repl);
     final JTextComponent txt = new JTextArea(d);
     d.setupTextComponent(txt);

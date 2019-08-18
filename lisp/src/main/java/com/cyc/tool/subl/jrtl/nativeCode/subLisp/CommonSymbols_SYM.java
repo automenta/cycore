@@ -1,15 +1,15 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeSymbol;
-
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLPackage;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+
+import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeSymbol;
 
 public interface CommonSymbols_SYM {
     SubLPackage __init_package__ = SubLPackage.getCurrentPackage();
 
-    final Object commonSymbolsCheck = new Object() {
+    Object commonSymbolsCheck = new Object() {
 	{
 	    if (!SubLMain.commonSymbolsOK) {
 		if (true) {

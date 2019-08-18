@@ -18,8 +18,8 @@
 
 package org.armedbear.j;
 
+import javax.swing.*;
 import java.util.List;
-import javax.swing.SwingUtilities;
 
 public class Git implements Constants
 {

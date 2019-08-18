@@ -21,21 +21,13 @@
 
 package org.armedbear.j.mail;
 
+import org.armedbear.j.*;
+
+import javax.swing.*;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
-import javax.swing.SwingUtilities;
-import org.armedbear.j.Buffer;
-import org.armedbear.j.Directories;
-import org.armedbear.j.Editor;
-import org.armedbear.j.EditorIterator;
-import org.armedbear.j.File;
-import org.armedbear.j.Line;
-import org.armedbear.j.Log;
-import org.armedbear.j.MessageDialog;
-import org.armedbear.j.ProgressNotifier;
-import org.armedbear.j.StatusBarProgressNotifier;
 
 public final class News extends Buffer
 {

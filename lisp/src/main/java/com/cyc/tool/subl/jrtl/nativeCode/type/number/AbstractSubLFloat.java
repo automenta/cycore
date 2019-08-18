@@ -1,11 +1,11 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.number;
 
-import java.util.List;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
+
+import java.util.List;
 
 public abstract class AbstractSubLFloat extends AbstractSubLNumber
 		implements SubLFloat, SubLNumber, SubLObject, Comparable {

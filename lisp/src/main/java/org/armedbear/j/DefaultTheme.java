@@ -21,8 +21,7 @@
 
 package org.armedbear.j;
 
-import java.awt.Color;
-import java.awt.Font;
+import java.awt.*;
 
 public final class DefaultTheme
 {

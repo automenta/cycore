@@ -1,34 +1,16 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.core;
 
-import java.util.List;
-
-import org.armedbear.lisp.Debug;
-import org.armedbear.lisp.Fixnum;
-import org.armedbear.lisp.Layout;
-import org.armedbear.lisp.LispClass;
-import org.armedbear.lisp.LispObject;
-import org.armedbear.lisp.LispThread;
-import org.armedbear.lisp.SLispObject;
-import org.armedbear.lisp.SimpleVector;
-import org.armedbear.lisp.SlotClass;
-import org.armedbear.lisp.SlotDefinition;
-import org.armedbear.lisp.StorageCondition;
-import org.armedbear.lisp.StringOutputStream;
-import org.armedbear.lisp.StructureClass;
-import org.armedbear.lisp.Symbol;
-import org.jpl7.Term;
-
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.CommonSymbols;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.PrologSync;
+import com.cyc.tool.subl.jrtl.nativeCode.subLisp.*;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.PrologSync.IPrologifiable;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.PrologSync.SyncState;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLStructDecl;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sxhash;
 import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLFixnum;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import org.armedbear.lisp.*;
+import org.jpl7.Term;
+
+import java.util.List;
 
 public abstract class AbstractSubLStruct extends LispObject implements SubLStruct, IPrologifiable {
 

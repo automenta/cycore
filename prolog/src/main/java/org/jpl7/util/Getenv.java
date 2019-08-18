@@ -17,7 +17,7 @@ public class Getenv {
 	public static void getenv() throws java.io.IOException, java.io.UnsupportedEncodingException {
 		Runtime rt = Runtime.getRuntime();
 
-		String a[] = new String[3];
+		String[] a = new String[3];
 		a[0] = "CMD";
 		a[1] = "/C";
 		a[2] = "SET";

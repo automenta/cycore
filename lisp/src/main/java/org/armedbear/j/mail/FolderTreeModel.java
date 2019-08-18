@@ -21,15 +21,16 @@
 
 package org.armedbear.j.mail;
 
-import java.util.Enumeration;
-import java.util.List;
-import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeModel;
-import javax.swing.tree.TreeNode;
 import org.armedbear.j.Directories;
 import org.armedbear.j.Editor;
 import org.armedbear.j.File;
 import org.armedbear.j.Property;
+
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeNode;
+import java.util.Enumeration;
+import java.util.List;
 
 public final class FolderTreeModel extends DefaultTreeModel
 {

@@ -21,11 +21,11 @@
 
 package org.armedbear.j;
 
-import java.awt.Rectangle;
-import javax.swing.JTree;
+import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
+import java.awt.*;
 
 public class SidebarTree extends JTree
 {

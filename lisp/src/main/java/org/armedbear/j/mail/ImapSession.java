@@ -21,18 +21,13 @@
 
 package org.armedbear.j.mail;
 
+import org.armedbear.j.*;
+
 import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.net.SocketException;
-import org.armedbear.j.Debug;
-import org.armedbear.j.Editor;
-import org.armedbear.j.FastStringBuffer;
-import org.armedbear.j.Log;
-import org.armedbear.j.Netrc;
-import org.armedbear.j.SocketConnection;
-import org.armedbear.j.Utilities;
 
 public final class ImapSession
 {

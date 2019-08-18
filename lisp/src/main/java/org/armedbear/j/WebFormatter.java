@@ -23,8 +23,8 @@ package org.armedbear.j;
 
 import gnu.regexp.RE;
 import gnu.regexp.UncheckedRE;
-import java.awt.Color;
-import java.awt.Font;
+
+import java.awt.*;
 
 public final class WebFormatter extends Formatter implements WebConstants
 {

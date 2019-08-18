@@ -1,21 +1,15 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.*;
+import com.cyc.tool.subl.jrtl.nativeCode.type.exception.InvalidSubLExpressionException;
+import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
+import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Stack;
-
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.AbstractSubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLCons;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLEnvironment;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.exception.InvalidSubLExpressionException;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 
 public class FunctionArgListDescription {
     public static class OptionalArgDescription {
@@ -75,8 +69,8 @@ public class FunctionArgListDescription {
     }
 
     public FunctionArgListDescription(SubLObject args, String docString) {
-        this.args = new ArrayList<SubLSymbol>();
-        optionals = new ArrayList<OptionalArgDescription>();
+        this.args = new ArrayList<>();
+        optionals = new ArrayList<>();
         rest = null;
         this.docString = "";
         if (docString != null)
@@ -126,20 +120,19 @@ public class FunctionArgListDescription {
         StringBuilder buf = new StringBuilder();
         OptionalArgDescription opd = null;
         boolean wasSet = false;
-        Iterator iter = optionals.iterator();
-        while (iter.hasNext()) {
-            opd = (OptionalArgDescription) iter.next();
-            buf.append("(").append(SubLString.convertSubLStringToJavaString("" + opd.getArgName())).append(" ");
+        for (OptionalArgDescription optional : optionals) {
+            opd = optional;
+            buf.append("(").append(SubLString.convertSubLStringToJavaString(String.valueOf(opd.getArgName()))).append(" ");
             if (argsStack.isEmpty()) {
-                buf.append(SubLString.convertSubLStringToJavaString("" + opd.getDefaultValue()));
+                buf.append(SubLString.convertSubLStringToJavaString(String.valueOf(opd.getDefaultValue())));
                 wasSet = false;
             } else {
-                buf.append(SubLString.convertSubLStringToJavaString("" + argsStack.pop()));
+                buf.append(SubLString.convertSubLStringToJavaString(String.valueOf(argsStack.pop())));
                 wasSet = true;
             }
             buf.append(") ");
             if (opd.getWasSetArgName() != SubLNil.NIL) {
-                buf.append("(").append(SubLString.convertSubLStringToJavaString("" + opd.getWasSetArgName())).append(" ");
+                buf.append("(").append(SubLString.convertSubLStringToJavaString(String.valueOf(opd.getWasSetArgName()))).append(" ");
                 buf.append(wasSet ? CommonSymbols.T : SubLNil.NIL).append(") ");
             }
         }
@@ -149,9 +142,8 @@ public class FunctionArgListDescription {
     private ArrayList expandOptional(Stack argsStack, SubLEnvironment env, ArrayList oldDynamicValues) {
         OptionalArgDescription opd = null;
         boolean wasSet = false;
-        Iterator iter = optionals.iterator();
-        while (iter.hasNext()) {
-            opd = (OptionalArgDescription) iter.next();
+        for (OptionalArgDescription optional : optionals) {
+            opd = optional;
             SubLSymbol optionalVariable = opd.getArgName();
             SubLObject actualValue = null;
             if (argsStack.isEmpty()) {
@@ -180,21 +172,19 @@ public class FunctionArgListDescription {
 
     private String expandRequired(Stack argsStack) {
         StringBuilder buf = new StringBuilder();
-        Iterator iter = args.iterator();
-        while (iter.hasNext()) {
+        for (SubLSymbol arg : args) {
             if (argsStack.isEmpty())
                 throw new InvalidSubLExpressionException("Function passed too few arguments.");
-            buf.append("(").append(SubLString.convertSubLStringToJavaString("" + iter.next())).append(" ").append(SubLString.convertSubLStringToJavaString("" + argsStack.pop())).append(") ");
+            buf.append("(").append(SubLString.convertSubLStringToJavaString("" + arg)).append(" ").append(SubLString.convertSubLStringToJavaString(String.valueOf(argsStack.pop()))).append(") ");
         }
         return buf.toString();
     }
 
     private ArrayList expandRequired(Stack argsStack, SubLEnvironment env, ArrayList oldDynamicValues) {
-        Iterator iter = args.iterator();
-        while (iter.hasNext()) {
+        for (SubLSymbol arg : args) {
             if (argsStack.isEmpty())
                 throw new InvalidSubLExpressionException("Function passed too few arguments.");
-            SubLSymbol requiredVariable = (SubLSymbol) iter.next();
+            SubLSymbol requiredVariable = arg;
             SubLObject actualArg = (SubLObject) argsStack.pop();
             SubLObject oldDynamicValue = env.noteBinding(requiredVariable, actualArg);
             oldDynamicValues = SubLSpecialOperatorDeclarations.possiblyNoteOldDynamicValue(requiredVariable, oldDynamicValue, oldDynamicValues);
@@ -210,10 +200,10 @@ public class FunctionArgListDescription {
         if (!argsStack.isEmpty()) {
             StringBuilder restBuf = (StringBuilder) (val = new StringBuilder("'("));
             while (!argsStack.isEmpty())
-                restBuf.append(SubLString.convertSubLStringToJavaString("" + argsStack.pop())).append(" ");
+                restBuf.append(SubLString.convertSubLStringToJavaString(String.valueOf(argsStack.pop()))).append(" ");
             restBuf.append(")");
         }
-        buf.append("(").append(SubLString.convertSubLStringToJavaString("" + rest)).append(" ").append(val).append(") ");
+        buf.append("(").append(SubLString.convertSubLStringToJavaString(String.valueOf(rest))).append(" ").append(val).append(") ");
         return buf.toString();
     }
 
@@ -284,7 +274,7 @@ public class FunctionArgListDescription {
     }
 
     public ArrayList expandArgBindings(Object[] actualArgs, SubLEnvironment newEnv) {
-        Stack<Object> argsStack = new Stack<Object>();
+        Stack<Object> argsStack = new Stack<>();
         for (int i = actualArgs.length - 1; i >= 0; --i)
             argsStack.push(actualArgs[i]);
         ArrayList oldDynamicValues = null;

@@ -1,10 +1,9 @@
 package org.jpl7.test.standalone;
 
-import org.jpl7.*;
-
-import java.util.Map;
-import java.util.NoSuchElementException;
-
+import org.jpl7.Atom;
+import org.jpl7.JPLException;
+import org.jpl7.Query;
+import org.jpl7.Term;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -12,10 +11,10 @@ import org.junit.rules.TestRule;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 
-import static org.junit.Assert.*;
+import java.util.Map;
+import java.util.NoSuchElementException;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static org.junit.Assert.*;
 
 public class GetSolution {
 //    final Logger logger = LoggerFactory.getLogger(GetSolution.class);
@@ -92,12 +91,12 @@ public class GetSolution {
 
     @Test
     public void testOpenGetClose1() {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         Query q = new Query("atom_chars(prolog, Cs), member(C, Cs)");
         Map<String, Term> soln;
         q.open();
         while (q.hasMoreSolutions()) {
-            sb.append(((Atom) q.nextSolution().get("C")).name());
+            sb.append(q.nextSolution().get("C").name());
         }
         q.close();
         assertEquals("prolog", sb.toString());
@@ -105,16 +104,16 @@ public class GetSolution {
 
     @Test
     public void testStackedQueries1() {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         Query q = new Query("atom_chars(prolog, Cs), member(C, Cs)");
         Map<String, Term> soln;
         q.open();
         while (q.hasMoreSolutions()) {
             soln = q.nextSolution();
             Atom a = (Atom) soln.get("C");
-            if (Query.hasSolution("memberchk(?, [l,o,r])", new Term[] { a })) {
+            if (Query.hasSolution("memberchk(?, [l,o,r])", a)) {
                 // this query opens and closes while an earlier query is still open
-                sb.append(((Atom) soln.get("C")).name());
+                sb.append(soln.get("C").name());
             }
         }
         assertTrue(!q.isOpen()); // q will have been closed by solution exhaustion

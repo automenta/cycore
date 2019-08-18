@@ -1,16 +1,13 @@
 package org.jpl7.test.standalone;
 
-import org.jpl7.*;
 import org.jpl7.Integer;
+import org.jpl7.*;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestRule;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
-
-import java.util.Map;
-import java.util.NoSuchElementException;
 
 import static org.junit.Assert.*;
 
@@ -98,7 +95,7 @@ public class JRef {
 
     @Test
     public void testRef7() {
-        Term badJRef = new Compound("hello", new Term[] { new Atom("foobar") }); // term hello(foobar)
+        Term badJRef = new Compound("hello", new Atom("foobar")); // term hello(foobar)
         try {
             badJRef.object(); // should throw exception
             fail("@(foobar).object() should thrown JPLException"); // shouldn't get to here

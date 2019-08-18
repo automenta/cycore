@@ -1,24 +1,17 @@
 package org.jpl7.util;
 
-import java.awt.BorderLayout;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.UIManager;
 
 public class SwingGadget2 extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private Qev head;
 	private Qev tail;
-	public JPanel pane;
+	public final JPanel pane;
 
-	public ActionListener al = new ActionListener() {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			inc(e);
-		}
-	};
+	public ActionListener al = e -> inc(e);
 
 	public SwingGadget2(String caption) {
 		super(caption); // call the JFrame contructor
@@ -69,8 +62,8 @@ public class SwingGadget2 extends JFrame {
 		}
 	}
 
-	public class Qev {
-		public Object ev;
+	public static class Qev {
+		public final Object ev;
 		public Qev next;
 
 		public Qev(Object e) {

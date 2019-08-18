@@ -33,12 +33,7 @@
 package org.armedbear.lisp.util;
 
 import java.lang.ref.ReferenceQueue;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.WeakHashMap;
+import java.util.*;
 
 /** Framework to monitor arbitrary objects to see if they have been
  * garbage collected, running one or more runnables when they have.

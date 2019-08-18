@@ -21,21 +21,11 @@
 
 package org.armedbear.j.mail;
 
+import org.armedbear.j.*;
+
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.JPanel;
-import org.armedbear.j.AbstractDialog;
-import org.armedbear.j.CheckBox;
-import org.armedbear.j.Editor;
-import org.armedbear.j.History;
-import org.armedbear.j.HistoryTextField;
-import org.armedbear.j.KeyMapping;
-import org.armedbear.j.Label;
-import org.armedbear.j.MessageDialog;
-import org.armedbear.j.Property;
-import org.armedbear.j.SessionProperties;
 
 public final class ConfirmSendDialog extends AbstractDialog
 {

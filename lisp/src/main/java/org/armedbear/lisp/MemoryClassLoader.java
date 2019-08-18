@@ -34,9 +34,9 @@
 
 package org.armedbear.lisp;
 
-import static org.armedbear.lisp.Lisp.error;
-
 import java.util.HashMap;
+
+import static org.armedbear.lisp.Lisp.error;
 
 public class MemoryClassLoader extends JavaClassLoader {
 

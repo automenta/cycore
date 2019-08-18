@@ -21,34 +21,15 @@
 
 package org.armedbear.j;
 
-import javax.swing.SwingUtilities;
+import gnu.regexp.REException;
+import org.armedbear.lisp.Package;
+import org.armedbear.lisp.*;
+
+import javax.swing.*;
 import javax.swing.undo.CompoundEdit;
 
-import org.armedbear.lisp.AbstractString;
-import org.armedbear.lisp.ConditionThrowable;
-import org.armedbear.lisp.Fixnum;
-import org.armedbear.lisp.Function;
-import org.armedbear.lisp.GenericFunction;
 //import org.armedbear.lisp.GenericFunction;
-import org.armedbear.lisp.JavaObject;
-import org.armedbear.lisp.Lisp;
-import org.armedbear.lisp.LispCharacter;
-import org.armedbear.lisp.LispError;
-import org.armedbear.lisp.LispObject;
-import org.armedbear.lisp.LispThread;
-import org.armedbear.lisp.Package;
-import org.armedbear.lisp.Packages;
-import org.armedbear.lisp.Pathname;
-import org.armedbear.lisp.Primitive;
-import org.armedbear.lisp.Primitives;
-import org.armedbear.lisp.SimpleString;
-import org.armedbear.lisp.Symbol;
-import org.armedbear.lisp.TypeError;
-import org.armedbear.lisp.UndefinedFunction;
-import org.armedbear.lisp.WrongNumberOfArgumentsException;
 //import org.logicmoo.system.BeanShellCntrl;
-
-import gnu.regexp.REException;
 
 public final class LispAPI extends Lisp
 {

@@ -21,10 +21,10 @@
 
 package org.armedbear.j;
 
+import javax.swing.undo.CompoundEdit;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import javax.swing.undo.CompoundEdit;
 
 public final class Sort
 {

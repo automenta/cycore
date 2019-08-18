@@ -1,19 +1,13 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.stream;
 
-import static org.armedbear.lisp.Keyword.BINARY_KEYWORD;
-import static org.armedbear.lisp.Keyword.ERROR_KEYWORD;
-import static org.armedbear.lisp.Keyword.OUTPUT_KEYWORD;
-
-import java.io.BufferedOutputStream;
-import java.io.FileDescriptor;
-import java.io.FileOutputStream;
-import java.io.InterruptedIOException;
-import java.io.OutputStream;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Threads;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+
+import java.io.*;
+
+import static org.armedbear.lisp.Keyword.*;
 
 public class SubLOutputBinaryStreamImpl extends AbstractSubLBinaryStream implements SubLOutputBinaryStream {
     SubLOutputBinaryStreamImpl(FileDescriptor fileDesc, SubLSymbol elementType, SubLSymbol direction, SubLSymbol ifExists, SubLSymbol ifNotExists) {

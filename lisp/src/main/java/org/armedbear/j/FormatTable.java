@@ -21,8 +21,7 @@
 
 package org.armedbear.j;
 
-import java.awt.Color;
-import java.awt.Font;
+import java.awt.*;
 import java.util.ArrayList;
 
 public final class FormatTable

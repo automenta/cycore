@@ -21,9 +21,10 @@
 
 package org.armedbear.j.mail;
 
-import java.io.UnsupportedEncodingException;
 import org.armedbear.j.FastStringBuffer;
 import org.armedbear.j.Log;
+
+import java.io.UnsupportedEncodingException;
 
 public final class QuotedPrintableEncoder
 {

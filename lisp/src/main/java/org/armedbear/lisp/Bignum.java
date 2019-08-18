@@ -33,8 +33,6 @@
 
 package org.armedbear.lisp;
 
-import java.math.BigInteger;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.CommonSymbols;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Types;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
@@ -43,6 +41,8 @@ import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLBigIntBignum;
 import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLFixnum;
 import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLLongBignum;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+
+import java.math.BigInteger;
 
 abstract public class Bignum extends AbstractSubLInteger
 {

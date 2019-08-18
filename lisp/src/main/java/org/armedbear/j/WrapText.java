@@ -24,8 +24,9 @@ package org.armedbear.j;
 import gnu.regexp.RE;
 import gnu.regexp.REMatch;
 import gnu.regexp.UncheckedRE;
-import javax.swing.undo.CompoundEdit;
 import org.armedbear.j.mail.SendMail;
+
+import javax.swing.undo.CompoundEdit;
 
 public final class WrapText implements Constants
 {

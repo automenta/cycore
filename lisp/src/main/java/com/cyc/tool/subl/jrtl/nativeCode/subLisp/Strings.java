@@ -64,10 +64,10 @@ public class Strings extends SubLTrampolineFile {
 		if (object.isString())
 			return object;
 		if (object.isChar())
-			return SubLObjectFactory.makeString("" + object.charValue());
+			return SubLObjectFactory.makeString(Character.toString(object.charValue()));
 		if (object.isSymbol())
 			return object.toSymbol().getSubLName();
-		return SubLObjectFactory.makeString("" + object);
+		return SubLObjectFactory.makeString(object.toString());
 	}
 
 	public static SubLObject string_capitalize(SubLObject string, SubLObject start, SubLObject end) {

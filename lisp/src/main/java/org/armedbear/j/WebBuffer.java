@@ -21,14 +21,11 @@
 
 package org.armedbear.j;
 
-import java.awt.AWTEvent;
-import java.awt.Cursor;
-import java.awt.Image;
-import java.awt.Rectangle;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.io.InputStream;
 import java.util.Hashtable;
-import javax.swing.SwingUtilities;
 
 public final class WebBuffer extends Buffer implements WebConstants
 {

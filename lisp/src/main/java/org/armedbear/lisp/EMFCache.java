@@ -32,9 +32,9 @@
 
 package org.armedbear.lisp;
 
-import java.util.concurrent.ConcurrentHashMap;
-
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+
+import java.util.concurrent.ConcurrentHashMap;
 
 public final class EMFCache extends SLispObject
 {

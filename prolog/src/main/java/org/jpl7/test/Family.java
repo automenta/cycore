@@ -1,15 +1,15 @@
 package org.jpl7.test;
 
-import java.util.Map;
-
 import org.jpl7.Atom;
 import org.jpl7.Query;
 import org.jpl7.Term;
 import org.jpl7.Variable;
 
+import java.util.Map;
+
 public class Family extends Thread {
 
-	int id; // client thread id
+	final int id; // client thread id
 	private static final int delay = 0;
 
 	Family(int i) {
@@ -32,7 +32,7 @@ public class Family extends Thread {
 
 		// --------------------------------------------------
 
-		Query q2 = new Query("child_of", new Term[] { new Atom("joe"), new Atom("ralf") });
+		Query q2 = new Query("child_of", new Atom("joe"), new Atom("ralf"));
 
 		System.err.println("child_of(joe,ralf) is " + (q2.hasSolution() ? "provable" : "not provable"));
 
@@ -40,7 +40,7 @@ public class Family extends Thread {
 
 		// --------------------------------------------------
 
-		Query q3 = new Query("descendent_of", new Term[] { new Atom("steve"), new Atom("ralf") });
+		Query q3 = new Query("descendent_of", new Atom("steve"), new Atom("ralf"));
 
 		System.err.println("descendent_of(steve,ralf) is " + (q3.hasSolution() ? "provable" : "not provable"));
 
@@ -48,7 +48,7 @@ public class Family extends Thread {
 
 		// --------------------------------------------------
 
-		Query q4 = new Query("descendent_of", new Term[] { X, new Atom("ralf") });
+		Query q4 = new Query("descendent_of", X, new Atom("ralf"));
 
 		solution = q4.oneSolution();
 
@@ -62,8 +62,8 @@ public class Family extends Thread {
 		Map<String, Term>[] solutions = q4.allSolutions();
 
 		System.err.println("all solutions of descendent_of(X, ralf)");
-		for (int i = 0; i < solutions.length; i++) {
-			System.err.println("X = " + solutions[i].get(X.name));
+		for (Map<String, Term> stringTermMap : solutions) {
+			System.err.println("X = " + stringTermMap.get(X.name));
 		}
 
 		new Query("sleep", new Term[] { new org.jpl7.Integer(delay) }).hasSolution();
@@ -82,7 +82,7 @@ public class Family extends Thread {
 
 		Variable Y = new Variable("Y");
 
-		Query q5 = new Query("descendent_of", new Term[] { X, Y });
+		Query q5 = new Query("descendent_of", X, Y);
 
 		System.err.println(id + ": each solution of descendent_of(X, Y)");
 		while (q5.hasMoreSolutions()) {

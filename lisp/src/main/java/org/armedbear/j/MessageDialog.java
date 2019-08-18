@@ -21,13 +21,10 @@
 
 package org.armedbear.j;
 
-import java.awt.Graphics;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
-import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.JTextArea;
-import javax.swing.UIManager;
 
 public class MessageDialog extends AbstractDialog
 {

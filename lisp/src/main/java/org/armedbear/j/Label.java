@@ -21,8 +21,8 @@
 
 package org.armedbear.j;
 
-import java.awt.Graphics;
-import javax.swing.JLabel;
+import javax.swing.*;
+import java.awt.*;
 
 public final class Label extends JLabel
 {

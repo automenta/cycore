@@ -1,8 +1,6 @@
 /* For LarKC */
 package com.cyc.tool.subl.util;
 
-import java.util.Deque;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.CommonSymbols;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.CommonSymbols_CYC;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Resourcer;
@@ -11,6 +9,8 @@ import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLStruct;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLFunction;
+
+import java.util.Deque;
 
 public abstract class SubLTranslatedFile extends SubLTrampolineFile implements CommonSymbols, CommonSymbols_CYC
 //
@@ -41,7 +41,7 @@ public abstract class SubLTranslatedFile extends SubLTrampolineFile implements C
 	}
 
 	static {
-		EMPTY_SUBL_OBJECT_ARRAY = Resourcer.EMPTY_SUBL_OBJECT_ARRAY;
+		EMPTY_SUBL_OBJECT_ARRAY = Resourcer.EmptySublObjectArray;
 	}
 
     public static SubLStruct makeConstSym(String name) {

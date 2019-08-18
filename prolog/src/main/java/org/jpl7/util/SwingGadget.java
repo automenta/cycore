@@ -1,24 +1,18 @@
 package org.jpl7.util;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.UIManager;
 
 public class SwingGadget extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	public int numClicks = 0; // can be changed e.g. from Prolog
 
-	private static String labelPrefix = "Number of button clicks: ";
+	private static final String labelPrefix = "Number of button clicks: ";
 	final JLabel label = new JLabel(labelPrefix + "0    ");
 
 	public SwingGadget(String caption) {
@@ -26,12 +20,7 @@ public class SwingGadget extends JFrame {
 
 		JButton button = new JButton("I'm a Swing button!");
 
-		button.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				inc();
-			}
-		});
+		button.addActionListener(e -> inc());
 
 		label.setLabelFor(button);
 

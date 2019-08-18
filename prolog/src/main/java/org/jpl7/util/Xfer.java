@@ -5,9 +5,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public class Xfer extends Thread {
-	private InputStream in;
+	private final InputStream in;
 
-	private OutputStream out;
+	private final OutputStream out;
 
 	public Xfer(InputStream s1, OutputStream s2) {
 		in = s1;

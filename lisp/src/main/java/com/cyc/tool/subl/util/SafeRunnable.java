@@ -1,13 +1,6 @@
 /* For LarKC */
 package com.cyc.tool.subl.util;
 
-import java.util.logging.Level;
-
-import org.armedbear.lisp.ControlTransfer;
-import org.armedbear.lisp.Lisp;
-import org.armedbear.lisp.Main;
-import org.armedbear.lisp.Package;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.FromSubLisp;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLEnvironment;
@@ -15,6 +8,12 @@ import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
 import com.cyc.tool.subl.jrtl.nativeCode.type.exception.InvalidSubLExpressionException;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLPackage;
+import org.armedbear.lisp.ControlTransfer;
+import org.armedbear.lisp.Lisp;
+import cyc.CYC;
+import org.armedbear.lisp.Package;
+
+import java.util.logging.Level;
 
 public abstract class SafeRunnable extends FromSubLisp implements Runnable {
 
@@ -26,7 +25,7 @@ public abstract class SafeRunnable extends FromSubLisp implements Runnable {
     protected Package outerPackage;
 
     public SafeRunnable() {
-        this.outerSubLisp = Main.isSubLisp();
+        this.outerSubLisp = CYC.isSubLisp();
         this.outerPackage = Lisp.getCurrentPackage();
     }
 
@@ -38,10 +37,10 @@ public abstract class SafeRunnable extends FromSubLisp implements Runnable {
 	@Override
 	public void run() {
 
-        final boolean wasSubLisp = Main.isSubLisp();
+        final boolean wasSubLisp = CYC.isSubLisp();
         final SubLPackage prevPackage = Lisp.getCurrentPackage();
 		try {
-            Main.setSubLisp(outerSubLisp);
+            CYC.setSubLisp(outerSubLisp);
             if (outerSubLisp) {
 			SubLPackage.setCurrentPackage(SubLPackage.CYC_PACKAGE);
             } else {
@@ -54,10 +53,10 @@ public abstract class SafeRunnable extends FromSubLisp implements Runnable {
 		} catch (Throwable e) {
 			Errors.handleError(e);
         } finally {
-            Main.setSubLisp(outerSubLisp);
+            CYC.setSubLisp(outerSubLisp);
             if (!outerSubLisp) {
                 SubLPackage.setCurrentPackage(prevPackage);
-                Main.setSubLisp(wasSubLisp);
+                CYC.setSubLisp(wasSubLisp);
             } else {
 
             }

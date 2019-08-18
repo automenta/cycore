@@ -21,6 +21,9 @@
 
 package org.armedbear.j.mail;
 
+import org.armedbear.j.*;
+
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -28,18 +31,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import javax.swing.SwingUtilities;
-import org.armedbear.j.Buffer;
-import org.armedbear.j.BufferIterator;
-import org.armedbear.j.Debug;
-import org.armedbear.j.Editor;
-import org.armedbear.j.EditorIterator;
-import org.armedbear.j.File;
-import org.armedbear.j.FastStringBuffer;
-import org.armedbear.j.Headers;
-import org.armedbear.j.Line;
-import org.armedbear.j.Log;
-import org.armedbear.j.View;
 
 public final class Drafts extends Mailbox
 {

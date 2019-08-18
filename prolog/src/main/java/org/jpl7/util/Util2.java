@@ -1,16 +1,12 @@
 package org.jpl7.util;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.StringTokenizer;
 
 public class Util2 {
-	private static Random r = new Random();
+	private static final Random r = new Random();
 
 	public static String[] dir_to_members(String dir) {
 		String[] ns = (new File(dir)).list();
@@ -18,7 +14,7 @@ public class Util2 {
 		String[] ps = new String[len];
 		for (int i = 0; i < len; i++) {
 			try {
-				ps[i] = (new File(dir, ns[i])).getCanonicalPath().toString();
+				ps[i] = (new File(dir, ns[i])).getCanonicalPath();
 			} catch (IOException e) {
 				ps[i] = "";
 			}
@@ -74,7 +70,7 @@ public class Util2 {
 			try {
 				(new FileOutputStream(f)).close();
 				if (f.exists()) {
-					return f.getCanonicalPath().toString();
+					return f.getCanonicalPath();
 				} else {
 					return null;
 				}
@@ -127,23 +123,21 @@ public class Util2 {
 	public static String[] classpath_parts() {
 		String cp = java.lang.System.getProperty("java.class.path");
 		StringTokenizer p = new StringTokenizer(cp, File.pathSeparator);
-		String a[] = new String[p.countTokens()];
+		String[] a = new String[p.countTokens()];
 		int i = 0;
 		String s;
 
 		try {
 			while (p.hasMoreTokens()) {
-				s = (new File(p.nextToken())).getCanonicalPath().toString();
+				s = (new File(p.nextToken())).getCanonicalPath();
 				if (!strings_contains_string(a, i, s)) {
 					a[i++] = s;
 				}
 			}
-		} catch (NoSuchElementException e) {
-			return null;
-		} catch (IOException e) {
+		} catch (NoSuchElementException | IOException e) {
 			return null;
 		}
-		String r[] = new String[i];
+		String[] r = new String[i];
 		java.lang.System.arraycopy(a, 0, r, 0, i);
 		return r;
 	}
@@ -166,8 +160,6 @@ public class Util2 {
 			s.read(buf);
 			s.close(); // to release file for e.g. deletion...
 			return buf;
-		} catch (FileNotFoundException e) {
-			return null;
 		} catch (IOException e) {
 			return null;
 		}

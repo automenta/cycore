@@ -3,9 +3,8 @@
 //
 package com.cyc.tool.subl.jrtl.nativeCode.type.operator;
 
-import org.armedbear.lisp.LispObject;
-
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import org.armedbear.lisp.LispObject;
 
 public abstract class AbstractSubLOperator extends LispObject implements SubLOperator {
 	AbstractSubLOperator() {

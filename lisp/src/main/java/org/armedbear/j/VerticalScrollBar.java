@@ -21,7 +21,7 @@
 
 package org.armedbear.j;
 
-import javax.swing.JScrollBar;
+import javax.swing.*;
 
 public final class VerticalScrollBar extends JScrollBar
 {

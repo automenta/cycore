@@ -34,27 +34,15 @@
 
 package org.armedbear.lisp.util;
 
-import static org.armedbear.lisp.Lisp.error;
+import org.armedbear.lisp.SimpleError;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PushbackInputStream;
-import java.io.PushbackReader;
-import java.io.RandomAccessFile;
-import java.io.Reader;
-import java.io.StringReader;
-import java.io.Writer;
+import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.nio.channels.FileChannel;
-import java.nio.charset.Charset;
-import java.nio.charset.CharsetDecoder;
-import java.nio.charset.CharsetEncoder;
-import java.nio.charset.CoderResult;
-import java.nio.charset.CodingErrorAction;
-import java.nio.charset.UnsupportedCharsetException;
+import java.nio.charset.*;
 
-import org.armedbear.lisp.SimpleError;
+import static org.armedbear.lisp.Lisp.error;
 
 public class RandomAccessCharacterFile {
 

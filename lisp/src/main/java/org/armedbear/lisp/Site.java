@@ -33,11 +33,9 @@
 
 package org.armedbear.lisp;
 
-import static org.armedbear.lisp.Lisp.NIL;
-import static org.armedbear.lisp.Lisp.PACKAGE_EXT;
-import static org.armedbear.lisp.Lisp.exportSpecial;
-
 import java.net.URL;
+
+import static org.armedbear.lisp.Lisp.*;
 
 
 public final class Site

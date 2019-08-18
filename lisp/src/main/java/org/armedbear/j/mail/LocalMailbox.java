@@ -21,34 +21,14 @@
 
 package org.armedbear.j.mail;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.RandomAccessFile;
-import java.io.UnsupportedEncodingException;
+import org.armedbear.j.File;
+import org.armedbear.j.*;
+
+import javax.swing.*;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
-import javax.swing.SwingUtilities;
-import org.armedbear.j.Buffer;
-import org.armedbear.j.BufferIterator;
-import org.armedbear.j.Debug;
-import org.armedbear.j.Directories;
-import org.armedbear.j.Editor;
-import org.armedbear.j.EditorIterator;
-import org.armedbear.j.File;
-import org.armedbear.j.FastStringBuffer;
-import org.armedbear.j.Headers;
-import org.armedbear.j.Line;
-import org.armedbear.j.LocalFile;
-import org.armedbear.j.Log;
-import org.armedbear.j.ProgressNotifier;
-import org.armedbear.j.Property;
-import org.armedbear.j.Sidebar;
-import org.armedbear.j.Utilities;
-import org.armedbear.j.View;
 
 public class LocalMailbox extends Mailbox
 {

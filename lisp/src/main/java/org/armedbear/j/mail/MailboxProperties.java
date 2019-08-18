@@ -21,26 +21,15 @@
 
 package org.armedbear.j.mail;
 
+import org.armedbear.j.*;
+import org.xml.sax.*;
+import org.xml.sax.helpers.DefaultHandler;
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
-import org.armedbear.j.Debug;
-import org.armedbear.j.Directories;
-import org.armedbear.j.Editor;
-import org.armedbear.j.FastStringBuffer;
-import org.armedbear.j.File;
-import org.armedbear.j.Log;
-import org.armedbear.j.Property;
-import org.armedbear.j.PropertyList;
-import org.armedbear.j.Utilities;
-import org.xml.sax.Attributes;
-import org.xml.sax.ContentHandler;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
-import org.xml.sax.XMLReader;
-import org.xml.sax.helpers.DefaultHandler;
 
 public final class MailboxProperties
 {

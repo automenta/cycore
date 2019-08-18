@@ -1,9 +1,9 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeKeyword;
-
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+
+import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeKeyword;
 
 public interface CommonSymbols_KW extends CommonSymbols_SYM {
 

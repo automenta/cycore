@@ -21,19 +21,14 @@
 
 package org.armedbear.j;
 
+import cyc.CYC;
+import org.armedbear.lisp.*;
+
+import javax.swing.*;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-
-import javax.swing.SwingUtilities;
-
-import org.armedbear.lisp.ConditionThrowable;
-import org.armedbear.lisp.Interpreter;
-import org.armedbear.lisp.Lisp;
-import org.armedbear.lisp.LispObject;
-import org.armedbear.lisp.LispThread;
-import org.armedbear.lisp.Main;
 
 public final class JLisp extends LispShell
 {
@@ -86,7 +81,7 @@ public final class JLisp extends LispShell
             @Override
 			public void run()
             {
-            	Main.setSubLisp(false);
+            	CYC.setSubLisp(false);
                 try {
                     startServer();
                     if (interpreter != null) {
@@ -144,24 +139,25 @@ public final class JLisp extends LispShell
 
     private void startServer()
     {
-        try {
-            ServerSocket serverSocket = new ServerSocket(0);
-            port = serverSocket.getLocalPort();
-            synchronized (this) {
-                notify();
-            }
-            Socket socket = serverSocket.accept(); // Blocks.
-
-            interpreter =
-            		Interpreter.createNewLispInstance(socket.getInputStream(),
-                                                socket.getOutputStream(),
-                                                initialDir.canonicalPath(),
-                                                Version.getLongVersionString(), true);
-        }
-        catch (Throwable t) {
-            Log.error(t);
-        }
-    	}
+        throw new UnsupportedOperationException();
+//        try {
+//            ServerSocket serverSocket = new ServerSocket(0);
+//            port = serverSocket.getLocalPort();
+//            synchronized (this) {
+//                notify();
+//            }
+//            Socket socket = serverSocket.accept(); // Blocks.
+//
+//            interpreter =
+//            		Interpreter.createNewLispInstance(socket.getInputStream(),
+//                                                socket.getOutputStream(),
+//                                                initialDir.canonicalPath(),
+//                                                Version.getLongVersionString(), true);
+//        }
+//        catch (Throwable t) {
+//            Log.error(t);
+//        }
+    }
 
     @Override
 	public synchronized void dispose()

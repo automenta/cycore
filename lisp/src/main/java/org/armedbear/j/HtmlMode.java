@@ -24,15 +24,11 @@ package org.armedbear.j;
 import gnu.regexp.RE;
 import gnu.regexp.REException;
 import gnu.regexp.REMatch;
-import java.awt.event.KeyEvent;
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.List;
+
 import javax.swing.undo.CompoundEdit;
+import java.awt.event.KeyEvent;
+import java.io.*;
+import java.util.List;
 
 public final class HtmlMode extends AbstractMode implements Constants, Mode
 {

@@ -33,9 +33,9 @@
 
 package org.armedbear.lisp;
 
-import static org.armedbear.lisp.Lisp.error;
-
 import java.io.InputStream;
+
+import static org.armedbear.lisp.Lisp.error;
 
 
 public class FaslClassLoader extends JavaClassLoader {

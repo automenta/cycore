@@ -1,8 +1,8 @@
 package org.jpl7.test.standalone;
 
-import org.jpl7.*;
 import org.jpl7.Float;
 import org.jpl7.Integer;
+import org.jpl7.*;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -10,10 +10,8 @@ import org.junit.rules.TestRule;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 
-import java.util.Map;
-import java.util.NoSuchElementException;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class QueryBuilder {
 //    final Logger logger = LoggerFactory.getLogger(GetSolution.class);
@@ -48,7 +46,7 @@ public class QueryBuilder {
     @Test
     public void testTerm1() {
         Term args = Util.textToTerm("[1,2,3,4,5]");
-        Term t = new Compound("member", new Term[] { new Integer(1), args } );
+        Term t = new Compound("member", new Integer(1), args);
         Query q = new Query(t);
         assertTrue("Query should have succeded, but it did not!", q.hasSolution());
     }

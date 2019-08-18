@@ -1,9 +1,9 @@
 package org.jpl7;
 
-import java.util.Map;
-
 import org.jpl7.fli.Prolog;
 import org.jpl7.fli.term_t;
+
+import java.util.Map;
 
 /**
  * JRef is a specialised Term with a (non-null, non-String) Object field, representing JPL 7.4's Prolog references to Java objects, e.g.

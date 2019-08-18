@@ -33,15 +33,14 @@
 
 package org.armedbear.lisp;
 
-import org.jpl7.Compound;
-import org.jpl7.JPL;
-import org.jpl7.Term;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.PrologSync;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.PrologSync.IPrologifiable;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLConsPair;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
+import org.jpl7.Compound;
+import org.jpl7.JPL;
+import org.jpl7.Term;
 
 public final class Cons extends SubLConsPair implements java.io.Serializable, IPrologifiable {
     public LispObject car;

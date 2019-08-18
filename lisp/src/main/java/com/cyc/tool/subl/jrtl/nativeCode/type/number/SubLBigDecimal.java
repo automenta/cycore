@@ -1,12 +1,12 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.number;
 
-import java.math.BigDecimal;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.CommonSymbols;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Types;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+
+import java.math.BigDecimal;
 
 public class SubLBigDecimal extends AbstractSubLFloat implements SubLFloat, SubLNumber, SubLObject {
 	SubLBigDecimal(BigDecimal theBigInt) {

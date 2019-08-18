@@ -21,15 +21,10 @@
 
 package org.armedbear.j;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Rectangle;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.UIManager;
+import javax.swing.*;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicScrollBarUI;
+import java.awt.*;
 
 public final class ScrollBarUI extends BasicScrollBarUI
 {

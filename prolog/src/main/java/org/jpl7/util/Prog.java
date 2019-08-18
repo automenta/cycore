@@ -1,9 +1,9 @@
 package org.jpl7.util;
 
 public class Prog {
-	public static int i_am_static_1 = 1;
+	public static final int i_am_static_1 = 1;
 
-	public int i_am_not_static_2 = 2;
+	public final int i_am_not_static_2 = 2;
 
 	public static java.lang.String S = "hello";
 

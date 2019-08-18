@@ -20,10 +20,10 @@
 
 package org.armedbear.lisp.java.swing;
 
-import java.awt.Component;
-import java.awt.event.ComponentEvent;
-
 import org.armedbear.lisp.JHandler;
+
+import java.awt.*;
+import java.awt.event.ComponentEvent;
 
 public class ComponentAdapter extends java.awt.event.ComponentAdapter {
 

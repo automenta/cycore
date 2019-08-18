@@ -39,10 +39,11 @@ import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLEnvironment;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.exception.InvalidSubLExpressionException;
-//import com.cyc.tool.subl.jrtl.nativeCode.type.operator.AbstractSubLOperator;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLFunction;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLSpecialOperator;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+
+//import com.cyc.tool.subl.jrtl.nativeCode.type.operator.AbstractSubLOperator;
 
 public abstract class Function extends Operator implements SubLFunction {
 	@Override
@@ -383,7 +384,7 @@ public abstract class Function extends Operator implements SubLFunction {
 	}
 
 	@Override
-	public LispObject execute(LispObject[] args) {
+	public LispObject execute(LispObject... args) {
 		// if(args.length<10) return dispatch(args);
 		// LispThread thread = LispThread.currentThread();
 		// if(true) return thread.execute(this, args);

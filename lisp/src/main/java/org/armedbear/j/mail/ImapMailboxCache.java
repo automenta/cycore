@@ -21,22 +21,14 @@
 
 package org.armedbear.j.mail;
 
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
-import java.io.Serializable;
+import org.armedbear.j.File;
+import org.armedbear.j.*;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Properties;
-import org.armedbear.j.Debug;
-import org.armedbear.j.Directories;
-import org.armedbear.j.File;
-import org.armedbear.j.Log;
-import org.armedbear.j.Utilities;
 
 public final class ImapMailboxCache implements Serializable
 {

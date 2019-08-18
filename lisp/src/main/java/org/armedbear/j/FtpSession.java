@@ -21,13 +21,8 @@
 
 package org.armedbear.j;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.StringReader;
+import javax.swing.*;
+import java.io.*;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -35,7 +30,6 @@ import java.net.SocketException;
 import java.util.Random;
 import java.util.StringTokenizer;
 import java.util.Vector;
-import javax.swing.SwingUtilities;
 
 public class FtpSession implements Constants
 {

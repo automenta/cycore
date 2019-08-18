@@ -21,9 +21,7 @@
 
 package org.armedbear.j;
 
-import java.awt.Image;
-import java.awt.MediaTracker;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.lang.reflect.Method;
 
 public final class ImageLoader

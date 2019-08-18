@@ -21,9 +21,8 @@
 
 package org.armedbear.j;
 
+import javax.swing.*;
 import java.awt.event.KeyEvent;
-import javax.swing.ButtonGroup;
-import javax.swing.JRadioButtonMenuItem;
 
 public final class DirectoryMode extends AbstractMode implements Constants, Mode
 {

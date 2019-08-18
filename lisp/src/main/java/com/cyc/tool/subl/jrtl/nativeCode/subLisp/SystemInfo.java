@@ -1,16 +1,16 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import java.net.InetAddress;
-
-//import org.logicmoo.system.BeanShellCntrl;
-
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLFiles;
+
+import java.net.InetAddress;
+
+//import org.logicmoo.system.BeanShellCntrl;
 
 public class SystemInfo implements SubLFile {
 	public static SubLFile me;

@@ -1,16 +1,6 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.core;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-
-import org.armedbear.lisp.Debug;
-import org.armedbear.lisp.Fixnum;
-import org.armedbear.lisp.Lisp;
-import org.armedbear.lisp.LispObject;
-import org.armedbear.lisp.Main;
-import org.armedbear.lisp.Symbol;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLMain;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.UnaryFunction;
@@ -21,17 +11,16 @@ import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLInteger;
 import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLNumber;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLFunction;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLMacro;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLInputBinaryStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLInputStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLInputTextStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLOutputBinaryStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLOutputStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLOutputTextStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLStream;
+import com.cyc.tool.subl.jrtl.nativeCode.type.stream.*;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLPackage;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLPackageIterator;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import cyc.CYC;
+import org.armedbear.lisp.*;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
 
 public abstract class AbstractSubLObject extends Lisp implements SubLObject {
 
@@ -927,11 +916,11 @@ public abstract class AbstractSubLObject extends Lisp implements SubLObject {
     }
 
     protected SubLObject type_error_str(AbstractSubLObject datum, String expectedType) {
-	final boolean noDebug = Main.isNoDebug();
+	final boolean noDebug = CYC.isNoDebug();
 	if (noDebug) {
 	    throw new SubLException("" + datum + " not a type " + expectedType);
 	}
-	if (Main.isSubLisp()) {
+	if (CYC.isSubLisp()) {
 	    if (datum == NIL)
 		Errors.error("" + datum + " not a type " + expectedType);
 	    Errors.error("" + datum + " not a type " + expectedType);

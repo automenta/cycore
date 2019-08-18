@@ -21,34 +21,13 @@
 
 package org.armedbear.j.mail;
 
-import java.awt.Image;
-import java.awt.Rectangle;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.StringReader;
-import java.util.List;
-import javax.swing.SwingUtilities;
-import org.armedbear.j.BackgroundProcess;
-import org.armedbear.j.Buffer;
-import org.armedbear.j.Directories;
-import org.armedbear.j.Editor;
-import org.armedbear.j.EditorIterator;
-import org.armedbear.j.FastStringBuffer;
 import org.armedbear.j.File;
-import org.armedbear.j.Headers;
-import org.armedbear.j.ImageLine;
-import org.armedbear.j.ImageLoader;
-import org.armedbear.j.Line;
-import org.armedbear.j.Log;
-import org.armedbear.j.Platform;
-import org.armedbear.j.ProgressNotifier;
-import org.armedbear.j.Property;
-import org.armedbear.j.Sidebar;
-import org.armedbear.j.StatusBarProgressNotifier;
-import org.armedbear.j.TextLine;
-import org.armedbear.j.Utilities;
+import org.armedbear.j.*;
+
+import javax.swing.*;
+import java.awt.*;
+import java.io.*;
+import java.util.List;
 
 public final class NewsGroupMessageBuffer extends MessageBuffer
 {

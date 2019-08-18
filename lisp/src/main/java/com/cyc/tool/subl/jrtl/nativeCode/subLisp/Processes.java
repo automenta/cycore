@@ -1,7 +1,20 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import static org.armedbear.lisp.Fixnum.ZERO;
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
+import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLInteger;
+import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLNumberFactory;
+import com.cyc.tool.subl.jrtl.nativeCode.type.stream.*;
+import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
+import com.cyc.tool.subl.jrtl.translatedCode.sublisp.print_high;
+import com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high;
+import com.cyc.tool.subl.util.SubLFiles;
+import com.cyc.tool.subl.util.SubLTrampolineFile;
+import org.armedbear.lisp.Keyword;
+import org.armedbear.lisp.Lisp;
+import cyc.CYC;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,28 +24,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.armedbear.lisp.Keyword;
-import org.armedbear.lisp.Lisp;
-import org.armedbear.lisp.Main;
-//import org.logicmoo.system.BeanShellCntrl;
+import static org.armedbear.lisp.Fixnum.ZERO;
 
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLInteger;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLNumberFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLInputBinaryStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLInputStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLInputTextStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLOutputBinaryStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLOutputStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLOutputTextStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.print_high;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high;
-import com.cyc.tool.subl.util.SubLFiles;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
+//import org.logicmoo.system.BeanShellCntrl;
 
 public class Processes extends SubLTrampolineFile {
 	private static class ExternalProcessErrorHandler extends ExternalProcessHandler implements Runnable {
@@ -256,7 +250,7 @@ public class Processes extends SubLTrampolineFile {
 			code = ZERO;
 		SubLInteger codeTyped = code.toInteger();
 		int status = codeTyped.intValue();
-		if (Main.noExit)
+		if (CYC.noExit)
 		{
 			//BeanShellCntrl.exit(status);
 		}
@@ -390,7 +384,7 @@ public class Processes extends SubLTrampolineFile {
 		INITIAL_FAKE_EXTERNAL_PROCESS_ID = SubLNumberFactory
 				.makeInteger(new BigInteger("-320498509348509034853094580985434"));
 		Processes.currentFakeProcessId = Processes.INITIAL_FAKE_EXTERNAL_PROCESS_ID;
-		processIdToProcessHandlerMap = Collections.synchronizedMap(new HashMap<Object, Object>());
+		processIdToProcessHandlerMap = Collections.synchronizedMap(new HashMap<>());
 	}
 
 	@Override

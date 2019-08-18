@@ -88,7 +88,7 @@ import static com.cyc.tool.subl.util.SubLFiles.defparameter;
 import static com.cyc.tool.subl.util.SubLFiles.defvar;
 
 import org.armedbear.lisp.Debug;
-import org.armedbear.lisp.Main;
+import cyc.CYC;
 
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Environment;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
@@ -465,8 +465,8 @@ public final class http_kernel extends SubLTranslatedFile implements V12 {
     }
 
     public static SubLObject http_server_handler(final SubLObject in_stream, final SubLObject out_stream) {
-	final boolean wasSubLisp = Main.isSubLisp();
-	Main.setSubLisp(true);
+	final boolean wasSubLisp = CYC.isSubLisp();
+	CYC.setSubLisp(true);
 	try {
 	    final SubLPackage prevPackage = SubLPackage.getCurrentPackage();
 	    try {
@@ -476,7 +476,7 @@ public final class http_kernel extends SubLTranslatedFile implements V12 {
 		SubLPackage.setCurrentPackage(prevPackage);
 	    }
 	} finally {
-	    Main.setSubLisp(wasSubLisp);
+	    CYC.setSubLisp(wasSubLisp);
 	}
     }
 

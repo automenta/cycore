@@ -25,19 +25,16 @@ import gnu.regexp.RE;
 import gnu.regexp.REMatch;
 import gnu.regexp.RESyntax;
 import gnu.regexp.UncheckedRE;
-import java.awt.AWTEvent;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringReader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Vector;
-import javax.swing.Icon;
-import javax.swing.SwingUtilities;
+import java.util.*;
 
 public final class Directory extends Buffer
 {

@@ -39,10 +39,11 @@ import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
 import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLFixnum;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.AbstractSubLFunction;
-//import com.cyc.tool.subl.jrtl.nativeCode.type.operator.AbstractSubLOperator;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLOperator;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLSpecialOperator;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+
+//import com.cyc.tool.subl.jrtl.nativeCode.type.operator.AbstractSubLOperator;
 
 public abstract class Operator extends AbstractSubLFunction implements SubLOperator {
   protected Operator(SubLSymbol functionSymbol) {

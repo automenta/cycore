@@ -1,10 +1,9 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.number;
 
-import org.armedbear.lisp.LispInteger;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
+import org.armedbear.lisp.LispInteger;
 
 public abstract class AbstractSubLInteger extends LispInteger
 		implements SubLInteger, SubLNumber, SubLObject, Comparable {

@@ -1,11 +1,14 @@
 package org.jpl7;
 
-import java.util.Map;
-
 import org.jpl7.fli.Prolog;
 import org.jpl7.fli.atom_t;
 import org.jpl7.fli.functor_t;
 import org.jpl7.fli.term_t;
+
+import java.util.Arrays;
+import java.util.Map;
+
+import static org.jpl7.Atom.EmptyTermArray;
 ////import org.logicmoo.system.BeanShellCntrl;
 
 /**
@@ -85,7 +88,7 @@ public class Compound extends Term
 		else
 		{
 			this.name = name;
-			this.args = new Term[] {};
+			this.args = EmptyTermArray;
 		}
 	}
 
@@ -130,15 +133,15 @@ public class Compound extends Term
 	 */
 	public Compound(String name, Term... args)
 	{
-		if (name == null)
-		{
-			throw new JPLException("cannot construct with null name");
-		}
-		else if (args == null)
-		{
-			throw new JPLException("cannot construct with null args");
-		}
-		else
+//		if (name == null)
+//		{
+//			throw new JPLException("cannot construct with null name");
+//		}
+//		else if (args == null)
+//		{
+//			throw new JPLException("cannot construct with null args");
+//		}
+//		else
 		{
 			this.name = name;
 			this.args = args;
@@ -193,7 +196,7 @@ public class Compound extends Term
 	@Override
 	public final boolean equals(Object obj)
 	{
-		return (this == obj || (obj instanceof Compound && name.equals(((Compound) obj).name) && Term.terms_equals(args, ((Compound) obj).args)));
+		return (this == obj || (obj instanceof Compound && name.equals(((Compound) obj).name) && Arrays.equals(args, ((Compound) obj).args)));
 	}
 
 	/**
@@ -370,7 +373,7 @@ public class Compound extends Term
 		term_t nextTerm;
 		do_compound: do
 		{
-			final Term args[] = compound.args();
+			final Term[] args = compound.args();
 			final int space = args.length;
 			nextTerm = Prolog.new_term_refs(space);
 			Prolog.cons_functor_v(term, Prolog.new_functor(Prolog.new_atom(compound.name()), space), nextTerm);
@@ -467,15 +470,15 @@ public class Compound extends Term
 			final Term cdr = args[1];
 			if (cdr.isListNil())
 			{
-				sb.append("[" + car + "]");
+				sb.append("[").append(car).append("]");
 			}
 			if (cdr.isListPair())
 			{
 				Compound ccdr = (Compound) cdr;
-				String s = "" + cdr;
-				sb.append("[" + car + "," + s.substring(1));
+				String s = String.valueOf(cdr);
+				sb.append("[").append(car).append(",").append(s.substring(1));
 			}
-			sb.append("[" + car + "|" + cdr + "]");
+			sb.append("[").append(car).append("|").append(cdr).append("]");
 			break;
 		} while (true);
 	}

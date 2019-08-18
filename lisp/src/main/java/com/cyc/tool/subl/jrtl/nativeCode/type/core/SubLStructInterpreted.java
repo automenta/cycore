@@ -1,16 +1,6 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.core;
 
-import java.util.Arrays;
-
-import org.armedbear.lisp.Debug;
-import org.armedbear.lisp.Fixnum;
-import org.armedbear.lisp.Layout;
-import org.armedbear.lisp.LispError;
-import org.armedbear.lisp.LispObject;
-import org.armedbear.lisp.StructureObject;
-//import org.logicmoo.system.BeanShellCntrl;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLStructDecl;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sxhash;
@@ -18,6 +8,11 @@ import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLNumberFactory;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.jrtl.translatedCode.sublisp.print_high;
+import org.armedbear.lisp.*;
+
+import java.util.Arrays;
+
+//import org.logicmoo.system.BeanShellCntrl;
 
 abstract public class SubLStructInterpreted extends AbstractSubLStruct implements SubLStruct {
     @Override

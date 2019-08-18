@@ -21,19 +21,13 @@
 
 package org.armedbear.j.mail;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.util.Vector;
 import org.armedbear.j.Directories;
-import org.armedbear.j.Editor;
 import org.armedbear.j.File;
 import org.armedbear.j.Log;
 import org.armedbear.j.Utilities;
+
+import java.io.*;
+import java.util.Vector;
 
 public final class AddressBook
 {

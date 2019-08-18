@@ -1,11 +1,11 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.core;
 
-import java.util.List;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.BinaryFunction;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.UnaryFunction;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLFunction;
+
+import java.util.List;
 
 public interface SubLList extends SubLSequence, SubLObject {
 	public static boolean ALLOW_REMOVE_DUPLICATES_FROM_END = true;

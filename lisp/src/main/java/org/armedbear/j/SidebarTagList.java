@@ -21,15 +21,9 @@
 
 package org.armedbear.j;
 
-import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
+import javax.swing.*;
+import java.awt.event.*;
 import java.util.List;
-import javax.swing.SwingUtilities;
-import javax.swing.ToolTipManager;
 
 public class SidebarTagList extends SidebarList implements Constants,
     NavigationComponent, KeyListener, MouseListener, MouseMotionListener

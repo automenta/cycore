@@ -1,15 +1,14 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.core;
 
-import java.lang.reflect.InvocationTargetException;
-
-import org.armedbear.lisp.JavaObject;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.CommonSymbols;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Types;
 import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLFixnum;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import org.armedbear.lisp.JavaObject;
+
+import java.lang.reflect.InvocationTargetException;
 
 abstract public class SubLAlienObject extends FromSubLisp implements SubLObject {
 

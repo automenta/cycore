@@ -2,12 +2,12 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.core;
 
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLHashtable.SubLHashtableKeyEntry;
+import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
-
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLHashtable.SubLHashtableKeyEntry;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 
 public class SubLHashtableIterator extends FromSubLisp implements Iterator<Map.Entry<SubLObject, SubLObject>> {
 	final boolean advancedToNext;

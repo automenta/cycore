@@ -21,7 +21,7 @@
 
 package org.armedbear.j;
 
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
 

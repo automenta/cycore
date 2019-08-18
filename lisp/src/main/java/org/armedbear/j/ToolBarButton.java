@@ -21,14 +21,13 @@
 
 package org.armedbear.j;
 
-import java.awt.Graphics;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.net.URL;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 
 public final class ToolBarButton extends JButton implements ActionListener,
     MouseListener

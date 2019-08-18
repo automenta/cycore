@@ -20,10 +20,10 @@
 
 package org.armedbear.lisp.java.swing;
 
-import java.awt.Component;
-import java.awt.event.MouseEvent;
-
 import org.armedbear.lisp.JHandler;
+
+import java.awt.*;
+import java.awt.event.MouseEvent;
 
 public class MouseAdapter extends java.awt.event.MouseAdapter 
 {

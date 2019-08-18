@@ -21,21 +21,10 @@
 
 package org.armedbear.j;
 
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.Vector;
-import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.JComboBox;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.border.Border;
+import java.awt.*;
+import java.util.*;
 
 public final class PropertiesDialog extends AbstractDialog implements Constants
 {

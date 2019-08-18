@@ -9,7 +9,6 @@ import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 
 import java.util.Map;
-import java.util.NoSuchElementException;
 
 import static org.junit.Assert.*;
 
@@ -55,9 +54,8 @@ public class QuotedName {
         String name;
         Term t;
 
-        t = new Compound("error", new Term[] {
-                new Atom("existence_error"),
-                new Atom("context")});
+        t = new Compound("error", new Atom("existence_error"),
+            new Atom("context"));
 
         try {
             boolean x = Query.hasSolution(t);
@@ -70,13 +68,9 @@ public class QuotedName {
 
 
     private Term quotedQuery(String name) {
-        return new Compound(":", new Term[]{
-                new Atom("jpl"),
-                new Compound("quoted_name", new Term[]{
-                        new Atom(name),
-                        new Variable("S")
-                })
-        });
+        return new Compound(":", new Atom("jpl"),
+            new Compound("quoted_name", new Atom(name),
+                new Variable("S")));
 
     }
 

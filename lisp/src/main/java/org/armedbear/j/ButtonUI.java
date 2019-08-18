@@ -21,12 +21,10 @@
 
 package org.armedbear.j;
 
-import java.awt.Graphics;
-import java.awt.Rectangle;
-import javax.swing.AbstractButton;
-import javax.swing.JComponent;
+import javax.swing.*;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.metal.MetalButtonUI;
+import java.awt.*;
 
 public final class ButtonUI extends MetalButtonUI
 {

@@ -21,16 +21,15 @@
 
 package org.armedbear.j.mail;
 
+import org.armedbear.j.Editor;
+import org.armedbear.j.FastStringBuffer;
+import org.armedbear.j.Property;
+import org.armedbear.j.Utilities;
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Locale;
-import org.armedbear.j.Debug;
-import org.armedbear.j.Editor;
-import org.armedbear.j.FastStringBuffer;
-import org.armedbear.j.Log;
-import org.armedbear.j.Property;
-import org.armedbear.j.Utilities;
 
 public abstract class MailboxEntry implements Serializable
 {

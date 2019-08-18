@@ -21,9 +21,10 @@
 
 package org.armedbear.j.mail;
 
+import org.armedbear.j.Log;
+
 import java.util.ArrayList;
 import java.util.List;
-import org.armedbear.j.Log;
 
 public final class IncomingFilter
 {

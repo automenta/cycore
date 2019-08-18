@@ -1,17 +1,12 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.stream;
 
-import java.io.IOException;
-import java.net.InetSocketAddress;
-import java.net.Socket;
-import java.net.SocketAddress;
-import java.net.SocketException;
-import java.net.UnknownHostException;
-
+import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
 import org.armedbear.lisp.SocketStream;
 import org.armedbear.lisp.Stream;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
+import java.io.IOException;
+import java.net.*;
 
 public class SubLSocketStream extends SocketStream implements SubLOutputBinaryStream, SubLInputBinaryStream {
 

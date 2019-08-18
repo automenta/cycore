@@ -32,21 +32,6 @@
  */
 package com.cyc.tool.subl.util;
 
-import static org.armedbear.lisp.Lisp.NIL;
-import static org.armedbear.lisp.Lisp.T;
-
-import java.io.PrintStream;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.armedbear.lisp.Cons;
-import org.armedbear.lisp.Fixnum;
-import org.armedbear.lisp.Lisp;
-import org.armedbear.lisp.LispObject;
-import org.armedbear.lisp.SimpleString;
-import org.armedbear.lisp.Symbol;
-//import org.logicmoo.system.SystemCurrent;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.CommonSymbols_KW;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sequences;
@@ -55,6 +40,16 @@ import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLHashtable.SubLHashtableKe
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLStruct;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLT;
+import org.armedbear.lisp.*;
+
+import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.armedbear.lisp.Lisp.NIL;
+import static org.armedbear.lisp.Lisp.T;
+
+//import org.logicmoo.system.SystemCurrent;
 
 public class ObjectMerger {
 

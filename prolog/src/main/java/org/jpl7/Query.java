@@ -1,20 +1,8 @@
 package org.jpl7;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import org.jpl7.fli.*;
 
-import java.util.NoSuchElementException;
-
-import org.jpl7.fli.Prolog;
-import org.jpl7.fli.engine_t;
-import org.jpl7.fli.fid_t;
-import org.jpl7.fli.predicate_t;
-import org.jpl7.fli.qid_t;
-import org.jpl7.fli.term_t;
-
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -97,20 +85,21 @@ import java.util.logging.Logger;
  * @author Fred Dushin fadushin@syr.edu
  * @version $Revision$
  */
-public class Query implements Iterable<Map<String, Term>>, Iterator<Map<String, Term>> { // was
-																							// Enumeration<Object>
+public class Query implements Iterable<Map<String, Term>>, Iterator<Map<String, Term>> {
+	// Enumeration<Object>
 
     private static final Logger LOGGER = Logger.getLogger( Query.class.getName() );
     private static final Level levelLog = Level.INFO;
+	public static final HashMap[] EmptyHashMapArray = new HashMap[0];
 
 	/**
 	 * the Compound or Atom (but not Dict, Float, Integer or Variable)
 	 * corresponding to the goal of this Query
 	 */
 	protected final Term goal_; // an Atom or Compound; set by all initialisers
-	protected final String hostModule = "user"; // until revised constructors
+	protected static final String hostModule = "user"; // until revised constructors
 												// allow this to be specified
-	protected final String contextModule = "user"; // until revised constructors
+	protected static final String contextModule = "user"; // until revised constructors
 													// allow this to be
 													// specified
 
@@ -402,7 +391,7 @@ public class Query implements Iterable<Map<String, Term>>, Iterator<Map<String, 
 		predicate = Prolog.predicate(goal.name(), goal.arity(), module); // was
 																			// hostModule
 		fid = Prolog.open_foreign_frame();
-		Map<String, term_t> varnames_to_vars = new HashMap<String, term_t>();
+		Map<String, term_t> varnames_to_vars = new HashMap<>();
 		term0 = Term.putTerms(varnames_to_vars, goal.args());
 		// THINKS: invert varnames_to_Vars and use it when getting
 		// substitutions?
@@ -428,7 +417,7 @@ public class Query implements Iterable<Map<String, Term>>, Iterator<Map<String, 
      * @return whether a new solutions was found or there are no more solutions
      * @throws PrologException with the term of the error from Prolog (e.g., syntax error in query or non existence of predicates)
      */
-	private final boolean fetchNextSolution() { // try to get the next solution; if none,
+	private boolean fetchNextSolution() { // try to get the next solution; if none,
 									// close the query;
 		if (Prolog.next_solution(qid)) {
 			return true;
@@ -436,7 +425,7 @@ public class Query implements Iterable<Map<String, Term>>, Iterator<Map<String, 
 					// throw it
 			term_t exception_term_t = Prolog.exception(qid);
 			if (exception_term_t.value != 0L) {
-				Term exception_term = Term.getTerm(new HashMap<term_t, Variable>(), exception_term_t);
+				Term exception_term = Term.getTerm(new HashMap<>(), exception_term_t);
 				close();
 				throw new PrologException(exception_term);
 			} else {
@@ -502,13 +491,13 @@ public class Query implements Iterable<Map<String, Term>>, Iterator<Map<String, 
             throw new NoSuchElementException("Query has already yielded all solutions");
 	}
 
-	private final Map<String, Term> getCurrentSolutionBindings() {
+	private Map<String, Term> getCurrentSolutionBindings() {
 		if (!open) {
 			throw new JPLException("Query is not open, cannot retrive solution bindings.");
 		} else {
-			Map<String, Term> substitution = new HashMap<String, Term>();
+			Map<String, Term> substitution = new HashMap<>();
 			// TODO: getSubsts is in Term class, should it be there? Otherwise, where else?
-			Term.getSubsts(substitution, new HashMap<term_t, Variable>(), goal_.args());
+			Term.getSubsts(substitution, new HashMap<>(), goal_.args());
 
 			return substitution;
 		}
@@ -516,7 +505,7 @@ public class Query implements Iterable<Map<String, Term>>, Iterator<Map<String, 
 
 	// assumes that Query's last arg is a Variable which will be bound to
 	// [Name=Var,..]
-	private final Map<String, Term> get2WithNameVars() {
+	private Map<String, Term> get2WithNameVars() {
 		if (!open) {
 			throw new JPLException("Query is not open");
 		} else {
@@ -524,10 +513,10 @@ public class Query implements Iterable<Map<String, Term>>, Iterator<Map<String, 
 			Term argNV = args[args.length - 1]; // the Query's last arg
 			String nameNV = ((Variable) argNV).name; // its name
 			// get [Name=Var,..] from the last arg
-			Map<String, Term> varnames_to_Terms1 = new HashMap<String, Term>();
-			Map<term_t, Variable> vars_to_Vars1 = new HashMap<term_t, Variable>();
+			Map<String, Term> varnames_to_Terms1 = new HashMap<>();
+			Map<term_t, Variable> vars_to_Vars1 = new HashMap<>();
 			args[args.length - 1].getSubst(varnames_to_Terms1, vars_to_Vars1);
-			Map<String, Term> varnames_to_Terms2 = new HashMap<String, Term>();
+			Map<String, Term> varnames_to_Terms2 = new HashMap<>();
 			Term nvs = varnames_to_Terms1.get(nameNV);
 			Map<term_t, Variable> vars_to_Vars2 = Util.namevarsToMap(nvs);
 			for (int i = 0; i < args.length - 1; ++i) {
@@ -621,12 +610,12 @@ public class Query implements Iterable<Map<String, Term>>, Iterator<Map<String, 
 			// v.copyInto(solutions);
 			// return solutions;
 			// get a List of solutions:
-			List<Map<String, Term>> l = new ArrayList<Map<String, Term>>();
+			List<Map<String, Term>> l = new ArrayList<>();
 			while (hasNext()) {
 				l.add(next());
 			}
 			@SuppressWarnings("unchecked")
-			Map<String, Term> t[] = (Map<String, Term>[]) new HashMap[0];
+			Map<String, Term>[] t = (Map<String, Term>[]) new HashMap[0];
 			return l.toArray(t);
 		}
 	}
@@ -645,7 +634,7 @@ public class Query implements Iterable<Map<String, Term>>, Iterator<Map<String, 
 	 * @param goal
 	 *            the goal of this Query
 	 */
-	public static final Map<String, Term>[] allSolutions(Term goal) {
+	public static Map<String, Term>[] allSolutions(Term goal) {
 		return (new Query(goal)).allSolutions();
 	}
 
@@ -663,7 +652,7 @@ public class Query implements Iterable<Map<String, Term>>, Iterator<Map<String, 
 	 * @param text
 	 *            a Prolog source text fragment denoting a goal
 	 */
-	public static final Map<String, Term>[] allSolutions(String text) {
+	public static Map<String, Term>[] allSolutions(String text) {
 		return (new Query(text)).allSolutions();
 	}
 
@@ -691,7 +680,7 @@ public class Query implements Iterable<Map<String, Term>>, Iterator<Map<String, 
 	 *            terms to be substituted for the respective questionmarks in
 	 *            the query text
 	 */
-	public static final Map<String, Term>[] allSolutions(String text, Term[] params) {
+	public static Map<String, Term>[] allSolutions(String text, Term[] params) {
 		return (new Query(text, params)).allSolutions();
 	}
 
@@ -728,13 +717,11 @@ public class Query implements Iterable<Map<String, Term>>, Iterator<Map<String, 
 			// Map[v.size()]; // 0 solutions -> Map[0]
 			// v.copyInto(solutions);
 			// return solutions;
-			List<Map<String, Term>> l = new ArrayList<Map<String, Term>>();
+			List<Map<String, Term>> l = new ArrayList<>((int)n);
 			for (long i = 0; i++ < n && hasMoreSolutions();) {
 				l.add(next());
 			}
-			@SuppressWarnings("unchecked")
-			Map<String, Term> t[] = (Map<String, Term>[]) new HashMap[0];
-			return l.toArray(t);
+			return l.toArray(EmptyHashMapArray);
 		}
 	}
 
@@ -751,7 +738,7 @@ public class Query implements Iterable<Map<String, Term>>, Iterator<Map<String, 
      * @param n the number of solutions to cover
      * @return an array of up to the the first n binding solutions
 	 */
-	public static final Map<String, Term>[] nSolutions(Term goal, long n) {
+	public static Map<String, Term>[] nSolutions(Term goal, long n) {
 		return (new Query(goal)).nSolutions(n);
 	}
 
@@ -768,7 +755,7 @@ public class Query implements Iterable<Map<String, Term>>, Iterator<Map<String, 
      * @param n the number of solutions to cover
      * @return an array of up to the the first n binding solutions
 	 */
-	public static final Map<String, Term>[] nSolutions(String text, long n) {
+	public static Map<String, Term>[] nSolutions(String text, long n) {
 		return (new Query(text)).nSolutions(n);
 	}
 
@@ -795,7 +782,7 @@ public class Query implements Iterable<Map<String, Term>>, Iterator<Map<String, 
      * @param n the number of solutions to cover
      * @return an array of up to the the first n binding solutions
 	 */
-	public static final Map<String, Term>[] nSolutions(String text, Term[] params, long n) {
+	public static Map<String, Term>[] nSolutions(String text, Term[] params, long n) {
 		return (new Query(text, params)).nSolutions(n);
 	}
 
@@ -837,7 +824,7 @@ public class Query implements Iterable<Map<String, Term>>, Iterator<Map<String, 
 	 *            the goal of this Query
 	 * @return binding of the first solution
 	 */
-	public static final Map<String, Term> oneSolution(Term goal) {
+	public static Map<String, Term> oneSolution(Term goal) {
 		return (new Query(goal)).oneSolution();
 	}
 
@@ -851,7 +838,7 @@ public class Query implements Iterable<Map<String, Term>>, Iterator<Map<String, 
 	 *            a Prolog source text fragment denoting a goal
 	 * @return binding of the first solution
 	 */
-	public static final Map<String, Term> oneSolution(String text) {
+	public static Map<String, Term> oneSolution(String text) {
 		return (new Query(text)).oneSolution();
 	}
 
@@ -875,7 +862,7 @@ public class Query implements Iterable<Map<String, Term>>, Iterator<Map<String, 
 	 *            the query text
 	 * @return binding of the first solution
 	 */
-	public static final Map<String, Term> oneSolution(String text, Term[] params) {
+	public static Map<String, Term> oneSolution(String text, Term[] params) {
 		return (new Query(text, params)).oneSolution();
 	}
 
@@ -907,7 +894,7 @@ public class Query implements Iterable<Map<String, Term>>, Iterator<Map<String, 
 	 *            the goal of this Query
 	 * @return true iff the query can be proved
 	 */
-	public static final boolean hasSolution(Term goal) {
+	public static boolean hasSolution(Term goal) {
 		return (new Query(goal)).hasSolution();
 	}
 
@@ -921,7 +908,7 @@ public class Query implements Iterable<Map<String, Term>>, Iterator<Map<String, 
 	 *            the goal of this Query, as Prolog source text
 	 * @return true iff the query can be proved
 	 */
-	public static final boolean hasSolution(String text) {
+	public static boolean hasSolution(String text) {
 		return (new Query(text)).hasSolution();
 	}
 
@@ -945,7 +932,7 @@ public class Query implements Iterable<Map<String, Term>>, Iterator<Map<String, 
 	 *            the query text
 	 * @return true iff the query can be proved
 	 */
-	public static final boolean hasSolution(String text, Term... params) {
+	public static boolean hasSolution(String text, Term... params) {
 		return (new Query(text, params)).hasSolution();
 	}
 

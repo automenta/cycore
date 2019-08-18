@@ -25,12 +25,12 @@ import gnu.regexp.RE;
 import gnu.regexp.REException;
 import gnu.regexp.REMatch;
 import gnu.regexp.UncheckedRE;
+
+import javax.swing.*;
+import javax.swing.undo.CompoundEdit;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
-import javax.swing.Icon;
-import javax.swing.SwingUtilities;
-import javax.swing.undo.CompoundEdit;
 
 public class CommandInterpreter extends Buffer
 {

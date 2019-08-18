@@ -21,6 +21,7 @@
 
 package org.armedbear.j;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -28,7 +29,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
 import java.util.Vector;
-import javax.swing.SwingUtilities;
 
 public class Server implements Runnable
 {

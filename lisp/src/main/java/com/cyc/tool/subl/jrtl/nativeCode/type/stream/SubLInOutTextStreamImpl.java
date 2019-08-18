@@ -1,17 +1,14 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.stream;
 
-import static org.armedbear.lisp.Keyword.ERROR_KEYWORD;
-import static org.armedbear.lisp.Keyword.IO_KEYWORD;
-import static org.armedbear.lisp.Keyword.TEXT_KEYWORD_CHARACTER;
-
+import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
+import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import org.armedbear.lisp.Keyword;
 import org.armedbear.lisp.Stream;
 import org.armedbear.lisp.Symbol;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import static org.armedbear.lisp.Keyword.*;
 public class SubLInOutTextStreamImpl extends AbstractSubLTextStream
 		implements SubLInOutTextStream, SubLOutputTextStream, SubLInputTextStream {
 	protected SubLInOutTextStreamImpl() {

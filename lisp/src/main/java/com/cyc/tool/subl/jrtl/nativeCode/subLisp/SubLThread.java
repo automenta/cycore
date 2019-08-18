@@ -1,33 +1,22 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Deque;
-import java.util.List;
-
-import org.armedbear.lisp.Environment;
-import org.armedbear.lisp.Lisp;
-import org.armedbear.lisp.LispThread;
-////import org.logicmoo.system.SystemCurrent;
-
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLEnvironment;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLHashtable;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLVector;
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.*;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
 import com.cyc.tool.subl.util.ComparatorGenericKey;
 import com.cyc.tool.subl.util.ComparatorIdentityKey;
 import com.cyc.tool.subl.util.PatchFileLoader;
+import org.armedbear.lisp.Environment;
+import org.armedbear.lisp.Lisp;
+import org.armedbear.lisp.LispThread;
+
+import java.util.*;
+
+////import org.logicmoo.system.SystemCurrent;
 
 final public class SubLThread extends Thread {
 
-    public final class OverPoppableDeque extends ArrayDeque<SubLObject> {
+    public static final class OverPoppableDeque extends ArrayDeque<SubLObject> {
         @Override
         public SubLObject pop() {
             try {
@@ -152,7 +141,7 @@ final public class SubLThread extends Thread {
     }
 
     public static Thread intoJavaThread(SubLThread myGetOwner) {
-        return (Thread) myGetOwner;
+        return myGetOwner;
     }
 
     @Override
@@ -251,7 +240,7 @@ final public class SubLThread extends Thread {
         bindingsList = new SubLObject[MAX_DYNAMIC_BINDINGS];
         byteBuffer = new byte[256];
         byteBufferLarge = new byte[16384];
-        valuesArray = new ArrayList<SubLObject>(128);
+        valuesArray = new ArrayList<>(128);
         valuesCount = 0;
         value1 = SubLNil.NIL;
         value2 = SubLNil.NIL;
@@ -422,8 +411,7 @@ final public class SubLThread extends Thread {
         result.set(count++, value7);
         if (count < valuesCount) {
             result.set(count++, value8);
-            for (int i = 0, size = valuesArray.size(); i < size; ++i)
-                result.set(count++, valuesArray.get(i));
+            for (SubLObject subLObject : valuesArray) result.set(count++, subLObject);
             return result;
         }
         return result;
@@ -797,8 +785,7 @@ final public class SubLThread extends Thread {
                 value2 = moreValues[1];
             case 1:
                 value1 = moreValues[0];
-                for (int i = 8; i < size; ++i)
-                    valuesArray.add(moreValues[i]);
+                valuesArray.addAll(Arrays.asList(moreValues).subList(8, size));
                 return moreValues[0];
         }
     }

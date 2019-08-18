@@ -17,10 +17,37 @@
 
         <dependency>
             <groupId>logicmoo</groupId>
-            <artifactId>logicmoo</artifactId>
+            <artifactId>lisp</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                        <configuration>
+                            <mainClass>CYC</mainClass>
+                            <arguments>
+                                <argument>--noinit</argument>
+                                <argument>--rcyc</argument>
+                                <argument>--exec</argument>
+                                <argument>"(init-cyc-server)"</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
 
 </project>

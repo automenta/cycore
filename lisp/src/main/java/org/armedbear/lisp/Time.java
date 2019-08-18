@@ -33,11 +33,11 @@
 
 package org.armedbear.lisp;
 
-import static org.armedbear.lisp.Lisp.NIL;
-import static org.armedbear.lisp.Lisp.T;
-
 import java.util.Date;
 import java.util.TimeZone;
+
+import static org.armedbear.lisp.Lisp.NIL;
+import static org.armedbear.lisp.Lisp.T;
 
 public final class Time
 {

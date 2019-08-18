@@ -1,12 +1,12 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.number;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-
 import org.armedbear.lisp.Bignum;
 import org.armedbear.lisp.DoubleFloat;
 import org.armedbear.lisp.Fixnum;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
 
 public class SubLNumberFactory {
 	private static SubLFixnum[] getCache(int value) {

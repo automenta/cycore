@@ -1,29 +1,18 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.core;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
-import org.armedbear.lisp.LispObject;
-
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.BinaryFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.CommonSymbols;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Functions;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.PrintLow;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Resourcer;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLListListIterator;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Types;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.UnaryFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values;
+import com.cyc.tool.subl.jrtl.nativeCode.subLisp.*;
 import com.cyc.tool.subl.jrtl.nativeCode.type.exception.InvalidSubLExpressionException;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLFunction;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLInterpretedFunction;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLOperator;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLOperatorFactory;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
+import org.armedbear.lisp.LispObject;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public abstract class AbstractSubLList extends AbstractSubLSequence implements SubLList, SubLSequence, SubLObject {
 	public static String LIST_TYPE_NAME;
@@ -344,7 +333,7 @@ public abstract class AbstractSubLList extends AbstractSubLSequence implements S
 
 	@Override
 	public SubLObject mapcar(SubLFunction functionTyped) {
-		return this.mapcar(functionTyped, Resourcer.EMPTY_SUBL_OBJECT_ARRAY, true);
+		return this.mapcar(functionTyped, Resourcer.EmptySublObjectArray, true);
 	}
 
 	@Override

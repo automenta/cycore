@@ -33,15 +33,13 @@
 
 package org.armedbear.lisp;
 
-import static org.armedbear.lisp.Lisp.PACKAGE_EXT;
-import static org.armedbear.lisp.Lisp.PACKAGE_SYS;
-import static org.armedbear.lisp.Lisp.exportSpecial;
-import static org.armedbear.lisp.Lisp.intern;
-import static org.armedbear.lisp.Lisp.list;
+import cyc.CYC;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
+
+import static org.armedbear.lisp.Lisp.*;
 
 public final class Extensions
 {
@@ -236,7 +234,7 @@ public final class Extensions
     @Override
     public LispObject execute()
     {
-    	if (Main.isNoDebug()) return T;
+    	if (CYC.isNoDebug()) return T;
       ((Stream)Symbol.STANDARD_OUTPUT.getSymbolValue())._finishOutput();
       ((Stream)Symbol.ERROR_OUTPUT.getSymbolValue())._finishOutput();
       throw new ProcessingTerminated();

@@ -1,12 +1,11 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.number;
 
-import org.armedbear.lisp.Fixnum;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.CommonSymbols;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Types;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import org.armedbear.lisp.Fixnum;
 
 public class SubLFixnum extends Fixnum implements SubLBignum, SubLInteger, SubLNumber, SubLObject {
 	public SubLFixnum(int theInteger) {

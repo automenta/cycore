@@ -21,37 +21,13 @@
 
 package org.armedbear.j.mail;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.RandomAccessFile;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Locale;
-import java.util.Properties;
-import javax.swing.SwingUtilities;
-import org.armedbear.j.BackgroundProcess;
-import org.armedbear.j.Debug;
-import org.armedbear.j.Editor;
-import org.armedbear.j.Directories;
-import org.armedbear.j.EditorIterator;
 import org.armedbear.j.File;
-import org.armedbear.j.FastStringBuffer;
-import org.armedbear.j.Log;
-import org.armedbear.j.PasswordDialog;
-import org.armedbear.j.Property;
-import org.armedbear.j.StatusBarProgressNotifier;
-import org.armedbear.j.Utilities;
-import org.armedbear.j.View;
+import org.armedbear.j.*;
+
+import javax.swing.*;
+import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public final class PopMailbox extends LocalMailbox
 {

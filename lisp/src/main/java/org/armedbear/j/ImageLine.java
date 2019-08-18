@@ -21,8 +21,7 @@
 
 package org.armedbear.j;
 
-import java.awt.Image;
-import java.awt.Rectangle;
+import java.awt.*;
 
 public final class ImageLine extends AbstractLine implements Line
 {

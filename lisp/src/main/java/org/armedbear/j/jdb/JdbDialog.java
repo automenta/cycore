@@ -21,21 +21,12 @@
 
 package org.armedbear.j.jdb;
 
+import org.armedbear.j.*;
+
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.util.Iterator;
 import java.util.List;
-import javax.swing.Box;
-import javax.swing.JCheckBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
-import org.armedbear.j.AbstractDialog;
-import org.armedbear.j.Editor;
-import org.armedbear.j.File;
-import org.armedbear.j.History;
-import org.armedbear.j.HistoryTextField;
-import org.armedbear.j.MessageDialog;
-import org.armedbear.j.Utilities;
 
 public final class JdbDialog extends AbstractDialog
 {

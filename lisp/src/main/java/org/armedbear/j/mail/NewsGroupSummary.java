@@ -21,27 +21,14 @@
 
 package org.armedbear.j.mail;
 
+import org.armedbear.j.*;
+
+import javax.swing.*;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.HashMap;
 import java.util.Vector;
-import javax.swing.Icon;
-import javax.swing.SwingUtilities;
-import org.armedbear.j.Editor;
-import org.armedbear.j.EditorIterator;
-import org.armedbear.j.FastStringBuffer;
-import org.armedbear.j.FastStringReader;
-import org.armedbear.j.File;
-import org.armedbear.j.InputDialog;
-import org.armedbear.j.Line;
-import org.armedbear.j.Log;
-import org.armedbear.j.MessageDialog;
-import org.armedbear.j.Position;
-import org.armedbear.j.ProgressNotifier;
-import org.armedbear.j.StatusBarProgressNotifier;
-import org.armedbear.j.Utilities;
-import org.armedbear.j.View;
 
 public final class NewsGroupSummary extends Mailbox
 {

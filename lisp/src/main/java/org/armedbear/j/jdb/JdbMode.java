@@ -21,15 +21,7 @@
 
 package org.armedbear.j.jdb;
 
-import org.armedbear.j.AbstractMode;
-import org.armedbear.j.Buffer;
-import org.armedbear.j.Constants;
-import org.armedbear.j.Formatter;
-import org.armedbear.j.Frame;
-import org.armedbear.j.JavaMode;
-import org.armedbear.j.Mode;
-import org.armedbear.j.Property;
-import org.armedbear.j.ToolBar;
+import org.armedbear.j.*;
 
 public final class JdbMode extends AbstractMode implements Constants, Mode
 {

@@ -21,7 +21,7 @@
 
 package org.armedbear.j;
 
-import javax.swing.JMenu;
+import javax.swing.*;
 
 public final class Menu extends JMenu implements Constants
 {

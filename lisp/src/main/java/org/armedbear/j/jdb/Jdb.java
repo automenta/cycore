@@ -21,58 +21,17 @@
 
 package org.armedbear.j.jdb;
 
-import com.sun.jdi.AbsentInformationException;
-import com.sun.jdi.ArrayReference;
-import com.sun.jdi.Field;
-import com.sun.jdi.LocalVariable;
-import com.sun.jdi.Location;
-import com.sun.jdi.Method;
-import com.sun.jdi.ObjectReference;
-import com.sun.jdi.ReferenceType;
-import com.sun.jdi.StackFrame;
-import com.sun.jdi.StringReference;
-import com.sun.jdi.ThreadReference;
-import com.sun.jdi.VMDisconnectedException;
-import com.sun.jdi.Value;
-import com.sun.jdi.VirtualMachine;
+import com.sun.jdi.*;
 import com.sun.jdi.event.ClassPrepareEvent;
 import com.sun.jdi.event.LocatableEvent;
-import com.sun.jdi.request.ClassPrepareRequest;
-import com.sun.jdi.request.EventRequest;
-import com.sun.jdi.request.EventRequestManager;
-import com.sun.jdi.request.ExceptionRequest;
-import com.sun.jdi.request.StepRequest;
-import com.sun.jdi.request.ThreadDeathRequest;
-import com.sun.jdi.request.ThreadStartRequest;
+import com.sun.jdi.request.*;
+import org.armedbear.j.*;
+
+import javax.swing.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.StringTokenizer;
-import javax.swing.Icon;
-import javax.swing.SwingUtilities;
-import org.armedbear.j.Annotation;
-import org.armedbear.j.Buffer;
-import org.armedbear.j.BufferIterator;
-import org.armedbear.j.Debug;
-import org.armedbear.j.Editor;
-import org.armedbear.j.EditorIterator;
-import org.armedbear.j.EditorList;
-import org.armedbear.j.File;
-import org.armedbear.j.FastStringBuffer;
-import org.armedbear.j.JavaMode;
-import org.armedbear.j.JavaSource;
-import org.armedbear.j.Line;
-import org.armedbear.j.Log;
-import org.armedbear.j.Platform;
-import org.armedbear.j.Position;
-import org.armedbear.j.ReaderThread;
-import org.armedbear.j.SimpleEdit;
-import org.armedbear.j.Utilities;
+import java.util.*;
 
 public final class Jdb extends Buffer implements JdbConstants
 {

@@ -20,10 +20,10 @@
 
 package org.armedbear.lisp.java.awt;
 
-import java.awt.Component;
-import java.awt.event.KeyEvent;
-
 import org.armedbear.lisp.JHandler;
+
+import java.awt.*;
+import java.awt.event.KeyEvent;
 
 public class KeyAdapter extends java.awt.event.KeyAdapter {
 

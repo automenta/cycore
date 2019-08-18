@@ -21,7 +21,7 @@
 
 package org.armedbear.j;
 
-import javax.swing.KeyStroke;
+import javax.swing.*;
 
 public class KeyMapping implements Constants
 {

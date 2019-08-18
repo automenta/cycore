@@ -21,7 +21,7 @@
 
 package org.armedbear.j;
 
-import java.awt.Color;
+import java.awt.*;
 
 /*package*/ class FormatTableEntry
 {

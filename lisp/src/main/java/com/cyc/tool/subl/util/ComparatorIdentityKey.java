@@ -1,11 +1,11 @@
 /* For LarKC */
 package com.cyc.tool.subl.util;
 
-import java.util.Comparator;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.BinaryFunction;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
+
+import java.util.Comparator;
 
 public class ComparatorIdentityKey<T> implements Comparator<T> {
 	public ComparatorIdentityKey(BinaryFunction pred) {

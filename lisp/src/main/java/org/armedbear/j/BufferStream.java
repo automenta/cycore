@@ -21,11 +21,7 @@
 
 package org.armedbear.j;
 
-import org.armedbear.lisp.ConditionThrowable;
-import org.armedbear.lisp.Keyword;
-import org.armedbear.lisp.LispObject;
-import org.armedbear.lisp.Stream;
-import org.armedbear.lisp.Symbol;
+import org.armedbear.lisp.*;
 
 public final class BufferStream extends Stream
 {

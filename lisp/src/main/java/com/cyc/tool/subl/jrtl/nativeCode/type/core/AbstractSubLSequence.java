@@ -1,17 +1,16 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.core;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import org.armedbear.lisp.LispHashTable;
-import org.armedbear.lisp.LispObject;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.BinaryFunction;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Resourcer;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.UnaryFunction;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
+import org.armedbear.lisp.LispHashTable;
+import org.armedbear.lisp.LispObject;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public abstract class AbstractSubLSequence extends FromSubLisp implements SubLSequence {
 	public static void calcOptimalDeleteDuplicatesCutoff() {
@@ -245,7 +244,7 @@ public abstract class AbstractSubLSequence extends FromSubLisp implements SubLSe
 		}
 		if (initialValue != SubLSequence.NO_INIT_VALUE)
 			return initialValue;
-		return func.getFunction().apply(Resourcer.EMPTY_SUBL_OBJECT_ARRAY);
+		return func.getFunction().apply(Resourcer.EmptySublObjectArray);
 	}
 
 	public static SubLSequence remove(SubLSequence seq, SubLObject item, boolean isDestructive, BinaryFunction test,

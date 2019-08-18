@@ -4,17 +4,7 @@
 //
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import java.util.Iterator;
-
-import org.armedbear.lisp.Debug;
-import org.armedbear.lisp.Lisp;
-import org.armedbear.lisp.SimpleString;
-
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLCharacter;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.*;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLPackage;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
@@ -24,6 +14,11 @@ import com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLFiles;
 import com.cyc.tool.subl.util.SubLTrampolineFile;
+import org.armedbear.lisp.Debug;
+import org.armedbear.lisp.Lisp;
+import org.armedbear.lisp.SimpleString;
+
+import java.util.Iterator;
 
 public class Packages extends SubLTrampolineFile {
     public static SubLObject apropos(SubLObject nameSpec, SubLObject packageSpec, SubLObject externalOnly, SubLObject caseInsensitive) {

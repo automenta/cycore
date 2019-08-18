@@ -33,10 +33,10 @@
 
 package org.armedbear.lisp;
 
+import org.jpl7.Term;
+
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-
-import org.jpl7.Term;
 
 public abstract class LispClass extends StandardObject
 {

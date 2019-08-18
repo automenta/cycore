@@ -660,7 +660,7 @@ public abstract class UnaryFunction extends FixedArityFunctor implements CommonS
 		LIST_UNARY_FUNC = new ListUnaryFunction();
 		CNOT_UNARY_FUNC = new CnotUnaryFunction();
 		Resourcer.getInstance();
-		EMPTY_SUBL_OBJECT_ARRAY = Resourcer.EMPTY_SUBL_OBJECT_ARRAY;
+		EMPTY_SUBL_OBJECT_ARRAY = Resourcer.EmptySublObjectArray;
 	}
 
 	@Override

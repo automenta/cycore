@@ -33,6 +33,14 @@
 
 package org.armedbear.lisp;
 
+import com.cyc.tool.subl.jrtl.nativeCode.subLisp.CatchableThrowImpl;
+import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
+import com.cyc.tool.subl.util.SafeRunnable;
+import com.cyc.tool.subl.util.SubLFiles;
+
 import java.io.PrintStream;
 import java.lang.ref.WeakReference;
 import java.text.MessageFormat;
@@ -43,14 +51,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 //import org.logicmoo.system.BeanShellCntrl;
 ////import org.logicmoo.system.SystemCurrent;
-
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.CatchableThrowImpl;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.util.SafeRunnable;
-import com.cyc.tool.subl.util.SubLFiles;
 
 public abstract class LispThread extends SLispObject {
 	public LispObject initialBindings = NIL;

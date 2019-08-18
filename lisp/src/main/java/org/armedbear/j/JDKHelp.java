@@ -21,7 +21,7 @@
 
 package org.armedbear.j;
 
-import java.awt.AWTEvent;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.util.List;
 

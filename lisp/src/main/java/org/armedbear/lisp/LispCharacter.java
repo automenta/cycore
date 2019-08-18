@@ -33,10 +33,10 @@
 
 package org.armedbear.lisp;
 
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLCharacter;
+
 import java.util.HashMap;
 import java.util.Map;
-
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLCharacter;
 
 abstract public class LispCharacter extends NLispObject
 {

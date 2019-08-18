@@ -33,10 +33,10 @@
 
 package org.armedbear.lisp;
 
+import java.math.BigInteger;
+
 import static org.armedbear.lisp.Lisp.PACKAGE_EXT;
 import static org.armedbear.lisp.Lisp.PACKAGE_SYS;
-
-import java.math.BigInteger;
 
 public final class FloatFunctions
 {

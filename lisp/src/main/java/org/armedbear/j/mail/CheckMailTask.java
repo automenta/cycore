@@ -21,14 +21,9 @@
 
 package org.armedbear.j.mail;
 
+import org.armedbear.j.*;
+
 import java.util.ArrayList;
-import org.armedbear.j.Buffer;
-import org.armedbear.j.BufferIterator;
-import org.armedbear.j.BufferList;
-import org.armedbear.j.Editor;
-import org.armedbear.j.IdleThreadTask;
-import org.armedbear.j.Log;
-import org.armedbear.j.Property;
 
 public final class CheckMailTask extends IdleThreadTask
 {

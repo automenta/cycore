@@ -21,7 +21,7 @@
 
 package org.armedbear.j;
 
-import java.awt.Color;
+import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;

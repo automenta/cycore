@@ -1,11 +1,11 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.operator;
 
-import java.lang.reflect.Method;
-
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLCons;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLEnvironment;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+
+import java.lang.reflect.Method;
 
 public class SubLOperatorFactory {
 	public static void main(String[] args) {

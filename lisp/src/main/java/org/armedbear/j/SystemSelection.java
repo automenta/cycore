@@ -21,15 +21,10 @@
 
 package org.armedbear.j;
 
-import java.awt.AWTEvent;
-import java.awt.Toolkit;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.ClipboardOwner;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.StringSelection;
-import java.awt.datatransfer.Transferable;
-import java.awt.event.MouseEvent;
 import javax.swing.undo.CompoundEdit;
+import java.awt.*;
+import java.awt.datatransfer.*;
+import java.awt.event.MouseEvent;
 
 public final class SystemSelection implements ClipboardOwner, Constants
 {

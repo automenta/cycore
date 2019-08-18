@@ -1,10 +1,11 @@
 package org.jpl7;
 
+import org.jpl7.fli.Prolog;
+import org.jpl7.fli.term_t;
+
 import java.util.Map;
 
 //import org.armedbear.lisp.Lisp;
-import org.jpl7.fli.Prolog;
-import org.jpl7.fli.term_t;
 
 /**
  * Atom is a specialised Term, representing a Prolog atom with the same name. An Atom is constructed with a String
@@ -49,6 +50,7 @@ import org.jpl7.fli.term_t;
 public class Atom extends Term
 {
 
+	public static final Term[] EmptyTermArray = {};
 	/**
 	 * the name of this Atom
 	 */
@@ -113,7 +115,7 @@ public class Atom extends Term
 	@Override
 	public Term[] args()
 	{
-		return new Term[] {};
+		return EmptyTermArray;
 	}
 
 	@Override

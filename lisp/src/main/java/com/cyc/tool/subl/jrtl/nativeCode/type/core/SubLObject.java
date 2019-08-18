@@ -1,11 +1,6 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.core;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-
-import org.armedbear.lisp.LispObject;
-
 import com.cyc.tool.subl.jrtl.nativeCode.type.exception.InvalidSubLExpressionException;
 import com.cyc.tool.subl.jrtl.nativeCode.type.exception.SubLException;
 import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLDoubleFloat;
@@ -14,29 +9,27 @@ import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLInteger;
 import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLNumber;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLFunction;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLMacro;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLInputBinaryStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLInputStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLInputTextStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLOutputBinaryStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLOutputStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLOutputTextStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLStream;
+import com.cyc.tool.subl.jrtl.nativeCode.type.stream.*;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLPackage;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLPackageIterator;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import org.armedbear.lisp.LispObject;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
 
 public interface SubLObject extends Cloneable {
-    public static boolean DO_CHECK_TYPES = false;
-    public static boolean DO_PARANOID_TYPE_CHECKING = false;
-    public static int MAX_HASH_LENGTH = 8;
-    public static int MAX_HASH_DEPTH = 8;
-    public static int DEFAULT_EXCEEDED_HASH_VALUE = 0;
+//    boolean DO_CHECK_TYPES = false;
+//    boolean DO_PARANOID_TYPE_CHECKING = false;
+//    int MAX_HASH_LENGTH = 8;
+    int MAX_HASH_DEPTH = 8;
+    int DEFAULT_EXCEEDED_HASH_VALUE = 0;
 
     SubLObject add(SubLObject p0);
 
     void addKey(SubLObject p0);
 
-    public boolean lispEquals(Object obj);
+    boolean lispEquals(Object obj);
 
     SubLList asArrayList();
 

@@ -21,25 +21,15 @@
 
 package org.armedbear.j.mail;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.StringReader;
+import org.armedbear.j.File;
+import org.armedbear.j.*;
+
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
-import org.armedbear.j.Buffer;
-import org.armedbear.j.BufferIterator;
-import org.armedbear.j.Debug;
-import org.armedbear.j.Editor;
-import org.armedbear.j.File;
-import org.armedbear.j.FastStringBuffer;
-import org.armedbear.j.Log;
-import org.armedbear.j.Mutex;
-import org.armedbear.j.ProgressNotifier;
 
 public final class Mbox
 {

@@ -21,9 +21,10 @@
 
 package org.armedbear.j.mail;
 
+import org.armedbear.j.FastStringBuffer;
+
 import java.io.Serializable;
 import java.util.ArrayList;
-import org.armedbear.j.FastStringBuffer;
 
 public final class MailAddress implements Serializable
 {

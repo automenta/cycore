@@ -1,10 +1,12 @@
 package org.jpl7;
 
+import org.jpl7.fli.Prolog;
+import org.jpl7.fli.term_t;
+
 import java.math.BigInteger;
 import java.util.Map;
 
-import org.jpl7.fli.Prolog;
-import org.jpl7.fli.term_t;
+import static org.jpl7.Atom.EmptyTermArray;
 
 /**
  * Integer is a specialised Term representing a Prolog integer value; if the value fits, it is held in a long field,
@@ -47,8 +49,8 @@ import org.jpl7.fli.term_t;
  * @see org.jpl7.Compound
  */
 public class Integer extends Term {
-	private static BigInteger BIG_MIN_LONG = BigInteger.valueOf(java.lang.Long.MIN_VALUE);
-	private static BigInteger BIG_MAX_LONG = BigInteger.valueOf(java.lang.Long.MAX_VALUE);
+	private static final BigInteger BIG_MIN_LONG = BigInteger.valueOf(java.lang.Long.MIN_VALUE);
+	private static final BigInteger BIG_MAX_LONG = BigInteger.valueOf(java.lang.Long.MAX_VALUE);
 
 	public final Number toJavaObject() {
 		if (bigValue == null) {
@@ -97,7 +99,7 @@ public class Integer extends Term {
 
 	@Override
 	public Term[] args() {
-		return new Term[] {};
+		return EmptyTermArray;
 	}
 
 	/**

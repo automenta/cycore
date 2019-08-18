@@ -33,14 +33,12 @@
 
 package org.armedbear.lisp;
 
-import static org.armedbear.lisp.Lisp.NIL;
-import static org.armedbear.lisp.Lisp.error;
-import static org.armedbear.lisp.Lisp.getCurrentPackage;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+
+import static org.armedbear.lisp.Lisp.*;
 
 public final class Packages
 {

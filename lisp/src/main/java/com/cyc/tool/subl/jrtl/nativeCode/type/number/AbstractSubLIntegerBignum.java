@@ -1,13 +1,12 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.number;
 
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
 import org.armedbear.lisp.Bignum;
 import org.armedbear.lisp.Fixnum;
 import org.armedbear.lisp.LispInteger;
 import org.armedbear.lisp.LispObject;
-
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
 
 public abstract class AbstractSubLIntegerBignum extends AbstractSubLInteger implements SubLNumber, SubLObject {
 	 public AbstractSubLIntegerBignum(int value) {

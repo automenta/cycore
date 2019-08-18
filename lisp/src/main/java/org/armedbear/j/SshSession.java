@@ -25,11 +25,12 @@ import gnu.regexp.RE;
 import gnu.regexp.REException;
 import gnu.regexp.REMatch;
 import gnu.regexp.UncheckedRE;
+
+import javax.swing.*;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.SwingUtilities;
 
 public final class SshSession implements Constants
 {

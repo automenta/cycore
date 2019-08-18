@@ -1,9 +1,9 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.number;
 
-import java.util.List;
-
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
+
+import java.util.List;
 
 public interface SubLFloat extends SubLNumber, SubLObject {
 	List decode();

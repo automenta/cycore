@@ -1,15 +1,6 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import java.util.ArrayDeque;
-import java.util.Date;
-import java.util.Deque;
-import java.util.TimeZone;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
-
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
@@ -21,6 +12,15 @@ import com.cyc.tool.subl.util.SafeRunnable;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLFiles;
 import com.cyc.tool.subl.util.SubLTrampolineFile;
+
+import java.util.ArrayDeque;
+import java.util.Date;
+import java.util.Deque;
+import java.util.TimeZone;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 
 public class Time extends SubLTrampolineFile {
 	public static SubLObject compute_with_process_resource_tracking_results(SubLObject resourceSpec) {
@@ -210,12 +210,7 @@ public class Time extends SubLTrampolineFile {
 		INITIAL_MILLI_TIME = System.currentTimeMillis();
 		INITIAL_MICRO_TIME_CONVERTED_FROM_MILLI_TIME = Time.INITIAL_MILLI_TIME * 1000L;
 		INITIAL_NANO_TIME_CONVERTED_FROM_MILLI_TIME = Time.INITIAL_MICRO_TIME_CONVERTED_FROM_MILLI_TIME * 1000L;
-		timeoutsTL = new ThreadLocal<Deque<Object>>() {
-			@Override
-			protected Deque<Object> initialValue() {
-				return new ArrayDeque<Object>();
-			}
-		};
+		timeoutsTL = ThreadLocal.withInitial(() -> new ArrayDeque<>());
 		startTime = System.currentTimeMillis();
 	}
 

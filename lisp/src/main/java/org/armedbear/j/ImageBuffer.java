@@ -21,10 +21,7 @@
 
 package org.armedbear.j;
 
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Image;
-import java.awt.MediaTracker;
+import java.awt.*;
 
 public class ImageBuffer extends Buffer implements Constants
 {

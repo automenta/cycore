@@ -22,12 +22,13 @@
 package org.armedbear.j;
 
 import gnu.regexp.REMatch;
+import org.armedbear.lisp.LispThread;
+import org.armedbear.lisp.Site;
+
+import javax.swing.*;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.List;
-import javax.swing.SwingUtilities;
-import org.armedbear.lisp.Site;
-import org.armedbear.lisp.LispThread;
 
 public class LispShell extends Shell
 {

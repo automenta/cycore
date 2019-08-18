@@ -17,33 +17,12 @@
 		<module>prolog</module>
 		<module>beanshell</module>
 		<module>logicmoo</module>
+		<module>cyc</module>
 	</modules>
 	<build>
 
 		<plugins>
 
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>exec-maven-plugin</artifactId>
-					<version>1.6.0</version>
-					<executions>
-						<execution>
-							<phase>test</phase>
-							<goals>
-								<goal>java</goal>
-							</goals>
-							<configuration>
-								<mainClass>org.armedbear.lisp.Main</mainClass>
-								<arguments>
-									<argument>--noinit</argument>
-									<argument>--rcyc</argument>
-									<argument>--exec</argument>
-									<argument>"(init-cyc-server)"</argument>
-								</arguments>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
 
 
 			<plugin>
@@ -54,7 +33,11 @@
 					<source>1.8</source>
 					<target>1.8</target>
 					<encoding>UTF-8</encoding>
-					<detail>true</detail>
+<!--					<detail>true</detail>-->
+					<compilerReuseStrategy>reuseSame</compilerReuseStrategy>
+					<maxmem>4096m</maxmem>
+					<staleMillis>1000</staleMillis>
+
 					<useIncrementalCompilation>true</useIncrementalCompilation>
 					<verbose>true</verbose>
 <!--					<fork>true</fork>-->
@@ -96,17 +79,7 @@
 		</plugins>
 	</build>
 	<dependencies>
-		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-server -->
-		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-server</artifactId>
-			<version>8.0.4.v20111024</version>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-webapp</artifactId>
-			<version>8.0.4.v20111024</version>
-		</dependency>
+
 
 		<!--		<dependency>-->
 <!--			<groupId>org.apache.ant</groupId>-->
@@ -127,12 +100,6 @@
 <!--			<version>2.1.0</version>-->
 <!--		</dependency>-->
 
-		<dependency>
-			<groupId>org.openrdf.sesame</groupId>
-			<artifactId>sesame-rio-rdfxml</artifactId>
-			<version>2.8.5</version>
-
-		</dependency>
 		<!-- https://mvnrepository.com/artifact/asm/asm-all -->
 		<dependency>
 			<groupId>asm</groupId>
@@ -140,20 +107,6 @@
 			<version>3.1</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.openrdf/openrdf-util -->
-		<dependency>
-			<groupId>org.openrdf</groupId>
-			<artifactId>openrdf-util</artifactId>
-			<version>1.2.5</version>
-
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.openrdf/openrdf-model -->
-		<dependency>
-			<groupId>org.openrdf</groupId>
-			<artifactId>openrdf-model</artifactId>
-			<version>1.2.5</version>
-
-		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
 		<dependency>

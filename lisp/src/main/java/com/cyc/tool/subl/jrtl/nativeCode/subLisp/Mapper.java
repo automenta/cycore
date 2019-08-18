@@ -1,12 +1,6 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.List;
-
 import com.cyc.tool.subl.jrtl.nativeCode.mapper.LoadMap;
 import com.cyc.tool.subl.jrtl.nativeCode.mapper.Snapshot;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
@@ -19,6 +13,12 @@ import com.cyc.tool.subl.jrtl.translatedCode.sublisp.compatibility;
 import com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLFiles;
+
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.List;
 
 public class Mapper implements SubLFile {
 	private static void list_image_index_internal() {
@@ -134,12 +134,7 @@ public class Mapper implements SubLFile {
 						+ type.getName() + " due to SubL error: " + errmsg);
 			}
 		};
-		NOT_IMPLEMENTED_FILTER = new Snapshot.SnapShootingFilter() {
-			@Override
-			public boolean skipValue(SubLObject value) {
-				return value.isLock() || value.isProcess() || value.isStream();
-			}
-		};
+		NOT_IMPLEMENTED_FILTER = value -> value.isLock() || value.isProcess() || value.isStream();
 	}
 
 	@Override

@@ -1,11 +1,10 @@
 /* For LarKC */
 package com.cyc.tool.subl.management;
 
-import java.lang.management.ManagementFactory;
+import com.sun.management.HotSpotDiagnosticMXBean;
 
 import javax.management.MBeanServer;
-
-import com.sun.management.HotSpotDiagnosticMXBean;
+import java.lang.management.ManagementFactory;
 
 public class HeapDumper {
 	private static HotSpotDiagnosticMXBean getHotspotMBean() {

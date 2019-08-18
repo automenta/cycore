@@ -1,70 +1,29 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.core;
 
+import com.cyc.cycjava.cycl.constant_handles;
+import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Packages;
+import com.cyc.tool.subl.jrtl.nativeCode.subLisp.*;
+import com.cyc.tool.subl.jrtl.nativeCode.type.exception.ExceptionFactory;
+import com.cyc.tool.subl.jrtl.nativeCode.type.exception.InvalidSubLExpressionException;
+import com.cyc.tool.subl.jrtl.nativeCode.type.exception.SubLException;
+import com.cyc.tool.subl.jrtl.nativeCode.type.number.*;
+import com.cyc.tool.subl.jrtl.nativeCode.type.operator.*;
+import com.cyc.tool.subl.jrtl.nativeCode.type.stream.*;
+import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.*;
+import com.cyc.tool.subl.util.SafeRunnable;
+import org.armedbear.lisp.*;
+
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Method;
 import java.math.BigInteger;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-
-import org.armedbear.lisp.Cons;
-import org.armedbear.lisp.JavaObject;
-import org.armedbear.lisp.Lisp;
-import org.armedbear.lisp.SimpleString;
-import org.armedbear.lisp.Symbol;
-//import org.logicmoo.system.JVMImpl;
-
-import com.cyc.cycjava.cycl.constant_handles;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.BinaryFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Functions;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Packages;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Resourcer;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLListListIterator;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLStructDeclNative;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThreadPool;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Threads;
-import com.cyc.tool.subl.jrtl.nativeCode.type.exception.ExceptionFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.exception.InvalidSubLExpressionException;
-import com.cyc.tool.subl.jrtl.nativeCode.type.exception.SubLException;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLDoubleFloat;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLFixnum;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLInteger;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLNumber;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLNumberFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLCompiledFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLInterpretedFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLMacro;
-import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLOperatorFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLBroadcastStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLInOutBinaryStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLInOutTextStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLInputBinaryStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLInputTextStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLOutputBinaryStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLOutputTextStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLSocketStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLStreamFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLSynonymStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLBoolean;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLPackage;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLPackageIterator;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbolFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLT;
-import com.cyc.tool.subl.util.SafeRunnable;
+import java.util.*;
 
 import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Eval.doThrow;
+
+//import org.logicmoo.system.JVMImpl;
 
 public class SubLObjectFactory {
     public static SubLCons makeArrayList() {
@@ -438,7 +397,7 @@ public class SubLObjectFactory {
     }
 
     public static SubLObject makeListS(SubLObject finalCdr) {
-	return makeListS(finalCdr, Resourcer.EMPTY_SUBL_OBJECT_ARRAY);
+	return makeListS(finalCdr, Resourcer.EmptySublObjectArray);
     }
 
     public static SubLCons makeListS(SubLObject arg1, SubLObject finalCdr) {

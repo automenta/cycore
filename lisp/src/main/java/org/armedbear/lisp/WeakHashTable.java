@@ -35,6 +35,8 @@
  */
 package org.armedbear.lisp;
 
+import org.armedbear.lisp.HashTable.HTComparator;
+
 import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
@@ -42,8 +44,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.locks.ReentrantLock;
-
-import org.armedbear.lisp.HashTable.HTComparator;
 
 
 // ??? Replace standard Hashtable when this code is working; maybe not

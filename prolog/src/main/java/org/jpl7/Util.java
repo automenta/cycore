@@ -1,10 +1,10 @@
 package org.jpl7;
 
+import org.jpl7.fli.term_t;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-
-import org.jpl7.fli.term_t;
 
 /**
  * This class provides a bunch of static utility methods to support JPL's Java API.
@@ -50,7 +50,7 @@ public final class Util {
 	public static Term termArrayToList(Term[] terms) {
 		Term list = JPL.LIST_NIL; // was new Atom("[]")
 		for (int i = terms.length - 1; i >= 0; --i) {
-			list = new Compound(JPL.LIST_PAIR, new Term[] { terms[i], list });
+			list = new Compound(JPL.LIST_PAIR, terms[i], list);
 		}
 		return list;
 	}
@@ -86,7 +86,7 @@ public final class Util {
 	 */
 	public static Map<term_t, Variable> namevarsToMap(Term nvs) {
 		try {
-			Map<term_t, Variable> vars_to_Vars = new HashMap<term_t, Variable>();
+			Map<term_t, Variable> vars_to_Vars = new HashMap<>();
 			// while (nvs.isListPair() && nvs.arg(1).hasFunctor("=", 2)) {
 			while (nvs.arity() == 2
 					&& (nvs.name().equals(JPL.LIST_PAIR_MODERN) || nvs.name().equals(JPL.LIST_PAIR_TRADITIONAL))
@@ -123,12 +123,12 @@ public final class Util {
 	public static Term textToTerm(String text) {
 		// it might be better to use PL_chars_to_term()
 		Query q = new Query(new Compound("atom_to_term",
-				new Term[] { new Atom(text), new Variable("Term"), new Variable("NVdict") }));
+			new Atom(text), new Variable("Term"), new Variable("NVdict")));
 		q.open();
 		Map<String, Term> s = q.getSubstWithNameVars();
 		if (s != null) {
 			q.close();
-			return (Term) s.get("Term");
+			return s.get("Term");
 		} else {
 			return null;
 		}
@@ -159,7 +159,7 @@ public final class Util {
 	public static Term stringArrayToList(String[] a) {
 		Term list = JPL.LIST_NIL;
 		for (int i = a.length - 1; i >= 0; i--) {
-			list = new Compound(JPL.LIST_PAIR, new Term[] { new Atom(a[i]), list });
+			list = new Compound(JPL.LIST_PAIR, new Atom(a[i]), list);
 		}
 		return list;
 	}
@@ -174,7 +174,7 @@ public final class Util {
 	public static Term intArrayToList(int[] a) {
 		Term list = JPL.LIST_NIL; // was new Atom("[]");
 		for (int i = a.length - 1; i >= 0; i--) {
-			list = new Compound(JPL.LIST_PAIR, new Term[] { new org.jpl7.Integer(a[i]), list });
+			list = new Compound(JPL.LIST_PAIR, new Integer(a[i]), list);
 		}
 		return list;
 	}
@@ -189,7 +189,7 @@ public final class Util {
 	public static Term intArrayArrayToList(int[][] a) {
 		Term list = JPL.LIST_NIL; // was new Atom("[]");
 		for (int i = a.length - 1; i >= 0; i--) {
-			list = new Compound(JPL.LIST_PAIR, new Term[] { intArrayToList(a[i]), list });
+			list = new Compound(JPL.LIST_PAIR, intArrayToList(a[i]), list);
 		}
 		return list;
 	}
@@ -200,7 +200,7 @@ public final class Util {
 	 * @param term the term to check if it is a list
 	 * @return whether the Term represents a proper list
 	 */
-	public static final boolean isList(Term term) {
+	public static boolean isList(Term term) {
 		return listToLength(term) >= 0;
 	}
 

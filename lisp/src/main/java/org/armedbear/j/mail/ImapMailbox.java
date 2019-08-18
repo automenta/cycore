@@ -21,35 +21,12 @@
 
 package org.armedbear.j.mail;
 
+import org.armedbear.j.*;
+
+import javax.swing.*;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import javax.swing.SwingUtilities;
-import org.armedbear.j.BackgroundProcess;
-import org.armedbear.j.Buffer;
-import org.armedbear.j.BufferIterator;
-import org.armedbear.j.Debug;
-import org.armedbear.j.Editor;
-import org.armedbear.j.EditorIterator;
-import org.armedbear.j.File;
-import org.armedbear.j.FastStringBuffer;
-import org.armedbear.j.Frame;
-import org.armedbear.j.Headers;
-import org.armedbear.j.InputDialog;
-import org.armedbear.j.Line;
-import org.armedbear.j.Log;
-import org.armedbear.j.MessageDialog;
-import org.armedbear.j.ProgressNotifier;
-import org.armedbear.j.Property;
-import org.armedbear.j.Sidebar;
-import org.armedbear.j.StatusBar;
-import org.armedbear.j.StatusBarProgressNotifier;
-import org.armedbear.j.Utilities;
-import org.armedbear.j.View;
+import java.util.*;
 
 public final class ImapMailbox extends Mailbox
 {

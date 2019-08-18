@@ -1,29 +1,20 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.List;
-
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLStruct;
+import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.*;
+import com.cyc.tool.subl.util.SubLFiles.LispSlot;
 import org.armedbear.j.Debug;
 import org.armedbear.lisp.LispObject;
 import org.armedbear.lisp.Primitive;
 import org.armedbear.lisp.Symbol;
 
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLStruct;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLPackage;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbolFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLT;
-import com.cyc.tool.subl.util.SubLFiles.LispSlot;
+import java.lang.reflect.*;
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
 
 //import sun.reflect.FieldAccessor;
 
@@ -63,22 +54,21 @@ public class SubLStructDeclNative extends SubLStructDecl {
 	List useFields = new ArrayList();
 	boolean annotationRequired = structClass.isAnnotationPresent(LispSlot.class);
 
-	for (int i = 0; i < actualFields.length; i++) {
-	    Field f = actualFields[i];
-	    if (annotationRequired) {
-		if (!f.isAnnotationPresent(LispSlot.class)) {
-		    continue;
+		for (Field f : actualFields) {
+			if (annotationRequired) {
+				if (!f.isAnnotationPresent(LispSlot.class)) {
+					continue;
+				}
+			} else {
+				if (Modifier.isStatic(f.getModifiers())) {
+					if (!f.isAnnotationPresent(LispSlot.class)) {
+						continue;
+					}
+				}
+			}
+			useFields.add(f.getName());
 		}
-	    } else {
-		if (Modifier.isStatic(f.getModifiers())) {
-		    if (!f.isAnnotationPresent(LispSlot.class)) {
-			continue;
-		    }
-		}
-	    }
-	    useFields.add(f.getName());
-	}
-	return makeStructDeclNative(structClass, typeName, null, getterPrefix, setterPre_Prefix, (String[]) useFields.toArray(new String[useFields.size()]), null);
+	return makeStructDeclNative(structClass, typeName, null, getterPrefix, setterPre_Prefix, (String[]) useFields.toArray(new String[0]), null);
     }
 
     public static SubLStructDeclNative makeStructDeclNative(Class structClass, SubLSymbol typeName, SubLSymbol predicateName, String getterPrefix, String setterPre_Prefix, String[] actualFieldNames, SubLSymbol printFunction) {
@@ -185,26 +175,11 @@ public class SubLStructDeclNative extends SubLStructDecl {
 		defaultConstructor.setAccessible(true);
 	    }
 	    return defaultConstructor.newInstance();
-	} catch (InstantiationException e) {
-	    // TODO Auto-generated catch block
-	    e.printStackTrace();
-	} catch (IllegalAccessException e) {
-	    // TODO Auto-generated catch block
-	    e.printStackTrace();
-	} catch (NoSuchMethodException e) {
-	    // TODO Auto-generated catch block
-	    e.printStackTrace();
-	} catch (SecurityException e) {
-	    // TODO Auto-generated catch block
-	    e.printStackTrace();
-	} catch (IllegalArgumentException e) {
-	    // TODO Auto-generated catch block
-	    e.printStackTrace();
-	} catch (InvocationTargetException e) {
+	} catch (InstantiationException | InvocationTargetException | IllegalArgumentException | SecurityException | NoSuchMethodException | IllegalAccessException e) {
 	    // TODO Auto-generated catch block
 	    e.printStackTrace();
 	}
-	return super.newInstance();
+		return super.newInstance();
     }
 
     public Class<SubLStruct> getStructClass() {

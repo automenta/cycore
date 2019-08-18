@@ -32,22 +32,16 @@
  */
 package org.armedbear.lisp;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLMain;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLPackage;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import cyc.CYC;
+
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Package extends SubLPackage implements java.io.Serializable {
     public boolean ALLOW_INHERIT_CONFLICTS = false;
@@ -677,7 +671,7 @@ public class Package extends SubLPackage implements java.io.Serializable {
 			    sb.append(pkg.getName());
 			    sb.append('.');
 			    if (!pkg.ALLOW_INHERIT_CONFLICTS) {
-				if (!Main.isSubLisp()) {
+				if (!CYC.isSubLisp()) {
 				    packageError(sb.toString());
 				    return;
 				}

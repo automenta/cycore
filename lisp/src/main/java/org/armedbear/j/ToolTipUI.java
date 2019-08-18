@@ -21,10 +21,10 @@
 
 package org.armedbear.j;
 
-import java.awt.Graphics;
-import javax.swing.JComponent;
+import javax.swing.*;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicToolTipUI;
+import java.awt.*;
 
 public final class ToolTipUI extends BasicToolTipUI
 {

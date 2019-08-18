@@ -21,10 +21,9 @@
 
 package org.armedbear.j;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JPopupMenu;
 
 public final class JavaTreePopupMenu extends JPopupMenu implements ActionListener
 {

@@ -13,11 +13,11 @@ public class Mapping extends SubLTrampolineFile {
 
 	public static SubLObject mapcan(SubLObject function, SubLObject list, SubLObject[] moreLists) {
 		return Functions.apply(CommonSymbols.NCONC, mapcar(function, list, moreLists).toList(),
-				Resourcer.EMPTY_SUBL_OBJECT_ARRAY);
+				Resourcer.EmptySublObjectArray);
 	}
 
 	public static SubLObject mapcar(SubLObject functionSpec, SubLObject list) {
-		return mapcar(functionSpec, list, Resourcer.EMPTY_SUBL_OBJECT_ARRAY);
+		return mapcar(functionSpec, list, Resourcer.EmptySublObjectArray);
 	}
 
 	public static SubLObject mapcar(SubLObject function, SubLObject list, SubLObject[] moreLists) {
@@ -26,7 +26,7 @@ public class Mapping extends SubLTrampolineFile {
 
 	public static SubLObject mapcon(SubLObject function, SubLObject list, SubLObject[] moreLists) {
 		return Functions.apply(CommonSymbols.NCONC, maplist(function, list, moreLists).toList(),
-				Resourcer.EMPTY_SUBL_OBJECT_ARRAY);
+				Resourcer.EmptySublObjectArray);
 	}
 
 	public static SubLObject mapl(SubLObject function, SubLObject list, SubLObject[] moreLists) {

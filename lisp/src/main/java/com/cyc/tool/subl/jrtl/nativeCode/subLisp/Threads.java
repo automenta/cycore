@@ -1,11 +1,7 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLSemaphore;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.*;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.util.SubLFiles;
@@ -148,9 +144,8 @@ public class Threads extends SubLTrampolineFile {
 
 	public static SubLObject show_processes() {
 		SubLProcess[] processes = SubLProcess.currentProcesses();
-		for (int i = 0; i < processes.length; ++i) {
-			SubLProcess process = processes[i];
-			SubLObject[] args = { process_name(process), process_state(process), process_whostate(process) };
+		for (SubLProcess process : processes) {
+			SubLObject[] args = {process_name(process), process_state(process), process_whostate(process)};
 			PrintLow.format(CommonSymbols.T, Threads.SHOW_PROCESS_FORMAT_STRING, args);
 		}
 		return SubLNil.NIL;

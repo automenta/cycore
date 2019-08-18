@@ -21,10 +21,11 @@
 
 package org.armedbear.j;
 
-import java.util.ArrayList;
-import javax.swing.undo.CompoundEdit;
 import org.armedbear.lisp.LispObject;
 import org.armedbear.lisp.LispThread;
+
+import javax.swing.undo.CompoundEdit;
+import java.util.ArrayList;
 
 public final class Macro implements Constants
 {

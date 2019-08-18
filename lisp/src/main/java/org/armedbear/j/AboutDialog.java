@@ -19,10 +19,9 @@
 
 package org.armedbear.j;
 
+import javax.swing.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.swing.Box;
-import javax.swing.JPanel;
 
 public class AboutDialog extends AbstractDialog
 {

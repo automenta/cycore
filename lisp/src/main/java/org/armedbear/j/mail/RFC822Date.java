@@ -21,16 +21,12 @@
 
 package org.armedbear.j.mail;
 
-import java.io.Serializable;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-import java.util.StringTokenizer;
-import java.util.TimeZone;
 import org.armedbear.j.FastStringBuffer;
 import org.armedbear.j.Utilities;
+
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public final class RFC822Date implements Serializable
 {

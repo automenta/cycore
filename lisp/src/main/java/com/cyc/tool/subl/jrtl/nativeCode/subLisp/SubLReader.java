@@ -1,24 +1,7 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.PrintStream;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-
-//import org.logicmoo.system.SystemCurrent;
-
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLEnvironment;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.*;
 import com.cyc.tool.subl.jrtl.nativeCode.type.exception.ResumeException;
 import com.cyc.tool.subl.jrtl.nativeCode.type.exception.SubLException;
 import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLInOutTextStream;
@@ -33,6 +16,14 @@ import com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high;
 import com.cyc.tool.subl.util.ReaderUtilities;
 import com.cyc.tool.subl.util.SubLCommandHistory;
 import com.cyc.tool.subl.util.SubLCommandHistoryItem;
+import org.armedbear.lisp.Lisp;
+import org.armedbear.lisp.ProcessingTerminated;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+//import org.logicmoo.system.SystemCurrent;
 
 public class SubLReader {
 	public SubLReader() {
@@ -101,12 +92,7 @@ public class SubLReader {
 	private SubLObject result;
 	public static Errors.RestartMethod CONTINUE_RESTART_METHOD;
 	static {
-		CONTINUE_RESTART_METHOD = new Errors.RestartMethod() {
-			@Override
-			public boolean process(SubLReader reader, String message, SubLException se) {
-				return false;
-			}
-		};
+		CONTINUE_RESTART_METHOD = (reader, message, se) -> false;
 	}
 
 	private void maintainStar(SubLObject latestResult) {
@@ -158,7 +144,7 @@ public class SubLReader {
 			String statement = readLine();
 			statement = statement.trim();
 			if (statement.startsWith(":")) {
-				int loc = statement.indexOf(" ");
+				int loc = statement.indexOf(' ');
 				if (loc < 0) {
 					multiChoiceWrite("", out);
 					multiChoiceWrite("    Expected integer (1 to " + choices.size() + ") but got: " + statement, out);
@@ -187,7 +173,7 @@ public class SubLReader {
 			Errors.error(message);
 		final int initialCount;
 		boolean hasContinueChoice = (initialCount = continueString != null ? 1 : 0) != 0;
-		List<String> choices = new ArrayList<String>();
+		List<String> choices = new ArrayList<>();
 		if (hasContinueChoice)
 			choices.add(continueString);
 		if (addConfigurableRestarters)
@@ -200,13 +186,10 @@ public class SubLReader {
 		if (hasContinueChoice & result == initialCount)
 			return SubLReader.CONTINUE_RESTART_METHOD;
 		if (result > initialCount && result <= restartsCount + initialCount)
-			return new Errors.RestartMethod() {
-				@Override
-				public boolean process(SubLReader reader, String message, SubLException se) {
-					SubLReader.throwToRestartChoiceTag(result - 1 - initialCount);
-					Errors.error("Unexpected situation.");
-					return false;
-				}
+			return (reader1, message1, se1) -> {
+				SubLReader.throwToRestartChoiceTag(result - 1 - initialCount);
+				Errors.error("Unexpected situation.");
+				return false;
 			};
 		if (result > initialCount && result <= choices.size()) {
 			int index = result - restartsCount - 1 - initialCount;
@@ -230,14 +213,13 @@ public class SubLReader {
 				if (lastException != null)
 					try {
 						Errors.handleError(lastException instanceof SubLException ? lastException.getMessage()
-								: lastException.toString() + "\nWhile processing readloop statement \n        "
-										+ statement + "",
+								: lastException.toString() + "\nWhile processing readloop statement \n        " + statement,
 								lastException);
 					} finally {
 						lastException = null;
 					}
 
-				final String packageName = env.getCurrentPackage().getName();
+				final String packageName = Lisp.getCurrentPackage().getName();
 				SubLCommandHistoryItem historyItem = new SubLCommandHistoryItem(historyCount++,
 						packageName);
 				history.add(historyItem);
@@ -263,18 +245,10 @@ public class SubLReader {
 				maintainStar(result);
 			} catch (ResumeException re) {
 				writeResults("[ Resuming via jump to top level read loop... ]");
-			} catch (SubLProcess.TerminationRequest tr) {
+			} catch (SubLProcess.TerminationRequest | ProcessingTerminated tr) {
 				shouldReadloopExit = true;
-			} catch (org.armedbear.lisp.ProcessingTerminated tr) {
-				shouldReadloopExit = true;
-		    } catch (SubLException e) {
+			} catch (AssertionError | StackOverflowError | Exception e) {
 				lastException = e;
-			} catch (Exception e2) {
-				lastException = e2;
-			} catch (StackOverflowError e3) {
-				lastException = e3;
-			} catch (AssertionError e4) {
-				lastException = e4;
 			} finally {
 				setIsBusy(false);
 			}
@@ -347,7 +321,7 @@ public class SubLReader {
 			SubLObject val = SubLNil.NIL;
 			val = conses_high.first(resultValues);
 			while (SubLNil.NIL == Types.sublisp_null(resultValues)) {
-				System.out.println("" + val);
+				System.out.println(String.valueOf(val));
 				resultValues = (SubLList) conses_high.rest(resultValues);
 				val = conses_high.first(resultValues);
 			}

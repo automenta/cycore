@@ -21,17 +21,13 @@
 
 package org.armedbear.j.mail;
 
-import java.io.BufferedInputStream;
-import java.io.InvalidClassException;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import org.armedbear.j.File;
 import org.armedbear.j.Log;
 import org.armedbear.j.Utilities;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public final class MboxSummary implements Serializable
 {

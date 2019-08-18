@@ -21,6 +21,7 @@
 
 package org.armedbear.j;
 
+import javax.swing.*;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -28,8 +29,6 @@ import java.net.Socket;
 import java.net.URL;
 import java.security.Provider;
 import java.security.Security;
-import java.util.List;
-import javax.swing.SwingUtilities;
 
 public final class HttpLoadProcess extends LoadProcess implements BackgroundProcess,
     Runnable, Cancellable

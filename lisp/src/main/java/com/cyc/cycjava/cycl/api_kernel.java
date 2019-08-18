@@ -62,7 +62,7 @@ import static com.cyc.tool.subl.util.SubLFiles.deflexical;
 import static com.cyc.tool.subl.util.SubLFiles.defparameter;
 
 import org.armedbear.lisp.Lisp;
-import org.armedbear.lisp.Main;
+import cyc.CYC;
 
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.StreamsLow;
@@ -269,10 +269,10 @@ public final class api_kernel extends SubLTranslatedFile implements V12 {
     // Definitions
     @SuppressWarnings("unused")
     public static SubLObject api_server_handler(SubLObject in_stream, SubLObject out_stream) {
-	final boolean wasSetSubLisp = Main.isSubLisp();
+	final boolean wasSetSubLisp = CYC.isSubLisp();
 	final SubLPackage prevPackage = Lisp.getCurrentPackage();
 	try {
-	    Main.setSubLisp(true);
+	    CYC.setSubLisp(true);
 	    SubLPackage.setCurrentPackage("CYC");
 	    if (false) {
 		in_stream = in_stream.toInputTextStream();
@@ -284,7 +284,7 @@ public final class api_kernel extends SubLTranslatedFile implements V12 {
 	    }
 	} finally {
 	    SubLPackage.setCurrentPackage(prevPackage);
-	    Main.setSubLisp(wasSetSubLisp);
+	    CYC.setSubLisp(wasSetSubLisp);
 	}
     }
 

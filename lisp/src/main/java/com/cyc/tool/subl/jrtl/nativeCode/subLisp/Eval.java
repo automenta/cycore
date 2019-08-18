@@ -1,26 +1,7 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import java.io.File;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.concurrent.Callable;
-import java.util.concurrent.CountDownLatch;
-
-import org.armedbear.lisp.*;
-//import org.logicmoo.system.BeanShellCntrl;
-import org.jpl7.Atom;
-import org.jpl7.Compound;
-import org.jpl7.JPLException;
-import org.jpl7.Query;
-//import org.logicmoo.system.JVMImpl;
-
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLEnvironment;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.*;
 import com.cyc.tool.subl.jrtl.nativeCode.type.exception.SubLException;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLFunction;
 import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLOperator;
@@ -37,8 +18,25 @@ import com.cyc.tool.subl.util.IsolatedClassLoader;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLFiles;
 import com.cyc.tool.subl.util.SubLPatcher;
+import org.armedbear.lisp.Keyword;
+import org.armedbear.lisp.Lisp;
+import org.armedbear.lisp.LispObject;
+import cyc.CYC;
+
+import java.io.File;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.concurrent.Callable;
+import java.util.concurrent.CountDownLatch;
+
+//import org.logicmoo.system.BeanShellCntrl;
+//import org.logicmoo.system.JVMImpl;
 
 public class Eval implements SubLFile {
+
+	public static final Class[] EmptyClassArray = new Class[0];
+	public static final Object[] EmptyObjectArray = new Object[0];
 
 	public static SubLObject constantp(SubLObject object, SubLObject env) {
 		if (object.isSymbol()) {
@@ -55,50 +53,42 @@ public class Eval implements SubLFile {
 
 	public static SubLObject eval(final String str) {
 		if (!SubLThread.currentThreadIsSubL()) { //
-			return callInSubLProcess(new RetSubLObject() {
-				@Override
-				public SubLObject callForSubLObject() {
-					return evalInCurrentThread(str);
-				}
-			});
+			return callInSubLProcess(() -> evalInCurrentThread(str));
 		}
 		return evalInCurrentThread(str);
 	}
 
-	public static interface RetSubLObject {
-		public SubLObject callForSubLObject();
+	public interface RetSubLObject {
+		SubLObject callForSubLObject();
 	}
 
 	private static SubLObject callInSubLProcess(RetSubLObject callit) {
 		final RetSubLObject callit0 = callit;
-		final ArrayList<SubLObject> result = new ArrayList<SubLObject>(1);
-		final ArrayList<SubLException> resultException = new ArrayList<SubLException>(1);
+		final ArrayList<SubLObject> result = new ArrayList<>(1);
+		final ArrayList<SubLException> resultException = new ArrayList<>(1);
 		final CountDownLatch cdl = new CountDownLatch(1);
-		SubLObjectFactory.makeProcess(SubLObjectFactory.makeString("Eval Process"), new Runnable() {
-			@Override
-			public void run() {
-				Throwable ex = null;
-				boolean isEmpty = true;
-				try {
-					synchronized (result) {
-						result.add(callit0.callForSubLObject());
-						isEmpty = false;
-					}
-				} catch (Throwable t) {
-					ex = t;
-				} finally {
-					if (isEmpty)
-						synchronized (resultException) {
-							if (ex != null) {
-								if (ex instanceof SubLException)
-									resultException.add((SubLException) ex);
-								else
-									resultException.add(SubLObjectFactory.makeException(ex.getMessage(), ex));
-							} else
-								resultException.add(SubLObjectFactory.makeException("Internal error: unable to find expected exception."));
-						}
-					cdl.countDown();
+		SubLObjectFactory.makeProcess(SubLObjectFactory.makeString("Eval Process"), () -> {
+			Throwable ex = null;
+			boolean isEmpty = true;
+			try {
+				synchronized (result) {
+					result.add(callit0.callForSubLObject());
+					isEmpty = false;
 				}
+			} catch (Throwable t) {
+				ex = t;
+			} finally {
+				if (isEmpty)
+					synchronized (resultException) {
+						if (ex != null) {
+							if (ex instanceof SubLException)
+								resultException.add((SubLException) ex);
+							else
+								resultException.add(SubLObjectFactory.makeException(ex.getMessage(), ex));
+						} else
+							resultException.add(SubLObjectFactory.makeException("Internal error: unable to find expected exception."));
+					}
+				cdl.countDown();
 			}
 		});
 		try {
@@ -129,21 +119,21 @@ public class Eval implements SubLFile {
 	}
 
 	public static SubLObject eval_as_sublisp(SubLObject form) {
-		boolean wasSubLisp = Main.isSubLisp();
+		boolean wasSubLisp = CYC.isSubLisp();
 		try {
-			Main.setSubLisp(true);
+			CYC.setSubLisp(true);
 			return form.eval(SubLEnvironment.currentEnvironment());
 		} catch (Throwable e) {
 			throw doThrow(e);
 		} finally {
-			Main.setSubLisp(wasSubLisp);
+			CYC.setSubLisp(wasSubLisp);
 
 		}
 
 	}
 
 	public static SubLObject eval(SubLObject form) {
-		boolean wasSubLisp = Main.isSubLisp();
+		boolean wasSubLisp = CYC.isSubLisp();
 		if (wasSubLisp)
 			return form.eval(SubLEnvironment.currentEnvironment());
 		return Lisp.eval((LispObject) form);
@@ -176,14 +166,14 @@ public class Eval implements SubLFile {
 	@SubLFiles.LispMethod
 	static public <T> Callable<T> with_sublisp(final boolean tf, final Callable<T> str) {
 		return () -> {
-            boolean wasSubLisp = Main.isSubLisp();
-            Main.setSubLisp(tf);
+            boolean wasSubLisp = CYC.isSubLisp();
+            CYC.setSubLisp(tf);
             try {
                 return str.call();
             } catch (Throwable e) {
                 throw doThrow(e);
             } finally {
-                Main.setSubLisp(wasSubLisp);
+                CYC.setSubLisp(wasSubLisp);
             }
         };
 	}
@@ -334,7 +324,7 @@ public class Eval implements SubLFile {
 		load_external_code(jarOrClassFilePath);
 		try {
 			Class patcherClass = Class.forName(patcherFileName.getStringValue());
-			SubLPatcher patcher = (SubLPatcher) patcherClass.getConstructor(new Class[0]).newInstance(new Object[0]);
+			SubLPatcher patcher = (SubLPatcher) patcherClass.getConstructor(EmptyClassArray).newInstance(EmptyObjectArray);
 			patcher.doPatch();
 		} catch (Exception e) {
 			Errors.error("Unable to load patch: jarOrClassFilePath" + e);

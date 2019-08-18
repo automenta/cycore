@@ -1381,7 +1381,7 @@ public abstract class BinaryFunction extends FixedArityFunctor {
 		WITH_THREAD_PRIVATE_AREA_BINARY_FUNC = new WithThreadPrivateAreaBinaryFunction();
 		WITH_WORKING_AREA_BINARY_FUNC = new WithWorkingAreaBinaryFunction();
 		Resourcer.getInstance();
-		EMPTY_SUBL_OBJECT_ARRAY = Resourcer.EMPTY_SUBL_OBJECT_ARRAY;
+		EMPTY_SUBL_OBJECT_ARRAY = Resourcer.EmptySublObjectArray;
 	}
 
 	@Override

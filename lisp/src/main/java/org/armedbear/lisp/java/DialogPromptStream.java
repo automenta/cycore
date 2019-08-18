@@ -1,11 +1,11 @@
 package org.armedbear.lisp.java;
 
+import org.armedbear.lisp.Stream;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 import java.io.StringWriter;
-
-import org.armedbear.lisp.Stream;
 
 /**
  * A bidirectional stream that captures input from a modal dialog. The

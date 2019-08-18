@@ -33,9 +33,9 @@
 
 package org.armedbear.lisp;
 
-import static org.armedbear.lisp.Lisp.type_error;
-
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLHashtable;
+
+import static org.armedbear.lisp.Lisp.type_error;
 
 public final class HashTableFunctions
 {

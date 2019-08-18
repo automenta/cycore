@@ -1,10 +1,6 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.symbol;
 
-import org.armedbear.lisp.Lisp;
-import org.armedbear.lisp.LispObject;
-import org.armedbear.lisp.Symbol;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.StreamsLow;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
@@ -13,23 +9,18 @@ import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
 import com.cyc.tool.subl.jrtl.nativeCode.type.exception.InvalidSubLExpressionException;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLInputBinaryStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLInputStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLInputTextStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLOutputBinaryStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLOutputStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLOutputTextStream;
-import com.cyc.tool.subl.jrtl.nativeCode.type.stream.SubLStream;
+import com.cyc.tool.subl.jrtl.nativeCode.type.stream.*;
 import com.cyc.tool.subl.util.SubLFiles;
+import org.armedbear.lisp.Lisp;
+import org.armedbear.lisp.LispObject;
+import org.armedbear.lisp.Symbol;
 
-public class SubLT extends Symbol implements SubLObject, SubLBoolean, SubLSymbol {
+public final class SubLT extends Symbol implements SubLObject, SubLBoolean, SubLSymbol {
 
-	static final Boolean BOOLEAN_TRUE = Boolean.valueOf(true);
 	private SubLT() {
 		super(T_SYMBOL_NAME, Lisp.PACKAGE_CL);
-		Symbol.T = this;
 		Lisp.PACKAGE_CL.addSymbol_ImplUseOnly(this);
-		Lisp.PACKAGE_CL.export(this);		
+		Lisp.PACKAGE_CL.export(this);
 		initializeConstant(this);
 	}
 
@@ -69,17 +60,16 @@ public class SubLT extends Symbol implements SubLObject, SubLBoolean, SubLSymbol
 	}
 
 
-    @Override
-    public boolean getBooleanValue()
-    {
-        return true;
-    }
+	@Override
+	public boolean getBooleanValue() {
+		return true;
+	}
 
-    @Override
-    public int intValue() {
-    	if(true) return super.intValue();
-    	return 1;
-    }
+	@Override
+	public int intValue() {
+		if (true) return super.intValue();
+		return 1;
+	}
 
 	@Override
 	public boolean boundp() {
@@ -124,10 +114,12 @@ public class SubLT extends Symbol implements SubLObject, SubLBoolean, SubLSymbol
 	public SubLObject eval(SubLEnvironment env) throws InvalidSubLExpressionException {
 		return this;
 	}
-    @Override
-    protected SubLObject getValueSL(boolean canThrow) {
-    	return this;
-    }
+
+	@Override
+	protected SubLObject getValueSL(boolean canThrow) {
+		return this;
+	}
+
 	@Override
 	public void forceGlobalValue(SubLObject newValue) {
 		Errors.error("T is immutable.");
@@ -457,10 +449,10 @@ public class SubLT extends Symbol implements SubLObject, SubLBoolean, SubLSymbol
 		return getStream(false).toOutputTextStream();
 	}
 
-    //	@Override
-    //	public SubLSymbol toSymbol() {
-    //		return this;
-    //	}
+	//	@Override
+	//	public SubLSymbol toSymbol() {
+	//		return this;
+	//	}
 
 	@Override
 	public String toTypeName() {
@@ -469,6 +461,6 @@ public class SubLT extends Symbol implements SubLObject, SubLBoolean, SubLSymbol
 
 	@Override
 	public Object javaInstance() {
-		return BOOLEAN_TRUE;
+		return Boolean.TRUE;
 	}
 }

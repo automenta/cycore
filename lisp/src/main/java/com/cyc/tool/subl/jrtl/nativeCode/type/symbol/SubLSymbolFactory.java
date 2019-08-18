@@ -1,15 +1,14 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.symbol;
 
-import org.armedbear.lisp.Lisp;
-import org.armedbear.lisp.Package;
-import org.armedbear.lisp.Packages;
-import org.armedbear.lisp.Symbol;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
+import org.armedbear.lisp.Lisp;
+import org.armedbear.lisp.Package;
+import org.armedbear.lisp.Packages;
+import org.armedbear.lisp.Symbol;
 
 public class SubLSymbolFactory {
     public static SubLSymbol makeKeyword(String symbolName) {

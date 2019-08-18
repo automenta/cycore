@@ -6,12 +6,11 @@
  */
 package org.jpl7.test;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
-
+import junit.framework.TestCase;
 import org.jpl7.Query;
 
-import junit.framework.TestCase;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 
@@ -49,8 +48,8 @@ public class JPLTest extends TestCase {
 		final AddWithThreads[] addTasks = { new AddWithThreads("a", latch), new AddWithThreads("b", latch),
 				new AddWithThreads("c", latch), new AddWithThreads("d", latch) };
 		// System.out.println("Starting threads...");
-		for (int i = 0; i < addTasks.length; i++) {
-			addTasks[i].start();
+		for (AddWithThreads task : addTasks) {
+			task.start();
 		}
 		try {
 			// System.out.println("Latch is waiting");
@@ -60,8 +59,8 @@ public class JPLTest extends TestCase {
 			fail("Waiting thread was interrupted: " + e);
 		}
 		for (int i = 0; i < AddWithThreads.REPS; i++) {
-			for (int j = 0; j < addTasks.length; j++) {
-				Query query = new Query(addTasks[j].getNamespace() + "(test('" + i + "'))");
+			for (AddWithThreads addTask : addTasks) {
+				Query query = new Query(addTask.getNamespace() + "(test('" + i + "'))");
 				// System.out.println("query: " + query);
 				// boolean ret = query.hasMoreElements();
 				query.close();

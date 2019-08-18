@@ -32,7 +32,7 @@
  */
 package org.armedbear.lisp;
 
-import static org.armedbear.lisp.Lisp.error;
+import org.armedbear.lisp.util.HttpHead;
 
 import java.io.File;
 import java.io.IOException;
@@ -48,7 +48,7 @@ import java.util.Locale;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 
-import org.armedbear.lisp.util.HttpHead;
+import static org.armedbear.lisp.Lisp.error;
 
 
 /**

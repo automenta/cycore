@@ -21,8 +21,9 @@
 
 package org.armedbear.j.mail;
 
-import java.net.MalformedURLException;
 import org.armedbear.j.FastStringBuffer;
+
+import java.net.MalformedURLException;
 
 public final class PopURL extends MailboxURL
 {

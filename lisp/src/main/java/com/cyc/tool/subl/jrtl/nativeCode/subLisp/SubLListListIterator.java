@@ -1,13 +1,13 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import java.util.ListIterator;
-
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 
+import java.util.ListIterator;
+
 public interface SubLListListIterator extends ListIterator {
-	public static int ITERATE_TO_END = -1;
+	int ITERATE_TO_END = -1;
 
 	SubLObject currentSubSeq();
 

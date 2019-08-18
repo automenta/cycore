@@ -21,13 +21,14 @@
 
 package org.armedbear.j.mail;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 import org.armedbear.j.Debug;
 import org.armedbear.j.FastStringReader;
 import org.armedbear.j.Log;
 import org.armedbear.j.Utilities;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 
 public final class Base64Decoder
 {

@@ -21,10 +21,11 @@
 
 package org.armedbear.j.mail;
 
+import org.armedbear.j.FastStringBuffer;
+
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
-import org.armedbear.j.FastStringBuffer;
 
 public final class ImapURL extends MailboxURL
 {

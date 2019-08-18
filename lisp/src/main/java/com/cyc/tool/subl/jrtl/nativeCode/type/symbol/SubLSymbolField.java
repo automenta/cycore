@@ -7,12 +7,6 @@
 
 package com.cyc.tool.subl.jrtl.nativeCode.type.symbol;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-
-import org.armedbear.lisp.LispObject;
-import org.armedbear.lisp.Symbol;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLEnvironment;
@@ -20,6 +14,11 @@ import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
 import com.cyc.tool.subl.jrtl.nativeCode.type.exception.InvalidSubLExpressionException;
 import com.cyc.tool.subl.util.SubLFiles.VariableAccessMode;
+import org.armedbear.lisp.LispObject;
+import org.armedbear.lisp.Symbol;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 
 ///import dmiles.TranStruct;
 //import dmiles.JavaAlienMethods;

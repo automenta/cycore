@@ -1,41 +1,24 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import org.armedbear.lisp.Interpreter;
-import org.armedbear.lisp.Lisp;
-import org.armedbear.lisp.Main;
-import org.armedbear.lisp.Package;
-import org.armedbear.lisp.Symbol;
-//import org.logicmoo.system.BeanShellCntrl;
-
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLCons;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLEnvironment;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLHashtable;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.*;
 import com.cyc.tool.subl.jrtl.nativeCode.type.exception.InvalidSubLExpressionException;
 import com.cyc.tool.subl.jrtl.nativeCode.type.exception.SubLException;
-import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLCompiledFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLInterpretedFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLMacro;
-import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLSpecialOperatorImpl;
+import com.cyc.tool.subl.jrtl.nativeCode.type.operator.*;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high;
 import com.cyc.tool.subl.util.SubLFiles;
 import com.cyc.tool.subl.util.SubLTrampolineFile;
+import org.armedbear.lisp.Lisp;
+import cyc.CYC;
+import org.armedbear.lisp.Package;
+import org.armedbear.lisp.Symbol;
+
+import java.lang.reflect.Method;
+import java.util.*;
+
+//import org.logicmoo.system.BeanShellCntrl;
 
 public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 	private static void csetf_internal(SubLObject place, SubLObject value, SubLEnvironment env) {
@@ -180,9 +163,8 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 			SubLObject keyOldDynamicValue = newEnv.noteBinding(keyVar, SubLNil.NIL);
 			oldDynamicValues = possiblyNoteOldDynamicValue(keyVar, keyOldDynamicValue, oldDynamicValues);
 
-			Iterator hashIter = symbols.iterator();
-			while (hashIter.hasNext()) {
-				SubLObject key = (SubLObject) hashIter.next();
+			for (Symbol symbol : symbols) {
+				SubLObject key = (SubLObject) symbol;
 				newEnv.setBinding(keyVar, key);
 				bodyIter.init(forms, 1);
 				result = list_progn(bodyIter, newEnv);
@@ -215,9 +197,8 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 			SubLObject keyOldDynamicValue = newEnv.noteBinding(keyVar, SubLNil.NIL);
 			oldDynamicValues = possiblyNoteOldDynamicValue(keyVar, keyOldDynamicValue, oldDynamicValues);
 
-			Iterator hashIter = symbols.iterator();
-			while (hashIter.hasNext()) {
-				SubLObject key = (SubLObject) hashIter.next();
+			for (Object symbol : symbols) {
+				SubLObject key = (SubLObject) symbol;
 				newEnv.setBinding(keyVar, key);
 				bodyIter.init(forms, 1);
 				result = list_progn(bodyIter, newEnv);
@@ -251,9 +232,8 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 			SubLObject keyOldDynamicValue = newEnv.noteBinding(keyVar, SubLNil.NIL);
 			oldDynamicValues = possiblyNoteOldDynamicValue(keyVar, keyOldDynamicValue, oldDynamicValues);
 
-			Iterator hashIter = symbols.iterator();
-			while (hashIter.hasNext()) {
-				SubLObject key = (SubLObject) hashIter.next();
+			for (Symbol symbol : symbols) {
+				SubLObject key = (SubLObject) symbol;
 				newEnv.setBinding(keyVar, key);
 				bodyIter.init(forms, 1);
 				result = list_progn(bodyIter, newEnv);
@@ -1031,7 +1011,7 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 	}
 
 	public static SubLObject quit() {
-		boolean was = Main.isSubLisp();
+		boolean was = CYC.isSubLisp();
 		SubLReader o = SubLMain.getMainReader();
 
 		if (o != null)

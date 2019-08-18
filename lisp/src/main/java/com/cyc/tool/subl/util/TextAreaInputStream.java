@@ -1,15 +1,13 @@
 /* For LarKC */
 package com.cyc.tool.subl.util;
 
+import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
+
+import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.io.InputStream;
-
-import javax.swing.JTextArea;
-import javax.swing.SwingUtilities;
-
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
 
 public class TextAreaInputStream extends InputStream implements KeyListener {
 	public TextAreaInputStream(JTextArea textArea) {

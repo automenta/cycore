@@ -1,11 +1,11 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.symbol;
 
-import java.util.Iterator;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.FromSubLisp;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
+
+import java.util.Iterator;
 
 public class SubLPackageIterator extends FromSubLisp implements Iterator {
 	SubLPackageIterator(SubLPackage thePackage) {

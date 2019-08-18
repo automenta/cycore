@@ -134,7 +134,7 @@ import com.cyc.tool.subl.util.SubLFiles;
 import com.cyc.tool.subl.util.SubLFiles.LispMethod;
 import com.cyc.tool.subl.util.SubLTrampolineFile;
 import com.cyc.tool.subl.util.SubLTranslatedFile;
-import cycl.assertion_content_holder;
+import com.cyc.misc.assertion_content_holder;
 
 /**
  * Copyright (c) 1995 - 2019 Cycorp, Inc.  All rights reserved.

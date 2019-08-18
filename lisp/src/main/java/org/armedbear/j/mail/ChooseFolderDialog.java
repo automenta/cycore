@@ -21,12 +21,7 @@
 
 package org.armedbear.j.mail;
 
-import org.armedbear.j.Debug;
-import org.armedbear.j.Editor;
-import org.armedbear.j.File;
-import org.armedbear.j.History;
-import org.armedbear.j.InputDialog;
-import org.armedbear.j.MessageDialog;
+import org.armedbear.j.*;
 
 public final class ChooseFolderDialog extends InputDialog
 {

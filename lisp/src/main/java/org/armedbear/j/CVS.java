@@ -21,9 +21,9 @@
 
 package org.armedbear.j;
 
-import java.util.List;
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 import javax.swing.undo.CompoundEdit;
+import java.util.List;
 
 public final class CVS extends VersionControl implements Constants
 {

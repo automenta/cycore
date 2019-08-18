@@ -5,16 +5,19 @@ package org.jpl7.test;
  * demonstrates the use of JButton, JTextField and
  * JLabel.  It requires no other files.
  */
-import java.awt.*;
-import java.awt.event.*;
+
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CelsiusConverter implements ActionListener {
-	JFrame converterFrame;
-	JPanel converterPanel;
-	JTextField tempCelsius;
-	JLabel celsiusLabel, fahrenheitLabel;
-	JButton convertTemp;
+	final JFrame converterFrame;
+	final JPanel converterPanel;
+	final JTextField tempCelsius;
+	final JLabel celsiusLabel;
+	final JLabel fahrenheitLabel;
+	final JButton convertTemp;
 
 	public CelsiusConverter() { // initially locate the window at top-left of
 								// desktop
@@ -67,8 +70,8 @@ public class CelsiusConverter implements ActionListener {
 		// int tempFahr = (int) (tC * 1.8 + 32);
 		//
 		// convert to Fahrenheit (in Prolog, via JPL)
-		int tempFahr = ((org.jpl7.Float) org.jpl7.Query
-				.oneSolution("TF is ? * 1.8 + 32", new org.jpl7.Term[] { new org.jpl7.Float(tC) }).get("TF"))
+		int tempFahr = org.jpl7.Query
+				.oneSolution("TF is ? * 1.8 + 32", new org.jpl7.Term[] { new org.jpl7.Float(tC) }).get("TF")
 						.intValue();
 		//
 		// display the result
@@ -79,8 +82,8 @@ public class CelsiusConverter implements ActionListener {
 		// schedule a job for the event-dispatching thread: create and show an
 		// instance of this application at (left,top)
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
-			int x = left;
-			int y = top;
+			final int x = left;
+			final int y = top;
 
 			@Override
 			public void run() {

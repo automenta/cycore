@@ -21,11 +21,10 @@
 
 package org.armedbear.j;
 
-import java.awt.Graphics;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
+import javax.swing.*;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.metal.MetalLabelUI;
+import java.awt.*;
 
 public final class LabelUI extends MetalLabelUI
 {

@@ -20,12 +20,12 @@
 
 package org.armedbear.j;
 
+import javax.swing.event.TableModelEvent;
+import javax.swing.table.AbstractTableModel;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import javax.swing.event.TableModelEvent;
-import javax.swing.table.AbstractTableModel;
 
 public final class RecentFilesTableModel extends AbstractTableModel
 {

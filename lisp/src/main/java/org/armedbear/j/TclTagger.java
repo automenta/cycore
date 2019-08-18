@@ -24,6 +24,7 @@ package org.armedbear.j;
 import gnu.regexp.RE;
 import gnu.regexp.REMatch;
 import gnu.regexp.UncheckedRE;
+
 import java.util.ArrayList;
 
 public final class TclTagger extends Tagger

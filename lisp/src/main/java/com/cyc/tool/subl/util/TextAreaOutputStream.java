@@ -1,16 +1,12 @@
 /* For LarKC */
 package com.cyc.tool.subl.util;
 
-import java.io.IOException;
-import java.io.OutputStream;
-
-import javax.swing.JScrollBar;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.SwingUtilities;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
+
+import javax.swing.*;
+import java.io.IOException;
+import java.io.OutputStream;
 
 public class TextAreaOutputStream extends OutputStream {
 	public TextAreaOutputStream(JTextArea textArea, JScrollPane scrollPane) {

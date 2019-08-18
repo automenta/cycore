@@ -3,15 +3,14 @@
 //
 package com.cyc.tool.subl.jrtl.nativeCode.type.operator;
 
-import org.armedbear.lisp.Environment;
-import org.armedbear.lisp.LispObject;
-import org.armedbear.lisp.Operator;
-import org.armedbear.lisp.Symbol;
-
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLEnvironment;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.exception.InvalidSubLExpressionException;
+import org.armedbear.lisp.Environment;
+import org.armedbear.lisp.LispObject;
+import org.armedbear.lisp.Operator;
+import org.armedbear.lisp.Symbol;
 
 public abstract class SubLSpecialOperator extends Operator implements SubLOperator {
 	public SubLSpecialOperator(Symbol functionSymbol) {

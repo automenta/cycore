@@ -21,9 +21,9 @@
 
 package org.armedbear.j;
 
+import javax.swing.*;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
-import javax.swing.JScrollBar;
 
 public final class VerticalScrollBarListener implements AdjustmentListener
 {

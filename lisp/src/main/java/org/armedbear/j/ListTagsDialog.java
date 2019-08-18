@@ -20,14 +20,13 @@
 
 package org.armedbear.j;
 
-import java.awt.Dimension;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.InputEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JList;
-import javax.swing.JScrollPane;
 
 public final class ListTagsDialog extends AbstractDialog implements MouseListener
 {

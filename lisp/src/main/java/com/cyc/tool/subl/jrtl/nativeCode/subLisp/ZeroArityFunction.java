@@ -26,7 +26,7 @@ public abstract class ZeroArityFunction extends FixedArityFunctor implements Com
 
 		@Override
 		public SubLObject processItem() {
-			return Vectors.vector(Resourcer.EMPTY_SUBL_OBJECT_ARRAY);
+			return Vectors.vector(Resourcer.EmptySublObjectArray);
 		}
 	}
 
@@ -52,7 +52,7 @@ public abstract class ZeroArityFunction extends FixedArityFunctor implements Com
 			result = new ZeroArityFunction(function) {
 				@Override
 				public SubLObject processItem() {
-					return func.funcall(Resourcer.EMPTY_SUBL_OBJECT_ARRAY);
+					return func.funcall(Resourcer.EmptySublObjectArray);
 				}
 			};
 		return result;

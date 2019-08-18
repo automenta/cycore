@@ -1,36 +1,27 @@
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.lang.ref.WeakReference;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.ListIterator;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLStruct;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLFiles;
 import com.cyc.tool.subl.util.SubLTrampolineFile;
 
+import java.io.*;
+import java.lang.ref.WeakReference;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.*;
+import java.util.Map.Entry;
+
 public class DiskDumper extends SubLTrampolineFile
 {
 
 	volatile public static Map bowls = new HashMap();
-	volatile public static Map<Object, LinkedList<WeakReference<Object>>> mapClass2Refs = new HashMap<Object, LinkedList<WeakReference<Object>>>();
+	volatile public static Map<Object, LinkedList<WeakReference<Object>>> mapClass2Refs = new HashMap<>();
 	public static SubLFile me = new DiskDumper();
-	volatile public static Map<String, Map> sublbowls = new HashMap<String, Map>();
-	volatile public static Map<String, SubLFile> sublRefs = new HashMap<String, SubLFile>();
-	static volatile Set<String> toDiskTypes = new HashSet<String>();
+	volatile public static Map<String, Map> sublbowls = new HashMap<>();
+	volatile public static Map<String, SubLFile> sublRefs = new HashMap<>();
+	static volatile Set<String> toDiskTypes = new HashSet<>();
 
 	public static void addStaticObject(SubLFile file)
 	{
@@ -45,12 +36,7 @@ public class DiskDumper extends SubLTrampolineFile
 		LinkedList<WeakReference<Object>> objStack;
 		synchronized (mapClass2Refs)
 		{
-			objStack = mapClass2Refs.get(typeOf);
-			if (objStack == null)
-			{
-				objStack = new LinkedList<WeakReference<Object>>();
-				mapClass2Refs.put(typeOf, objStack);
-			}
+			objStack = mapClass2Refs.computeIfAbsent(typeOf, k -> new LinkedList<>());
 		}
 		synchronized (objStack)
 		{
@@ -140,7 +126,7 @@ public class DiskDumper extends SubLTrampolineFile
 		}
 		for (Object k : keys)
 		{
-			LinkedList<WeakReference<Object>> objStack = mapClass2Refs.get((Object) k);
+			LinkedList<WeakReference<Object>> objStack = mapClass2Refs.get(k);
 			LinkedList bowl = new LinkedList();
 			bowls.put(k, bowl);
 			ListIterator<WeakReference<Object>> iter = objStack.listIterator();

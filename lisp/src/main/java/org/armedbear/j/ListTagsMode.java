@@ -21,10 +21,10 @@
 
 package org.armedbear.j;
 
-import java.awt.AWTEvent;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
-import javax.swing.JPopupMenu;
 
 public final class ListTagsMode extends AbstractMode implements Constants, Mode
 {

@@ -1,13 +1,13 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeCycConstant;
-
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
+
+import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeCycConstant;
 
 public interface CommonSymbols_CYC {
 
-    final Object commonSymbolsCheck = new Object() {
+    Object commonSymbolsCheck = new Object() {
 	{
 	    if (!SubLMain.commonSymbolsOK) {
 		if (true) {

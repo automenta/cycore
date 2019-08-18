@@ -21,8 +21,8 @@
 
 package org.armedbear.j;
 
-import java.awt.Graphics;
-import javax.swing.JCheckBox;
+import javax.swing.*;
+import java.awt.*;
 
 public final class CheckBox extends JCheckBox
 {

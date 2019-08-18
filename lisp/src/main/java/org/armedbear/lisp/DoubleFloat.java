@@ -33,9 +33,9 @@
 
 package org.armedbear.lisp;
 
-import java.math.BigInteger;
-
 import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLDoubleFloat;
+
+import java.math.BigInteger;
 
 public final class DoubleFloat extends SubLDoubleFloat
 {

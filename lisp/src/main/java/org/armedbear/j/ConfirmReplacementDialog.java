@@ -21,12 +21,10 @@
 
 package org.armedbear.j;
 
-import java.awt.Dimension;
-import java.awt.Point;
-import java.awt.Rectangle;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import javax.swing.JPanel;
 
 public final class ConfirmReplacementDialog extends AbstractDialog
 {

@@ -1,14 +1,14 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLHashtable;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLProcess;
 import com.cyc.tool.subl.util.ObjectPool;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Resourcer extends RuntimeException {
 	private static class ArrayListPool extends ObjectPool {
@@ -103,7 +103,7 @@ public class Resourcer extends RuntimeException {
 
 		@Override
 		public void resetPoolItem(Object item) {
-			Arrays.fill((Object[]) item, (Object) null);
+			Arrays.fill((Object[]) item, null);
 		}
 	}
 
@@ -123,7 +123,7 @@ public class Resourcer extends RuntimeException {
 
 		@Override
 		public void resetPoolItem(Object item) {
-			Arrays.fill((Object[]) item, (Object) null);
+			Arrays.fill((Object[]) item, null);
 		}
 	}
 
@@ -148,12 +148,8 @@ public class Resourcer extends RuntimeException {
 	private ObjectPool hashtableKeyEntryPool;
 	private ObjectPool[] objectArrayObjectPools;
 	private ObjectPool[] sublObjectArrayObjectPools;
-	public static Object[] EMPTY_OBJECT_ARRAY;
-	public static SubLObject[] EMPTY_SUBL_OBJECT_ARRAY;
-	static {
-		EMPTY_OBJECT_ARRAY = new Object[0];
-		EMPTY_SUBL_OBJECT_ARRAY = new SubLObject[0];
-	}
+
+	public static final SubLObject[] EmptySublObjectArray = new SubLObject[0];
 
 	public SubLHashtable.SubLHashtableKeyEntryImpl acquireHashtableKeyEntry() {
 		SubLHashtable.SubLHashtableKeyEntryImpl keyEntry = (SubLHashtable.SubLHashtableKeyEntryImpl) hashtableKeyEntryPool
@@ -187,7 +183,7 @@ public class Resourcer extends RuntimeException {
 
 	public SubLObject[] acquireSubLObjectArray(ArrayList<SubLObject> list) {
 		if (list == null || list.size() <= 0)
-			return Resourcer.EMPTY_SUBL_OBJECT_ARRAY;
+			return Resourcer.EmptySublObjectArray;
 		int size = list.size();
 		SubLObject[] result;
 		if (size >= 24)
@@ -199,7 +195,7 @@ public class Resourcer extends RuntimeException {
 
 	public SubLObject[] acquireSubLObjectArray(int size) {
 		if (size <= 0)
-			return Resourcer.EMPTY_SUBL_OBJECT_ARRAY;
+			return Resourcer.EmptySublObjectArray;
 		if (size >= 24)
 			return new SubLObject[size];
 		return (SubLObject[]) sublObjectArrayObjectPools[size].acquire();
@@ -207,7 +203,7 @@ public class Resourcer extends RuntimeException {
 
 	public SubLObject[] acquireSubLObjectArray(SubLList list) {
 		if (list == null || list.size() <= 0)
-			return Resourcer.EMPTY_SUBL_OBJECT_ARRAY;
+			return Resourcer.EmptySublObjectArray;
 		int size = list.size();
 		SubLObject[] result;
 		if (size >= 24)

@@ -34,14 +34,13 @@
 
 package org.armedbear.lisp;
 
+import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import org.armedbear.lisp.util.RandomAccessCharacterFile;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-
-import org.armedbear.lisp.util.RandomAccessCharacterFile;
-
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 
 public final class FileStream extends Stream
 {

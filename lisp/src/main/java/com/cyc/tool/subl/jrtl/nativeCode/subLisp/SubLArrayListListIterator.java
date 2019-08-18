@@ -1,13 +1,13 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import java.util.ConcurrentModificationException;
-import java.util.ListIterator;
-import java.util.NoSuchElementException;
-
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
+
+import java.util.ConcurrentModificationException;
+import java.util.ListIterator;
+import java.util.NoSuchElementException;
 
 public class SubLArrayListListIterator implements SubLListListIterator, ListIterator {
 	SubLArrayListListIterator() {
@@ -204,10 +204,7 @@ public class SubLArrayListListIterator implements SubLListListIterator, ListIter
 	}
 
 	void setStart(int start) {
-		if (start < 0)
-			cursor = 0;
-		else
-			cursor = start;
+		cursor = Math.max(start, 0);
 		this.start = start;
 	}
 }

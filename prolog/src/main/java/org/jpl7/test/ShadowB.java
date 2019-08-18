@@ -7,7 +7,7 @@
 package org.jpl7.test;
 
 public class ShadowB extends ShadowA {
-	public String shadow;
+	public final String shadow;
 
 	public ShadowB(String s) {
 		shadow = s;

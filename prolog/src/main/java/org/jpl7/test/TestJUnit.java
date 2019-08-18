@@ -1,23 +1,16 @@
 package org.jpl7.test;
 
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+import org.jpl7.Integer;
+import org.jpl7.*;
+import org.jpl7.fli.Prolog;
+
 import java.math.BigInteger;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-
-import org.jpl7.Atom;
-import org.jpl7.Compound;
-import org.jpl7.Integer;
-import org.jpl7.JPL;
-import org.jpl7.JPLException;
-import org.jpl7.PrologException;
-import org.jpl7.Query;
-import org.jpl7.Term;
-import org.jpl7.Util;
-import org.jpl7.Variable;
-import org.jpl7.fli.Prolog;
+import static org.jpl7.Atom.EmptyTermArray;
 
 // This class defines all the tests which are run from Java.
 // It needs junit.framework.TestCase and junit.framework.TestSuite, which are not supplied with JPL.
@@ -76,8 +69,8 @@ public class TestJUnit extends TestCase {
 		if (n == 1) {
 			return 1;
 		} else if (n > 1) {
-			return n * ((org.jpl7.Integer) Query
-					.oneSolution("jpl_test_fac(?,F)", new Term[] { new org.jpl7.Integer(n - 1) }).get("F")).longValue();
+			return n * Query
+					.oneSolution("jpl_test_fac(?,F)", new Term[] { new Integer(n - 1) }).get("F").longValue();
 		} else {
 			return 0;
 		}
@@ -106,13 +99,13 @@ public class TestJUnit extends TestCase {
 	}
 
 	public void testIntegerFromByte1() {
-		byte b = (byte) 127; // -128..127
+		byte b = 127; // -128..127
 		Integer i = new Integer(b);
 		assertTrue(i.intValue() == b);
 	}
 
 	public void testIntegerFromChar1() {
-		char c = (char) 64; // 0..65535
+		char c = 64; // 0..65535
 		// System.out.println("c = " + c);
 		Integer i = new Integer(c);
 		assertTrue(i.intValue() == c);
@@ -167,7 +160,7 @@ public class TestJUnit extends TestCase {
 	public void testBigInteger2() {
 		BigInteger b = new BigInteger("12345678901234567890123456789");
 		Term i = new Integer(b); // too big for a long
-		Term g = new Compound("is", new Term[] { new Variable("X"), i });
+		Term g = new Compound("is", new Variable("X"), i);
 		Term x = Query.oneSolution(g).get("X");
 		assertTrue("X is an org.jpl7.Integer", x.isInteger());
 		assertTrue("X is a big org.jpl7.Integer", x.isBigInteger());
@@ -175,7 +168,7 @@ public class TestJUnit extends TestCase {
 	}
 
 	public void testCompoundZeroArity1() {
-		Term t = new Compound("foo", new Term[] {});
+		Term t = new Compound("foo", EmptyTermArray);
 		assertTrue(t.isCompound());
 		assertFalse(t.isAtomSymbol());
 		assertTrue(t.name().equals("foo"));
@@ -326,43 +319,43 @@ public class TestJUnit extends TestCase {
 	}
 
 	public void testVariableBinding1() {
-		Term lhs = new Compound("p", new Term[] { new Variable("X"), new Variable("Y") });
-		Term rhs = new Compound("p", new Term[] { new Atom("a"), new Atom("b") });
-		Term goal = new Compound("=", new Term[] { lhs, rhs });
+		Term lhs = new Compound("p", new Variable("X"), new Variable("Y"));
+		Term rhs = new Compound("p", new Atom("a"), new Atom("b"));
+		Term goal = new Compound("=", lhs, rhs);
 		Map<String, Term> soln = new Query(goal).oneSolution();
 		assertTrue("two Variables with different names can bind to distinct atoms",
 				soln != null && (soln.get("X")).name().equals("a") && (soln.get("Y")).name().equals("b"));
 	}
 
 	public void testVariableBinding2() {
-		Term lhs = new Compound("p", new Term[] { new Variable("X"), new Variable("X") });
-		Term rhs = new Compound("p", new Term[] { new Atom("a"), new Atom("b") });
-		Term goal = new Compound("=", new Term[] { lhs, rhs });
+		Term lhs = new Compound("p", new Variable("X"), new Variable("X"));
+		Term rhs = new Compound("p", new Atom("a"), new Atom("b"));
+		Term goal = new Compound("=", lhs, rhs);
 		assertFalse("two distinct Variables with same name cannot unify with distinct atoms",
 				new Query(goal).hasSolution());
 	}
 
 	public void testVariableBinding3() {
 		Variable X = new Variable("X");
-		Term lhs = new Compound("p", new Term[] { X, X });
-		Term rhs = new Compound("p", new Term[] { new Atom("a"), new Atom("b") });
-		Term goal = new Compound("=", new Term[] { lhs, rhs });
+		Term lhs = new Compound("p", X, X);
+		Term rhs = new Compound("p", new Atom("a"), new Atom("b"));
+		Term goal = new Compound("=", lhs, rhs);
 		assertFalse("two references to the same (named) Variable cannot unify with differing atoms",
 				new Query(goal).hasSolution());
 	}
 
 	public void testVariableBinding4() {
-		Term lhs = new Compound("p", new Term[] { new Variable("_"), new Variable("_") });
-		Term rhs = new Compound("p", new Term[] { new Atom("a"), new Atom("b") });
-		Term goal = new Compound("=", new Term[] { lhs, rhs });
+		Term lhs = new Compound("p", new Variable("_"), new Variable("_"));
+		Term rhs = new Compound("p", new Atom("a"), new Atom("b"));
+		Term goal = new Compound("=", lhs, rhs);
 		assertTrue("two distinct anonymous Variables can unify with distinct atoms", new Query(goal).hasSolution());
 	}
 
 	public void testVariableBinding5() {
 		Variable Anon = new Variable("_");
-		Term lhs = new Compound("p", new Term[] { Anon, Anon });
-		Term rhs = new Compound("p", new Term[] { new Atom("a"), new Atom("b") });
-		Term goal = new Compound("=", new Term[] { lhs, rhs });
+		Term lhs = new Compound("p", Anon, Anon);
+		Term rhs = new Compound("p", new Atom("a"), new Atom("b"));
+		Term goal = new Compound("=", lhs, rhs);
 		assertTrue("two references to an anonymous Variable can unify with differing atoms",
 				new Query(goal).hasSolution());
 	}
@@ -388,7 +381,7 @@ public class TestJUnit extends TestCase {
 	public void testArrayToList1() {
 		Term l2 = Util.termArrayToList(
 				new Term[] { new Atom("a"), new Atom("b"), new Atom("c"), new Atom("d"), new Atom("e") });
-		Query q9 = new Query(new Compound("append", new Term[] { new Variable("Xs"), new Variable("Ys"), l2 }));
+		Query q9 = new Query(new Compound("append", new Variable("Xs"), new Variable("Ys"), l2));
 		assertTrue("append(Xs,Ys,[a,b,c,d,e]) has 6 solutions", q9.allSolutions().length == 6);
 	}
 
@@ -398,7 +391,7 @@ public class TestJUnit extends TestCase {
 	}
 
 	public void testLength1() {
-		Query q5 = new Query(new Compound("length", new Term[] { new Variable("Zs"), new org.jpl7.Integer(2) }));
+		Query q5 = new Query(new Compound("length", new Variable("Zs"), new Integer(2)));
 		Term zs = q5.oneSolution().get("Zs");
 		assertTrue("length(Zs,2) binds Zs to a list of two distinct variables " + zs.toString(),
 				zs.isListPair() && zs.arg(1).isVariable() && zs.arg(2).isListPair() && zs.arg(2).arg(1).isVariable()
@@ -504,8 +497,8 @@ public class TestJUnit extends TestCase {
 	}
 
 	public void testIsJNull1() {
-		Term atNull = new Compound("@", new Term[] { new Atom("null") });
-		Query q = new Query("=", new Term[] { new Variable("X"), atNull });
+		Term atNull = new Compound("@", new Atom("null"));
+		Query q = new Query("=", new Variable("X"), atNull);
 		assertTrue(q.oneSolution().get("X").isJNull());
 	}
 
@@ -705,45 +698,45 @@ public class TestJUnit extends TestCase {
 	// Query("findall(foo(N),between(0,10000,N),L)")).hasSolution());
 	// }
 	public void testUnicode0() {
-		assertTrue(Query.hasSolution("atom_codes(?,[32])", new Term[] { new Atom(" ") }));
+		assertTrue(Query.hasSolution("atom_codes(?,[32])", new Atom(" ")));
 	}
 
 	public void testUnicode0a() {
-		assertTrue(Query.hasSolution("atom_codes(?,[32])", new Term[] { new Atom("\u0020") }));
+		assertTrue(Query.hasSolution("atom_codes(?,[32])", new Atom("\u0020")));
 	}
 
 	public void testUnicode0b() {
-		assertTrue(Query.hasSolution("atom_codes(?,[0])", new Term[] { new Atom("\u0000") }));
+		assertTrue(Query.hasSolution("atom_codes(?,[0])", new Atom("\u0000")));
 	}
 
 	public void testUnicode0c() {
-		assertTrue(Query.hasSolution("atom_codes(?,[1])", new Term[] { new Atom("\u0001") }));
+		assertTrue(Query.hasSolution("atom_codes(?,[1])", new Atom("\u0001")));
 	}
 
 	public void testUnicode0d() {
-		assertTrue(Query.hasSolution("atom_codes(?,[127])", new Term[] { new Atom("\u007F") }));
+		assertTrue(Query.hasSolution("atom_codes(?,[127])", new Atom("\u007F")));
 	}
 
 	public void testUnicode0e() {
-		assertTrue(Query.hasSolution("atom_codes(?,[128])", new Term[] { new Atom("\u0080") }));
+		assertTrue(Query.hasSolution("atom_codes(?,[128])", new Atom("\u0080")));
 	}
 
 	public void testUnicode0f() {
-		assertTrue(Query.hasSolution("atom_codes(?,[255])", new Term[] { new Atom("\u00FF") }));
+		assertTrue(Query.hasSolution("atom_codes(?,[255])", new Atom("\u00FF")));
 	}
 
 	public void testUnicode0g() {
-		assertTrue(Query.hasSolution("atom_codes(?,[256])", new Term[] { new Atom("\u0100") }));
+		assertTrue(Query.hasSolution("atom_codes(?,[256])", new Atom("\u0100")));
 	}
 
 	public void testUnicode1() {
 		assertTrue(Query.hasSolution("atom_codes(?,[0,127,128,255])",
-				new Term[] { new Atom("\u0000\u007F\u0080\u00FF") }));
+			new Atom("\u0000\u007F\u0080\u00FF")));
 	}
 
 	public void testUnicode2() {
 		assertTrue(Query.hasSolution("atom_codes(?,[256,32767,32768,65535])",
-				new Term[] { new Atom("\u0100\u7FFF\u8000\uFFFF") }));
+			new Atom("\u0100\u7FFF\u8000\uFFFF")));
 	}
 
 	public void testStringXput1() {
@@ -873,7 +866,7 @@ public class TestJUnit extends TestCase {
 	public void testWouter1() { // Wouter says this fails under OS X Mavericks
 								// 10.9 x86-64
 		long n = 7381783232223l; // too big for an int
-		Compound term = new Compound("is", new Term[] { new Variable("X"), new org.jpl7.Integer(n) });
+		Compound term = new Compound("is", new Variable("X"), new Integer(n));
 		Map<String, Term>[] solutions = new Query(term).allSolutions();
 		assertEquals(1, solutions.length);
 		Map<String, Term> solution = solutions[0];
@@ -915,7 +908,7 @@ public class TestJUnit extends TestCase {
 	}
 
 	public void testRef7() {
-		Term badJRef = new Compound("hello", new Term[] { new Atom("foobar") }); // term hello(foobar)
+		Term badJRef = new Compound("hello", new Atom("foobar")); // term hello(foobar)
 		try {
 			badJRef.object(); // should throw exception
 			fail("@(foobar).object() should thrown JPLException"); // shouldn't get to here
@@ -938,12 +931,12 @@ public class TestJUnit extends TestCase {
 	}
 
 	public void testOpenGetClose1() {
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		Query q = new Query("atom_chars(prolog, Cs), member(C, Cs)");
 		Map<String, Term> soln;
 		q.open();
 		while (q.hasMoreSolutions()) {
-			sb.append(((Atom) q.nextSolution().get("C")).name());
+			sb.append(q.nextSolution().get("C").name());
 		}
 		q.close();
 		assertEquals("prolog", sb.toString());
@@ -999,13 +992,13 @@ public class TestJUnit extends TestCase {
 	}
 
 	public void testHasMoreSolutions1() {
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		Query q = new Query("atom_chars(prolog, Cs), member(C, Cs)");
 		Map<String, Term> soln;
 		q.open();
 		while (q.hasMoreSolutions()) {
 			soln = q.nextSolution();
-			sb.append(((Atom) soln.get("C")).name());
+			sb.append(soln.get("C").name());
 		}
 		q.close();
 		assertEquals("Query#hasMoreSolutions() + Query#nextSolution() work as intended", "prolog", sb.toString());
@@ -1013,29 +1006,29 @@ public class TestJUnit extends TestCase {
 
 	@SuppressWarnings("unchecked")
 	public void testHasMoreElements1() {
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		Query q = new Query("atom_chars(prolog, Cs), member(C, Cs)");
 		Map<String, Term> soln;
 		q.open();
 		while (q.hasMoreElements()) {
 			soln = (Map<String, Term>) q.nextElement();
-			sb.append(((Atom) soln.get("C")).name());
+			sb.append(soln.get("C").name());
 		}
 		q.close();
 		assertEquals("Query#hasMoreElements() + Query#nextElement() work as intended", "prolog", sb.toString());
 	}
 
 	public void testStackedQueries1() {
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		Query q = new Query("atom_chars(prolog, Cs), member(C, Cs)");
 		Map<String, Term> soln;
 		q.open();
 		while (q.hasMoreSolutions()) {
 			soln = q.nextSolution();
 			Atom a = (Atom) soln.get("C");
-			if (Query.hasSolution("memberchk(?, [l,o,r])", new Term[] { a })) {
+			if (Query.hasSolution("memberchk(?, [l,o,r])", a)) {
 				// this query opens and closes while an earlier query is still open
-				sb.append(((Atom) soln.get("C")).name());
+				sb.append(soln.get("C").name());
 			}
 		}
 		assertTrue(!q.isOpen()); // q will have been closed by solution exhaustion

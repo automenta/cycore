@@ -21,13 +21,9 @@
 
 package org.armedbear.j.mail;
 
+import org.armedbear.j.*;
+
 import java.awt.event.KeyEvent;
-import org.armedbear.j.Editor;
-import org.armedbear.j.Frame;
-import org.armedbear.j.KeyMap;
-import org.armedbear.j.Mode;
-import org.armedbear.j.NavigationComponent;
-import org.armedbear.j.ToolBar;
 
 public final class NewsGroupSummaryMode extends MailboxMode
 {

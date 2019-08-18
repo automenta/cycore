@@ -1,14 +1,6 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeCycSymbol;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeDouble;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeFixnum;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeInteger;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeKeyword;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeSublispSymbol;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.makeSymbol;
-
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
 import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLDoubleFloat;
 import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLFixnum;
@@ -17,17 +9,19 @@ import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLT;
 
+import static com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory.*;
+
 public interface CommonSymbols extends CommonSymbols_KW {
 
-    final Object commonSymbolsCheck = new Object() {
-	{
-	    if (!SubLMain.commonSymbolsOK) {
-		if (true) {
-		    throw new Error("!commonSymbolsOK!");
-		}
-	    }
-	}
-    };
+//    final Object commonSymbolsCheck = new Object() {
+//	{
+//	    if (!SubLMain.commonSymbolsOK) {
+//		if (true) {
+//		    throw new Error("!commonSymbolsOK!");
+//		}
+//	    }
+//	}
+//    };
 
     SubLT T = SubLT.T;
     SubLObject RET_T = CommonSymbols.T;
@@ -225,7 +219,7 @@ public interface CommonSymbols extends CommonSymbols_KW {
     SubLSymbol WITH_WORKING_AREA = makeSublispSymbol("WITH-WORKING-AREA");
     SubLSymbol QUIT = makeSublispSymbol("QUIT");
     SubLSymbol NULL = makeSublispSymbol("NULL");
-    SubLSymbol BOOLEANP = makeCycSymbol("BOOLEANP");
+    SubLSymbol BOOLEANP = CommonSymbols_SYM.makeCycSymbol("BOOLEANP");
     SubLSymbol SYMBOLP = makeSublispSymbol("SYMBOLP");
     SubLSymbol ATOM = makeSublispSymbol("ATOM");
     SubLSymbol CONSP = makeSublispSymbol("CONSP");
@@ -258,7 +252,7 @@ public interface CommonSymbols extends CommonSymbols_KW {
     SubLSymbol OUTPUT_STREAM_P = makeSublispSymbol("OUTPUT-STREAM-P");
     SubLSymbol KEYWORDP = makeSublispSymbol("KEYWORDP");
 
-    SubLSymbol NON_NEGATIVE_NUMBER_P = makeCycSymbol("NON-NEGATIVE-NUMBER-P");
+    SubLSymbol NON_NEGATIVE_NUMBER_P = CommonSymbols_SYM.makeCycSymbol("NON-NEGATIVE-NUMBER-P");
 
     SubLSymbol ELEMENT_TYPE_KEYWORD = makeKeyword("ELEMENT-TYPE");
     SubLSymbol TEXT_KEYWORD = makeKeyword("TEXT");

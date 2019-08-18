@@ -21,8 +21,9 @@
 
 package org.armedbear.j.mail;
 
-import java.net.MalformedURLException;
 import org.armedbear.j.File;
+
+import java.net.MalformedURLException;
 
 public final class LocalMailboxURL extends MailboxURL
 {

@@ -23,20 +23,13 @@ package org.armedbear.j;
 
 import gnu.regexp.RE;
 import gnu.regexp.REException;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.awt.event.TextEvent;
-import java.awt.event.TextListener;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.StringTokenizer;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.JComboBox;
-import javax.swing.JPanel;
 
 public class FindInFilesDialog extends AbstractDialog implements Constants,
     ActionListener, FocusListener, TextListener

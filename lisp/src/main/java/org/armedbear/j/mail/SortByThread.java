@@ -21,16 +21,11 @@
 
 package org.armedbear.j.mail;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import javax.swing.tree.DefaultMutableTreeNode;
 import org.armedbear.j.Debug;
 import org.armedbear.j.Log;
+
+import javax.swing.tree.DefaultMutableTreeNode;
+import java.util.*;
 
 public final class SortByThread
 {

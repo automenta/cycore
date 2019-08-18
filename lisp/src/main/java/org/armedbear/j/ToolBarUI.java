@@ -21,7 +21,7 @@
 
 package org.armedbear.j;
 
-import javax.swing.JComponent;
+import javax.swing.*;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.metal.MetalToolBarUI;
 

@@ -1,22 +1,12 @@
 /* For LarKC */
 package com.cyc.tool.subl.util;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FilenameFilter;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.StringTokenizer;
+import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
+
+import java.io.*;
+import java.util.*;
 import java.util.jar.JarFile;
 import java.util.zip.ZipEntry;
-
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
 
 public class PatchFileLoader extends ClassLoader {
 	public PatchFileLoader(List<JarFile> files) {

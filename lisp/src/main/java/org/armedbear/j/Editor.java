@@ -21,65 +21,32 @@
 
 package org.armedbear.j;
 
+import cyc.CYC;
 import gnu.regexp.RE;
 import gnu.regexp.REMatch;
 import gnu.regexp.UncheckedRE;
-import java.awt.AWTEvent;
-import java.awt.BorderLayout;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Point;
+import org.armedbear.j.mail.MailCommands;
+import org.armedbear.j.mail.MailboxURL;
+import org.armedbear.lisp.*;
+
+import javax.swing.FocusManager;
+import javax.swing.*;
+import javax.swing.undo.CompoundEdit;
+import java.awt.*;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.dnd.DropTarget;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseWheelEvent;
-import java.awt.event.MouseWheelListener;
-import java.awt.event.WindowEvent;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintStream;
-import java.io.UnsupportedEncodingException;
+import java.awt.event.*;
+import java.io.*;
 import java.lang.reflect.Method;
 import java.net.ConnectException;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Hashtable;
 import java.util.List;
-import java.util.Stack;
-import java.util.Vector;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.FocusManager;
-import javax.swing.JComponent;
-import javax.swing.JDialog;
-import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
-import javax.swing.SwingUtilities;
-import javax.swing.undo.CompoundEdit;
-import org.armedbear.j.mail.MailCommands;
-import org.armedbear.j.mail.MailboxURL;
-import org.armedbear.lisp.Condition;
-import org.armedbear.lisp.ConditionThrowable;
-import org.armedbear.lisp.Interpreter;
-import org.armedbear.lisp.Lisp;
-import org.armedbear.lisp.LispObject;
-import org.armedbear.lisp.LispThread;
-import org.armedbear.lisp.Main;
+import java.util.*;
+
 ////import org.logicmoo.system.BeanShellCntrl;
 ////import org.logicmoo.system.SystemCurrent;
-
-import gnu.regexp.RE;
-import gnu.regexp.REMatch;
-import gnu.regexp.UncheckedRE;
 
 public final class Editor extends JPanel implements Constants,
     ComponentListener, MouseWheelListener
@@ -229,7 +196,7 @@ public final class Editor extends JPanel implements Constants,
     }
 
     public static void main(String[] argsIn) {
-		String[] args = Main.extractOptions(argsIn);
+		String[] args = CYC.extractOptions(argsIn);
     	startJ(args,true,true);
     }
     public static void startJ(String[] args , boolean blockUnusedNow, boolean mayExit)
@@ -388,7 +355,7 @@ public final class Editor extends JPanel implements Constants,
 
         tagFileManager = new TagFileManager();
 
-        if (!Main.noGUI) {
+        if (!CYC.noGUI) {
         setCurrentEditor(new Editor(null));
 
         currentEditor.getFrame().updateControls();
@@ -427,7 +394,7 @@ public final class Editor extends JPanel implements Constants,
         if (toBeActivated == null)
             toBeActivated = new Directory(currentDir);
 
-        if (!Main.noGUI) currentEditor.activate(toBeActivated);
+        if (!CYC.noGUI) currentEditor.activate(toBeActivated);
 
         if (startServer)
             Server.startServer();
@@ -442,7 +409,7 @@ public final class Editor extends JPanel implements Constants,
                     sidebar.setUpdateFlag(SIDEBAR_ALL);
             }
         };
-        if (!Main.noGUI) SwingUtilities.invokeLater(r);
+        if (!CYC.noGUI) SwingUtilities.invokeLater(r);
 
         if (isLispInitialized())
             LispThread.remove(Thread.currentThread());

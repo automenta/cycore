@@ -1,43 +1,26 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.core;
 
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.AbstractSubLSequence.EQL_TEST;
-import static com.cyc.tool.subl.jrtl.nativeCode.type.core.AbstractSubLSequence.IDENTITY_UNARY_FUNC;
+import com.cyc.tool.subl.jrtl.nativeCode.subLisp.*;
+import com.cyc.tool.subl.jrtl.nativeCode.type.exception.InvalidSubLExpressionException;
+import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLFixnum;
+import com.cyc.tool.subl.jrtl.nativeCode.type.operator.*;
+import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
+import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import com.cyc.tool.subl.util.ComparatorGenericKey;
+import com.cyc.tool.subl.util.ComparatorIdentityKey;
+import org.armedbear.lisp.Cons;
+import org.armedbear.lisp.Environment;
+import org.armedbear.lisp.LispObject;
+import org.armedbear.lisp.SpecialOperator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import org.armedbear.lisp.Cons;
-import org.armedbear.lisp.Environment;
-import org.armedbear.lisp.LispObject;
-import org.armedbear.lisp.SpecialOperator;
-
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.BinaryFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.CommonSymbols;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.ConsesLow;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Functions;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.PrintLow;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Resourcer;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLListListIterator;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Sxhash;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Types;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.UnaryFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Values;
-import com.cyc.tool.subl.jrtl.nativeCode.type.exception.InvalidSubLExpressionException;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLFixnum;
-import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLInterpretedFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLMacro;
-import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLOperator;
-import com.cyc.tool.subl.jrtl.nativeCode.type.operator.SubLOperatorFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.ComparatorGenericKey;
-import com.cyc.tool.subl.util.ComparatorIdentityKey;
+import static com.cyc.tool.subl.jrtl.nativeCode.type.core.AbstractSubLSequence.EQL_TEST;
+import static com.cyc.tool.subl.jrtl.nativeCode.type.core.AbstractSubLSequence.IDENTITY_UNARY_FUNC;
 
 abstract public class SubLConsPair extends LispObject implements SubLCons, SubLList {
     // SubLConsPair(SubLObject car, SubLObject cdr) {
@@ -845,7 +828,7 @@ abstract public class SubLConsPair extends LispObject implements SubLCons, SubLL
         if (end <= start) {
             if (initialValue != SubLSequence.NO_INIT_VALUE)
                 return initialValue;
-            return func.getFunction().apply(Resourcer.EMPTY_SUBL_OBJECT_ARRAY);
+            return func.getFunction().apply(Resourcer.EmptySublObjectArray);
         } else {
             if (start == 0 && end == Integer.MAX_VALUE && initialValue == SubLSequence.NO_INIT_VALUE)
                 return this.reduce(func);
@@ -1553,7 +1536,7 @@ abstract public class SubLConsPair extends LispObject implements SubLCons, SubLL
 
     @Override
     public SubLObject mapcar(SubLFunction functionTyped) {
-        return this.mapcar(functionTyped, Resourcer.EMPTY_SUBL_OBJECT_ARRAY, true);
+        return this.mapcar(functionTyped, Resourcer.EmptySublObjectArray, true);
     }
 
     @Override

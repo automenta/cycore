@@ -1,11 +1,6 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.core;
 
-import java.util.Collection;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
-
-import org.armedbear.lisp.Cons;
-
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.CommonSymbols;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.Errors;
 import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLThread;
@@ -15,6 +10,10 @@ import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLPackage;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbolFactory;
+import org.armedbear.lisp.Cons;
+
+import java.util.Collection;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class SubLReadWriteLock extends FromSubLisp implements SubLObject
 {

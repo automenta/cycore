@@ -21,26 +21,12 @@
 
 package org.armedbear.j.mail;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
-import java.net.ConnectException;
-import java.net.InetAddress;
-import java.net.NoRouteToHostException;
-import java.net.Socket;
-import java.net.UnknownHostException;
-import java.util.List;
-import org.armedbear.j.Debug;
-import org.armedbear.j.Editor;
 import org.armedbear.j.File;
-import org.armedbear.j.FastStringBuffer;
-import org.armedbear.j.Log;
-import org.armedbear.j.MessageDialog;
-import org.armedbear.j.Property;
-import org.armedbear.j.Utilities;
+import org.armedbear.j.*;
+
+import java.io.*;
+import java.net.*;
+import java.util.List;
 
 public final class SmtpSession extends Writer
 {

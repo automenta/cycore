@@ -33,10 +33,9 @@
 
 package org.armedbear.lisp;
 
-import java.util.List;
-
-import com.cyc.cycjava.cycl.slots;
 import org.jpl7.Term;
+
+import java.util.List;
 ////import org.logicmoo.system.SystemCurrent;
 
 public class Condition extends StandardObject

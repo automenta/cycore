@@ -21,11 +21,12 @@
 
 package org.armedbear.j.mail;
 
-import java.util.Calendar;
-import java.util.StringTokenizer;
 import org.armedbear.j.Debug;
 import org.armedbear.j.FastStringReader;
 import org.armedbear.j.Log;
+
+import java.util.Calendar;
+import java.util.StringTokenizer;
 
 public final class DateSentMailboxFilter extends MailboxFilter
 {

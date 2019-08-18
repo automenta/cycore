@@ -1,41 +1,26 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.subLisp;
 
-import java.lang.reflect.Array;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import org.armedbear.lisp.JavaObject;
-import org.armedbear.lisp.LispObject;
-
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.AbstractSubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLAlienObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLCharacter;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLHashtable;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObjectFactory;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLString;
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLVector;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.AbstractSubLFloat;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.AbstractSubLIntegerBignum;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLBigDecimal;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLBigIntBignum;
-import com.cyc.tool.subl.jrtl.nativeCode.type.number.SubLLongBignum;
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.*;
+import com.cyc.tool.subl.jrtl.nativeCode.type.number.*;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLNil;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLT;
 import com.cyc.tool.subl.util.SubLFile;
 import com.cyc.tool.subl.util.SubLFiles;
 import com.cyc.tool.subl.util.SubLTrampolineFile;
+import org.armedbear.lisp.JavaObject;
+import org.armedbear.lisp.LispObject;
+
+import java.lang.reflect.Array;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.*;
+
+import static com.cyc.tool.subl.jrtl.nativeCode.subLisp.Eval.EmptyObjectArray;
 
 public class JavaLink extends SubLTrampolineFile
 {
@@ -255,7 +240,7 @@ public class JavaLink extends SubLTrampolineFile
 		if (subLObject instanceof SubLVector && canAssign(List.class, targetClass))
 		{
 			Object[] tmp = ((SubLVector) subLObject).toArray();
-			ArrayList<Object> arr = new ArrayList<Object>(tmp.length);
+			ArrayList<Object> arr = new ArrayList<>(tmp.length);
 			for (Object obj : tmp)
 				arr.add(getJavaObject(targetClass, obj, true));
 			return arr;
@@ -264,7 +249,7 @@ public class JavaLink extends SubLTrampolineFile
 		if (subLObject instanceof AbstractSubLList && canAssign(List.class, targetClass))
 		{
 			Object[] tmp = ((AbstractSubLList) subLObject).toArray();
-			ArrayList<Object> arr = new ArrayList<Object>(tmp.length);
+			ArrayList<Object> arr = new ArrayList<>(tmp.length);
 			for (Object obj : tmp)
 				arr.add(getJavaObject(targetClass, obj, true));
 			return arr;
@@ -275,7 +260,7 @@ public class JavaLink extends SubLTrampolineFile
 		if ((subLObject instanceof SubLHashtable) || !canAssign(Map.class, targetClass))
 		{
 
-			HashMap<Object, Object> m = new HashMap<Object, Object>();
+			HashMap<Object, Object> m = new HashMap<>();
 			Iterator it = ((SubLHashtable) subLObject).getEntrySetIterator();
 			while (it.hasNext())
 			{
@@ -321,7 +306,7 @@ public class JavaLink extends SubLTrampolineFile
 		else if (subLObject instanceof SubLVector)
 		{
 			Object[] tmp = ((SubLVector) subLObject).toArray();
-			ArrayList<Object> arr = new ArrayList<Object>(tmp.length);
+			ArrayList<Object> arr = new ArrayList<>(tmp.length);
 			for (Object obj : tmp)
 				arr.add(getJavaObject(obj));
 			result = arr;
@@ -329,7 +314,7 @@ public class JavaLink extends SubLTrampolineFile
 		else if (subLObject instanceof AbstractSubLList)
 		{
 			Object[] tmp = ((AbstractSubLList) subLObject).toArray();
-			ArrayList<Object> arr = new ArrayList<Object>(tmp.length);
+			ArrayList<Object> arr = new ArrayList<>(tmp.length);
 			for (Object obj : tmp)
 				arr.add(getJavaObject(obj));
 			result = arr;
@@ -347,7 +332,7 @@ public class JavaLink extends SubLTrampolineFile
 
 				throw new RuntimeException("Unable to convert an instance of [" + subLObject.getClass() + "] to Java object");
 			}
-			HashMap<Object, Object> m = new HashMap<Object, Object>();
+			HashMap<Object, Object> m = new HashMap<>();
 			Iterator it = ((SubLHashtable) subLObject).getEntrySetIterator();
 			while (it.hasNext())
 			{
@@ -410,15 +395,9 @@ public class JavaLink extends SubLTrampolineFile
 				return box(method.invoke(instanceObject, args));
 			}
 			throw new RuntimeException("Arguments that are instanceof Method are currently supported (called with " + methodObject + ".)" + " For now, use java-method to find the method first");
-		} catch (IllegalAccessException e)
+		} catch (IllegalAccessException | InvocationTargetException | IllegalArgumentException e)
 		{
 			throw new RuntimeException(e.getCause() != null ? e.getCause() : e);
-		} catch (IllegalArgumentException e2)
-		{
-			throw new RuntimeException(e2.getCause() != null ? e2.getCause() : e2);
-		} catch (InvocationTargetException e3)
-		{
-			throw new RuntimeException(e3.getCause() != null ? e3.getCause() : e3);
 		}
 	}
 
@@ -457,12 +436,9 @@ public class JavaLink extends SubLTrampolineFile
 			Class classClass = classForName(classNameOrReference);
 			Class[] argClasses = getJavaArgClasses(parameters, true);
 			return box(classClass.getConstructor(argClasses));
-		} catch (ClassNotFoundException e)
+		} catch (ClassNotFoundException | NoSuchMethodException e)
 		{
 			throw new RuntimeException(e.getCause() != null ? e.getCause() : e);
-		} catch (NoSuchMethodException e2)
-		{
-			throw new RuntimeException(e2.getCause() != null ? e2.getCause() : e2);
 		}
 	}
 
@@ -500,12 +476,9 @@ public class JavaLink extends SubLTrampolineFile
 			Class[] argClasses = getJavaArgClasses(parameterTypes, true);
 			if (methodString.isEmpty() || methodName instanceof SubLObject && ((SubLObject) methodName).isNil()) return box(classClass.getDeclaredConstructor(argClasses));
 			return box(classClass.getDeclaredMethod(methodString, argClasses));
-		} catch (ClassNotFoundException e)
+		} catch (ClassNotFoundException | NoSuchMethodException e)
 		{
 			throw new RuntimeException(e.getCause() != null ? e.getCause() : e);
-		} catch (NoSuchMethodException e2)
-		{
-			throw new RuntimeException(e2.getCause() != null ? e2.getCause() : e2);
 		}
 	}
 
@@ -535,21 +508,9 @@ public class JavaLink extends SubLTrampolineFile
 				return box(resultClass.getConstructor(argClasses).newInstance(argsConverted));
 			}
 			return box(resultClass.newInstance());
-		} catch (ClassNotFoundException e)
+		} catch (ClassNotFoundException | NoSuchMethodException | InvocationTargetException | IllegalAccessException | InstantiationException e)
 		{
 			throw new RuntimeException(e.getCause() != null ? e.getCause() : e);
-		} catch (InstantiationException e2)
-		{
-			throw new RuntimeException(e2.getCause() != null ? e2.getCause() : e2);
-		} catch (IllegalAccessException e3)
-		{
-			throw new RuntimeException(e3.getCause() != null ? e3.getCause() : e3);
-		} catch (InvocationTargetException e4)
-		{
-			throw new RuntimeException(e4.getCause() != null ? e4.getCause() : e4);
-		} catch (NoSuchMethodException e5)
-		{
-			throw new RuntimeException(e5.getCause() != null ? e5.getCause() : e5);
 		}
 	}
 
@@ -572,23 +533,17 @@ public class JavaLink extends SubLTrampolineFile
 					if (JavaLink.DEBUG) System.out.println("arg " + j + " = [" + argObjects[j] + "], is of type " + argObjects[j].getClass());
 					argClasses[j] = getJavaClass(argObjects[j]);
 				}
-				method = (Method) unbox(_method(classObject, methodObject, (Object[]) argClasses));
+				method = (Method) unbox(_method(classObject, methodObject, argClasses));
 			}
 			else
-				method = (Method) unbox(_method(classObject, methodObject, new Object[0]));
+				method = (Method) unbox(_method(classObject, methodObject, EmptyObjectArray));
 			final Class<?>[] parameterTypes = method.getParameterTypes();
 			final Object[] args = tryRecast(parameterTypes, argObjects);
-			final Object result = method.invoke((Object) null, args);
+			final Object result = method.invoke(null, args);
 			return box(result);
-		} catch (IllegalAccessException e)
+		} catch (IllegalAccessException | InvocationTargetException | IllegalArgumentException e)
 		{
 			throw new RuntimeException(e.getCause() != null ? e.getCause() : e);
-		} catch (IllegalArgumentException e2)
-		{
-			throw new RuntimeException(e2.getCause() != null ? e2.getCause() : e2);
-		} catch (InvocationTargetException e3)
-		{
-			throw new RuntimeException(e3.getCause() != null ? e3.getCause() : e3);
 		}
 	}
 
@@ -628,7 +583,7 @@ public class JavaLink extends SubLTrampolineFile
 				unboxed[i] = unbox(args[i]);
 			return _call(unbox(methodObject), unbox(instanceObject), unboxed);
 		}
-		return _call(unbox(methodObject), unbox(instanceObject), new Object[0]);
+		return _call(unbox(methodObject), unbox(instanceObject));
 	}
 
 	public static SubLObject java_class(SubLObject className)
@@ -651,7 +606,7 @@ public class JavaLink extends SubLTrampolineFile
 				unboxed[i] = unbox(parameters[i]);
 			return _constructor(unbox(classNameOrReference), unboxed);
 		}
-		return _constructor(unbox(classNameOrReference), new Object[0]);
+		return _constructor(unbox(classNameOrReference));
 	}
 
 	public static SubLObject java_method(SubLObject className, SubLObject methodName, SubLObject... argClassNames)
@@ -663,7 +618,7 @@ public class JavaLink extends SubLTrampolineFile
 				unboxed[i] = unbox(argClassNames[i]);
 			return _method(unbox(className), unbox(methodName), unboxed);
 		}
-		return _method(unbox(className), unbox(methodName), new Object[0]);
+		return _method(unbox(className), unbox(methodName));
 	}
 
 	public static SubLObject java_new(SubLObject classNameOrConstructor, SubLObject... parameters)
@@ -675,7 +630,7 @@ public class JavaLink extends SubLTrampolineFile
 				unboxed[i] = unbox(parameters[i]);
 			return _new(unbox(classNameOrConstructor), unboxed);
 		}
-		return _new(unbox(classNameOrConstructor), new Object[0]);
+		return _new(unbox(classNameOrConstructor));
 	}
 
 	public static SubLObject java_object_p(SubLObject object)
@@ -692,7 +647,7 @@ public class JavaLink extends SubLTrampolineFile
 				unboxed[i] = unbox(args[i]);
 			return _static(unbox(methodObject), unbox(classObject), unboxed);
 		}
-		return _static(unbox(methodObject), unbox(classObject), new Object[0]);
+		return _static(unbox(methodObject), unbox(classObject));
 	}
 
 	static Boolean DEBUG;

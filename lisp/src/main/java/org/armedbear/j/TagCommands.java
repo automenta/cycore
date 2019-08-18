@@ -21,13 +21,13 @@
 
 package org.armedbear.j;
 
-import java.awt.AWTEvent;
+import javax.swing.*;
+import javax.swing.undo.CompoundEdit;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import javax.swing.SwingUtilities;
-import javax.swing.undo.CompoundEdit;
 
 public final class TagCommands implements Constants
 {

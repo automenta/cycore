@@ -34,19 +34,17 @@
 
 package org.armedbear.lisp;
 
-import static org.armedbear.lisp.Lisp.NIL;
-import static org.armedbear.lisp.Lisp.PACKAGE_CL;
-import static org.armedbear.lisp.Lisp._SOURCE_;
-import static org.armedbear.lisp.Lisp._WARN_ON_REDEFINITION_;
+import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLMain;
+import com.cyc.tool.subl.util.SubLFiles.VariableAccessMode;
+import cyc.CYC;
+import org.armedbear.lisp.util.Finalizer;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
 
-import org.armedbear.lisp.util.Finalizer;
-//import org.logicmoo.system.//BeanShellCntrl.SpecialMethod;
+import static org.armedbear.lisp.Lisp.*;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.SubLMain;
-import com.cyc.tool.subl.util.SubLFiles.VariableAccessMode;
+//import org.logicmoo.system.//BeanShellCntrl.SpecialMethod;
 
 public final class Primitives {
     // ### *
@@ -1752,7 +1750,7 @@ public final class Primitives {
 
         @Override
         @SuppressWarnings("CallToThreadDumpStack")
-        public LispObject execute(LispObject[] args) {
+        public LispObject execute(LispObject... args) {
             Error e = new IntegrityError();
 
             e.printStackTrace();
@@ -5452,7 +5450,7 @@ public final class Primitives {
 
         @Override
         public LispObject execute() {
-            return number(System.currentTimeMillis() - Main.startTimeMillis);
+            return number(System.currentTimeMillis() - CYC.startTimeMillis);
         }
     };
 

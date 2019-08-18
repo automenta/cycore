@@ -21,11 +21,9 @@
 
 package org.armedbear.j;
 
+import javax.swing.*;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
 
 public final class DescribeKeyDialog extends AbstractDialog
 {

@@ -1,14 +1,13 @@
 /* For LarKC */
 package com.cyc.tool.subl.jrtl.nativeCode.type.stream;
 
-import java.io.File;
-import java.io.FileDescriptor;
-
+import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
+import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
 import org.armedbear.lisp.Keyword;
 import org.armedbear.lisp.Symbol;
 
-import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.nativeCode.type.symbol.SubLSymbol;
+import java.io.File;
+import java.io.FileDescriptor;
 
 public class SubLSynonymStream extends AbstractRandomAccessSubLStream {
 	public SubLSynonymStream(SubLSymbol streamSymbol) {

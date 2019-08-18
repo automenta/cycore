@@ -23,6 +23,7 @@ package org.armedbear.j;
 
 import gnu.regexp.RE;
 import gnu.regexp.REException;
+
 import java.lang.reflect.Method;
 
 public final class ModeListEntry

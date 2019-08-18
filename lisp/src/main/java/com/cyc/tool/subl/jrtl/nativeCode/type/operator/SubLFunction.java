@@ -3,12 +3,7 @@
 //
 package com.cyc.tool.subl.jrtl.nativeCode.type.operator;
 
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.BinaryFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.QuataryFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.QuintaryFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.TernaryFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.UnaryFunction;
-import com.cyc.tool.subl.jrtl.nativeCode.subLisp.ZeroArityFunction;
+import com.cyc.tool.subl.jrtl.nativeCode.subLisp.*;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLCons;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLEnvironment;
 import com.cyc.tool.subl.jrtl.nativeCode.type.core.SubLList;

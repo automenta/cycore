@@ -21,9 +21,9 @@
 
 package org.armedbear.j;
 
-import java.awt.Color;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
-import javax.swing.JPopupMenu;
 
 /**
  * Mode is an interface for defining modes.  A mode is a set of rules that

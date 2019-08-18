@@ -1,11 +1,13 @@
 package org.jpl7;
 
+import org.jpl7.fli.Prolog;
+import org.jpl7.fli.term_t;
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Map;
 
-import org.jpl7.fli.Prolog;
-import org.jpl7.fli.term_t;
+import static org.jpl7.Atom.EmptyTermArray;
 
 /**
  * Double is a specialised Term representing a Prolog double value; if the value fits, it is held in a double field,
@@ -49,8 +51,8 @@ import org.jpl7.fli.term_t;
  */
 public class Float extends Term
 {
-	private static BigDecimal BIG_MIN_LONG = BigDecimal.valueOf(java.lang.Double.MIN_VALUE);
-	private static BigDecimal BIG_MAX_LONG = BigDecimal.valueOf(java.lang.Double.MAX_VALUE);
+	private static final BigDecimal BIG_MIN_LONG = BigDecimal.valueOf(java.lang.Double.MIN_VALUE);
+	private static final BigDecimal BIG_MAX_LONG = BigDecimal.valueOf(java.lang.Double.MAX_VALUE);
 
 	public final Number toJavaObject()
 	{
@@ -110,7 +112,7 @@ public class Float extends Term
 	@Override
 	public Term[] args()
 	{
-		return new Term[] {};
+		return EmptyTermArray;
 	}
 
 	/**
