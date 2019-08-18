@@ -139,7 +139,7 @@ public class Functions extends SubLTrampolineFile {
 		if (lastList != SubLNil.NIL) {
 			SubLListListIterator iter = null;
 			try {
-				iter = resourcer.acquireSubLListListIterator(lastList.toList());
+				iter = Resourcer.acquireSubLListListIterator(lastList.toList());
 				while (iter.hasNext())
 					list.add(iter.nextSubLObject());
 			} finally {

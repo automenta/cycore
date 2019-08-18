@@ -41,9 +41,9 @@ public abstract class AbstractSubLList extends AbstractSubLSequence implements S
 		Resourcer resourcer = Resourcer.getInstance();
 		try {
 			args = resourcer.acquireSubLObjectArray(iteratorCount);
-			iterators[0] = resourcer.acquireSubLListListIterator(this);
+			iterators[0] = Resourcer.acquireSubLListListIterator(this);
 			for (int i = 0, size = moreLists.length; i < size; ++i)
-				iterators[i + 1] = resourcer.acquireSubLListListIterator(moreLists[i].toList());
+				iterators[i + 1] = Resourcer.acquireSubLListListIterator(moreLists[i].toList());
 			SubLListListIterator iter = null;
 			SubLObject curResult = null;
 			Block_5: while (true) {
@@ -127,7 +127,7 @@ public abstract class AbstractSubLList extends AbstractSubLSequence implements S
 		SubLListListIterator iter = null;
 		Resourcer resourcer = Resourcer.getInstance();
 		try {
-			iter = resourcer.acquireSubLListListIterator(this);
+			iter = Resourcer.acquireSubLListListIterator(this);
 			while (iter.hasNext()) {
 				SubLList curAssoc = iter.nextSubLObject().toList();
 				if (SubLNil.NIL != test.processItem(item, key.processItem(curAssoc.first()))) {
@@ -271,7 +271,7 @@ public abstract class AbstractSubLList extends AbstractSubLSequence implements S
 			int hashCode = 0;
 			try {
 				int index;
-				for (index = 0, iter = resourcer.acquireSubLListListIterator(this); iter.hasNext()
+				for (index = 0, iter = Resourcer.acquireSubLListListIterator(this); iter.hasNext()
 						&& !iter.isNextImproperElement() && index++ < 8; ++index)
 					hashCode ^= iter.nextSubLObject().hashCode(currentDepth + 1);
 				if (iter.isNextImproperElement())
@@ -546,7 +546,7 @@ public abstract class AbstractSubLList extends AbstractSubLSequence implements S
 					int printLength = PrintLow.maxPrintLength();
 					int counter = 0;
 					boolean terminatedEarly = false;
-					iter = resourcer.acquireSubLListListIterator(this);
+					iter = Resourcer.acquireSubLListListIterator(this);
 					while (iter.hasNext() && !iter.isNextImproperElement()) {
 						buf.append(iter.next());
 						if (checkLength && ++counter >= printLength) {

@@ -63,7 +63,7 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 		SubLListListIterator iter = null;
 		Resourcer resourcer = Resourcer.getInstance();
 		try {
-			iter = resourcer.acquireSubLListListIterator(specialForm, 1);
+			iter = Resourcer.acquireSubLListListIterator(specialForm, 1);
 			while (iter.hasNext()) {
 				item = iter.nextSubLObject();
 				if (item.eval(env) == SubLNil.NIL)
@@ -81,7 +81,7 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 		SubLListListIterator iter = null;
 		Resourcer resourcer = Resourcer.getInstance();
 		try {
-			iter = resourcer.acquireSubLListListIterator(specialForm, 1);
+			iter = Resourcer.acquireSubLListListIterator(specialForm, 1);
 			SubLObject tagForm = iter.nextSubLObject();
 			SubLSymbol var = (SubLSymbol) iter.next();
 			SubLObject tag = tagForm.eval(env);
@@ -154,7 +154,7 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 		SubLEnvironment newEnv = env.extend();
 		SubLListListIterator bodyIter = null;
 		try {
-			bodyIter = resourcer.acquireSubLListListIterator(forms, 1);
+			bodyIter = Resourcer.acquireSubLListListIterator(forms, 1);
 			SubLObject varSpec = bodyIter.nextSubLObject();
 			SubLSymbol keyVar = varSpec.first().toSymbol();
 
@@ -187,7 +187,7 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 		SubLEnvironment newEnv = env.extend();
 		SubLListListIterator bodyIter = null;
 		try {
-			bodyIter = resourcer.acquireSubLListListIterator(forms, 1);
+			bodyIter = Resourcer.acquireSubLListListIterator(forms, 1);
 			SubLObject varSpec = bodyIter.nextSubLObject();
 			SubLSymbol keyVar = varSpec.first().toSymbol();
 
@@ -222,7 +222,7 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 		SubLEnvironment newEnv = env.extend();
 		SubLListListIterator bodyIter = null;
 		try {
-			bodyIter = resourcer.acquireSubLListListIterator(forms, 1);
+			bodyIter = Resourcer.acquireSubLListListIterator(forms, 1);
 			SubLObject varSpec = bodyIter.nextSubLObject();
 			SubLSymbol keyVar = varSpec.first().toSymbol();
 
@@ -267,7 +267,7 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 		ArrayList oldDynamicValues = null;
 		SubLEnvironment newEnv = env.extend();
 		try {
-			bodyIter = resourcer.acquireSubLListListIterator(forms, 1);
+			bodyIter = Resourcer.acquireSubLListListIterator(forms, 1);
 			SubLObject varSpec = bodyIter.nextSubLObject();
 			SubLSymbol keyVar = varSpec.first().toSymbol();
 			SubLSymbol valueVar = varSpec.second().toSymbol();
@@ -308,11 +308,11 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 		ArrayList oldDynamicValues = null;
 		SubLEnvironment newEnv = env.extend();
 		try {
-			iter = resourcer.acquireSubLListListIterator(forms, 1);
+			iter = Resourcer.acquireSubLListListIterator(forms, 1);
 			SubLObject varSpec = iter.nextSubLObject();
 			SubLSymbol symbol = varSpec.first().toSymbol();
 			SubLList list = varSpec.second().eval(env).toList();
-			iter2 = resourcer.acquireSubLListListIterator(list);
+			iter2 = Resourcer.acquireSubLListListIterator(list);
 			SubLObject oldDynamicValue = newEnv.noteBinding(symbol, SubLNil.NIL);
 			oldDynamicValues = possiblyNoteOldDynamicValue(symbol, oldDynamicValue, oldDynamicValues);
 			while (iter2.hasNext()) {
@@ -337,7 +337,7 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 		ArrayList oldDynamicValues = null;
 		SubLEnvironment newEnv = env.extend();
 		try {
-			iter = resourcer.acquireSubLListListIterator(forms, 1);
+			iter = Resourcer.acquireSubLListListIterator(forms, 1);
 			if (!iter.hasNext())
 				throw new InvalidSubLExpressionException("CDOTIMES was not passed enough arguments.");
 			SubLList varDeclList = iter.nextSubLObject().toList();
@@ -385,7 +385,7 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 		Resourcer resourcer = Resourcer.getInstance();
 		ArrayList oldDynamicValues = null;
 		try {
-			iter = resourcer.acquireSubLListListIterator(bindings);
+			iter = Resourcer.acquireSubLListListIterator(bindings);
 			while (iter.hasNext()) {
 				SubLObject binding = iter.nextSubLObject();
 				if (binding.isCons()) {
@@ -408,7 +408,7 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 				}
 			}
 			resourcer.releaseSubLListListIterator(iter);
-			iter = resourcer.acquireSubLListListIterator(specialForm, 2);
+			iter = Resourcer.acquireSubLListListIterator(specialForm, 2);
 			value = list_progn(iter, newEnv);
 		} finally {
 			possiblyRebindDynamics(oldDynamicValues);
@@ -428,12 +428,12 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 		ArrayList oldDynamicValues = null;
 		SubLEnvironment newEnv = env.extend();
 		try {
-			iter = resourcer.acquireSubLListListIterator(specialForm, 1);
+			iter = Resourcer.acquireSubLListListIterator(specialForm, 1);
 			SubLList vars = iter.nextSubLObject().toList();
 			SubLObject form = iter.nextSubLObject();
 			Values.resetMultipleValues();
 			SubLObject firstValue = form.eval(env);
-			iter2 = resourcer.acquireSubLListListIterator(vars);
+			iter2 = Resourcer.acquireSubLListListIterator(vars);
 			if (vars != SubLNil.NIL) {
 				int varIndex = 0;
 				SubLSymbol var = iter2.nextSubLObject().toSymbol();
@@ -465,7 +465,7 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 		SubLListListIterator iter = null;
 		Resourcer resourcer = Resourcer.getInstance();
 		try {
-			iter = resourcer.acquireSubLListListIterator(specialForm, 1);
+			iter = Resourcer.acquireSubLListListIterator(specialForm, 1);
 			while (iter.hasNext()) {
 				item = iter.nextSubLObject();
 				item = item.eval(env);
@@ -546,7 +546,7 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 		SubLListListIterator iter = null;
 		Resourcer resourcer = Resourcer.getInstance();
 		try {
-			iter = resourcer.acquireSubLListListIterator(specialForm, 1);
+			iter = Resourcer.acquireSubLListListIterator(specialForm, 1);
 			if (!iter.hasNext())
 				Errors.error(
 						"CSETQ expects at least 2 arguments\nit was given " + iter.itemsRemaining() + "arguments.");
@@ -572,12 +572,12 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 		ArrayList oldDynamicValues = null;
 		SubLEnvironment newEnv = env.extend();
 		try {
-			iter = resourcer.acquireSubLListListIterator(specialForm, 1);
+			iter = Resourcer.acquireSubLListListIterator(specialForm, 1);
 			SubLObject varSpec = iter.nextSubLObject();
 			SubLSymbol symbol = varSpec.first().toSymbol();
 			SubLSymbol done = varSpec.third().toSymbol();
 			SubLList list = varSpec.second().eval(env).toList();
-			iter2 = resourcer.acquireSubLListListIterator(list);
+			iter2 = Resourcer.acquireSubLListListIterator(list);
 			SubLObject oldDynamicValue = newEnv.noteBinding(symbol, SubLNil.NIL);
 			oldDynamicValues = possiblyNoteOldDynamicValue(symbol, oldDynamicValue, oldDynamicValues);
 			while (iter2.hasNext() && done.eval(newEnv) == SubLNil.NIL) {
@@ -600,7 +600,7 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 		Resourcer resourcer = Resourcer.getInstance();
 		try {
 			SubLSymbol var = specialForm.second().toSymbol();
-			iter = resourcer.acquireSubLListListIterator(specialForm, 2);
+			iter = Resourcer.acquireSubLListListIterator(specialForm, 2);
 			long startTime = System.nanoTime();
 			SubLObject value = list_progn(iter, env);
 			long endTime = System.nanoTime();
@@ -627,7 +627,7 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 				SubLObject vals = Values.getValuesAsVector();
 				try {
 					Threads.$is_thread_performing_cleanupP$.bind(CommonSymbols.T, allThreadBindings);
-					iter = resourcer.acquireSubLListListIterator(specialForm, 2);
+					iter = Resourcer.acquireSubLListListIterator(specialForm, 2);
 					list_progn(iter, env);
 					Values.restoreValuesFromVector(vals);
 				} finally {
@@ -670,7 +670,7 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 		SubLListListIterator iter = null;
 		Resourcer resourcer = Resourcer.getInstance();
 		try {
-			iter = resourcer.acquireSubLListListIterator(specialForm, 1);
+			iter = Resourcer.acquireSubLListListIterator(specialForm, 1);
 			SubLSymbol name = iter.nextSubLObject().toSymbol();
 			SubLList arglist = iter.nextSubLObject().toList();
 			SubLCons lambdaExpression = SubLObjectFactory.makeListS(CommonSymbols.LAMBDA_SYMBOL, arglist, iter);
@@ -695,7 +695,7 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 		SubLListListIterator iter = null;
 		Resourcer resourcer = Resourcer.getInstance();
 		try {
-			iter = resourcer.acquireSubLListListIterator(specialForm, 1);
+			iter = Resourcer.acquireSubLListListIterator(specialForm, 1);
 			SubLSymbol name = iter.nextSubLObject().toSymbol();
 			SubLList arglist = iter.nextSubLObject().toList();
 			SubLCons lambdaExpression = ConsesLow.list(CommonSymbols.LAMBDA_SYMBOL,
@@ -752,7 +752,7 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 				Resourcer resourcer = Resourcer.getInstance();
 				try {
 					args = resourcer.acquireSubLObjectArray(nargs);
-					iter = resourcer.acquireSubLListListIterator(specialForm, 3);
+					iter = Resourcer.acquireSubLListListIterator(specialForm, 3);
 					int i = 0;
 					while (iter.hasNext())
 						args[i++] = iter.nextSubLObject().eval(env);
@@ -880,13 +880,13 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 		SubLListListIterator iter = null;
 		Resourcer resourcer = Resourcer.getInstance();
 		try {
-			iter = resourcer.acquireSubLListListIterator(specialForm, 1);
+			iter = Resourcer.acquireSubLListListIterator(specialForm, 1);
 			while (iter.hasNext()) {
 				SubLList clause = iter.nextSubLObject().toList();
 				SubLObject value = clause.first().eval(env);
 				if (value != SubLNil.NIL) {
 					resourcer.releaseSubLListListIterator(iter);
-					iter = resourcer.acquireSubLListListIterator(clause, 1);
+					iter = Resourcer.acquireSubLListListIterator(clause, 1);
 					if (iter.hasNext())
 						return list_progn(iter, env);
 					return value;
@@ -973,7 +973,7 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 		SubLListListIterator iter = null;
 		Resourcer resourcer = Resourcer.getInstance();
 		try {
-			iter = resourcer.acquireSubLListListIterator(specialForm, 1);
+			iter = Resourcer.acquireSubLListListIterator(specialForm, 1);
 			return list_progn(iter, env);
 		} finally {
 			resourcer.releaseSubLListListIterator(iter);
@@ -986,7 +986,7 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 			SubLListListIterator iter = null;
 			Resourcer resourcer = Resourcer.getInstance();
 			try {
-				iter = resourcer.acquireSubLListListIterator(specialForm, 2);
+				iter = Resourcer.acquireSubLListListIterator(specialForm, 2);
 				return list_progn(iter, env);
 			} finally {
 				resourcer.releaseSubLListListIterator(iter);
@@ -1001,7 +1001,7 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 			SubLListListIterator iter = null;
 			Resourcer resourcer = Resourcer.getInstance();
 			try {
-				iter = resourcer.acquireSubLListListIterator(specialForm, 2);
+				iter = Resourcer.acquireSubLListListIterator(specialForm, 2);
 				return list_progn(iter, env);
 			} finally {
 				resourcer.releaseSubLListListIterator(iter);
@@ -1046,7 +1046,7 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 				SubLListListIterator iter = null;
 				Resourcer resourcer = Resourcer.getInstance();
 				try {
-					iter = resourcer.acquireSubLListListIterator(specialForm, 2);
+					iter = Resourcer.acquireSubLListListIterator(specialForm, 2);
 					return list_progn(iter, env);
 				} finally {
 					resourcer.releaseSubLListListIterator(iter);
@@ -1076,7 +1076,7 @@ public class SubLSpecialOperatorDeclarations extends SubLTrampolineFile {
 		SubLListListIterator iter = null;
 		Resourcer resourcer = Resourcer.getInstance();
 		try {
-			iter = resourcer.acquireSubLListListIterator(forms);
+			iter = Resourcer.acquireSubLListListIterator(forms);
 			return list_progn(iter, env);
 		} finally {
 			resourcer.releaseSubLListListIterator(iter);

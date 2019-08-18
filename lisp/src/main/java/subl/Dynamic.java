@@ -92,7 +92,7 @@ public class Dynamic extends SubLTrampolineFile {
 	SubLListListIterator iter = null;
 	Resourcer resourcer = Resourcer.getInstance();
 	try {
-	    iter = resourcer.acquireSubLListListIterator(variablesTyped);
+	    iter = Resourcer.acquireSubLListListIterator(variablesTyped);
 	    int oldIndex = 0;
 	    SubLSymbol variable = null;
 	    while (iter.hasNext()) {

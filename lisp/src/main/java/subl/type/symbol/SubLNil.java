@@ -663,9 +663,9 @@ abstract public class SubLNil extends Symbol implements SubLList, SubLSymbol, Su
         Resourcer resourcer = Resourcer.getInstance();
         try {
             args = resourcer.acquireSubLObjectArray(iteratorCount);
-            iterators[0] = resourcer.acquireSubLListListIterator(this);
+            iterators[0] = Resourcer.acquireSubLListListIterator(this);
             for (int i = 0, size = moreLists.length; i < size; ++i)
-                iterators[i + 1] = resourcer.acquireSubLListListIterator(moreLists[i].toList());
+                iterators[i + 1] = Resourcer.acquireSubLListListIterator(moreLists[i].toList());
             SubLListListIterator iter = null;
             SubLObject curResult = null;
             Block_5: while (true) {
@@ -749,7 +749,7 @@ abstract public class SubLNil extends Symbol implements SubLList, SubLSymbol, Su
         SubLListListIterator iter = null;
         Resourcer resourcer = Resourcer.getInstance();
         try {
-            iter = resourcer.acquireSubLListListIterator(this);
+            iter = Resourcer.acquireSubLListListIterator(this);
             while (iter.hasNext()) {
                 SubLList curAssoc = iter.nextSubLObject().toList();
                 if (this != test.processItem(item, key.processItem(curAssoc.first()))) {

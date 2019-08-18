@@ -17,7 +17,7 @@ public class ConsesLow extends SubLTrampolineFile {
 	    SubLObject list = lists[i].toList();
 	    if (list != SubLNil.NIL)
 		try {
-		    iter = resourcer.acquireSubLListListIterator(list.toList());
+		    iter = Resourcer.acquireSubLListListIterator(list.toList());
 		    while (iter.hasNext() && !iter.isNextImproperElement()) {
 			SubLObject item = iter.nextSubLObject();
 			if (result == SubLNil.NIL)

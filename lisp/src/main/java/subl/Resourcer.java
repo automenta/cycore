@@ -164,11 +164,11 @@ public class Resourcer extends RuntimeException {
 	}
 
 	public static SubLListListIterator acquireSubLListListIterator(SubLList list) {
-		return this.acquireSubLListListIterator(list, 0, -1);
+		return Resourcer.acquireSubLListListIterator(list, 0, -1);
 	}
 
 	public static SubLListListIterator acquireSubLListListIterator(SubLList list, int start) {
-		return this.acquireSubLListListIterator(list, start, list == null ? 0 : -1);
+		return Resourcer.acquireSubLListListIterator(list, start, list == null ? 0 : -1);
 	}
 
 	public static SubLListListIterator acquireSubLListListIterator(SubLList list, int start, int end) {

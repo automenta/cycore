@@ -315,7 +315,7 @@ public class SubLArrayList extends AbstractSubLList implements SubLCons, SubLLis
         SubLListListIterator iter = null;
         Resourcer resourcer = Resourcer.getInstance();
         try {
-            iter = resourcer.acquireSubLListListIterator(this);
+            iter = Resourcer.acquireSubLListListIterator(this);
             int i = 0;
             while (iter.hasNext()) {
                 currentItem = iter.nextSubLObject();
@@ -340,7 +340,7 @@ public class SubLArrayList extends AbstractSubLList implements SubLCons, SubLLis
         SubLListListIterator iter = null;
         Resourcer resourcer = Resourcer.getInstance();
         try {
-            iter = resourcer.acquireSubLListListIterator(this);
+            iter = Resourcer.acquireSubLListListIterator(this);
             int i = 0;
             while (iter.hasNext()) {
                 currentItem = iter.nextSubLObject();
@@ -515,7 +515,7 @@ public class SubLArrayList extends AbstractSubLList implements SubLCons, SubLLis
             SubLListListIterator iter = null;
             Resourcer resourcer = Resourcer.getInstance();
             try {
-                iter = resourcer.acquireSubLListListIterator(dottedElement.toList());
+                iter = Resourcer.acquireSubLListListIterator(dottedElement.toList());
                 while (iter.hasNext() && !iter.isNextImproperElement())
                     this.addItem(iter.next());
                 if (iter.isNextImproperElement())

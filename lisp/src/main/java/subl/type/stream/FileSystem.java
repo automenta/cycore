@@ -19,7 +19,7 @@ public class FileSystem {
 		Resourcer resourcer = Resourcer.getInstance();
 		SubLListListIterator iter = null;
 		try {
-			iter = resourcer.acquireSubLListListIterator(directoryList);
+			iter = Resourcer.acquireSubLListListIterator(directoryList);
 			while (iter.hasNext()) {
 				SubLString directoryName = iter.nextSubLObject().toStr();
 				parentName.append(directoryName.getStringValue());

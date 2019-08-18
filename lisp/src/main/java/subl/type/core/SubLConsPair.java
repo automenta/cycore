@@ -362,8 +362,8 @@ abstract public class SubLConsPair extends LispObject implements SubLCons, SubLL
         SubLListListIterator iter2 = null;
         Resourcer resourcer = Resourcer.getInstance();
         try {
-            iter = resourcer.acquireSubLListListIterator(this, start1, end1);
-            iter2 = resourcer.acquireSubLListListIterator(otherSeq.toList(), start2, end2);
+            iter = Resourcer.acquireSubLListListIterator(this, start1, end1);
+            iter2 = Resourcer.acquireSubLListListIterator(otherSeq.toList(), start2, end2);
             while (iter.hasNext() && iter2.hasNext()) {
                 SubLObject obj1 = iter.nextSubLObject();
                 SubLObject obj2 = iter2.nextSubLObject();
@@ -827,8 +827,8 @@ abstract public class SubLConsPair extends LispObject implements SubLCons, SubLL
         SubLListListIterator iter2 = null;
         Resourcer resourcer = Resourcer.getInstance();
         try {
-            iter = resourcer.acquireSubLListListIterator(this, start1, end1);
-            iter2 = resourcer.acquireSubLListListIterator(seq.toList(), start2, end2);
+            iter = Resourcer.acquireSubLListListIterator(this, start1, end1);
+            iter2 = Resourcer.acquireSubLListListIterator(seq.toList(), start2, end2);
             while (iter.hasNext() && iter2.hasNext()) {
                 currentItem = iter.nextSubLObject();
                 SubLObject currentItem2 = iter2.nextSubLObject();
@@ -869,8 +869,8 @@ abstract public class SubLConsPair extends LispObject implements SubLCons, SubLL
         Resourcer resourcer = Resourcer.getInstance();
         SubLList list2 = otherSeq.toList();
         try {
-            iter = resourcer.acquireSubLListListIterator(this);
-            iter2 = resourcer.acquireSubLListListIterator(list2);
+            iter = Resourcer.acquireSubLListListIterator(this);
+            iter2 = Resourcer.acquireSubLListListIterator(list2);
             for (int i = start2, size3 = end2 - (end1 - start1) + 1; i < size3; ++i) {
                 hasMatch = true;
                 answer = i;
@@ -1160,7 +1160,7 @@ abstract public class SubLConsPair extends LispObject implements SubLCons, SubLL
         SubLListListIterator iter = null;
         Resourcer resourcer = Resourcer.getInstance();
         try {
-            iter = resourcer.acquireSubLListListIterator(this);
+            iter = Resourcer.acquireSubLListListIterator(this);
             while (iter.hasNext()) {
                 SubLList curAssoc = iter.nextSubLObject().toList();
                 if (SubLNil.NIL != test.processItem(item, key.processItem(curAssoc.first()))) {
@@ -1398,9 +1398,9 @@ abstract public class SubLConsPair extends LispObject implements SubLCons, SubLL
         Resourcer resourcer = Resourcer.getInstance();
         try {
             args = resourcer.acquireSubLObjectArray(iteratorCount);
-            iterators[0] = resourcer.acquireSubLListListIterator(this);
+            iterators[0] = Resourcer.acquireSubLListListIterator(this);
             for (int i = 0, size = moreLists.length; i < size; ++i)
-                iterators[i + 1] = resourcer.acquireSubLListListIterator(moreLists[i].toList());
+                iterators[i + 1] = Resourcer.acquireSubLListListIterator(moreLists[i].toList());
             SubLListListIterator iter = null;
             SubLObject curResult = null;
             Block_5: while (true) {
