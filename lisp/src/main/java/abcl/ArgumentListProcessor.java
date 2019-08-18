@@ -189,7 +189,7 @@ public class ArgumentListProcessor {
         int state = STATE_REQUIRED;
         LispObject remaining = lambdaList;
 
-        if (remaining.car() == Symbol.AND_WHOLE) {
+        if (remaining.car() == AND_WHOLE) {
             if (type == LambdaListType.ORDINARY) {
               program_error("&WHOLE not allowed in ordinary lambda lists.");
             } else {
@@ -204,7 +204,7 @@ public class ArgumentListProcessor {
             LispObject obj = remaining.car();
             if (obj instanceof Symbol)
               {
-                if (obj == Symbol.AND_WHOLE) {
+                if (obj == AND_WHOLE) {
                     if (type == LambdaListType.ORDINARY)
                       program_error("&WHOLE not allowed in ordinary lambda lists.");
                     else
@@ -217,18 +217,18 @@ public class ArgumentListProcessor {
                     aux.add(new AuxParam((Symbol)obj,
                             isSpecial((Symbol)obj, specials), NIL));
                   }
-                else if (obj == Symbol.AND_OPTIONAL)
+                else if (obj == AND_OPTIONAL)
                   {
                     state = STATE_OPTIONAL;
                     arity = -1;
                   }
-                else if (obj == Symbol.AND_REST || obj == Symbol.AND_BODY)
+                else if (obj == AND_REST || obj == AND_BODY)
                   {
                     if (_andKey)
                       {
                         program_error("&REST/&BODY must precede &KEY.");
                       }
-                    if (type == LambdaListType.ORDINARY && obj == Symbol.AND_BODY)
+                    if (type == LambdaListType.ORDINARY && obj == AND_BODY)
                       program_error("&BODY not allowed in ordinary lambda lists.");
                     state = STATE_REST;
                     arity = -1;
@@ -253,7 +253,7 @@ public class ArgumentListProcessor {
                         program_error("&REST/&BODY must be followed by a variable.");
                       }
                   }
-                else if (obj == Symbol.AND_ENVIRONMENT)
+                else if (obj == AND_ENVIRONMENT)
                   {
                     if (type == LambdaListType.ORDINARY)
                       program_error("&ENVIRONMENT not allowed in ordinary lambda lists.");
@@ -262,18 +262,18 @@ public class ArgumentListProcessor {
                     envParam = new EnvironmentParam(envVar, isSpecial(envVar, specials));
                     arity = -1; // FIXME
                   }
-                else if (obj == Symbol.AND_KEY)
+                else if (obj == AND_KEY)
                   {
                     state = STATE_KEYWORD;
                     _andKey = true;
                     arity = -1;
                   }
-                else if (obj == Symbol.AND_ALLOW_OTHER_KEYS)
+                else if (obj == AND_ALLOW_OTHER_KEYS)
                   {
                     _allowOtherKeys = true;
                     maxArgs = -1;
                   }
-                else if (obj == Symbol.AND_AUX)
+                else if (obj == AND_AUX)
                   {
                     // All remaining specifiers are aux variable specifiers.
                     state = STATE_AUX;

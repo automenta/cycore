@@ -33,169 +33,129 @@
 
 package abcl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 import static abcl.Lisp.*;
 
-public final class Packages
-{
-  private static final ArrayList<Package> packages = new ArrayList<Package>();
-  private static final HashMap<String,Package> map = new HashMap<String,Package>();
+public final class Packages {
+	private static final Map<String, Package> map = new ConcurrentHashMap<String, Package>();
 
-  public static final synchronized Package createPackage(String name)
-  {
-    return createPackage(name, 0);
-  }
+	public static final Package createPackage(String name) {
+		return createPackage(name, 0);
+	}
 
-  public static final synchronized Package createPackage(String name, int size)
-  {
-	  Package pkg = (Package) map.get(name);
-    if (pkg == null)
-      {
-        pkg = size != 0 ? new Package(name, size) : new Package(name);
-        packages.add(pkg);
-        map.put(name, pkg);
-      }
-    else
-      Debug.trace("package " + name + " already exists");
-    return pkg;
-  }
+	public static final Package createPackage(String name, int size) {
+		return setPackage(name, new Package(name, size));
+	}
+
+	private static Package setPackage(String name, Package p) {
+		Package exists = map.putIfAbsent(name, p);
+		if (exists!=null)
+			Debug.trace("package " + name + " already exists");
+		return exists!=null ? exists : p;
+	}
 
 
-  public static final Package findOrCreatePackage(String name, int size)
-  {
-	  synchronized(map) {
-	  Package pkg = (Package) map.get(name);
-    if (pkg == null)
-      {
-        pkg = new Package(name, size);
-        packages.add(pkg);
-        map.put(name, pkg);
-      }
-    return pkg;
-	  }
-  }
+	public static final Package findOrCreatePackage(String name, int size) {
+		return map.computeIfAbsent(name, (n)->{
+			return size != 0 ? new Package(n, size) : new Package(n);
+		});
+	}
 
 
-  public static final synchronized void addPackage(Package pkg)
+	@Deprecated public static final synchronized void addPackage(Package pkg) {
+		final String name = pkg.getName();
+		if (map.get(name) != null) {
+			error(new LispError("A package named " + name + " already exists."));
+			return;
+		}
+		map.put(name, pkg);
+		List nicknames = pkg.getNicknames();
+		if (nicknames != null) {
+			for (Iterator it = nicknames.iterator(); it.hasNext(); ) {
+				String nickname = (String) it.next();
+				addNickname(pkg, nickname);
+			}
+		}
+	}
 
-  {
-    final String name = pkg.getName();
-    if (map.get(name) != null)
-      {
-        error(new LispError("A package named " + name + " already exists."));
-        return;
-      }
-    packages.add(pkg);
-    map.put(name, pkg);
-    List nicknames = pkg.getNicknames();
-    if (nicknames != null)
-      {
-        for (Iterator it = nicknames.iterator(); it.hasNext();)
-          {
-            String nickname = (String) it.next();
-            addNickname(pkg, nickname);
-          }
-      }
-  }
+	/**
+	 * Returns the current package of the current LispThread.
+	 * <p>
+	 * Intended to be used from Java code manipulating an Interpreter
+	 * instance.
+	 */
+	public static final Package findPackage(String name) {
+		return getCurrentPackage().findPackage(name);
+	}
 
-  /**
-      Returns the current package of the current LispThread.
+	// Finds package named `name'.  Returns null if package doesn't exist.
+	// Called by Package.findPackage after checking package-local package
+	// nicknames.
+	public static final Package findPackageGlobally(String name) {
+		return map.get(name);
+	}
 
-      Intended to be used from Java code manipulating an Interpreter
-      instance.
-  */
-  public static final synchronized Package findPackage(String name) {
-    return getCurrentPackage().findPackage(name);
-  }
+//	public static final synchronized Package makePackage(String name) {
+//		if (map.get(name) != null) {
+//			error(new LispError("A package named " + name + " already exists."));
+//			// Not reached.
+//			return null;
+//		}
+//		Package pkg = new Package(name);
+//		map.put(name, pkg);
+//		return pkg;
+//	}
 
-  // Finds package named `name'.  Returns null if package doesn't exist.
-  // Called by Package.findPackage after checking package-local package
-  // nicknames.
-  public static final synchronized Package findPackageGlobally(String name)
-  {
-    return (Package) map.get(name);
-  }
+	public static final void addNickname(Package pkg, String nickname) {
+		setPackage(nickname, pkg);
+//		Object obj = map.get(nickname);
+//		if (obj != null && obj != pkg) {
+//			error(new PackageError("A package named " + nickname + " already exists."));
+//			return;
+//		}
+//		map.put(nickname, pkg);
+	}
 
-  public static final synchronized Package makePackage(String name)
+	// Removes name and nicknames from map, removes pkg from packages.
+	public static final boolean deletePackage(Package pkg) {
+		String name = pkg.getName();
+		if (name != null) {
+			map.remove(name);
+			List<String> nicknames = pkg.getNicknames();
+			if (nicknames != null) {
+				for (String nickname : nicknames) {
+					map.remove(nickname);
+				}
+			}
+			return true;
+		}
+		return false;
+	}
 
-  {
-    if (map.get(name) != null)
-      {
-        error(new LispError("A package named " + name + " already exists."));
-        // Not reached.
-        return null;
-      }
-    Package pkg = new Package(name);
-    packages.add(pkg);
-    map.put(name, pkg);
-    return pkg;
-  }
+	public static final LispObject listAllPackages() {
+		LispObject result = NIL;
+		for (Package pkg : packages()) {
+			result = new Cons(pkg, result);
+		}
+		return result;
+	}
 
-  public static final synchronized void addNickname(Package pkg, String nickname)
+	public static final LispObject getPackagesNicknamingPackage(Package thePackage) {
+		LispObject result = NIL;
+		for (Package pkg : packages()) {
+			for (Package nicknamedPackage : pkg.getLocallyNicknamedPackages()) {
+				if (thePackage.equalsObject(nicknamedPackage)) {
+					result = new Cons(pkg, result);
+				}
+			}
+		}
+		return result;
+	}
 
-  {
-    Object obj = map.get(nickname);
-    if (obj != null && obj != pkg)
-      {
-        error(new PackageError("A package named " + nickname + " already exists."));
-        return;
-      }
-    map.put(nickname, pkg);
-  }
-
-  // Removes name and nicknames from map, removes pkg from packages.
-  public static final synchronized boolean deletePackage(Package pkg)
-  {
-    String name = pkg.getName();
-    if (name != null)
-      {
-        map.remove(name);
-        List nicknames = pkg.getNicknames();
-        if (nicknames != null)
-          {
-            for (Iterator it = nicknames.iterator(); it.hasNext();)
-              {
-                String nickname = (String) it.next();
-                map.remove(nickname);
-              }
-          }
-        packages.remove(pkg);
-        return true;
-      }
-    return false;
-  }
-
-  public static final synchronized LispObject listAllPackages()
-  {
-    LispObject result = NIL;
-    for (Package pkg : packages) {
-      result = new Cons(pkg, result);
-    }
-    return result;
-  }
-
-  public static final synchronized Package[] getAllPackages()
-  {
-    Package[] array = new Package[packages.size()];
-    packages.toArray(array);
-    return array;
-  }
-
-  public static final synchronized LispObject getPackagesNicknamingPackage(Package thePackage)
-  {
-    LispObject result = NIL;
-    for (Package pkg : packages) {
-      for (Package nicknamedPackage : pkg.getLocallyNicknamedPackages()) {
-        if (thePackage.equalsObject(nicknamedPackage)) {
-          result = new Cons(pkg, result);
-        }
-      }
-    }
-    return result;
-  }
+	public static Collection<Package> packages() {
+		return map.values();
+	}
 
 }

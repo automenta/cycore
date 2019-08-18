@@ -1964,7 +1964,7 @@ public class Pathname extends NLispObject {
         public LispObject execute(LispObject arg) {
             Pathname pathname = coerceToPathname(arg);
             Pathname defaultPathname =
-                coerceToPathname(Symbol.DEFAULT_PATHNAME_DEFAULTS.symbolValue());
+                coerceToPathname(Lisp.DEFAULT_PATHNAME_DEFAULTS.symbolValue());
             LispObject defaultVersion = Keyword.NEWEST;
             return mergePathnames(pathname, defaultPathname, defaultVersion);
         }
@@ -2201,7 +2201,7 @@ public class Pathname extends NLispObject {
         if (!(pathname.isJar() || pathname.isURL())) {
             Pathname result
                 = mergePathnames(pathname,
-                                 coerceToPathname(Symbol.DEFAULT_PATHNAME_DEFAULTS.symbolValue()),
+                                 coerceToPathname(Lisp.DEFAULT_PATHNAME_DEFAULTS.symbolValue()),
                                  NIL);
             final File file = result.getFile();
             if (file.exists()) {
@@ -2250,7 +2250,7 @@ public class Pathname extends NLispObject {
                 // probably be to parametize the value of
                 // *DEFAULT-PATHNAME-DEFAULTS* on invocations of
                 // truename().
-                && !coerceToPathname(Symbol.DEFAULT_PATHNAME_DEFAULTS.symbolValue()).isJar())
+                && !coerceToPathname(Lisp.DEFAULT_PATHNAME_DEFAULTS.symbolValue()).isJar())
                 {
                 LispObject truename = Pathname.truename((Pathname)o, errorIfDoesNotExist);
                 if (truename != null && truename != NIL
@@ -2505,7 +2505,7 @@ public class Pathname extends NLispObject {
             }
             Pathname defaultedPathname =
                 mergePathnames(pathname,
-                               coerceToPathname(Symbol.DEFAULT_PATHNAME_DEFAULTS.symbolValue()),
+                               coerceToPathname(Lisp.DEFAULT_PATHNAME_DEFAULTS.symbolValue()),
                                NIL);
             if (defaultedPathname.isURL() || defaultedPathname.isJar()) {
                 return new FileError("Cannot mkdir with a "
@@ -2654,8 +2654,8 @@ public class Pathname extends NLispObject {
     }
 
     static {
-        LispObject obj = Symbol.DEFAULT_PATHNAME_DEFAULTS.getSymbolValue();
-        Symbol.DEFAULT_PATHNAME_DEFAULTS.setSymbolValue(coerceToPathname(obj));
+        LispObject obj = Lisp.DEFAULT_PATHNAME_DEFAULTS.getSymbolValue();
+        Lisp.DEFAULT_PATHNAME_DEFAULTS.setSymbolValue(coerceToPathname(obj));
     }
 
 

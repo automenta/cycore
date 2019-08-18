@@ -38,8 +38,6 @@ import subl.type.exception.InvalidSubLExpressionException;
 
 abstract public class Primitive extends Function {
 
-	public static final LispObject[] EmptyLispObjectArray = new LispObject[0];
-
 	@Override
 	public SubLObject eval(SubLEnvironment env) throws InvalidSubLExpressionException {
 		return this; // self-evaluating

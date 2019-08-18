@@ -50,7 +50,7 @@ public class UpdateZip
     if( didUpdateUnits )
       return;
     didUpdateUnits = true;
-    File fileDir = new File( "../platform/" );
+    File fileDir = new File( "./" );
     if( !fileDir.exists() )
     {
       throw new IOException( "Not exists dir " + fileDir );

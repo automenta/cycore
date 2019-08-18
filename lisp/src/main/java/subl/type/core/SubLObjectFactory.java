@@ -648,7 +648,7 @@ public class SubLObjectFactory {
     }
 
     public static SubLSymbol makeSublispSymbol(String symbolName) {
-	return makeSymbol(symbolName, SubLPackage.SUBLISP_PACKAGE.toPackage());
+		return makeSymbol(symbolName, SubLPackage.SUBLISP_PACKAGE.toPackage());
     }
 
     /**

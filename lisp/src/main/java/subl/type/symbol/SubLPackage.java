@@ -13,6 +13,9 @@ import java.io.ObjectStreamException;
 import java.util.*;
 
 abstract public class SubLPackage extends SLispObject implements SubLObject {
+    static {
+        SubLMain.preInitLisp();
+    }
 
     public static final String[] reserveSubLisp = { "*BREAK-ON-ERROR?*", "*BREAK-ON-WARN?*", "*CONTINUE-CERROR?*", "*DEBUG-IO*", "*DEFAULT-PATHNAME-DEFAULTS*", "*DOUBLE-FLOAT-MINIMUM-EXPONENT*",
             "*ERROR-ABORT-HANDLER*", "*ERROR-HANDLER*", "*ERROR-MESSAGE*", "*ERROR-OUTPUT*", "*EXP1*", "*FEATURES*", "*GENSYM-COUNTER*", "*IGNORE-BREAKS?*", "*IGNORE-MUSTS?*", "*IGNORE-WARNS?*",
@@ -325,10 +328,8 @@ abstract public class SubLPackage extends SLispObject implements SubLObject {
         // SubLNil.NIL);
         // SubLPackage.SUBLISP_PACKAGE.symbolNameToSymbolMap.put(SubLT.T.getSubLName(),
         // SubLT.T);
-        SubLMain.preInitLisp();
-        SUBLISP_PACKAGE = Lisp.PACKAGE_SUBLISP;
         CYC_PACKAGE = Lisp.PACKAGE_CYC;
-        KEYWORD_PACKAGE = Lisp.PACKAGE_KEYWORD;
+
         SUBLISP_PACKAGE.toPackage().importSymbol(SubLT.T);
         SUBLISP_PACKAGE.toPackage().importSymbol(Lisp.NIL);
         assert CYC_PACKAGE.findSymbol("T") == SubLT.T;
@@ -377,19 +378,17 @@ abstract public class SubLPackage extends SLispObject implements SubLObject {
     // private static HashMap<SubLString, SubLPackage> packageNameToPackageMap;
     // private static HashMap<String, SubLPackage>
     // packageNameToPackageMapNative;
-    private static Object PACKAGE_LOCK;
-    public static SubLPackage KEYWORD_PACKAGE;
-    public static SubLPackage SUBLISP_PACKAGE;
-    public static SubLPackage CYC_PACKAGE;
-    static {
+
+    private static final Object PACKAGE_LOCK= new Object();
+    public static final SubLPackage KEYWORD_PACKAGE = Lisp.PACKAGE_KEYWORD;
+    public static final SubLPackage SUBLISP_PACKAGE = Lisp.PACKAGE_SUBLISP;
+    public static SubLPackage CYC_PACKAGE = null;
+    //static {
         // retrievalStr = new RetrievalStr();
         // packageNameToPackageMap = new HashMap<SubLString, SubLPackage>(32);
         // packageNameToPackageMapNative = new HashMap<String, SubLPackage>(32);
-        PACKAGE_LOCK = new Object();
-        SubLPackage.KEYWORD_PACKAGE = null;
-        SubLPackage.SUBLISP_PACKAGE = null;
-        SubLPackage.CYC_PACKAGE = null;
-    }
+        //SubLPackage.CYC_PACKAGE = null;
+    //}
     //
     // private void addUsedBy(SubLPackage thePackage) {
     // synchronized (SubLPackage.PACKAGE_LOCK) {

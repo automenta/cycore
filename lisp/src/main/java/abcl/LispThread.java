@@ -39,7 +39,6 @@ import subl.type.core.SubLObjectFactory;
 import subl.type.core.SubLProcess;
 import subl.type.core.SubLString;
 import subl.util.SafeRunnable;
-import subl.util.SubLFiles;
 
 import java.io.PrintStream;
 import java.lang.ref.WeakReference;
@@ -1297,163 +1296,16 @@ public abstract class LispThread extends SLispObject {
 			return Thread.currentThread().getName();
 		}
 	};
-	private boolean enableTraceAll = false;
-	private boolean disableTrace = true;
-	private boolean traceSome = false;
+	boolean enableTraceAll = false;
+	boolean disableTrace = true;
+	boolean traceSome = false;
 
-	@DocString(name = "trace-lisp", args = "value &optional function")
-	private static final Primitive TRACE_LISP = new Primitive("trace-lisp", PACKAGE_EXT, true,
-			"value &optional function") {
-		@Override
-		public LispObject execute(LispObject[] args) {
-			LispThread thread = currentThread();
-			if (args == null || args.length == 0) {
-				if (thread.disableTrace) {
-					thread.disableTrace = false;
-				}
-				if (thread.traceSome)
-					args = new LispObject[] { T };
-			}
-			final LispObject arg0 = args[0];
-			PrintStream ps = thread.ps;
-			_TRACE_LISP_.setSymbolValue(arg0);
-			final boolean traceOn = !arg0.isNil();
-			thread.disableTrace = !traceOn;
-			if (traceOn) {
-				thread.enableTraceAll = arg0 == T;
-				if (!thread.enableTraceAll) {
-					thread.traceSome = true;
-				}
-			}
+	static Symbol _TRACE_LISP_;
 
-			// if (traceOn)
-			// new Throwable("FAKE TRACE_LISP: ").printStackTrace(ps);
-			LispThread olt = map.get(mainThread);
 
-			if (Packages.findPackage("SWANK") != null) {
-				Symbol sym = Symbol.PRINT_PPRINT_DISPATCH;
-				Symbol symb = (Symbol) Lisp
-						.readObjectFromString("swank::*backtrace-pprint-dispatch-table*".toUpperCase());
-				ps.println(olt + " " + symb + "=" + symb.symbolValue(olt));
-				ps.println(thread + " " + symb + "=" + symb.symbolValue(thread));
-				ps.println(olt + " " + sym + "=" + symb.symbolValue(olt));
-				ps.println(thread + " " + sym + "=" + symb.symbolValue(thread));
-			}
-
-			// Symbol.ERROR.setSymbolFunction(new signal_2());
-
-			return NIL;
-		}
-	};
-	static Symbol _TRACE_LISP_ = (Symbol) TRACE_LISP.getLambdaName();
-
-	static {
-		_TRACE_LISP_.setProcessScope(true);
-		_TRACE_LISP_.initializeSpecial(NIL);
-		Symbol.PRINT_PPRINT_DISPATCH.setProcessScope(false);
-	}
 	static Symbol INITIAL_BINDING = internKeyword("INITIAL-BINDING"), //
 			CSTACK_SIZE = internKeyword("CSTACK-SIZE"), //
 			VSTACK_SIZE = internKeyword("VSTACK-SIZE");
-
-	@DocString(name = "make-thread", args = "function &key name :INITIAL-BINDINGS :CSTACK-SIZE :VSTACK-SIZE")
-	private static final Primitive MAKE_THREAD = new Primitive("make-thread", PACKAGE_THREADS, true,
-			"function &key name :INITIAL-BINDINGS :CSTACK-SIZE :VSTACK-SIZE") {
-		@Override
-		public LispObject execute(LispObject[] args) {
-			final int length = args.length;
-			if (length == 0)
-				error(new WrongNumberOfArgumentsException(this, 1, -1));
-			if (length > 1) {
-				if ((length - 1) % 2 != 0)
-					program_error("Odd number of keyword arguments.");
-			}
-			long cstack = 0;
-			long vstack = 0;
-			LispObject name = SubLFiles.findKeyword(1, args, Keyword.NAME, () -> NIL);
-			if (name != NIL) {
-				name = name.STRING();
-			}
-			LispObject initialBindings = SubLFiles.findKeyword(1, args, INITIAL_BINDING,
-					() -> Symbol._DEFAULT_SPECIAL_BINDINGS_.symbolValue());
-			// else
-			// program_error("Unrecognized keyword argument "
-			// + args[1].princToString() + ".");
-			return new LispThreadImpl(checkFunction(args[0]), name, initialBindings, vstack, cstack);
-		}
-	};
-
-	@DocString(name = "threadp", args = "object", doc = "Boolean predicate testing if OBJECT is a thread.")
-	private static final Primitive THREADP = new Primitive("threadp", PACKAGE_THREADS, true) {
-		@Override
-		public LispObject execute(LispObject arg) {
-			return arg instanceof LispThread ? T : NIL;
-		}
-	};
-
-	@DocString(name = "thread-alive-p", args = "thread", doc = "Returns T if THREAD is alive.")
-	private static final Primitive THREAD_ALIVE_P = new Primitive("thread-alive-p", PACKAGE_THREADS, true, "thread",
-			"Boolean predicate whether THREAD is alive.") {
-		@Override
-		public LispObject execute(LispObject arg) {
-			final LispThread lispThread;
-			if (arg instanceof LispThread) {
-				lispThread = (LispThread) arg;
-			} else {
-				return type_error(arg, Symbol.THREAD);
-			}
-			return lispThread.javaThread.isAlive() ? T : NIL;
-		}
-	};
-
-	@DocString(name = "thread-active-p", args = "thread", doc = "Returns T if THREAD is alive.")
-	private static final Primitive THREAD_ACTIVE_P = new Primitive("thread-alive-p", PACKAGE_THREADS, true, "thread",
-			"Boolean predicate whether THREAD is already terminated.") {
-		@Override
-		public LispObject execute(LispObject arg) {
-			final LispThread lispThread;
-			if (arg instanceof LispThread) {
-				lispThread = (LispThread) arg;
-			} else {
-				return type_error(arg, Symbol.THREAD);
-			}
-			return lispThread.javaThread.isAlive() ? T : NIL;
-		}
-	};
-
-	@DocString(name = "thread-name", args = "thread", doc = "Return the name of THREAD, if it has one.")
-	private static final Primitive THREAD_NAME = new Primitive("thread-name", PACKAGE_THREADS, true) {
-		@Override
-		public LispObject execute(LispObject arg) {
-			if (arg instanceof LispThread) {
-				return ((LispThread) arg).name;
-			}
-			return type_error(arg, Symbol.THREAD);
-		}
-	};
-
-	private static final Primitive THREAD_JOIN = new Primitive("thread-join", PACKAGE_THREADS, true, "thread",
-			"Waits for thread to finish.") {
-		@Override
-		public LispObject execute(LispObject arg) {
-			// join the thread, and returns it's value. The second return
-			// value is T if the thread finishes normally, NIL if its
-			// interrupted.
-			if (arg instanceof LispThread) {
-				final LispThread joinedThread = (LispThread) arg;
-				final LispThread waitingThread = currentThread();
-				try {
-					joinedThread.javaThread.join();
-					return waitingThread.setValues(joinedThread.threadValue, T);
-				} catch (InterruptedException e) {
-					waitingThread.processThreadInterrupts();
-					return waitingThread.setValues(joinedThread.threadValue, NIL);
-				}
-			} else {
-				return type_error(arg, Symbol.THREAD);
-			}
-		}
-	};
 
 	final static DoubleFloat THOUSAND = new DoubleFloat(1000);
 
@@ -1475,112 +1327,10 @@ public abstract class LispThread extends SLispObject {
 		return (n < Integer.MAX_VALUE ? (int) n : Integer.MAX_VALUE);
 	}
 
-	@DocString(name = "sleep", args = "seconds", doc = "Causes the invoking thread to sleep for an interveral expressed in SECONDS.\n"
-			+ "SECONDS may be specified as a fraction of a second, with intervals\n"
-			+ "less than or equal to a nanosecond resulting in a yield of execution\n"
-			+ "to other waiting threads rather than an actual sleep.\n"
-			+ "A zero value of SECONDS *may* result in the JVM sleeping indefinitely,\n"
-			+ "depending on the implementation.")
-	private static final Primitive SLEEP = new Primitive("sleep", PACKAGE_CL, true) {
-		@Override
-		public LispObject execute(LispObject arg) {
-			long millis = sleepMillisPart(arg);
-			int nanos = sleepNanosPart(arg);
-			boolean zeroArgP = arg.ZEROP() != NIL;
-
-			try {
-				if (millis == 0 && nanos == 0) {
-					if (zeroArgP) {
-						Thread.sleep(0, 0);
-					} else {
-						Thread.sleep(0, 1);
-					}
-				} else {
-					Thread.sleep(millis, nanos);
-				}
-			} catch (InterruptedException e) {
-				currentThread().processThreadInterrupts();
-			}
-			return NIL;
-		}
-	};
-
-	@DocString(name = "mapcar-threads", args = "function", doc = "Applies FUNCTION to all existing threads.")
-	private static final Primitive MAPCAR_THREADS = new Primitive("mapcar-threads", PACKAGE_THREADS, true) {
-		@Override
-		public LispObject execute(LispObject arg) {
-			Function fun = checkFunction(arg);
-			final LispThread thread = LispThread.currentThread();
-			LispObject result = NIL;
-			Iterator it = map.values().iterator();
-			while (it.hasNext()) {
-				LispObject[] args = new LispObject[1];
-				args[0] = (LispThread) it.next();
-				result = new Cons(Lisp.funcall(fun, args, thread), result);
-			}
-			return result;
-		}
-	};
-
-	@DocString(name = "destroy-thread", args = "thread", doc = "Mark THREAD as destroyed")
-	private static final Primitive DESTROY_THREAD = new Primitive("destroy-thread", PACKAGE_THREADS, true) {
-		@Override
-		public LispObject execute(LispObject arg) {
-			final LispThread thread;
-			if (arg instanceof LispThread) {
-				thread = (LispThread) arg;
-			} else {
-				return type_error(arg, Symbol.THREAD);
-			}
-			thread.setDestroyed(true);
-			return T;
-		}
-	};
-
-	// => T
-	@DocString(name = "interrupt-thread", args = "thread function &rest args", doc = "Interrupts thread and forces it to apply function to args. When the\n"
-			+ "function returns, the thread's original computation continues. If\n"
-			+ "multiple interrupts are queued for a thread, they are all run, but the\n" + "order is not guaranteed.")
-	private static final Primitive INTERRUPT_THREAD = new Primitive("interrupt-thread", PACKAGE_THREADS, true,
-			"thread function &rest args",
-			"Interrupts THREAD and forces it to apply FUNCTION to ARGS.\nWhen the function returns, the thread's original computation continues. If  multiple interrupts are queued for a thread, they are all run, but the order is not guaranteed.") {
-		@Override
-		public LispObject execute(LispObject[] args) {
-			if (args.length < 2)
-				return error(new WrongNumberOfArgumentsException(this, 2, -1));
-			final LispThread thread;
-			if (args[0] instanceof LispThread) {
-				thread = (LispThread) args[0];
-			} else {
-				return type_error(args[0], Symbol.THREAD);
-			}
-			LispObject fun = args[1];
-			LispObject funArgs = NIL;
-			for (int i = args.length; i-- > 2;)
-				funArgs = new Cons(args[i], funArgs);
-			thread.interrupt(fun, funArgs);
-			return T;
-		}
-	};
-
-	public static final Primitive CURRENT_THREAD = new pf_current_thread();
-
-	@DocString(name = "current-thread", doc = "Returns a reference to invoking thread.")
-	private static final class pf_current_thread extends Primitive {
-		pf_current_thread() {
-			super("current-thread", PACKAGE_THREADS, true);
-		}
-
-		@Override
-		public LispObject execute() {
-			return currentThread();
-		}
-	};
-
-	public static final Primitive BACKTRACE = new pf_backtrace();
+	;
 
 	@DocString(name = "backtrace", doc = "Returns a Java backtrace of the invoking thread.")
-	private static final class pf_backtrace extends Primitive {
+	static final class pf_backtrace extends Primitive {
 		pf_backtrace() {
 			super("backtrace", PACKAGE_SYS, true);
 		}
@@ -1594,10 +1344,8 @@ public abstract class LispThread extends SLispObject {
 		}
 	};
 
-	public static final Primitive FRAME_TO_STRING = new pf_frame_to_string();
-
 	@DocString(name = "frame-to-string", args = "frame", doc = "Convert stack FRAME to a (potentially) readable string.")
-	private static final class pf_frame_to_string extends Primitive {
+	static final class pf_frame_to_string extends Primitive {
 		pf_frame_to_string() {
 			super("frame-to-string", PACKAGE_SYS, true);
 		}
@@ -1610,10 +1358,8 @@ public abstract class LispThread extends SLispObject {
 		}
 	};
 
-	public static final Primitive FRAME_TO_LIST = new pf_frame_to_list();
-
 	@DocString(name = "frame-to-list", args = "frame")
-	private static final class pf_frame_to_list extends Primitive {
+	static final class pf_frame_to_list extends Primitive {
 		pf_frame_to_list() {
 			super("frame-to-list", PACKAGE_SYS, true);
 		}
@@ -1627,10 +1373,8 @@ public abstract class LispThread extends SLispObject {
 		}
 	};
 
-	public static final SpecialOperator SYNCHRONIZED_ON = new so_synchronized_on();
-
 	@DocString(name = "synchronized-on", args = "form &body body")
-	private static final class so_synchronized_on extends SpecialOperator {
+	static final class so_synchronized_on extends SpecialOperator {
 		so_synchronized_on() {
 			super("synchronized-on", PACKAGE_THREADS, true, "form &body body");
 		}
@@ -1647,14 +1391,12 @@ public abstract class LispThread extends SLispObject {
 		}
 	};
 
-	public static final Primitive OBJECT_WAIT = new pf_object_wait();
-
 	@DocString(name = "object-wait", args = "object &optional timeout", doc = "Causes the current thread to block until object-notify or object-notify-all is called on OBJECT.\n"
 			+ "Optionally unblock execution after TIMEOUT seconds.  A TIMEOUT of zero\n"
 			+ "means to wait indefinitely.\n"
 			+ "A non-zero TIMEOUT of less than a nanosecond is interpolated as a nanosecond wait." + "\n"
 			+ "See the documentation of java.lang.Object.wait() for further\n" + "information.\n")
-	private static final class pf_object_wait extends Primitive {
+	static final class pf_object_wait extends Primitive {
 		pf_object_wait() {
 			super("object-wait", PACKAGE_THREADS, true);
 		}
@@ -1696,13 +1438,11 @@ public abstract class LispThread extends SLispObject {
 		}
 	};
 
-	public static final Primitive OBJECT_NOTIFY = new pf_object_notify();
-
 	@DocString(name = "object-notify", args = "object", doc = "Wakes up a single thread that is waiting on OBJECT's monitor."
 			+ "\nIf any threads are waiting on this object, one of them is chosen to be"
 			+ " awakened. The choice is arbitrary and occurs at the discretion of the"
 			+ " implementation. A thread waits on an object's monitor by calling one" + " of the wait methods.")
-	private static final class pf_object_notify extends Primitive {
+	static final class pf_object_notify extends Primitive {
 		pf_object_notify() {
 			super("object-notify", PACKAGE_THREADS, true, "object");
 		}
@@ -1718,11 +1458,9 @@ public abstract class LispThread extends SLispObject {
 		}
 	};
 
-	public static final Primitive OBJECT_NOTIFY_ALL = new pf_object_notify_all();
-
 	@DocString(name = "object-notify-all", args = "object", doc = "Wakes up all threads that are waiting on this OBJECT's monitor."
 			+ "\nA thread waits on an object's monitor by calling one of the wait methods.")
-	private static final class pf_object_notify_all extends Primitive {
+	static final class pf_object_notify_all extends Primitive {
 		pf_object_notify_all() {
 			super("object-notify-all", PACKAGE_THREADS, true);
 		}

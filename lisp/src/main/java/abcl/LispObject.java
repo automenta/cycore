@@ -45,6 +45,8 @@ import java.util.List;
 
 abstract public class LispObject extends AbstractSubLObject {
 
+	public static final LispObject[] EmptyLispObjectArray = new LispObject[0];
+
 	final Object $_DEBUG$INFO_$ = new Object() {
 		@Override
 		public String toString() {
@@ -750,16 +752,15 @@ abstract public class LispObject extends AbstractSubLObject {
 
 	public LispObject getDocumentation(LispObject docType) {
 		LispObject alist;
-		synchronized (Lisp.documentationHashTable) {
-			alist = Lisp.documentationHashTable.get(this);
-		}
+		alist = Lisp.documentationHashTable.getIfPresent(this);
+
 		if (alist != null) {
 			LispObject entry = assq(docType, alist);
 			if (entry instanceof Cons)
 				return ((Cons) entry).cdr;
 		}
 		if (docType == Symbol.FUNCTION && this instanceof Symbol) {
-			LispObject fn = ((Symbol) this).getSymbolFunction();
+			LispObject fn = this.getSymbolFunction();
 			if (fn instanceof Function) {
 				DocString ds = fn.getClass().getAnnotation(DocString.class);
 				if (ds != null) {
@@ -769,7 +770,7 @@ abstract public class LispObject extends AbstractSubLObject {
 						((Function) fn).setLambdaList(new SimpleString(arglist));
 					if (docstring.length() != 0) {
 						AbstractString doc = new SimpleString(docstring);
-						((Symbol) this).setDocumentation(Symbol.FUNCTION, doc);
+						this.setDocumentation(Symbol.FUNCTION, doc);
 						return doc;
 					} else if (fn.typep(Symbol.STANDARD_GENERIC_FUNCTION) != NIL) {
 						return Symbol.SLOT_VALUE.execute(fn, Symbol._DOCUMENTATION);
@@ -781,8 +782,7 @@ abstract public class LispObject extends AbstractSubLObject {
 	}
 
 	public void setDocumentation(LispObject docType, LispObject documentation) {
-		synchronized (Lisp.documentationHashTable) {
-			LispObject alist = Lisp.documentationHashTable.get(this);
+			LispObject alist = Lisp.documentationHashTable.getIfPresent(this);
 			if (alist == null)
 				alist = NIL;
 			LispObject entry = assq(docType, alist);
@@ -792,7 +792,7 @@ abstract public class LispObject extends AbstractSubLObject {
 				alist = alist.push(new Cons(docType, documentation));
 				Lisp.documentationHashTable.put(this, alist);
 			}
-		}
+
 	}
 
 	public LispObject getPropertyList() {
@@ -859,9 +859,7 @@ abstract public class LispObject extends AbstractSubLObject {
 				}
 				if (this.obj == obj)
 					return true;
-				if (this == obj)
-					return true;
-				return false;
+				return this == obj;
 			}
 
 			@Override
@@ -917,7 +915,6 @@ abstract public class LispObject extends AbstractSubLObject {
 			return new LinkedIdentityHashSet();
 		}
 
-		;
 	};
 
 	@Override
@@ -1505,7 +1502,7 @@ abstract public class LispObject extends AbstractSubLObject {
 	}
 
 	public boolean getSlotValueAsBoolean(int index) {
-		return getSlotValue(index) != NIL ? true : false;
+		return getSlotValue(index) != NIL;
 	}
 
 	public void setSlotValue_0(LispObject value) {

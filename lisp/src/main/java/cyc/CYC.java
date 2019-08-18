@@ -33,6 +33,7 @@ package cyc;/*
 
 //import static abcl.Options.*;
 
+import com.google.common.collect.Lists;
 import subl.Eval;
 import subl.SubLMain;
 import subl.SubLThread;
@@ -57,8 +58,8 @@ public final class CYC {
 
 	static final UncaughtExceptionHandler uncaughtExceptionHandler = CYC::addUncaught; //new ABCLMainUncaughtExceptionHandler();
 
-	static boolean useMainThread = true;
-	static int exitCode = 0;
+
+
 	static Collection<Throwable> unexpectedThrowable = new ConcurrentLinkedQueue<>();
 	public static final long startTimeMillis = System.currentTimeMillis();
 
@@ -86,6 +87,7 @@ public final class CYC {
 	}
 
 	public static void addUncaught(Thread t, Throwable e) {
+		e.printStackTrace();
 		unexpectedThrowable.add(e);
 	}
 
@@ -114,8 +116,8 @@ public final class CYC {
 		setupABCLOptions();
 		String[] argsNew = extractOptions(args);
 		Thread t = mainUnjoined(argsNew);
-		runThread(t);
-		System.exit(exitCode);
+		t.start();
+		t.join();
 	}
 
 	public static Thread mainUnjoined(final String[] args) {
@@ -124,10 +126,10 @@ public final class CYC {
 		// Lisp.checkOutput(Symbol.STANDARD_OUTPUT,Lisp.stdout);
 		Runnable r = mainRunnable(args, () -> {
 			Interpreter interpreter = Interpreter.getInstance();
-			if (interpreter != null)
+//			if (interpreter != null)
 				interpreter.run();
 		});
-		final String name = CYC.class.getClass().getName();
+		final String name = CYC.class.getName();
 		Thread t = new SubLThread(null, r, name, 1 << 30L).asJavaTread();
 		final UncaughtExceptionHandler uncaughtExceptionHandlerOrignal = t.getUncaughtExceptionHandler();
 		if (uncaughtExceptionHandlerOrignal == null)
@@ -135,28 +137,6 @@ public final class CYC {
 		return t;
 	}
 
-	static void runThread(Thread t) {
-		try {
-			if (useMainThread) {
-				t.run();
-			} else {
-				final Thread currentThread = Thread.currentThread();
-				currentThread.setName("Old-"+currentThread.getName());
-				t.setName("main");
-				t.start();
-				t.join();
-			}
-		} catch (InterruptedException e) {
-			exitCode = 3;
-			addUncaught(e);
-		} catch (TerminationRequest e) {
-			exitCode = 0;
-		} catch (Throwable e) {
-			exitCode = 1;
-			addUncaught(e);
-		}
-		reportUncaughts();
-	}
 
 	public static Runnable mainRunnable(final String[] argsIn, final Runnable after) {
 		final String[] args = extractOptions(argsIn);
@@ -256,10 +236,8 @@ public final class CYC {
 	public static boolean isSubLispBindingMode;
 
 	public static String[] extractOptions(String[] args) {
-		ArrayList<String> argsList = new ArrayList<String>(Arrays.asList(args));
-		if (argsList.remove("--main-thread")) {
-			CYC.useMainThread = true;
-		}
+		ArrayList<String> argsList = Lists.newArrayList(args);
+
 		if (argsList.remove("--norc")) {
 			Interpreter.noinit = true;
 		}

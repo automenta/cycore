@@ -33,6 +33,9 @@
 
 package abcl;
 
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
+import com.google.common.collect.Lists;
 import cyc.CYC;
 import org.jpl7.JPL;
 import subl.Errors;
@@ -79,104 +82,210 @@ abstract public class Lisp extends ABCLStatic {
 	public static boolean LISP_NOT_JAVA = !System.getProperty("lisp.junicode", "false").equals("true");
 	public static int insideToString = 0;
 
-	static final WeakHashMap<LispObject, LispObject> documentationHashTable = new WeakHashMap<LispObject, LispObject>();
+	static final Cache<LispObject,LispObject> documentationHashTable = Caffeine.newBuilder().weakKeys().build();
+
+
+	static {
+		initLisp();
+	}
+
+	public static void initLisp() {
+		synchronized (Lisp.class) {
+			if (init)
+				return;
+			init = true;
+			PACKAGE_CL = Packages.createPackage("COMMON-LISP", 2048); // EH 10-10-2010: Actual number = 1014
+			PACKAGE_ASM_JAVA = Packages.createPackage("ASM-JAVA");
+			PACKAGE_CYC = Packages.createPackage("CYC");
+			PACKAGE_SUBLISP = Packages.createPackage("SUBLISP");
+			PACKAGE_PROLOG = Packages.createPackage("PROLOG");
+			PACKAGE_SEQUENCE = Packages.createPackage("SEQUENCE", 128);
+			PACKAGE_PRECOMPILER = Packages.createPackage("PRECOMPILER");
+			PACKAGE_XP = Packages.createPackage("XP");
+			PACKAGE_FORMAT = Packages.createPackage("FORMAT");
+			PACKAGE_THREADS = Packages.createPackage("THREADS");
+			PACKAGE_LISP = Packages.createPackage("LISP");
+			PACKAGE_JAVA = Packages.createPackage("JAVA");
+			PACKAGE_PROF = Packages.createPackage("PROFILER");
+			PACKAGE_LOOP = Packages.createPackage("LOOP", 512);
+			PACKAGE_JVM = Packages.createPackage("JVM", 2048);
+			PACKAGE_EXT = Packages.createPackage("EXTENSIONS", 256);
+			PACKAGE_TPL = Packages.createPackage("TOP-LEVEL", 128);
+			PACKAGE_MOP = Packages.createPackage("MOP", 512);
+			PACKAGE_SYS = Packages.createPackage("SYSTEM", 2048);
+			PACKAGE_KEYWORD = Packages.createPackage("KEYWORD", 1024);
+			PACKAGE_CL_USER = Packages.createPackage("COMMON-LISP-USER", 1024);
+
+			NIL = new Nil(Lisp.PACKAGE_CL);
+			AND_ALLOW_OTHER_KEYS = PACKAGE_CL.addExternalSymbol("&ALLOW-OTHER-KEYS");
+			AND_AUX = PACKAGE_CL.addExternalSymbol("&AUX");
+			AND_BODY = PACKAGE_CL.addExternalSymbol("&BODY");
+			AND_ENVIRONMENT = PACKAGE_CL.addExternalSymbol("&ENVIRONMENT");
+			AND_KEY = PACKAGE_CL.addExternalSymbol("&KEY");
+			AND_OPTIONAL = PACKAGE_CL.addExternalSymbol("&OPTIONAL");
+			AND_REST = PACKAGE_CL.addExternalSymbol("&REST");
+			AND_WHOLE = PACKAGE_CL.addExternalSymbol("&WHOLE");
+			LOAD_PRINT = PACKAGE_CL.addExternalSymbol("*LOAD-PRINT*");
+			LOAD_TRUENAME = PACKAGE_CL.addExternalSymbol("*LOAD-TRUENAME*");
+			LOAD_VERBOSE = PACKAGE_CL.addExternalSymbol("*LOAD-VERBOSE*");
+
+
+			DEFAULT_PATHNAME_DEFAULTS = PACKAGE_CL.addExternalSymbol("*DEFAULT-PATHNAME-DEFAULTS*");
+			DEFAULT_PATHNAME_DEFAULTS.traceSymbol(debug ? 1 : 0);
+
+			CYC.globalContext.set(true);
+
+			// We need NIL before we can call usePackage().
+			PACKAGE_SUBLISP.addNickname("SL");
+			PACKAGE_CYC.usePackage(PACKAGE_SUBLISP);
+			PACKAGE_CL.addNickname("CL");
+			PACKAGE_CL_USER.addNickname("CL-USER");
+			//PACKAGE_CL_USER.addNickname("USER");
+			PACKAGE_CL_USER.usePackage(PACKAGE_CL);
+			PACKAGE_CL_USER.usePackage(PACKAGE_EXT);
+			PACKAGE_CL_USER.usePackage(PACKAGE_JAVA);
+			PACKAGE_SYS.addNickname("SYS");
+			PACKAGE_SYS.usePackage(PACKAGE_CL);
+			PACKAGE_SYS.usePackage(PACKAGE_EXT);
+			PACKAGE_MOP.usePackage(PACKAGE_CL);
+			PACKAGE_MOP.usePackage(PACKAGE_EXT);
+			PACKAGE_MOP.usePackage(PACKAGE_SYS);
+			PACKAGE_TPL.addNickname("TPL");
+			PACKAGE_TPL.usePackage(PACKAGE_CL);
+			PACKAGE_TPL.usePackage(PACKAGE_EXT);
+			PACKAGE_EXT.addNickname("EXT");
+			PACKAGE_EXT.usePackage(PACKAGE_CL);
+			PACKAGE_EXT.usePackage(PACKAGE_THREADS);
+			PACKAGE_JVM.usePackage(PACKAGE_CL);
+			PACKAGE_JVM.usePackage(PACKAGE_EXT);
+			PACKAGE_JVM.usePackage(PACKAGE_SYS);
+			PACKAGE_LOOP.usePackage(PACKAGE_CL);
+			PACKAGE_PROF.addNickname("PROF");
+			PACKAGE_PROF.usePackage(PACKAGE_CL);
+			PACKAGE_PROF.usePackage(PACKAGE_EXT);
+			PACKAGE_JAVA.usePackage(PACKAGE_CL);
+			PACKAGE_JAVA.usePackage(PACKAGE_EXT);
+			PACKAGE_LISP.usePackage(PACKAGE_CL);
+			PACKAGE_LISP.usePackage(PACKAGE_EXT);
+			PACKAGE_LISP.usePackage(PACKAGE_SYS);
+			PACKAGE_THREADS.addNickname("MT");
+			PACKAGE_THREADS.addNickname("MP");
+			PACKAGE_THREADS.usePackage(PACKAGE_CL);
+			PACKAGE_THREADS.usePackage(PACKAGE_EXT);
+			PACKAGE_THREADS.usePackage(PACKAGE_SYS);
+			PACKAGE_FORMAT.usePackage(PACKAGE_CL);
+			PACKAGE_FORMAT.usePackage(PACKAGE_EXT);
+			PACKAGE_XP.usePackage(PACKAGE_CL);
+			PACKAGE_PRECOMPILER.addNickname("PRE");
+			PACKAGE_PRECOMPILER.usePackage(PACKAGE_CL);
+			PACKAGE_PRECOMPILER.usePackage(PACKAGE_EXT);
+			PACKAGE_PRECOMPILER.usePackage(PACKAGE_SYS);
+			PACKAGE_SEQUENCE.usePackage(PACKAGE_CL);
+
+			PACKAGE_ASM_JAVA.usePackage(PACKAGE_CL);
+			PACKAGE_ASM_JAVA.usePackage(PACKAGE_EXT);
+			PACKAGE_ASM_JAVA.ALLOW_INHERIT_CONFLICTS = true;
+			PACKAGE_ASM_JAVA.usePackage(PACKAGE_JAVA);
+
+			PACKAGE_CYC.ALLOW_INHERIT_CONFLICTS = true;
+			//PACKAGE_SUBLISP.inheritFunctions(PACKAGE_CL);
+			//PACKAGE_CYC.inheritFunctions(PACKAGE_CL_USER);
+
+
+			syms = Lists.newArrayList(Symbol.TERMINAL_IO, Symbol.QUERY_IO, Symbol.DEBUG_IO, //
+				Symbol.STANDARD_OUTPUT, Symbol.STANDARD_INPUT, Symbol.ERROR_OUTPUT, Symbol.TRACE_OUTPUT //
+			);
+
+			LispThread._TRACE_LISP_ = (Symbol) LispThreadPrimitives.TRACE_LISP.getLambdaName();
+			LispThread._TRACE_LISP_.setProcessScope(true);
+			LispThread._TRACE_LISP_.initializeSpecial(NIL);
+			Symbol.PRINT_PPRINT_DISPATCH.setProcessScope(false);
+
+			Symbol.CURRENT_READTABLE.initializeSpecial(new Readtable());
+
+			T = RET_T = new SubLT();
+
+
+			{
+				loadClass("abcl.Primitives");
+				loadClass("abcl.SpecialOperators");
+				loadClass("abcl.Extensions");
+				loadClass("abcl.CompiledClosure");
+				loadClass("abcl.Autoload");
+				loadClass("abcl.AutoloadMacro");
+				loadClass("abcl.AutoloadGeneralizedReference");
+				loadClass("abcl.cxr");
+				loadClass("abcl.Do");
+				loadClass("abcl.dolist");
+				loadClass("abcl.dotimes");
+				loadClass("abcl.Pathname");
+				loadClass("abcl.LispClass");
+				loadClass("abcl.BuiltInClass");
+				loadClass("abcl.StructureObject");
+				loadClass("abcl.ash");
+				loadClass("abcl.Java");
+				loadClass("abcl.PackageFunctions");
+				loadClass("abcl.setenv");
+				Symbol GETENV = PACKAGE_EXT.findAccessibleSymbol("GETENV");
+				PACKAGE_SYS.shadowingImport(GETENV);
+				PACKAGE_SYS.export(GETENV);
+				//          String cla = "command-line-argument".toUpperCase();
+				//          Symbol CLA = PACKAGE_EXT.findAccessibleSymbol( "*"+cla+"-LIST*" );
+				//          if(CLA!=null) {
+				//          PACKAGE_SYS.export( cla + "S", CLA );
+				//
+				//          }
+				//          CLA = PACKAGE_SYS.findAccessibleSymbol( cla + "S" );
+
+				cold = false;
+			}
+
+		}
+	}
 
 	// Packages.
-	public static final Package PACKAGE_CL = Packages.createPackage("COMMON-LISP", 2048); // EH 10-10-2010: Actual number = 1014
-	public static final Package PACKAGE_CL_USER = Packages.createPackage("COMMON-LISP-USER", 1024);
-	public static final Package PACKAGE_KEYWORD = Packages.createPackage("KEYWORD", 1024);
-	public static final Package PACKAGE_SYS = Packages.createPackage("SYSTEM", 2048); // EH 10-10-2010: Actual number = 1216
-	public static final Package PACKAGE_MOP = Packages.createPackage("MOP", 512); // EH 10-10-2010: Actual number = 277
-	public static final Package PACKAGE_TPL = Packages.createPackage("TOP-LEVEL", 128); // EH 10-10-2010: Actual number = 6
-	public static final Package PACKAGE_EXT = Packages.createPackage("EXTENSIONS", 256); // EH 10-10-2010: Actual number = 131
-	public static final Package PACKAGE_JVM = Packages.createPackage("JVM", 2048); // EH 10-10-2010: Actual number = 1518
-	public static final Package PACKAGE_LOOP = Packages.createPackage("LOOP", 512); // EH 10-10-2010: Actual number = 305
-	public static final Package PACKAGE_PROF = Packages.createPackage("PROFILER");
-	public static final Package PACKAGE_JAVA = Packages.createPackage("JAVA");
-	public static final Package PACKAGE_LISP = Packages.createPackage("LISP");
-	public static final Package PACKAGE_THREADS = Packages.createPackage("THREADS");
-	public static final Package PACKAGE_FORMAT = Packages.createPackage("FORMAT");
-	public static final Package PACKAGE_XP = Packages.createPackage("XP");
-	public static final Package PACKAGE_PRECOMPILER = Packages.createPackage("PRECOMPILER");
-	public static final Package PACKAGE_SEQUENCE = Packages.createPackage("SEQUENCE", 128); // EH 10-10-2010: Actual number 62
-	public static final Package PACKAGE_PROLOG = Packages.createPackage("PROLOG");
-	public static final Package PACKAGE_SUBLISP = Packages.createPackage("SUBLISP");
-	public static final Package PACKAGE_CYC = Packages.createPackage("CYC");
-	public static final Package PACKAGE_ASM_JAVA = Packages.createPackage("ASM-JAVA");
+	static volatile boolean init = false;
+	public static Package PACKAGE_CL = null;
+	public static Symbol DEFAULT_PATHNAME_DEFAULTS;
+	public static Symbol LOAD_VERBOSE;
+	public static Symbol LOAD_TRUENAME;
+	public static Symbol LOAD_PRINT;
+	public static Symbol AND_WHOLE;
+	public static Symbol AND_REST;
+	public static Symbol AND_OPTIONAL;
+	public static Symbol AND_KEY;
+	public static Symbol AND_ENVIRONMENT;
+	public static Symbol AND_BODY;
+	public static Symbol AND_AUX;
+	public static SubLT T, RET_T;
 
-	// ### t
-	public static final Symbol T = SubLT.T;
-	public static final SubLObject RET_T = T;
-	public static final SubLSymbol UNPROVIDED = PACKAGE_SUBLISP.internAndExport("&UNPROVIDED-SUBLISP-ARGUMENT&");
+	// External symbols in CL package.
+	public static Symbol AND_ALLOW_OTHER_KEYS;
+	public static Package PACKAGE_CL_USER;
+	public static Package PACKAGE_KEYWORD;
+	public static Package PACKAGE_SYS; // EH 10-10-2010: Actual number = 1216
+	public static Package PACKAGE_MOP; // EH 10-10-2010: Actual number = 277
+	public static Package PACKAGE_TPL; // EH 10-10-2010: Actual number = 6
+	public static Package PACKAGE_EXT; // EH 10-10-2010: Actual number = 131
+	public static Package PACKAGE_JVM; // EH 10-10-2010: Actual number = 1518
+	public static Package PACKAGE_LOOP; // EH 10-10-2010: Actual number = 305
+	public static Package PACKAGE_PROF;
+	public static Package PACKAGE_JAVA;
+	public static Package PACKAGE_LISP;
+	public static Package PACKAGE_THREADS;
+	public static Package PACKAGE_FORMAT;
+	public static Package PACKAGE_XP;
+	public static Package PACKAGE_PRECOMPILER;
+	public static Package PACKAGE_SEQUENCE; // EH 10-10-2010: Actual number 62
+	public static Package PACKAGE_PROLOG;
+	public static Package PACKAGE_SUBLISP;
+	public static Package PACKAGE_CYC;
+	public static Package PACKAGE_ASM_JAVA;
+
 
 	@DocString(name = "nil")
-	public static final Symbol NIL = Nil.NIL;
+	public static Nil NIL;
 
-	static {
-		T.initializeConstant(T);
-	}
-
-	static {
-		CYC.globalContext.set(true);
-	}
-
-	// We need NIL before we can call usePackage().
-	static {
-		PACKAGE_SUBLISP.addNickname("SL");
-		PACKAGE_CYC.usePackage(PACKAGE_SUBLISP);
-		PACKAGE_CL.addNickname("CL");
-		PACKAGE_CL_USER.addNickname("CL-USER");
-		//PACKAGE_CL_USER.addNickname("USER");
-		PACKAGE_CL_USER.usePackage(PACKAGE_CL);
-		PACKAGE_CL_USER.usePackage(PACKAGE_EXT);
-		PACKAGE_CL_USER.usePackage(PACKAGE_JAVA);
-		PACKAGE_SYS.addNickname("SYS");
-		PACKAGE_SYS.usePackage(PACKAGE_CL);
-		PACKAGE_SYS.usePackage(PACKAGE_EXT);
-		PACKAGE_MOP.usePackage(PACKAGE_CL);
-		PACKAGE_MOP.usePackage(PACKAGE_EXT);
-		PACKAGE_MOP.usePackage(PACKAGE_SYS);
-		PACKAGE_TPL.addNickname("TPL");
-		PACKAGE_TPL.usePackage(PACKAGE_CL);
-		PACKAGE_TPL.usePackage(PACKAGE_EXT);
-		PACKAGE_EXT.addNickname("EXT");
-		PACKAGE_EXT.usePackage(PACKAGE_CL);
-		PACKAGE_EXT.usePackage(PACKAGE_THREADS);
-		PACKAGE_JVM.usePackage(PACKAGE_CL);
-		PACKAGE_JVM.usePackage(PACKAGE_EXT);
-		PACKAGE_JVM.usePackage(PACKAGE_SYS);
-		PACKAGE_LOOP.usePackage(PACKAGE_CL);
-		PACKAGE_PROF.addNickname("PROF");
-		PACKAGE_PROF.usePackage(PACKAGE_CL);
-		PACKAGE_PROF.usePackage(PACKAGE_EXT);
-		PACKAGE_JAVA.usePackage(PACKAGE_CL);
-		PACKAGE_JAVA.usePackage(PACKAGE_EXT);
-		PACKAGE_LISP.usePackage(PACKAGE_CL);
-		PACKAGE_LISP.usePackage(PACKAGE_EXT);
-		PACKAGE_LISP.usePackage(PACKAGE_SYS);
-		PACKAGE_THREADS.addNickname("MT");
-		PACKAGE_THREADS.addNickname("MP");
-		PACKAGE_THREADS.usePackage(PACKAGE_CL);
-		PACKAGE_THREADS.usePackage(PACKAGE_EXT);
-		PACKAGE_THREADS.usePackage(PACKAGE_SYS);
-		PACKAGE_FORMAT.usePackage(PACKAGE_CL);
-		PACKAGE_FORMAT.usePackage(PACKAGE_EXT);
-		PACKAGE_XP.usePackage(PACKAGE_CL);
-		PACKAGE_PRECOMPILER.addNickname("PRE");
-		PACKAGE_PRECOMPILER.usePackage(PACKAGE_CL);
-		PACKAGE_PRECOMPILER.usePackage(PACKAGE_EXT);
-		PACKAGE_PRECOMPILER.usePackage(PACKAGE_SYS);
-		PACKAGE_SEQUENCE.usePackage(PACKAGE_CL);
-
-		PACKAGE_ASM_JAVA.usePackage(PACKAGE_CL);
-		PACKAGE_ASM_JAVA.usePackage(PACKAGE_EXT);
-		PACKAGE_ASM_JAVA.ALLOW_INHERIT_CONFLICTS = true;
-		PACKAGE_ASM_JAVA.usePackage(PACKAGE_JAVA);
-
-		PACKAGE_CYC.ALLOW_INHERIT_CONFLICTS = true;
-		//PACKAGE_SUBLISP.inheritFunctions(PACKAGE_CL);
-		//PACKAGE_CYC.inheritFunctions(PACKAGE_CL_USER);
-	}
 
 	// End-of-file marker.
 	public static final LispObject EOF = new SLispObject() {
@@ -201,32 +310,12 @@ abstract public class Lisp extends ABCLStatic {
 	// args must not be null!
 	public static final LispObject funcall(LispObject fun, LispObject[] args, LispThread thread) {
 		thread._values = null;
+		return thread.execute(fun, args);
+	}
 
-		// 26-07-2009: For some reason we cannot "just" call the array version;
-		// it causes an error (Wrong number of arguments for LOOP-FOR-IN)
-		// which is probably a sign of an issue in our design?
-		switch (args.length) {
-			case 0:
-				return thread.execute(fun);
-			case 1:
-				return thread.execute(fun, args[0]);
-			case 2:
-				return thread.execute(fun, args[0], args[1]);
-			case 3:
-				return thread.execute(fun, args[0], args[1], args[2]);
-			case 4:
-				return thread.execute(fun, args[0], args[1], args[2], args[3]);
-			case 5:
-				return thread.execute(fun, args[0], args[1], args[2], args[3], args[4]);
-			case 6:
-				return thread.execute(fun, args[0], args[1], args[2], args[3], args[4], args[5]);
-			case 7:
-				return thread.execute(fun, args[0], args[1], args[2], args[3], args[4], args[5], args[6]);
-			case 8:
-				return thread.execute(fun, args[0], args[1], args[2], args[3], args[4], args[5], args[6], args[7]);
-			default:
-				return thread.execute(fun, args);
-		}
+
+	static {
+		T.initializeConstant(T);
 	}
 
 	public static final LispObject macroexpand(LispObject form, final Environment env, final LispThread thread) {
@@ -449,7 +538,7 @@ abstract public class Lisp extends ABCLStatic {
 	// Used by the compiler.
 	public static final LispObject loadTimeValue(LispObject obj) {
 		final LispThread thread = LispThread.currentThread();
-		if (Symbol.LOAD_TRUENAME.symbolValue(thread) != NIL)
+		if (LOAD_TRUENAME.symbolValue(thread) != NIL)
 			return eval(obj, Environment.newEnvironment(), thread);
 		else
 			return NIL;
@@ -1130,7 +1219,7 @@ abstract public class Lisp extends ABCLStatic {
 		final LispThread thread = LispThread.currentThread();
 		Pathname load = null;
 		LispObject truenameFasl = Symbol.LOAD_TRUENAME_FASL.symbolValue(thread);
-		LispObject truename = Symbol.LOAD_TRUENAME.symbolValue(thread);
+		LispObject truename = LOAD_TRUENAME.symbolValue(thread);
 		if (truenameFasl instanceof Pathname) {
 			load = Pathname.mergePathnames(name, (Pathname) truenameFasl, Keyword.NEWEST);
 		} else if (truename instanceof Pathname) {
@@ -1869,7 +1958,7 @@ abstract public class Lisp extends ABCLStatic {
 				userDir = userDir.concat(File.separator);
 		}
 		// This string will be converted to a pathname when Pathname.java is loaded.
-		Symbol.DEFAULT_PATHNAME_DEFAULTS.initializeSpecial(new SimpleString(userDir));
+		DEFAULT_PATHNAME_DEFAULTS.initializeSpecial(new SimpleString(userDir));
 	}
 
 	static {
@@ -1939,9 +2028,7 @@ abstract public class Lisp extends ABCLStatic {
 		return checkCharacterOutputStream(Symbol.STANDARD_OUTPUT.symbolValue());
 	}
 
-	static {
-		Symbol.CURRENT_READTABLE.initializeSpecial(new Readtable());
-	}
+
 
 	// ### +standard-readtable+
 	// internal symbol
@@ -2023,10 +2110,10 @@ abstract public class Lisp extends ABCLStatic {
 	}
 
 	static {
-		Symbol.LOAD_VERBOSE.initializeSpecial(NIL);
-		Symbol.LOAD_PRINT.initializeSpecial(NIL);
+		LOAD_VERBOSE.initializeSpecial(NIL);
+		LOAD_PRINT.initializeSpecial(NIL);
 		Symbol.LOAD_PATHNAME.initializeSpecial(NIL);
-		Symbol.LOAD_TRUENAME.initializeSpecial(NIL);
+		LOAD_TRUENAME.initializeSpecial(NIL);
 		Symbol.LOAD_TRUENAME_FASL.initializeSpecial(NIL);
 		Symbol.COMPILE_VERBOSE.initializeSpecial(T);
 		Symbol.COMPILE_PRINT.initializeSpecial(T);
@@ -2230,7 +2317,7 @@ abstract public class Lisp extends ABCLStatic {
 	}
 
 	static {
-		Symbol.LAMBDA_LIST_KEYWORDS.initializeConstant(list(Symbol.AND_OPTIONAL, Symbol.AND_REST, Symbol.AND_KEY, Symbol.AND_AUX, Symbol.AND_BODY, Symbol.AND_WHOLE, Symbol.AND_ALLOW_OTHER_KEYS, Symbol.AND_ENVIRONMENT));
+		Symbol.LAMBDA_LIST_KEYWORDS.initializeConstant(list(AND_OPTIONAL, AND_REST, AND_KEY, AND_AUX, AND_BODY, AND_WHOLE, AND_ALLOW_OTHER_KEYS, AND_ENVIRONMENT));
 	}
 
 	// ### call-registers-limit
@@ -2352,39 +2439,6 @@ abstract public class Lisp extends ABCLStatic {
 		}
 	}
 
-	static {
-		loadClass("abcl.Primitives");
-		loadClass("abcl.SpecialOperators");
-		loadClass("abcl.Extensions");
-		loadClass("abcl.CompiledClosure");
-		loadClass("abcl.Autoload");
-		loadClass("abcl.AutoloadMacro");
-		loadClass("abcl.AutoloadGeneralizedReference");
-		loadClass("abcl.cxr");
-		loadClass("abcl.Do");
-		loadClass("abcl.dolist");
-		loadClass("abcl.dotimes");
-		loadClass("abcl.Pathname");
-		loadClass("abcl.LispClass");
-		loadClass("abcl.BuiltInClass");
-		loadClass("abcl.StructureObject");
-		loadClass("abcl.ash");
-		loadClass("abcl.Java");
-		loadClass("abcl.PackageFunctions");
-		loadClass("abcl.setenv");
-		Symbol GETENV = PACKAGE_EXT.findAccessibleSymbol("GETENV");
-		PACKAGE_SYS.shadowingImport(GETENV);
-		PACKAGE_SYS.export(GETENV);
-		//          String cla = "command-line-argument".toUpperCase();
-		//          Symbol CLA = PACKAGE_EXT.findAccessibleSymbol( "*"+cla+"-LIST*" );
-		//          if(CLA!=null) {
-		//          PACKAGE_SYS.export( cla + "S", CLA );
-		//
-		//          }
-		//          CLA = PACKAGE_SYS.findAccessibleSymbol( cla + "S" );
-
-		cold = false;
-	}
 
 	public static JavaObject createJavaObject(Object obj) {
 		return new JavaObject(obj);
@@ -2644,10 +2698,6 @@ abstract public class Lisp extends ABCLStatic {
 //	loadClass("org.logicmoo.system.BeanShellCntrl");
 	}
 
-	public static void initLisp() {
-		// pro.hashCode();
-
-	}
 
 	public static boolean isPrintReadable(LispThread thread) {
 		final Symbol printReadably = Symbol.PRINT_READABLY;
@@ -2815,7 +2865,7 @@ abstract public class Lisp extends ABCLStatic {
 		error(new PrintNotReadable(list(Keyword.OBJECT, o)));
 	}
 
-	public static Primitive pro = new print_readable_object();
+//	public static Primitive pro = new print_readable_object();
 
 	/**
 	 * TODO Describe the purpose of this method.
@@ -2865,4 +2915,6 @@ abstract public class Lisp extends ABCLStatic {
 	public static void addFeature(String fstring) {
 		Symbol.FEATURES.setSymbolValue(new Cons(internKeyword(fstring), Symbol.FEATURES.getSymbolValue()));
 	}
+
+	public static final SubLSymbol UNPROVIDED = PACKAGE_SUBLISP.internAndExport("&UNPROVIDED-SUBLISP-ARGUMENT&");
 }

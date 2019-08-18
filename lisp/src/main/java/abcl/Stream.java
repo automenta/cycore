@@ -3004,6 +3004,8 @@ public class Stream extends AbstractRandomAccessSubLStream implements ILispStrea
 	 */
 	@Override
 	public void flush() {
+		super.flush();
+
 		if(writer!=null) {
 			try {
 				writer.flush();

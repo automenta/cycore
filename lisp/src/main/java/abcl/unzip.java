@@ -55,7 +55,7 @@ public final class unzip
     @Override
 	public LispObject execute(LispObject first) {
         Pathname zipFile = coerceToPathname(first);
-        Pathname directory = coerceToPathname(Symbol.DEFAULT_PATHNAME_DEFAULTS.symbolValue());
+        Pathname directory = coerceToPathname(Lisp.DEFAULT_PATHNAME_DEFAULTS.symbolValue());
         return unzipToDirectory(zipFile, directory);
     }
 
@@ -72,7 +72,7 @@ public final class unzip
     private LispObject unzipToDirectory(Pathname zipPath, Pathname dirPath) {
         if (!zipPath.isAbsolute()) {
             zipPath = Pathname.mergePathnames(zipPath,
-                                              coerceToPathname(Symbol.DEFAULT_PATHNAME_DEFAULTS.symbolValue()));
+                                              coerceToPathname(Lisp.DEFAULT_PATHNAME_DEFAULTS.symbolValue()));
         }
         LispObject o = Pathname.truename(zipPath, false);
         if (!(o instanceof Pathname)) {

@@ -108,7 +108,7 @@ public class FaslClassLoader extends JavaClassLoader {
 
       Pathname name = new Pathname(resourceName.substring("abcl/".length()));
       LispObject truenameFasl = Symbol.LOAD_TRUENAME_FASL.symbolValue(thread);
-      LispObject truename = Symbol.LOAD_TRUENAME.symbolValue(thread);
+      LispObject truename = Lisp.LOAD_TRUENAME.symbolValue(thread);
       
       if (truenameFasl instanceof Pathname) {
           return Pathname.mergePathnames(name, (Pathname)truenameFasl, Keyword.NEWEST)
@@ -140,7 +140,7 @@ public class FaslClassLoader extends JavaClassLoader {
         } catch(Throwable e) {
             if(e instanceof ControlTransfer) { throw (ControlTransfer) e; }
             Debug.trace(e);
-            return error(new LispError("Compiled function can't be loaded: " + name + " from " + Symbol.LOAD_TRUENAME.symbolValue()));
+            return error(new LispError("Compiled function can't be loaded: " + name + " from " + Lisp.LOAD_TRUENAME.symbolValue()));
         }
     }
 

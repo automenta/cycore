@@ -40,9 +40,9 @@ abstract public class SubLNil extends Symbol implements SubLList, SubLSymbol, Su
     final public static String NIL_TYPE_NAME = "NULL";
     final public static SubLString NIL_SYMBOL_NAME_SUBLSTRING = SubLObjectFactory.makeString("NIL");
     @SuppressWarnings("hiding")
-    final public static SubLNil NIL = new Nil(Lisp.PACKAGE_CL);
+    @Deprecated final public static Nil NIL = Lisp.NIL;
     final private static SubLObject[] EMPTY_SUBL_OBJECT_ARRAY = new SubLObject[0];
-    final private static List<SubLObject> EMPTY_LIST = Collections.unmodifiableList(new ArrayList<SubLObject>());
+    final private static List<SubLObject> EMPTY_LIST = Collections.unmodifiableList(new ArrayList<>(0));
 
     public SubLNil() {
         super("NIL", Lisp.PACKAGE_CL);

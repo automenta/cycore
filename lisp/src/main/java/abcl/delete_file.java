@@ -58,7 +58,7 @@ public final class delete_file extends Primitive
                                         pathname));
         final Pathname defaultedPathname =
             Pathname.mergePathnames(pathname,
-                                    coerceToPathname(Symbol.DEFAULT_PATHNAME_DEFAULTS.symbolValue()),
+                                    coerceToPathname(Lisp.DEFAULT_PATHNAME_DEFAULTS.symbolValue()),
                                     NIL);
         final String namestring = defaultedPathname.getNamestring();
         if (namestring == null)

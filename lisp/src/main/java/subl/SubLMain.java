@@ -697,8 +697,8 @@ public class SubLMain {
 	    argsIn = new String[] { "--opencyc" };
 	}
 	final String[] args = CYC.extractOptions(argsIn);
+		preInitLisp();
 	Interpreter.nosystem = true;
-	preInitLisp();
 	Interpreter.nosystem = true;
 	SubLPackage.initPackages();
 	trueMainReader = new SubLReader();
@@ -733,7 +733,7 @@ public class SubLMain {
 	try {
 	    CYC.setSubLisp(false);
 	    // Interpreter.nosystem = true;
-	    Object o = Lisp._AUTOLOAD_VERBOSE_;
+//	    Object o = Lisp._AUTOLOAD_VERBOSE_;
 	    Lisp.initLisp();
 	} finally {
 	    CYC.setSubLisp(wasSubLisp);

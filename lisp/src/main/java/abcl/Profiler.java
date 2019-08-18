@@ -61,9 +61,7 @@ public class Profiler
                 else
                     return error(new LispError(
                         "%START-PROFILER: argument must be either :TIME or :COUNT-ONLY"));
-                Package[] packages = Packages.getAllPackages();
-                for (int i = 0; i < packages.length; i++) {
-                    Package pkg = packages[i];
+				for (Package pkg : Packages.packages()) {
                     Symbol[] symbols = pkg.symbols();
                     for (int j = 0; j < symbols.length; j++) {
                         Symbol symbol = symbols[j];
@@ -79,11 +77,11 @@ public class Profiler
                             while (methods != null && methods != NIL) {
                                 LispObject method = methods.car();
                                 LispObject function =
-                                  Symbol.METHOD_FUNCTION.execute(method);
+                                    Symbol.METHOD_FUNCTION.execute(method);
                                 if (function != NIL) {
-                                  function.setCallCount(0);
-                                  function.setHotCount(0);
-                                  methods = methods.cdr();
+                                    function.setCallCount(0);
+                                    function.setHotCount(0);
+                                    methods = methods.cdr();
                                 }
                             }
                         }

@@ -58,8 +58,8 @@ public final class Load
     {
         final LispThread thread = LispThread.currentThread();
         return load(new Pathname(filename),
-                    Symbol.LOAD_VERBOSE.symbolValue(thread) != NIL,
-                    Symbol.LOAD_PRINT.symbolValue(thread) != NIL,
+                    LOAD_VERBOSE.symbolValue(thread) != NIL,
+                    LOAD_PRINT.symbolValue(thread) != NIL,
                     true);
     }
 
@@ -140,8 +140,8 @@ public final class Load
         return loadFileFromStream(null,
                                   null,
                                   stream,
-                                  Symbol.LOAD_VERBOSE.symbolValue(thread) != NIL,
-                                  Symbol.LOAD_PRINT.symbolValue(thread) != NIL,
+                                  LOAD_VERBOSE.symbolValue(thread) != NIL,
+                                  LOAD_PRINT.symbolValue(thread) != NIL,
                                   false);
     }
 
@@ -156,7 +156,7 @@ public final class Load
         Pathname mergedPathname = null;
         if (!pathname.isAbsolute() && !pathname.isJar()) {
             Pathname pathnameDefaults
-                = coerceToPathname(Symbol.DEFAULT_PATHNAME_DEFAULTS.symbolValue());
+                = coerceToPathname(DEFAULT_PATHNAME_DEFAULTS.symbolValue());
             mergedPathname = Pathname.mergePathnames(pathname, pathnameDefaults);
         }
         Pathname loadableFile = findLoadableFile(mergedPathname != null ? mergedPathname : pathname);
@@ -254,7 +254,7 @@ public final class Load
             try {
                 return loadSystemFile(filename,
                                       _AUTOLOAD_VERBOSE_.symbolValue(thread) != NIL,
-                                      Symbol.LOAD_PRINT.symbolValue(thread) != NIL,
+                                      LOAD_PRINT.symbolValue(thread) != NIL,
                                       auto);
             }
             finally {
@@ -262,8 +262,8 @@ public final class Load
             }
         } else {
             return loadSystemFile(filename,
-                                  Symbol.LOAD_VERBOSE.symbolValue(thread) != NIL,
-                                  Symbol.LOAD_PRINT.symbolValue(thread) != NIL,
+                                  LOAD_VERBOSE.symbolValue(thread) != NIL,
+                                  LOAD_PRINT.symbolValue(thread) != NIL,
                                   auto);
         }
     }
@@ -574,12 +574,12 @@ public final class Load
                           truePathname.invalidateNamestring();
                         }
                     }
-                    thread.bindSpecial(Symbol.LOAD_TRUENAME, truePathname);
+                    thread.bindSpecial(LOAD_TRUENAME, truePathname);
                 } else {
-                    thread.bindSpecial(Symbol.LOAD_TRUENAME, truename);
+                    thread.bindSpecial(LOAD_TRUENAME, truename);
                 }
             } else {
-                thread.bindSpecial(Symbol.LOAD_TRUENAME, truename);
+                thread.bindSpecial(LOAD_TRUENAME, truename);
             }
             thread.bindSpecial(_SOURCE_,
                                pathname != null ? pathname : NIL);
@@ -777,9 +777,9 @@ public final class Load
         {
             final LispThread thread = LispThread.currentThread();
             return loadSystemFile(arg.getStringValue(),
-                                  Symbol.LOAD_VERBOSE.symbolValue(thread) != NIL
+                                  LOAD_VERBOSE.symbolValue(thread) != NIL
                                   || System.getProperty("abcl.autoload.verbose") != null,
-                                  Symbol.LOAD_PRINT.symbolValue(thread) != NIL,
+                                  LOAD_PRINT.symbolValue(thread) != NIL,
                                   false);
         }
     }

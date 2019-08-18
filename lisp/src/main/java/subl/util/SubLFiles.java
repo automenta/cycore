@@ -69,26 +69,67 @@ public class SubLFiles {
 	}
 
 	public enum VariableAccessMode {
-		CONSTANT(CommonSymbols.CONSTANT_KEYWORD),
-		LEXICAL(CommonSymbols.LEXICAL_KEYWORD),
-		DYNAMIC(CommonSymbols.DYNAMIC_KEYWORD),
-		UNDECLARED(CommonSymbols.UNDECLARED_KEYWORD),
-		GLOBAL_TOP_LEVEL(Keyword.TOP_LEVEL),
-		PROCESS_LOCAL(Keyword.TOP_LEVEL),
-		INHERITED_ENV(Keyword.INHERITED) // Process Local/Iherited from parent
+		CONSTANT(){
+			@Override
+			public SubLSymbol getSym() {
+				return CommonSymbols.CONSTANT_KEYWORD;
+			}
+		},
+		LEXICAL() {
+			@Override
+			public SubLSymbol getSym() {
+				return CommonSymbols.LEXICAL_KEYWORD;
+			}
+
+		},
+		DYNAMIC() {
+			@Override
+			public SubLSymbol getSym() {
+				return CommonSymbols.DYNAMIC_KEYWORD;
+			}
+
+		},
+		UNDECLARED() {
+			@Override
+			public SubLSymbol getSym() {
+				return CommonSymbols.UNDECLARED_KEYWORD;
+			}
+
+		},
+		GLOBAL_TOP_LEVEL() {
+			@Override
+			public SubLSymbol getSym() {
+				return Keyword.TOP_LEVEL;
+			}
+
+		},
+		PROCESS_LOCAL() {
+			@Override
+			public SubLSymbol getSym() {
+				return Keyword.TOP_LEVEL;
+			}
+
+		},
+		INHERITED_ENV() {
+			@Override
+			public SubLSymbol getSym() {
+				return Keyword.INHERITED;
+			}
+			// Process Local/Iherited from parent
+
+		}
 		;
 
 		public final String name;
-		public final SubLSymbol sym;
 
-		VariableAccessMode(SubLSymbol sym) {
+		VariableAccessMode() {
 			this.name = name();
-			this.sym = sym;
 		}
 
 		@Override
 		public final String toString() { return name; }
 
+		abstract public SubLSymbol getSym();
 	}
 
 	//// Public Area
@@ -176,7 +217,7 @@ public class SubLFiles {
 			SubLSymbol initializationType = isReinitialized ? CommonSymbols.INITIALIZER_KEYWORD : CommonSymbols.WORLD_KEYWORD;
 			symbol.setProperty(CommonSymbols.INITIALIZATION_TYPE_KEYWORD, initializationType);
 			// symbol annotation -- for binding type
-			symbol.setProperty(CommonSymbols.BINDING_TYPE_KEYWORD, accessMode.sym);
+			symbol.setProperty(CommonSymbols.BINDING_TYPE_KEYWORD, accessMode.getSym());
 			synchronized (symbolInitializationOrder) {
 				symbolInitializationOrder.add(symbol);
 			}

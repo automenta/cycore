@@ -17,7 +17,7 @@ import subl.util.SubLFiles;
 
 public final class SubLT extends Symbol implements SubLObject, SubLBoolean, SubLSymbol {
 
-	private SubLT() {
+	public SubLT() {
 		super(T_SYMBOL_NAME, Lisp.PACKAGE_CL);
 		Lisp.PACKAGE_CL.addSymbol_ImplUseOnly(this);
 		Lisp.PACKAGE_CL.export(this);
@@ -83,7 +83,7 @@ public final class SubLT extends Symbol implements SubLObject, SubLBoolean, SubL
 	final public static String T_TYPE_NAME = "BOOLEAN";
 	final public static String T_SYMBOL_NAME = "T";
 	final public static SubLString T_SYMBOL_NAME_SUBLSTRING = SubLObjectFactory.makeString(T_SYMBOL_NAME);
-	final public static SubLT T = new SubLT();
+	final public static SubLT T = Lisp.T;;
 
 	@Override
 	public void bind(SubLObject newValue, SubLObject[] bindings) {

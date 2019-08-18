@@ -107,7 +107,7 @@ public abstract class Function extends Operator implements SubLFunction {
 
 	protected Function() {
 		super(null);
-		LispObject loadTruename = Symbol.LOAD_TRUENAME.symbolValueNoThrow();
+		LispObject loadTruename = Lisp.LOAD_TRUENAME.symbolValueNoThrow();
 		loadedFrom = loadTruename != null ? loadTruename : NIL;
 	}
 
@@ -161,7 +161,7 @@ public abstract class Function extends Operator implements SubLFunction {
 
 	public Function(String name, Package pkg, boolean exported, String arglist, String docstring) {
 		this();
-		if (arglist instanceof String)
+		if (arglist != null)
 			setLambdaList(new SimpleString(arglist));
 		if (name != null) {
 			Symbol symbol;
@@ -248,7 +248,7 @@ public abstract class Function extends Operator implements SubLFunction {
 				final LispThread thread = LispThread.currentThread();
 				SpecialBindingsMark mark = thread.markSpecialBindings();
 				try {
-					thread.bindSpecial(Symbol.LOAD_TRUENAME, loadedFrom);
+					thread.bindSpecial(Lisp.LOAD_TRUENAME, loadedFrom);
 					return new JavaObject(((FaslClassLoader) c).getFunctionClassBytes(this));
 				} catch (Throwable t) {
 					// This is because unfortunately getFunctionClassBytes uses

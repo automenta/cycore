@@ -51,9 +51,6 @@ import subl.util.SubLFiles;
 import subl.util.SubLFiles.VariableAccessMode;
 import subl.util.SubLTranslatedFile;
 
-
-import java.util.Arrays;
-
 public class Symbol extends AbstractSubLSymbol implements java.io.Serializable, SubLSymbol {
 
 	@Override
@@ -667,7 +664,7 @@ public class Symbol extends AbstractSubLSymbol implements java.io.Serializable, 
 
 	@Override
 	protected SubLSymbol getBindingType() {
-		return accessModeVar.sym;
+		return accessModeVar.getSym();
 	}
 
 	@Override
@@ -2081,15 +2078,6 @@ public class Symbol extends AbstractSubLSymbol implements java.io.Serializable, 
 		// return getParts().toString();
 	}
 
-	// External symbols in CL package.
-	public static final Symbol AND_ALLOW_OTHER_KEYS = PACKAGE_CL.addExternalSymbol("&ALLOW-OTHER-KEYS");
-	public static final Symbol AND_AUX = PACKAGE_CL.addExternalSymbol("&AUX");
-	public static final Symbol AND_BODY = PACKAGE_CL.addExternalSymbol("&BODY");
-	public static final Symbol AND_ENVIRONMENT = PACKAGE_CL.addExternalSymbol("&ENVIRONMENT");
-	public static final Symbol AND_KEY = PACKAGE_CL.addExternalSymbol("&KEY");
-	public static final Symbol AND_OPTIONAL = PACKAGE_CL.addExternalSymbol("&OPTIONAL");
-	public static final Symbol AND_REST = PACKAGE_CL.addExternalSymbol("&REST");
-	public static final Symbol AND_WHOLE = PACKAGE_CL.addExternalSymbol("&WHOLE");
 	public static final Symbol STAR = PACKAGE_CL.addExternalSymbol("*");
 	public static final Symbol STAR_STAR = PACKAGE_CL.addExternalSymbol("**");
 	public static final Symbol STAR_STAR_STAR = PACKAGE_CL.addExternalSymbol("***");
@@ -2100,11 +2088,7 @@ public class Symbol extends AbstractSubLSymbol implements java.io.Serializable, 
 	public static final Symbol COMPILE_VERBOSE = PACKAGE_CL.addExternalSymbol("*COMPILE-VERBOSE*");
 	public static final Symbol DEBUG_IO = PACKAGE_CL.addExternalSymbol("*DEBUG-IO*");
 	public static final Symbol DEBUGGER_HOOK = PACKAGE_CL.addExternalSymbol("*DEBUGGER-HOOK*");
-	public static final Symbol DEFAULT_PATHNAME_DEFAULTS = PACKAGE_CL.addExternalSymbol("*DEFAULT-PATHNAME-DEFAULTS*");
 
-	static {
-		DEFAULT_PATHNAME_DEFAULTS.traceSymbol(debug ? 1 : 0);
-	}
 
 	public static final Symbol ERROR_OUTPUT = PACKAGE_CL.addExternalSymbol("*ERROR-OUTPUT*");
 
@@ -2115,9 +2099,6 @@ public class Symbol extends AbstractSubLSymbol implements java.io.Serializable, 
 	public static final Symbol FEATURES = PACKAGE_CL.addExternalSymbol("*FEATURES*");
 	public static final Symbol GENSYM_COUNTER = PACKAGE_CL.addExternalSymbol("*GENSYM-COUNTER*");
 	public static final Symbol LOAD_PATHNAME = PACKAGE_CL.addExternalSymbol("*LOAD-PATHNAME*");
-	public static final Symbol LOAD_PRINT = PACKAGE_CL.addExternalSymbol("*LOAD-PRINT*");
-	public static final Symbol LOAD_TRUENAME = PACKAGE_CL.addExternalSymbol("*LOAD-TRUENAME*");
-	public static final Symbol LOAD_VERBOSE = PACKAGE_CL.addExternalSymbol("*LOAD-VERBOSE*");
 	public static final Symbol MACROEXPAND_HOOK = PACKAGE_CL.addExternalSymbol("*MACROEXPAND-HOOK*");
 	public static final Symbol MODULES = PACKAGE_CL.addExternalSymbol("*MODULES*");
 	public static final Symbol _PACKAGE_ = PACKAGE_CL.addExternalSymbol("*PACKAGE*");
@@ -3256,12 +3237,6 @@ public class Symbol extends AbstractSubLSymbol implements java.io.Serializable, 
 	public static final Symbol THREAD = PACKAGE_THREADS.addExternalSymbol("THREAD");
 
 	public static final Symbol SYM_TRACE = PACKAGE_THREADS.addExternalSymbol("SYM_TRACE");
-
-	static {
-		syms = Arrays.asList(new Symbol[]{Symbol.TERMINAL_IO, Symbol.QUERY_IO, Symbol.DEBUG_IO, //
-			Symbol.STANDARD_OUTPUT, Symbol.STANDARD_INPUT, Symbol.ERROR_OUTPUT, Symbol.TRACE_OUTPUT //
-		});
-	}
 
 	/**
 	 * TODO Describe the purpose of this method.

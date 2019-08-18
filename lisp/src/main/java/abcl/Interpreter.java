@@ -245,7 +245,7 @@ public final class Interpreter implements Runnable {
 		Lisp.setIO(inputStream, outputStream);
 		if (!initialDirectory.endsWith(File.separator))
 			initialDirectory = initialDirectory.concat(File.separator);
-		Symbol.DEFAULT_PATHNAME_DEFAULTS.setSymbolValue(new Pathname(initialDirectory));
+		DEFAULT_PATHNAME_DEFAULTS.setSymbolValue(new Pathname(initialDirectory));
 	}
 
 	// Interface.
@@ -477,7 +477,7 @@ public final class Interpreter implements Runnable {
 				else if (arg.equals("--load") || arg.equals("--load-system-file")) {
 					if (i + 1 < args.length) {
 						if (arg.equals("--load"))
-							Load.load(Pathname.mergePathnames(new Pathname(args[i + 1]), checkPathname(Symbol.DEFAULT_PATHNAME_DEFAULTS.getSymbolValue())), false, false, true);
+							Load.load(Pathname.mergePathnames(new Pathname(args[i + 1]), checkPathname(DEFAULT_PATHNAME_DEFAULTS.getSymbolValue())), false, false, true);
 
 						else
 							Load.loadSystemFile(args[i + 1], false); // not being autoloaded
@@ -685,7 +685,7 @@ public final class Interpreter implements Runnable {
 				final SpecialBindingsMark mark = thread.markSpecialBindings();
 				thread.bindSpecial(Symbol.PRINT_ESCAPE, NIL);
 				try {
-					final LispObject truename = Symbol.LOAD_TRUENAME.symbolValue(thread);
+					final LispObject truename = LOAD_TRUENAME.symbolValue(thread);
 					if (truename != NIL) {
 						final LispObject stream = _LOAD_STREAM_.symbolValue(thread);
 						if (stream instanceof Stream) {
