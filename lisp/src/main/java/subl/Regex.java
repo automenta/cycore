@@ -1,11 +1,11 @@
 /* For LarKC */
 package subl;
 
-import com.cyc.tool.subl.util.SubLFiles;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
 import subl.type.core.*;
 import subl.type.number.SubLNumberFactory;
 import subl.type.symbol.SubLNil;
+import subl.util.SubLFiles;
+import subl.util.SubLTrampolineFile;
 
 import java.util.ArrayList;
 

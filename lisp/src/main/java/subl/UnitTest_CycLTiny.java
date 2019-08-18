@@ -1,9 +1,9 @@
 /* For LarKC */
 package subl;
 
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader;
-import com.cyc.tool.subl.ui.SubLReaderPanel;
+import subl.jrtl.translatedCode.sublisp.reader;
 import subl.type.core.*;
+import subl.ui.SubLReaderPanel;
 
 public class UnitTest_CycLTiny implements CommonSymbols {
     public static void main(final String[] args) {

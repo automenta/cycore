@@ -50,17 +50,17 @@ import static subl.type.core.SubLObjectFactory.makeBoolean;
 import static subl.type.core.SubLObjectFactory.makeKeyword;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.cdestructuring_bind_error;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.adjoin;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.copy_list;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.intersection;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.member;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.second;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.set_difference;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.defparameter;
-import static com.cyc.tool.subl.util.SubLFiles.defvar;
+import static subl.jrtl.translatedCode.sublisp.cdestructuring_bind.cdestructuring_bind_error;
+import static subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
+import static subl.jrtl.translatedCode.sublisp.conses_high.adjoin;
+import static subl.jrtl.translatedCode.sublisp.conses_high.copy_list;
+import static subl.jrtl.translatedCode.sublisp.conses_high.intersection;
+import static subl.jrtl.translatedCode.sublisp.conses_high.member;
+import static subl.jrtl.translatedCode.sublisp.conses_high.second;
+import static subl.jrtl.translatedCode.sublisp.conses_high.set_difference;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.defparameter;
+import static subl.util.SubLFiles.defvar;
 
 import com.cyc.cycjava.cycl.inference.ask_utilities;
 import com.cyc.cycjava.cycl.inference.harness.inference_kernel;
@@ -75,8 +75,8 @@ import subl.type.core.SubLObject;
 import subl.type.core.SubLProcess;
 import subl.type.core.SubLString;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
 
 public final class golem_satisfaction extends SubLTranslatedFile implements V10 {

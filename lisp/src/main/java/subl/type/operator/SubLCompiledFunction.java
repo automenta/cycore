@@ -7,7 +7,6 @@ import abcl.ControlTransfer;
 import abcl.Function;
 import abcl.Lisp;
 import abcl.LispObject;
-import com.cyc.tool.subl.util.PatchFileLoader;
 import subl.*;
 import subl.type.core.SubLList;
 import subl.type.core.SubLObject;
@@ -15,6 +14,7 @@ import subl.type.core.SubLObjectFactory;
 import subl.type.exception.Unhandleable;
 import subl.type.symbol.SubLPackage;
 import subl.type.symbol.SubLSymbol;
+import subl.util.PatchFileLoader;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

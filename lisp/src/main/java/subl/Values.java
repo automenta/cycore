@@ -1,12 +1,12 @@
 /* For LarKC */
 package subl;
 
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
 import subl.type.core.*;
 import subl.type.symbol.SubLNil;
 import subl.type.symbol.SubLSymbol;
+import subl.util.SubLFile;
+import subl.util.SubLFiles;
+import subl.util.SubLTrampolineFile;
 
 public class Values extends SubLTrampolineFile {
 	public static SubLObject arg2(SubLObject arg1, SubLObject arg2) {

@@ -3,7 +3,6 @@ package subl.type.core;
 
 import abcl.*;
 import com.cyc.cycjava.cycl.constant_handles;
-import com.cyc.tool.subl.util.SafeRunnable;
 import subl.Packages;
 import subl.*;
 import subl.type.exception.ExceptionFactory;
@@ -13,6 +12,7 @@ import subl.type.number.*;
 import subl.type.operator.*;
 import subl.type.stream.*;
 import subl.type.symbol.*;
+import subl.util.SafeRunnable;
 
 import java.io.InputStream;
 import java.io.OutputStream;

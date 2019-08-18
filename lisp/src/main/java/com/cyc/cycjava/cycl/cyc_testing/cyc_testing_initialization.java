@@ -6,16 +6,16 @@ package com.cyc.cycjava.cycl.cyc_testing;
 
 import static com.cyc.cycjava.cycl.subl_macro_promotions.declare_defglobal;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.deflexical;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.deflexical;
 
 import com.cyc.cycjava.cycl.V12;
 import subl.type.core.SubLObject;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLFiles;
+import subl.util.SubLTrampolineFile;
+import subl.util.SubLTranslatedFile;
 
 
 public final class cyc_testing_initialization extends SubLTranslatedFile implements V12 {

@@ -37,16 +37,16 @@ import static subl.type.core.SubLObjectFactory.makeInteger;
 import static subl.type.core.SubLObjectFactory.makeKeyword;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.acons;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.getf;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.intersection;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.second;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.set_difference;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.union;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.close;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.deflexical;
-import static com.cyc.tool.subl.util.SubLFiles.defparameter;
+import static subl.jrtl.translatedCode.sublisp.conses_high.acons;
+import static subl.jrtl.translatedCode.sublisp.conses_high.getf;
+import static subl.jrtl.translatedCode.sublisp.conses_high.intersection;
+import static subl.jrtl.translatedCode.sublisp.conses_high.second;
+import static subl.jrtl.translatedCode.sublisp.conses_high.set_difference;
+import static subl.jrtl.translatedCode.sublisp.conses_high.union;
+import static subl.jrtl.translatedCode.sublisp.streams_high.close;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.deflexical;
+import static subl.util.SubLFiles.defparameter;
 
 import com.cyc.cycjava.cycl.inference.ask_utilities;
 import com.cyc.cycjava.cycl.owl.owl_cycl_to_xml;
@@ -62,12 +62,12 @@ import subl.type.core.SubLProcess;
 import subl.type.core.SubLString;
 import subl.type.number.SubLInteger;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.compatibility;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.stream_macros;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles.LispMethod;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.jrtl.translatedCode.sublisp.compatibility;
+import subl.jrtl.translatedCode.sublisp.stream_macros;
+import subl.util.SubLFile;
+import subl.util.SubLFiles.LispMethod;
+import subl.util.SubLTrampolineFile;
+import subl.util.SubLTranslatedFile;
 
 
 public final class taxonomy extends SubLTranslatedFile implements V12 {

@@ -18,12 +18,12 @@
 //import static subl.Values.*;
 //import static subl.Vectors.*;
 //import static subl.type.core.SubLObjectFactory.*;
-//import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.*;
-//import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.*;
-//import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.print_high.*;
-//import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.*;
-//import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.*;
-//import static com.cyc.tool.subl.util.SubLFiles.*;
+//import static subl.jrtl.translatedCode.sublisp.cdestructuring_bind.*;
+//import static subl.jrtl.translatedCode.sublisp.conses_high.*;
+//import static subl.jrtl.translatedCode.sublisp.print_high.*;
+//import static subl.jrtl.translatedCode.sublisp.reader.*;
+//import static subl.jrtl.translatedCode.sublisp.streams_high.*;
+//import static subl.util.SubLFiles.*;
 //
 //import java.util.Iterator;
 //import java.util.Map;
@@ -47,12 +47,12 @@
 //import subl.type.core.SubLStructNative;
 //import subl.type.number.SubLInteger;
 //import subl.type.symbol.SubLSymbol;
-//import com.cyc.tool.subl.jrtl.translatedCode.sublisp.compatibility;
-//import com.cyc.tool.subl.jrtl.translatedCode.sublisp.stream_macros;
-//import com.cyc.tool.subl.jrtl.translatedCode.sublisp.visitation;
-//import com.cyc.tool.subl.util.SubLFile;
-//import com.cyc.tool.subl.util.SubLTrampolineFile;
-//import com.cyc.tool.subl.util.SubLTranslatedFile;
+//import subl.jrtl.translatedCode.sublisp.compatibility;
+//import subl.jrtl.translatedCode.sublisp.stream_macros;
+//import subl.jrtl.translatedCode.sublisp.visitation;
+//import subl.util.SubLFile;
+//import subl.util.SubLTrampolineFile;
+//import subl.util.SubLTranslatedFile;
 //
 //
 ///**

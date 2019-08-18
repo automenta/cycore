@@ -193,21 +193,21 @@ import static subl.type.core.SubLObjectFactory.makeInteger;
 import static subl.type.core.SubLObjectFactory.makeKeyword;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.cadr;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.cddr;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.copy_list;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.fourth;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.intersection;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.member;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.putf;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.second;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.third;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.print_high.$print_object_method_table$;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.force_output;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.defconstant;
-import static com.cyc.tool.subl.util.SubLFiles.deflexical;
-import static com.cyc.tool.subl.util.SubLFiles.defparameter;
+import static subl.jrtl.translatedCode.sublisp.conses_high.cadr;
+import static subl.jrtl.translatedCode.sublisp.conses_high.cddr;
+import static subl.jrtl.translatedCode.sublisp.conses_high.copy_list;
+import static subl.jrtl.translatedCode.sublisp.conses_high.fourth;
+import static subl.jrtl.translatedCode.sublisp.conses_high.intersection;
+import static subl.jrtl.translatedCode.sublisp.conses_high.member;
+import static subl.jrtl.translatedCode.sublisp.conses_high.putf;
+import static subl.jrtl.translatedCode.sublisp.conses_high.second;
+import static subl.jrtl.translatedCode.sublisp.conses_high.third;
+import static subl.jrtl.translatedCode.sublisp.print_high.$print_object_method_table$;
+import static subl.jrtl.translatedCode.sublisp.streams_high.force_output;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.defconstant;
+import static subl.util.SubLFiles.deflexical;
+import static subl.util.SubLFiles.defparameter;
 
 import abcl.Lisp;
 
@@ -269,12 +269,12 @@ import subl.type.core.SubLStructNative;
 import subl.type.number.SubLFloat;
 import subl.type.number.SubLInteger;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.visitation;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles;
-import com.cyc.tool.subl.util.SubLFiles.LispMethod;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.jrtl.translatedCode.sublisp.visitation;
+import subl.util.SubLFile;
+import subl.util.SubLFiles;
+import subl.util.SubLFiles.LispMethod;
+import subl.util.SubLTrampolineFile;
+import subl.util.SubLTranslatedFile;
 
 
 /**

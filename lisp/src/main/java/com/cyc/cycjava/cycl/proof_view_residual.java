@@ -16,12 +16,12 @@ import static subl.type.core.SubLObjectFactory.makeBoolean;
 import static subl.type.core.SubLObjectFactory.makeKeyword;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.copy_list;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.intersection;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.member;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.set_difference;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.defparameter;
+import static subl.jrtl.translatedCode.sublisp.conses_high.copy_list;
+import static subl.jrtl.translatedCode.sublisp.conses_high.intersection;
+import static subl.jrtl.translatedCode.sublisp.conses_high.member;
+import static subl.jrtl.translatedCode.sublisp.conses_high.set_difference;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.defparameter;
 
 import com.cyc.cycjava.cycl.inference.harness.inference_datastructures_problem;
 import com.cyc.cycjava.cycl.inference.harness.inference_datastructures_problem_link;
@@ -37,8 +37,8 @@ import subl.type.core.SubLObject;
 import subl.type.core.SubLProcess;
 import subl.type.core.SubLString;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
 
 public final class proof_view_residual extends SubLTranslatedFile implements V10 {

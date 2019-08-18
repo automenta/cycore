@@ -10,7 +10,7 @@
 //import subl.type.core.SubLObjectFactory;
 //import subl.type.core.SubLString;
 //import subl.type.exception.InvalidSubLExpressionException;
-//import com.cyc.tool.subl.util.SubLFiles;
+//import subl.util.SubLFiles;
 //
 //abstract class SubLSymbolKeyword_UNUSED extends AbstractSubLSymbol implements SubLSymbol {
 //	private SubLString symbolName;

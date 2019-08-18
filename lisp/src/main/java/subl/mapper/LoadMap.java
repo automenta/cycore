@@ -1,5 +1,5 @@
 /* For LarKC */
-package com.cyc.tool.subl.jrtl.nativeCode.mapper;
+package subl.jrtl.nativeCode.mapper;
 
 import subl.type.core.SubLObject;
 import subl.type.core.SubLObjectFactory;

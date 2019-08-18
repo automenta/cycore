@@ -21,16 +21,16 @@ import static subl.Time.get_internal_real_time;
 import static subl.Values.values;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.cdestructuring_bind_error;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.copy_list;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.fourth;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.second;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.third;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.read_ignoring_errors;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.close;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.defparameter;
+import static subl.jrtl.translatedCode.sublisp.cdestructuring_bind.cdestructuring_bind_error;
+import static subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
+import static subl.jrtl.translatedCode.sublisp.conses_high.copy_list;
+import static subl.jrtl.translatedCode.sublisp.conses_high.fourth;
+import static subl.jrtl.translatedCode.sublisp.conses_high.second;
+import static subl.jrtl.translatedCode.sublisp.conses_high.third;
+import static subl.jrtl.translatedCode.sublisp.reader.read_ignoring_errors;
+import static subl.jrtl.translatedCode.sublisp.streams_high.close;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.defparameter;
 
 import subl.Environment;
 import subl.Errors;
@@ -45,10 +45,10 @@ import subl.type.core.SubLObject;
 import subl.type.core.SubLProcess;
 import subl.type.core.SubLString;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.compatibility;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.time_high;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.jrtl.translatedCode.sublisp.compatibility;
+import subl.jrtl.translatedCode.sublisp.time_high;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
 
 /**

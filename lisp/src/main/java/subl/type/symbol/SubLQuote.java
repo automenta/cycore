@@ -2,7 +2,6 @@
 package subl.type.symbol;
 
 import abcl.Symbol;
-import com.cyc.tool.subl.util.SubLFiles;
 import subl.CommonSymbols;
 import subl.Errors;
 import subl.SubLThread;
@@ -12,6 +11,7 @@ import subl.type.exception.InvalidSubLExpressionException;
 import subl.type.number.SubLFixnum;
 import subl.type.operator.SubLFunction;
 import subl.type.operator.SubLOperator;
+import subl.util.SubLFiles;
 
 public class SubLQuote extends FromSubLisp implements SubLObject, SubLSymbol {
 

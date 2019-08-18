@@ -1,11 +1,11 @@
 /* For LarKC */
 package subl;
 
-import com.cyc.tool.subl.util.SubLFiles;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
 import subl.type.core.*;
 import subl.type.symbol.SubLNil;
 import subl.type.symbol.SubLSymbol;
+import subl.util.SubLFiles;
+import subl.util.SubLTrampolineFile;
 
 public class Threads extends SubLTrampolineFile {
 	public static SubLObject all_processes() {

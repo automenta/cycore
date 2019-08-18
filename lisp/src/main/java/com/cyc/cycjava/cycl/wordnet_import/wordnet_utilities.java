@@ -13,9 +13,9 @@ import static subl.Sequences.remove;
 import static subl.type.core.SubLObjectFactory.makeKeyword;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.intersection;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.union;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.jrtl.translatedCode.sublisp.conses_high.intersection;
+import static subl.jrtl.translatedCode.sublisp.conses_high.union;
+import static subl.util.SubLFiles.declareFunction;
 
 import com.cyc.cycjava.cycl.V12;
 import com.cyc.cycjava.cycl.cycl_grammar;
@@ -31,10 +31,10 @@ import subl.type.core.SubLObject;
 import subl.type.core.SubLProcess;
 import subl.type.core.SubLString;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles.LispMethod;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLFiles.LispMethod;
+import subl.util.SubLTrampolineFile;
+import subl.util.SubLTranslatedFile;
 
 
 /**

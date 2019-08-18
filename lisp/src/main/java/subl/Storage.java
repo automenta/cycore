@@ -1,14 +1,14 @@
 /* For LarKC */
 package subl;
 
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high;
-import com.cyc.tool.subl.management.HeapDumper;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles;
+import subl.jrtl.translatedCode.sublisp.streams_high;
+import subl.management.HeapDumper;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLObjectFactory;
 import subl.type.symbol.SubLNil;
 import subl.type.symbol.SubLSymbol;
+import subl.util.SubLFile;
+import subl.util.SubLFiles;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryPoolMXBean;

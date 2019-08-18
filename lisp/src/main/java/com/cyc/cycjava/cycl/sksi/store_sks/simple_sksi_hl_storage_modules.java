@@ -10,8 +10,8 @@ import static subl.Symbols.symbol_function;
 import static subl.type.core.SubLObjectFactory.makeKeyword;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.deflexical;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.deflexical;
 
 import com.cyc.cycjava.cycl.V10;
 import com.cyc.cycjava.cycl.clause_utilities;
@@ -37,9 +37,9 @@ import subl.type.core.SubLObject;
 import subl.type.core.SubLProcess;
 import subl.type.core.SubLString;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTrampolineFile;
+import subl.util.SubLTranslatedFile;
 
 
 public final class simple_sksi_hl_storage_modules extends SubLTranslatedFile implements V10 {

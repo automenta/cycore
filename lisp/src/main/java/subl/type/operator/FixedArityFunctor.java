@@ -3,10 +3,10 @@
 //
 package subl.type.operator;
 
-import com.cyc.tool.subl.util.PatchFileLoader;
 import org.objectweb.asm.*;
 import subl.*;
 import subl.type.core.SubLObject;
+import subl.util.PatchFileLoader;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;

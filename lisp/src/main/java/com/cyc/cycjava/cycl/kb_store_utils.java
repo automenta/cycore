@@ -4,14 +4,14 @@ package com.cyc.cycjava.cycl;
 import static com.cyc.cycjava.cycl.access_macros.register_macro_helper;
 import static subl.ConsesLow.append;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.bq_cons;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.declareMacro;
+import static subl.jrtl.translatedCode.sublisp.reader.bq_cons;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.declareMacro;
 
 import subl.type.core.SubLObject;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
 
 public final class kb_store_utils extends SubLTranslatedFile implements V10 {

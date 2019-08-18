@@ -9,16 +9,16 @@ import static subl.ConsesLow.list;
 import static subl.ConsesLow.listS;
 import static subl.type.core.SubLObjectFactory.makeBoolean;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.declareMacro;
-import static com.cyc.tool.subl.util.SubLFiles.defparameter;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.declareMacro;
+import static subl.util.SubLFiles.defparameter;
 
 import subl.type.core.SubLList;
 import subl.type.core.SubLObject;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles.LispMethod;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLFiles.LispMethod;
+import subl.util.SubLTranslatedFile;
 
 
 /**

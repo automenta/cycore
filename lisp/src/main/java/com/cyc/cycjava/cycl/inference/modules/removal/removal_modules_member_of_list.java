@@ -13,10 +13,10 @@ import static subl.type.core.SubLObjectFactory.makeBoolean;
 import static subl.type.core.SubLObjectFactory.makeKeyword;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.cdestructuring_bind_error;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.member;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.jrtl.translatedCode.sublisp.cdestructuring_bind.cdestructuring_bind_error;
+import static subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
+import static subl.jrtl.translatedCode.sublisp.conses_high.member;
+import static subl.util.SubLFiles.declareFunction;
 
 import com.cyc.cycjava.cycl.V12;
 import com.cyc.cycjava.cycl.cycl_utilities;
@@ -26,9 +26,9 @@ import com.cyc.cycjava.cycl.inference.modules.preference_modules;
 import subl.type.core.SubLList;
 import subl.type.core.SubLObject;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLFiles;
+import subl.util.SubLTranslatedFile;
 
 
 public final class removal_modules_member_of_list extends SubLTranslatedFile implements V12 {

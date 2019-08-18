@@ -12,8 +12,8 @@ import static subl.Sequences.nreverse;
 import static subl.Symbols.symbol_function;
 import static subl.type.core.SubLObjectFactory.makeKeyword;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.putf;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.jrtl.translatedCode.sublisp.conses_high.putf;
+import static subl.util.SubLFiles.declareFunction;
 
 import com.cyc.cycjava.cycl.inference.ask_utilities;
 import subl.Mapping;
@@ -21,10 +21,10 @@ import subl.Sort;
 import subl.type.core.SubLList;
 import subl.type.core.SubLObject;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles.LispMethod;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLFiles.LispMethod;
+import subl.util.SubLTrampolineFile;
+import subl.util.SubLTranslatedFile;
 
 
 /**

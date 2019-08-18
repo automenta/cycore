@@ -8,15 +8,15 @@ import static com.cyc.cycjava.cycl.access_macros.define_obsolete_register;
 import static com.cyc.cycjava.cycl.constant_handles.reader_make_constant_shell;
 import static subl.ConsesLow.list;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.deflexical;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.deflexical;
 
 import subl.type.core.SubLList;
 import subl.type.core.SubLObject;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles.LispMethod;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLFiles.LispMethod;
+import subl.util.SubLTranslatedFile;
 
 
 public final class wordnet extends SubLTranslatedFile implements V12 {

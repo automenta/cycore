@@ -3,8 +3,6 @@ package subl.type.core;
 
 import abcl.AbstractString;
 import abcl.AbstractVector;
-import com.cyc.tool.subl.util.ComparatorGenericKey;
-import com.cyc.tool.subl.util.ComparatorIdentityKey;
 import subl.*;
 import subl.type.exception.InvalidSubLExpressionException;
 import subl.type.exception.SubLException;
@@ -19,6 +17,8 @@ import subl.type.symbol.SubLNil;
 import subl.type.symbol.SubLPackage;
 import subl.type.symbol.SubLPackageIterator;
 import subl.type.symbol.SubLSymbol;
+import subl.util.ComparatorGenericKey;
+import subl.util.ComparatorIdentityKey;
 
 import java.math.BigInteger;
 import java.util.Arrays;

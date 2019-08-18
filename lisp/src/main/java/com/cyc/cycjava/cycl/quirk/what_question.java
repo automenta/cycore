@@ -27,11 +27,11 @@ import static subl.type.core.SubLObjectFactory.makeKeyword;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
 import static subl.type.core.SubLObjectFactory.makeUninternedSymbol;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.intersection;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.member;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.set_difference;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.print_high.princ_to_string;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.jrtl.translatedCode.sublisp.conses_high.intersection;
+import static subl.jrtl.translatedCode.sublisp.conses_high.member;
+import static subl.jrtl.translatedCode.sublisp.conses_high.set_difference;
+import static subl.jrtl.translatedCode.sublisp.print_high.princ_to_string;
+import static subl.util.SubLFiles.declareFunction;
 
 import com.cyc.cycjava.cycl.V12;
 import com.cyc.cycjava.cycl.classes;
@@ -50,9 +50,9 @@ import subl.type.core.SubLObject;
 import subl.type.core.SubLProcess;
 import subl.type.core.SubLString;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles.LispMethod;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLFiles.LispMethod;
+import subl.util.SubLTranslatedFile;
 
 
 /**

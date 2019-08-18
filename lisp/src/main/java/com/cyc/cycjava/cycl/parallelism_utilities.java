@@ -53,15 +53,15 @@ import static subl.Vectors.set_aref;
 import static subl.type.core.SubLObjectFactory.makeKeyword;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.property_list_member;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.cadr;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.cddr;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.copy_list;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.print_high.$print_object_method_table$;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.bq_cons;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.defconstant;
-import static com.cyc.tool.subl.util.SubLFiles.defparameter;
+import static subl.jrtl.translatedCode.sublisp.cdestructuring_bind.property_list_member;
+import static subl.jrtl.translatedCode.sublisp.conses_high.cadr;
+import static subl.jrtl.translatedCode.sublisp.conses_high.cddr;
+import static subl.jrtl.translatedCode.sublisp.conses_high.copy_list;
+import static subl.jrtl.translatedCode.sublisp.print_high.$print_object_method_table$;
+import static subl.jrtl.translatedCode.sublisp.reader.bq_cons;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.defconstant;
+import static subl.util.SubLFiles.defparameter;
 
 import java.util.ArrayList;
 
@@ -81,11 +81,11 @@ import subl.type.core.SubLProcess;
 import subl.type.core.SubLString;
 import subl.type.core.SubLStructNative;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.compatibility;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.visitation;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile; 
+import subl.jrtl.translatedCode.sublisp.compatibility;
+import subl.jrtl.translatedCode.sublisp.visitation;
+import subl.util.SubLFile;
+import subl.util.SubLTrampolineFile;
+import subl.util.SubLTranslatedFile;
  public final class parallelism_utilities extends SubLTranslatedFile implements V10 {
     public static final SubLFile me = new parallelism_utilities();
 

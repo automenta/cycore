@@ -29,10 +29,10 @@ import static subl.type.core.SubLObjectFactory.makeKeyword;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
 import static subl.type.core.SubLObjectFactory.makeUninternedSymbol;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.list_length;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.union;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.deflexical;
+import static subl.jrtl.translatedCode.sublisp.conses_high.list_length;
+import static subl.jrtl.translatedCode.sublisp.conses_high.union;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.deflexical;
 
 import com.cyc.cycjava.cycl.sbhl.sbhl_graphs;
 import com.cyc.cycjava.cycl.sbhl.sbhl_link_vars;
@@ -52,11 +52,11 @@ import subl.type.core.SubLObject;
 import subl.type.core.SubLProcess;
 import subl.type.core.SubLString;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles;
-import com.cyc.tool.subl.util.SubLFiles.LispMethod;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLFiles;
+import subl.util.SubLFiles.LispMethod;
+import subl.util.SubLTrampolineFile;
+import subl.util.SubLTranslatedFile;
 
 
 public final class shop_main extends SubLTranslatedFile implements V12 {

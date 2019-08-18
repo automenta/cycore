@@ -28,21 +28,21 @@ import static subl.Vectors.set_aref;
 import static subl.type.core.SubLObjectFactory.makeKeyword;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.cdestructuring_bind_error;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.cadr;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.cddr;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.declareMacro;
+import static subl.jrtl.translatedCode.sublisp.cdestructuring_bind.cdestructuring_bind_error;
+import static subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
+import static subl.jrtl.translatedCode.sublisp.conses_high.cadr;
+import static subl.jrtl.translatedCode.sublisp.conses_high.cddr;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.declareMacro;
 
 import subl.type.core.SubLList;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLString;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles;
-import com.cyc.tool.subl.util.SubLFiles.LispMethod;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLFiles;
+import subl.util.SubLFiles.LispMethod;
+import subl.util.SubLTranslatedFile;
 
 
 /**

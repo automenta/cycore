@@ -4,12 +4,12 @@ package com.cyc.cycjava.cycl;
 import static subl.ConsesLow.list;
 import static subl.Functions.apply;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.declareFunction;
 
 import subl.type.core.SubLObject;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
 
 public final class alexandria_iterators extends SubLTranslatedFile implements V10 {

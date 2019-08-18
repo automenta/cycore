@@ -13,27 +13,27 @@ import static subl.Values.values;
 import static subl.type.core.SubLObjectFactory.makeKeyword;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.assoc;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.fifth;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.fourth;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.getf;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.member;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.putf;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.second;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.sixth;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.third;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.deflexical;
-import static com.cyc.tool.subl.util.SubLFiles.defparameter;
+import static subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
+import static subl.jrtl.translatedCode.sublisp.conses_high.assoc;
+import static subl.jrtl.translatedCode.sublisp.conses_high.fifth;
+import static subl.jrtl.translatedCode.sublisp.conses_high.fourth;
+import static subl.jrtl.translatedCode.sublisp.conses_high.getf;
+import static subl.jrtl.translatedCode.sublisp.conses_high.member;
+import static subl.jrtl.translatedCode.sublisp.conses_high.putf;
+import static subl.jrtl.translatedCode.sublisp.conses_high.second;
+import static subl.jrtl.translatedCode.sublisp.conses_high.sixth;
+import static subl.jrtl.translatedCode.sublisp.conses_high.third;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.deflexical;
+import static subl.util.SubLFiles.defparameter;
 
 import subl.type.core.SubLList;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLString;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles.LispMethod;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLFiles.LispMethod;
+import subl.util.SubLTranslatedFile;
 
 
 /**

@@ -17,8 +17,8 @@ import static subl.type.core.SubLObjectFactory.makeInteger;
 import static subl.type.core.SubLObjectFactory.makeKeyword;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.close;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.jrtl.translatedCode.sublisp.streams_high.close;
+import static subl.util.SubLFiles.declareFunction;
 
 import com.cyc.cycjava.cycl.nl_stats.noun_learner;
 import subl.Errors;
@@ -28,9 +28,9 @@ import subl.type.core.SubLObject;
 import subl.type.core.SubLProcess;
 import subl.type.core.SubLString;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.compatibility;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.jrtl.translatedCode.sublisp.compatibility;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
 
 /**

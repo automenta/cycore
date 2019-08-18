@@ -7,14 +7,14 @@ package com.cyc.cycjava.cycl.cyblack;
 import static subl.ConsesLow.list;
 import static subl.type.core.SubLObjectFactory.makeKeyword;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.declareFunction;
 
 import com.cyc.cycjava.cycl.V02;
 import com.cyc.cycjava.cycl.interfaces;
 import subl.type.core.SubLList;
 import subl.type.core.SubLObject;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
 
 /**

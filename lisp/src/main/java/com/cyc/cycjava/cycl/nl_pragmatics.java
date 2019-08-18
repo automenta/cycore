@@ -3,14 +3,14 @@
  */
 package com.cyc.cycjava.cycl;
 
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.declareFunction;
 
 import subl.SubLThread;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLProcess;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles.LispMethod;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLFiles.LispMethod;
+import subl.util.SubLTranslatedFile;
 
 /**
  * Copyright (c) 1995 - 2019 Cycorp, Inc.  All rights reserved.

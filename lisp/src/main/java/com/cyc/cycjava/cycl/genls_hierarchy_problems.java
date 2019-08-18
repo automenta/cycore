@@ -38,16 +38,16 @@ import static subl.Values.restoreValuesFromVector;
 import static subl.Vectors.aref;
 import static subl.type.core.SubLObjectFactory.makeBoolean;
 import static subl.type.core.SubLObjectFactory.makeString;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.declareFunction;
 
 import subl.SubLThread;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLProcess;
 import subl.type.core.SubLString;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles.LispMethod;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLFiles.LispMethod;
+import subl.util.SubLTrampolineFile;
+import subl.util.SubLTranslatedFile;
 
 
 /**

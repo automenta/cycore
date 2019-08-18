@@ -1,15 +1,15 @@
 /* For LarKC */
 package subl;
 
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
 import subl.type.core.LarKCCharacter;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLObjectFactory;
 import subl.type.core.SubLString;
 import subl.type.number.SubLNumberFactory;
 import subl.type.symbol.SubLNil;
+import subl.util.SubLFile;
+import subl.util.SubLFiles;
+import subl.util.SubLTrampolineFile;
 
 public class Strings extends SubLTrampolineFile {
 	private static SubLObject compare(SubLObject string1, SubLObject string2, LarKCCharacter.CharCompareDesc compareDesc,

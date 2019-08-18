@@ -5,14 +5,14 @@ import abcl.Cons;
 import abcl.Environment;
 import abcl.LispObject;
 import abcl.SpecialOperator;
-import com.cyc.tool.subl.util.ComparatorGenericKey;
-import com.cyc.tool.subl.util.ComparatorIdentityKey;
 import subl.*;
 import subl.type.exception.InvalidSubLExpressionException;
 import subl.type.number.SubLFixnum;
 import subl.type.operator.*;
 import subl.type.symbol.SubLNil;
 import subl.type.symbol.SubLSymbol;
+import subl.util.ComparatorGenericKey;
+import subl.util.ComparatorIdentityKey;
 
 import java.util.ArrayList;
 import java.util.Arrays;

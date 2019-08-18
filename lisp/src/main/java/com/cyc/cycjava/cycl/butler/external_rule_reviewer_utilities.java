@@ -11,9 +11,9 @@ import static subl.Sequences.cconcatenate;
 import static subl.Threads.sleep;
 import static subl.type.core.SubLObjectFactory.makeDouble;
 import static subl.type.core.SubLObjectFactory.makeString;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.cadr;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.member;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.jrtl.translatedCode.sublisp.conses_high.cadr;
+import static subl.jrtl.translatedCode.sublisp.conses_high.member;
+import static subl.util.SubLFiles.declareFunction;
 
 import com.cyc.cycjava.cycl.V12;
 import com.cyc.cycjava.cycl.kb_mapping;
@@ -28,10 +28,10 @@ import subl.type.core.SubLObject;
 import subl.type.core.SubLProcess;
 import subl.type.core.SubLString;
 import subl.type.number.SubLFloat;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles.LispMethod;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLFiles.LispMethod;
+import subl.util.SubLTrampolineFile;
+import subl.util.SubLTranslatedFile;
 
 
 /**

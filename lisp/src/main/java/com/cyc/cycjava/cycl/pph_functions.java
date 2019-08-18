@@ -9,7 +9,7 @@ import static subl.Values.restoreValuesFromVector;
 import static subl.type.core.SubLObjectFactory.makeBoolean;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.declareFunction;
 
 import com.cyc.cycjava.cycl.sbhl.sbhl_graphs;
 import com.cyc.cycjava.cycl.sbhl.sbhl_link_vars;
@@ -27,8 +27,8 @@ import subl.type.core.SubLObject;
 import subl.type.core.SubLProcess;
 import subl.type.core.SubLString;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
 
 public final class pph_functions extends SubLTranslatedFile implements V10 {

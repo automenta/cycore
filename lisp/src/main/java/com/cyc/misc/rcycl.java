@@ -2,12 +2,12 @@
 //
 package com.cyc.misc;
 
-import com.cyc.tool.subl.util.*;
+import subl.util.*;
 import subl.Loader;
 import subl.type.core.SubLObject;
 import subl.type.symbol.SubLNil;
 
-import static com.cyc.tool.subl.util.SubLFiles.INEXACT;
+import static subl.util.SubLFiles.INEXACT;
 
 //import eu.cyc.sparql.server.JavaHttpServer;
 
@@ -70,7 +70,7 @@ public class rcycl extends InitializingSubLFile {
 	    ex.printStackTrace();
 	}
 	try {
-	    SubLFiles.initialize("com.cyc.tool.subl.webserver.ServletContainer");
+	    SubLFiles.initialize("subl.webserver.ServletContainer");
 	} catch (final Exception ex) {
 	    ex.printStackTrace();
 	}

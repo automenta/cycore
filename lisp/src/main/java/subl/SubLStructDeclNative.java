@@ -5,11 +5,11 @@ import abcl.Debug;
 import abcl.LispObject;
 import abcl.Primitive;
 import abcl.Symbol;
-import com.cyc.tool.subl.util.SubLFiles.LispSlot;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLObjectFactory;
 import subl.type.core.SubLStruct;
 import subl.type.symbol.*;
+import subl.util.SubLFiles.LispSlot;
 
 import java.lang.reflect.*;
 import java.util.ArrayList;

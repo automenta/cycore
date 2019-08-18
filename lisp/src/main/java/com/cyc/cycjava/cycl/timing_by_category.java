@@ -24,14 +24,14 @@ import static subl.type.core.SubLObjectFactory.makeKeyword;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
 import static subl.type.core.SubLObjectFactory.makeUninternedSymbol;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.cdestructuring_bind_error;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_listp;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.bq_cons;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.output_stream_p;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.declareMacro;
-import static com.cyc.tool.subl.util.SubLFiles.defparameter;
+import static subl.jrtl.translatedCode.sublisp.cdestructuring_bind.cdestructuring_bind_error;
+import static subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
+import static subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_listp;
+import static subl.jrtl.translatedCode.sublisp.reader.bq_cons;
+import static subl.jrtl.translatedCode.sublisp.streams_high.output_stream_p;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.declareMacro;
+import static subl.util.SubLFiles.defparameter;
 
 import subl.Errors;
 import subl.StreamsLow;
@@ -43,11 +43,11 @@ import subl.type.core.SubLProcess;
 import subl.type.core.SubLString;
 import subl.type.number.SubLFloat;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.time_high;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles.LispMethod;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.jrtl.translatedCode.sublisp.time_high;
+import subl.util.SubLFile;
+import subl.util.SubLFiles.LispMethod;
+import subl.util.SubLTrampolineFile;
+import subl.util.SubLTranslatedFile;
 
 
 /**

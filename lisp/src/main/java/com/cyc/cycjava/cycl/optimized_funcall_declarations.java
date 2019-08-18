@@ -9,8 +9,8 @@ import static subl.type.core.SubLObjectFactory.makeSymbol;
 
 import subl.SubLSpecialOperatorDeclarations;
 import subl.type.core.SubLObject;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
 
 /**

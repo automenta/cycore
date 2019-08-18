@@ -11,8 +11,8 @@ import subl.type.core.SubLList;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLString;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
 
 public final class html_file_dependencies extends SubLTranslatedFile implements V10 {

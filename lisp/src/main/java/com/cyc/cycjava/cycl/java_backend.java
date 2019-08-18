@@ -70,33 +70,33 @@ import static subl.type.core.SubLObjectFactory.makeKeyword;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
 import static subl.type.core.SubLObjectFactory.makeUninternedSymbol;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.cdestructuring_bind_error;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_listp;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.property_list_member;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.butlast;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.cadr;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.member;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.nthcdr;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.second;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.third;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.print_high.prin1;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.print_high.prin1_to_string;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.print_high.princ_to_string;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.print_high.print;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.$read_default_float_format$;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.bq_cons;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.close;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.get_output_stream_string;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.make_private_string_output_stream;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.terpri;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.write_char;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.write_string;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.declareMacro;
-import static com.cyc.tool.subl.util.SubLFiles.deflexical;
-import static com.cyc.tool.subl.util.SubLFiles.defparameter;
-import static com.cyc.tool.subl.util.SubLFiles.defvar;
+import static subl.jrtl.translatedCode.sublisp.cdestructuring_bind.cdestructuring_bind_error;
+import static subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
+import static subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_listp;
+import static subl.jrtl.translatedCode.sublisp.cdestructuring_bind.property_list_member;
+import static subl.jrtl.translatedCode.sublisp.conses_high.butlast;
+import static subl.jrtl.translatedCode.sublisp.conses_high.cadr;
+import static subl.jrtl.translatedCode.sublisp.conses_high.member;
+import static subl.jrtl.translatedCode.sublisp.conses_high.nthcdr;
+import static subl.jrtl.translatedCode.sublisp.conses_high.second;
+import static subl.jrtl.translatedCode.sublisp.conses_high.third;
+import static subl.jrtl.translatedCode.sublisp.print_high.prin1;
+import static subl.jrtl.translatedCode.sublisp.print_high.prin1_to_string;
+import static subl.jrtl.translatedCode.sublisp.print_high.princ_to_string;
+import static subl.jrtl.translatedCode.sublisp.print_high.print;
+import static subl.jrtl.translatedCode.sublisp.reader.$read_default_float_format$;
+import static subl.jrtl.translatedCode.sublisp.reader.bq_cons;
+import static subl.jrtl.translatedCode.sublisp.streams_high.close;
+import static subl.jrtl.translatedCode.sublisp.streams_high.get_output_stream_string;
+import static subl.jrtl.translatedCode.sublisp.streams_high.make_private_string_output_stream;
+import static subl.jrtl.translatedCode.sublisp.streams_high.terpri;
+import static subl.jrtl.translatedCode.sublisp.streams_high.write_char;
+import static subl.jrtl.translatedCode.sublisp.streams_high.write_string;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.declareMacro;
+import static subl.util.SubLFiles.deflexical;
+import static subl.util.SubLFiles.defparameter;
+import static subl.util.SubLFiles.defvar;
 
 import subl.Errors;
 import subl.Guids;
@@ -111,13 +111,13 @@ import subl.type.core.SubLProcess;
 import subl.type.core.SubLString;
 import subl.type.number.SubLInteger;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.compatibility;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.stream_macros;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles;
-import com.cyc.tool.subl.util.SubLFiles.LispMethod;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.jrtl.translatedCode.sublisp.compatibility;
+import subl.jrtl.translatedCode.sublisp.stream_macros;
+import subl.util.SubLFile;
+import subl.util.SubLFiles;
+import subl.util.SubLFiles.LispMethod;
+import subl.util.SubLTrampolineFile;
+import subl.util.SubLTranslatedFile;
 
 
 /**
@@ -318,7 +318,7 @@ public final class java_backend extends SubLTranslatedFile {
 
     private static final SubLString $$$SUBLISP = makeString("SUBLISP");
 
-    private static final SubLString $str45$com_cyc_tool_subl_jrtl_translated = makeString("com.cyc.tool.subl.jrtl.translatedCode");
+    private static final SubLString $str45$com_cyc_tool_subl_jrtl_translated = makeString("subl.jrtl.translatedCode");
 
     private static final SubLString $$$CYCL = makeString("CYCL");
 
@@ -346,9 +346,9 @@ public final class java_backend extends SubLTranslatedFile {
 
     private static final SubLString $str59$__import_com_cyc_tool_subl_jrtl_n = makeString("~%import subl.type.number.*;");
 
-    private static final SubLString $str60$__import_com_cyc_tool_subl_jrtl_t = makeString("~%import com.cyc.tool.subl.jrtl.translatedCode.sublisp.*;");
+    private static final SubLString $str60$__import_com_cyc_tool_subl_jrtl_t = makeString("~%import subl.jrtl.translatedCode.sublisp.*;");
 
-    private static final SubLString $str61$__import_com_cyc_tool_subl_util__ = makeString("~%import com.cyc.tool.subl.util.*;");
+    private static final SubLString $str61$__import_com_cyc_tool_subl_util__ = makeString("~%import subl.util.*;");
 
     private static final SubLString $str62$__import_static_com_cyc_tool_subl = makeString("~%import static subl.type.core.SubLObjectFactory.~A;");
 
@@ -358,7 +358,7 @@ public final class java_backend extends SubLTranslatedFile {
 
     private static final SubLList $list65 = list(makeString("cons"), makeString("list"), makeString("listS"));
 
-    private static final SubLString $str66$__import_static_com_cyc_tool_subl = makeString("~%import static com.cyc.tool.subl.util.SubLFiles.~A;");
+    private static final SubLString $str66$__import_static_com_cyc_tool_subl = makeString("~%import static subl.util.SubLFiles.~A;");
 
     private static final SubLList $list67 = list(makeString("defconstant"), makeString("deflexical"), makeString("defparameter"), makeString("defvar"), makeString("declareFunction"), makeString("declareMacro"));
 
@@ -1190,13 +1190,13 @@ public final class java_backend extends SubLTranslatedFile {
 
     private static final SubLString $str522$_java = makeString(".java");
 
-    private static final SubLString $str523$__package_com_cyc_cycjava_cycl___ = makeString("\n\npackage com.cyc.cycjava.cycl;\n\nimport com.cyc.tool.subl.util.InitializingSubLFile;\nimport com.cyc.tool.subl.util.SubLFile;\nimport com.cyc.tool.subl.util.SubLFiles;\n\npublic class cycl extends InitializingSubLFile {\n  \n  //// Constructors\n  \n  /** Creates a new instance of cycl. */\n  public cycl() {}\n  \n  public static final SubLFile me = new cycl();\n  \n  //// Initializers\n  \n  public void declareFunctions() {\n  }\n  \n  public void initializeVariables() {\n  }\n  \n  public void runTopLevelForms() {\n    try {\n     SubLFiles.initialize(\"eu.cyc.sparql.server.Sparql\");\n     SubLFiles.initialize(\"com.cyc.tool.subl.webserver.ServletContainer\");\n    } catch (Exception e) {\n    }\n");
+    private static final SubLString $str523$__package_com_cyc_cycjava_cycl___ = makeString("\n\npackage com.cyc.cycjava.cycl;\n\nimport subl.util.InitializingSubLFile;\nimport subl.util.SubLFile;\nimport subl.util.SubLFiles;\n\npublic class cycl extends InitializingSubLFile {\n  \n  //// Constructors\n  \n  /** Creates a new instance of cycl. */\n  public cycl() {}\n  \n  public static final SubLFile me = new cycl();\n  \n  //// Initializers\n  \n  public void declareFunctions() {\n  }\n  \n  public void initializeVariables() {\n  }\n  \n  public void runTopLevelForms() {\n    try {\n     SubLFiles.initialize(\"eu.cyc.sparql.server.Sparql\");\n     SubLFiles.initialize(\"subl.webserver.ServletContainer\");\n    } catch (Exception e) {\n    }\n");
 
     private static final SubLString $str524$________ = makeString("\n  }  \n}");
 
     private static final SubLList $list525 = list(makeSymbol("EXPRESSION1"), makeSymbol("EXPRESSION2"));
 
-    private static final SubLString $str528$import_com_cyc_tool_subl_util____ = makeString("import com.cyc.tool.subl.util.*;\n\npublic class ~A extends AbstractSubLPatcher {\n  private static final long SEQUENCE = ~A;\n  private static final String[] patchedClasses = {\n    ~A\n  };\n\n  public final long getPatchOrdering() { return SEQUENCE; }\n  public final String[] getPatchedClasses() { return patchedClasses; }\n}\n");
+    private static final SubLString $str528$import_com_cyc_tool_subl_util____ = makeString("import subl.util.*;\n\npublic class ~A extends AbstractSubLPatcher {\n  private static final long SEQUENCE = ~A;\n  private static final String[] patchedClasses = {\n    ~A\n  };\n\n  public final long getPatchOrdering() { return SEQUENCE; }\n  public final String[] getPatchedClasses() { return patchedClasses; }\n}\n");
 
     private static final SubLString $$$patcher = makeString("patcher");
 
@@ -11012,7 +11012,7 @@ public final class java_backend extends SubLTranslatedFile {
 
     public static final SubLString $str_alt9$____package__A_ = makeString("~%~%package ~A;");
 
-    public static final SubLString $str_alt11$com_cyc_tool_subl_jrtl_translated = makeString("com.cyc.tool.subl.jrtl.translatedCode");
+    public static final SubLString $str_alt11$com_cyc_tool_subl_jrtl_translated = makeString("subl.jrtl.translatedCode");
 
     public static final SubLString $str_alt13$com_cyc_cycjava = makeString("com.cyc.cycjava");
 
@@ -11038,9 +11038,9 @@ public final class java_backend extends SubLTranslatedFile {
 
     public static final SubLString $str_alt25$__import_com_cyc_tool_subl_jrtl_n = makeString("~%import subl.type.number.*;");
 
-    public static final SubLString $str_alt26$__import_com_cyc_tool_subl_jrtl_t = makeString("~%import com.cyc.tool.subl.jrtl.translatedCode.sublisp.*;");
+    public static final SubLString $str_alt26$__import_com_cyc_tool_subl_jrtl_t = makeString("~%import subl.jrtl.translatedCode.sublisp.*;");
 
-    public static final SubLString $str_alt27$__import_com_cyc_tool_subl_util__ = makeString("~%import com.cyc.tool.subl.util.*;");
+    public static final SubLString $str_alt27$__import_com_cyc_tool_subl_util__ = makeString("~%import subl.util.*;");
 
     public static final SubLObject java_backend_write_patcher_for_modules_alt(SubLObject v_modules, SubLObject patcher_id) {
         if (patcher_id == UNPROVIDED) {
@@ -11106,7 +11106,7 @@ public final class java_backend extends SubLTranslatedFile {
 
     public static final SubLList $list_alt31 = list(makeString("cons"), makeString("list"), makeString("listS"));
 
-    public static final SubLString $str_alt32$__import_static_com_cyc_tool_subl = makeString("~%import static com.cyc.tool.subl.util.SubLFiles.~A;");
+    public static final SubLString $str_alt32$__import_static_com_cyc_tool_subl = makeString("~%import static subl.util.SubLFiles.~A;");
 
     public static final SubLList $list_alt33 = list(makeString("defconstant"), makeString("deflexical"), makeString("defparameter"), makeString("defvar"), makeString("declareFunction"), makeString("declareMacro"));
 
@@ -12197,13 +12197,13 @@ public final class java_backend extends SubLTranslatedFile {
 
     public static final SubLString $str_alt462$______SubLFiles_initialize___A___ = makeString("~%    SubLFiles.initialize(\"~A\");");
 
-    public static final SubLString $str_alt463$__package_com_cyc_cycjava_cycl___ = makeString("\n\npackage com.cyc.cycjava.cycl;\n\nimport com.cyc.tool.subl.util.SubLFile;\nimport com.cyc.tool.subl.util.SubLFiles;\n\npublic class cycl implements SubLFile {\n  \n  //// Constructors\n  \n  /** Creates a new instance of cycl. */\n  public cycl() {}\n  \n  public static final SubLFile me = new cycl();\n  \n  //// Initializers\n  \n  public void declareFunctions() {\n  }\n  \n  public void initializeVariables() {\n  }\n  \n  public void runTopLevelForms() {");
+    public static final SubLString $str_alt463$__package_com_cyc_cycjava_cycl___ = makeString("\n\npackage com.cyc.cycjava.cycl;\n\nimport subl.util.SubLFile;\nimport subl.util.SubLFiles;\n\npublic class cycl implements SubLFile {\n  \n  //// Constructors\n  \n  /** Creates a new instance of cycl. */\n  public cycl() {}\n  \n  public static final SubLFile me = new cycl();\n  \n  //// Initializers\n  \n  public void declareFunctions() {\n  }\n  \n  public void initializeVariables() {\n  }\n  \n  public void runTopLevelForms() {");
 
     public static final SubLString $str_alt464$________ = makeString("\n  }  \n}");
 
     public static final SubLList $list_alt465 = list(makeSymbol("EXPRESSION1"), makeSymbol("EXPRESSION2"));
 
-    public static final SubLString $str_alt468$import_com_cyc_tool_subl_util____ = makeString("import com.cyc.tool.subl.util.*;\n\npublic class ~A extends AbstractSubLPatcher {\n  private static final long SEQUENCE = ~A;\n  private static final String[] patchedClasses = {\n    ~A\n  };\n\n  public final long getPatchOrdering() { return SEQUENCE; }\n  public final String[] getPatchedClasses() { return patchedClasses; }\n}\n");
+    public static final SubLString $str_alt468$import_com_cyc_tool_subl_util____ = makeString("import subl.util.*;\n\npublic class ~A extends AbstractSubLPatcher {\n  private static final long SEQUENCE = ~A;\n  private static final String[] patchedClasses = {\n    ~A\n  };\n\n  public final long getPatchOrdering() { return SEQUENCE; }\n  public final String[] getPatchedClasses() { return patchedClasses; }\n}\n");
 
     public static final SubLString $str_alt470$_______ = makeString(",~%    ");
 
@@ -12949,9 +12949,9 @@ public final class java_backend extends SubLTranslatedFile {
  * $str522$_java = makeString(".java");
  * $str523$__package_com_cyc_cycjava_cycl___ = makeString("\n\npackage
  * com.cyc.cycjava.cycl;\n\nimport
- * com.cyc.tool.subl.util.InitializingSubLFile;\nimport
- * com.cyc.tool.subl.util.SubLFile;\nimport
- * com.cyc.tool.subl.util.SubLFiles;\n\npublic class cycl extends
+ * subl.util.InitializingSubLFile;\nimport
+ * subl.util.SubLFile;\nimport
+ * subl.util.SubLFiles;\n\npublic class cycl extends
  * InitializingSubLFile {\n \n //// Constructors\n \n Creates a new instance of
  * cycl.
  */

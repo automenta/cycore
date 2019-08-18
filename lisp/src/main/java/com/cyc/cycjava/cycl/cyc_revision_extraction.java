@@ -19,16 +19,16 @@ import static subl.Symbols.symbol_function;
 import static subl.Threads.$is_thread_performing_cleanupP$;
 import static subl.Values.getValuesAsVector;
 import static subl.Values.restoreValuesFromVector;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.print_high.princ;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.read_from_string_ignoring_errors;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.close;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.get_output_stream_string;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.make_private_string_output_stream;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.jrtl.translatedCode.sublisp.print_high.princ;
+import static subl.jrtl.translatedCode.sublisp.reader.read_from_string_ignoring_errors;
+import static subl.jrtl.translatedCode.sublisp.streams_high.close;
+import static subl.jrtl.translatedCode.sublisp.streams_high.get_output_stream_string;
+import static subl.jrtl.translatedCode.sublisp.streams_high.make_private_string_output_stream;
+import static subl.util.SubLFiles.declareFunction;
 
 import subl.type.core.SubLObject;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
 
 /**

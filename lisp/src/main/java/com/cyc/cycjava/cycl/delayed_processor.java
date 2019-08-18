@@ -25,13 +25,13 @@ import static subl.type.core.SubLObjectFactory.makeDouble;
 import static subl.type.core.SubLObjectFactory.makeKeyword;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.cadr;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.cddr;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.print_high.$print_object_method_table$;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.defconstant;
-import static com.cyc.tool.subl.util.SubLFiles.deflexical;
+import static subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
+import static subl.jrtl.translatedCode.sublisp.conses_high.cadr;
+import static subl.jrtl.translatedCode.sublisp.conses_high.cddr;
+import static subl.jrtl.translatedCode.sublisp.print_high.$print_object_method_table$;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.defconstant;
+import static subl.util.SubLFiles.deflexical;
 
 import abcl.Lisp;
 
@@ -49,9 +49,9 @@ import subl.type.core.SubLString;
 import subl.type.core.SubLStructNative;
 import subl.type.number.SubLFloat;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.visitation;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.jrtl.translatedCode.sublisp.visitation;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
  
  public final class delayed_processor extends SubLTranslatedFile implements V10 {

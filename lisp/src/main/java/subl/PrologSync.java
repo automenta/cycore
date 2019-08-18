@@ -2,8 +2,6 @@
 package subl;
 
 import abcl.*;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
 import cyc.CYC;
 import org.jpl7.*;
 import org.jpl7.fli.term_t;
@@ -14,6 +12,8 @@ import subl.type.stream.SubLStream;
 import subl.type.symbol.SubLNil;
 import subl.type.symbol.SubLPackage;
 import subl.type.symbol.SubLSymbol;
+import subl.util.SubLFile;
+import subl.util.SubLTrampolineFile;
 
 import java.lang.Float;
 import java.lang.ref.WeakReference;

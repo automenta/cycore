@@ -8,16 +8,16 @@ import static subl.Threads.$is_thread_performing_cleanupP$;
 import static subl.Values.values;
 import static subl.type.core.SubLObjectFactory.makeInteger;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.cdestructuring_bind_error;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.$readtable$;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader._csetf_readtable_case;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.copy_readtable;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.read_from_string;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.readtable_case;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.declareMacro;
-import static com.cyc.tool.subl.util.SubLFiles.defconstant;
+import static subl.jrtl.translatedCode.sublisp.cdestructuring_bind.cdestructuring_bind_error;
+import static subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
+import static subl.jrtl.translatedCode.sublisp.reader.$readtable$;
+import static subl.jrtl.translatedCode.sublisp.reader._csetf_readtable_case;
+import static subl.jrtl.translatedCode.sublisp.reader.copy_readtable;
+import static subl.jrtl.translatedCode.sublisp.reader.read_from_string;
+import static subl.jrtl.translatedCode.sublisp.reader.readtable_case;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.declareMacro;
+import static subl.util.SubLFiles.defconstant;
 
 import com.cyc.cycjava.cycl.V02;
 import subl.SubLThread;
@@ -26,8 +26,8 @@ import subl.type.core.SubLObject;
 import subl.type.core.SubLProcess;
 import subl.type.number.SubLInteger;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
 /**
  * Copyright (c) 1995 - 2019 Cycorp, Inc.  All rights reserved.

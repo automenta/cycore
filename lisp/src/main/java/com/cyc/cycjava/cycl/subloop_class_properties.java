@@ -4,12 +4,12 @@
 package com.cyc.cycjava.cycl;
 
 
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.declareFunction;
 
 import subl.type.core.SubLObject;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.bytes;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.jrtl.translatedCode.sublisp.bytes;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
 
 /**

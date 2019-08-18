@@ -24,14 +24,14 @@ import static subl.type.core.SubLObjectFactory.makeBoolean;
 import static subl.type.core.SubLObjectFactory.makeKeyword;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.member;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.nsublis;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.second;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.sublis;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.third;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.union;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.defconstant;
+import static subl.jrtl.translatedCode.sublisp.conses_high.member;
+import static subl.jrtl.translatedCode.sublisp.conses_high.nsublis;
+import static subl.jrtl.translatedCode.sublisp.conses_high.second;
+import static subl.jrtl.translatedCode.sublisp.conses_high.sublis;
+import static subl.jrtl.translatedCode.sublisp.conses_high.third;
+import static subl.jrtl.translatedCode.sublisp.conses_high.union;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.defconstant;
 
 import com.cyc.cycjava.cycl.inference.harness.inference_kernel;
 import subl.Mapping;
@@ -41,10 +41,10 @@ import subl.type.core.SubLList;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLProcess;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles;
-import com.cyc.tool.subl.util.SubLFiles.LispMethod;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLFiles;
+import subl.util.SubLFiles.LispMethod;
+import subl.util.SubLTranslatedFile;
 
 
 /**

@@ -3,9 +3,9 @@ package subl;
 
 //import org.logicmoo.system.BeanShellCntrl;
 
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles;
 import subl.type.core.SubLObject;
+import subl.util.SubLFile;
+import subl.util.SubLFiles;
 
 public class UserIO implements SubLFile {
 	public static SubLObject alert_user(SubLObject format_string, SubLObject[] args) {

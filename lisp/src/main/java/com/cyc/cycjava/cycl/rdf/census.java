@@ -12,11 +12,11 @@ import static subl.Symbols.symbol_function;
 import static subl.Threads.$is_thread_performing_cleanupP$;
 import static subl.Time.get_universal_time;
 import static subl.type.core.SubLObjectFactory.makeString;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.member;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.second;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.close;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.make_private_string_input_stream;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.jrtl.translatedCode.sublisp.conses_high.member;
+import static subl.jrtl.translatedCode.sublisp.conses_high.second;
+import static subl.jrtl.translatedCode.sublisp.streams_high.close;
+import static subl.jrtl.translatedCode.sublisp.streams_high.make_private_string_input_stream;
+import static subl.util.SubLFiles.declareFunction;
 
 import com.cyc.cycjava.cycl.V02;
 import com.cyc.cycjava.cycl.constant_handles;
@@ -29,8 +29,8 @@ import subl.type.core.SubLList;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLProcess;
 import subl.type.core.SubLString;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
 
 /**

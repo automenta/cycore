@@ -1,7 +1,6 @@
 /* For LarKC */
 package subl.type.core;
 
-import com.cyc.tool.subl.util.SafeRunnable;
 import subl.*;
 import subl.type.exception.InvalidSubLExpressionException;
 import subl.type.exception.ResumeException;
@@ -18,6 +17,7 @@ import subl.type.symbol.SubLNil;
 import subl.type.symbol.SubLPackage;
 import subl.type.symbol.SubLPackageIterator;
 import subl.type.symbol.SubLSymbol;
+import subl.util.SafeRunnable;
 
 import java.math.BigInteger;
 import java.util.*;

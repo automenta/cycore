@@ -3,13 +3,13 @@
  */
 package com.cyc.cycjava.cycl;
 import static subl.type.core.SubLObjectFactory.makeString;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.declareFunction;
 
 import subl.SubLThread;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLProcess;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
 
 /**

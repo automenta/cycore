@@ -1,14 +1,14 @@
 /* For LarKC */
 package subl;
 
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
 import subl.type.core.SubLCharacter;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLObjectFactory;
 import subl.type.number.SubLNumberFactory;
 import subl.type.symbol.SubLNil;
+import subl.util.SubLFile;
+import subl.util.SubLFiles;
+import subl.util.SubLTrampolineFile;
 
 public class Characters extends SubLTrampolineFile {
 	public static SubLObject alpha_char_p(SubLObject c) {

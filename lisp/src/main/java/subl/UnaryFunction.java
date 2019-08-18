@@ -1,7 +1,7 @@
 /* For LarKC */
 package subl;
 
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high;
+import subl.jrtl.translatedCode.sublisp.streams_high;
 import subl.type.core.SubLEnvironment;
 import subl.type.core.SubLObject;
 import subl.type.operator.FixedArityFunctor;

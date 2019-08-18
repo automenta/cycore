@@ -4,11 +4,11 @@ package subl;
 import abcl.Environment;
 import abcl.Lisp;
 import abcl.LispThread;
-import com.cyc.tool.subl.util.ComparatorGenericKey;
-import com.cyc.tool.subl.util.ComparatorIdentityKey;
-import com.cyc.tool.subl.util.PatchFileLoader;
 import subl.type.core.*;
 import subl.type.symbol.SubLNil;
+import subl.util.ComparatorGenericKey;
+import subl.util.ComparatorIdentityKey;
+import subl.util.PatchFileLoader;
 
 import java.util.*;
 

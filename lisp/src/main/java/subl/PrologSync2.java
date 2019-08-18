@@ -1,13 +1,13 @@
 package subl;
 
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
 import org.jpl7.Compound;
 import org.jpl7.Term;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLStruct;
 import subl.type.symbol.SubLSymbol;
+import subl.util.SubLFile;
+import subl.util.SubLFiles;
+import subl.util.SubLTrampolineFile;
 
 import java.io.*;
 import java.lang.ref.WeakReference;

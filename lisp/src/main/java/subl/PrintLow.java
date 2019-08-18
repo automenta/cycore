@@ -1,12 +1,9 @@
 /* For LarKC */
 package subl;
 
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.format;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.print_high;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
+import subl.jrtl.translatedCode.sublisp.format;
+import subl.jrtl.translatedCode.sublisp.print_high;
+import subl.jrtl.translatedCode.sublisp.streams_high;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLObjectFactory;
 import subl.type.core.SubLReadWriteLock;
@@ -15,6 +12,9 @@ import subl.type.number.SubLNumber;
 import subl.type.symbol.SubLNil;
 import subl.type.symbol.SubLSymbol;
 import subl.type.symbol.SubLSymbolFactory;
+import subl.util.SubLFile;
+import subl.util.SubLFiles;
+import subl.util.SubLTrampolineFile;
 
 public class PrintLow extends SubLTrampolineFile {
     public static boolean controlPrintLength() {

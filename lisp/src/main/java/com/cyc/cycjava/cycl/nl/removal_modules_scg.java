@@ -6,8 +6,8 @@ import com.cyc.cycjava.cycl.inference.harness.inference_datastructures_inference
 import com.cyc.cycjava.cycl.inference.harness.inference_macros;
 import com.cyc.cycjava.cycl.inference.harness.inference_modules;
 import com.cyc.cycjava.cycl.inference.modules.preference_modules;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 import subl.SubLThread;
 import subl.type.core.SubLList;
 import subl.type.core.SubLObject;
@@ -15,9 +15,9 @@ import subl.type.core.SubLProcess;
 import subl.type.symbol.SubLSymbol;
 
 import static com.cyc.cycjava.cycl.el_utilities.*;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.putf;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.defparameter;
+import static subl.jrtl.translatedCode.sublisp.conses_high.putf;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.defparameter;
 import static subl.ConsesLow.*;
 import static subl.Numbers.multiply;
 import static subl.Sequences.length;

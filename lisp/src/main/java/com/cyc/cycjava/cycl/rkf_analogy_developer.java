@@ -10,17 +10,17 @@ import static subl.ConsesLow.cons;
 import static subl.Sequences.nreverse;
 import static subl.Symbols.symbol_function;
 import static subl.type.core.SubLObjectFactory.makeString;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.subst;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.jrtl.translatedCode.sublisp.conses_high.subst;
+import static subl.util.SubLFiles.declareFunction;
 
 import subl.Errors;
 import subl.SubLThread;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLProcess;
 import subl.type.core.SubLString;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles.LispMethod;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLFiles.LispMethod;
+import subl.util.SubLTranslatedFile;
 
 
 /**

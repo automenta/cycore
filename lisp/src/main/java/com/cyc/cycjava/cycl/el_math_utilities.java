@@ -8,14 +8,14 @@ import static com.cyc.cycjava.cycl.el_utilities.el_formula_p;
 import static com.cyc.cycjava.cycl.el_utilities.make_unary_formula;
 import static subl.type.core.SubLObjectFactory.makeBoolean;
 import static subl.type.core.SubLObjectFactory.makeString;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.declareFunction;
 
 import subl.Errors;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLString;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles.LispMethod;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLFiles.LispMethod;
+import subl.util.SubLTranslatedFile;
 
 
 public final class el_math_utilities extends SubLTranslatedFile implements V12 {

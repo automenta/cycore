@@ -6,12 +6,12 @@ package com.cyc.cycjava.cycl;
 import subl.type.core.SubLObject;
 import subl.type.symbol.SubLNil;
 import subl.type.symbol.SubLT;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles;
+import subl.util.SubLFile;
+import subl.util.SubLFiles;
 import subl.Loader;
 import subl.SubLMain;
 
-import static com.cyc.tool.subl.util.SubLFiles.INEXACT;
+import static subl.util.SubLFiles.INEXACT;
 
 public class cycl implements SubLFile {
     private static int rl;

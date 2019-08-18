@@ -2,9 +2,6 @@
 package subl;
 
 import abcl.*;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
 import cyc.CYC;
 import org.jpl7.Atom;
 import org.jpl7.Term;
@@ -17,6 +14,9 @@ import subl.type.stream.SubLStream;
 import subl.type.symbol.SubLNil;
 import subl.type.symbol.SubLPackage;
 import subl.type.symbol.SubLSymbol;
+import subl.util.SubLFile;
+import subl.util.SubLFiles;
+import subl.util.SubLTrampolineFile;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;

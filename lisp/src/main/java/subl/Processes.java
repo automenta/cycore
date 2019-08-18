@@ -3,11 +3,9 @@ package subl;
 
 import abcl.Keyword;
 import abcl.Lisp;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.print_high;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high;
-import com.cyc.tool.subl.util.SubLFiles;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
 import cyc.CYC;
+import subl.jrtl.translatedCode.sublisp.print_high;
+import subl.jrtl.translatedCode.sublisp.streams_high;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLObjectFactory;
 import subl.type.core.SubLString;
@@ -15,6 +13,8 @@ import subl.type.number.SubLInteger;
 import subl.type.number.SubLNumberFactory;
 import subl.type.stream.*;
 import subl.type.symbol.SubLNil;
+import subl.util.SubLFiles;
+import subl.util.SubLTrampolineFile;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -1,11 +1,11 @@
 /* For LarKC */
 package subl;
 
-import com.cyc.tool.subl.util.ObjectPool;
 import subl.type.core.SubLHashtable;
 import subl.type.core.SubLList;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLProcess;
+import subl.util.ObjectPool;
 
 import java.util.ArrayList;
 import java.util.Arrays;

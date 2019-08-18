@@ -5,7 +5,6 @@ import abcl.Lisp;
 import abcl.LispObject;
 import abcl.Nil;
 import abcl.Symbol;
-import com.cyc.tool.subl.util.SubLFiles;
 import cyc.CYC;
 import org.jpl7.JPL;
 import org.jpl7.Term;
@@ -17,6 +16,7 @@ import subl.type.exception.SubLException;
 import subl.type.operator.SubLFunction;
 import subl.type.operator.SubLOperator;
 import subl.type.stream.*;
+import subl.util.SubLFiles;
 
 import java.util.ArrayList;
 import java.util.Collection;

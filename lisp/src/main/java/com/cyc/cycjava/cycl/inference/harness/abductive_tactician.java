@@ -6,16 +6,16 @@ import static subl.type.core.SubLObjectFactory.makeBoolean;
 import static subl.type.core.SubLObjectFactory.makeKeyword;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.defvar;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.defvar;
 
 import com.cyc.cycjava.cycl.V10;
 import com.cyc.cycjava.cycl.list_utilities;
 import subl.type.core.SubLList;
 import subl.type.core.SubLObject;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
 
 public final class abductive_tactician extends SubLTranslatedFile implements V10 {

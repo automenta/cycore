@@ -9,7 +9,7 @@ import static com.cyc.cycjava.cycl.el_utilities.make_binary_formula;
 import static com.cyc.cycjava.cycl.el_utilities.make_ternary_formula;
 import static com.cyc.cycjava.cycl.utilities_macros.register_kb_function;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.declareFunction;
 
 import com.cyc.cycjava.cycl.V12;
 import com.cyc.cycjava.cycl.hlmt_relevance;
@@ -18,9 +18,9 @@ import com.cyc.cycjava.cycl.time_interval_utilities;
 import com.cyc.cycjava.cycl.time_parameter_utilities;
 import subl.type.core.SubLObject;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles.LispMethod;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLFiles.LispMethod;
+import subl.util.SubLTranslatedFile;
 
 
 /**

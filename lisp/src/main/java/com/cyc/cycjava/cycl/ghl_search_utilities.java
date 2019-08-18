@@ -18,15 +18,15 @@ import static subl.Types.hash_table_p;
 import static subl.Values.getValuesAsVector;
 import static subl.Values.restoreValuesFromVector;
 import static subl.type.core.SubLObjectFactory.makeBoolean;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.declareFunction;
 
 import com.cyc.cycjava.cycl.sbhl.sbhl_module_utilities;
 import com.cyc.cycjava.cycl.sbhl.sbhl_module_vars;
 import com.cyc.cycjava.cycl.sksi.sks_indexing.sksi_tva_utilities;
 import subl.type.core.SubLList;
 import subl.type.core.SubLObject;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
 
 public final class ghl_search_utilities extends SubLTranslatedFile implements V12 {

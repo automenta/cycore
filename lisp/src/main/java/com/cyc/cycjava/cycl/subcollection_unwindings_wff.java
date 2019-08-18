@@ -25,15 +25,15 @@ import static subl.type.core.SubLObjectFactory.makeDouble;
 import static subl.type.core.SubLObjectFactory.makeInteger;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.acons;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.assoc;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.second;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.sublis;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.union;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.bq_cons;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.defparameter;
-import static com.cyc.tool.subl.util.SubLFiles.defvar;
+import static subl.jrtl.translatedCode.sublisp.conses_high.acons;
+import static subl.jrtl.translatedCode.sublisp.conses_high.assoc;
+import static subl.jrtl.translatedCode.sublisp.conses_high.second;
+import static subl.jrtl.translatedCode.sublisp.conses_high.sublis;
+import static subl.jrtl.translatedCode.sublisp.conses_high.union;
+import static subl.jrtl.translatedCode.sublisp.reader.bq_cons;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.defparameter;
+import static subl.util.SubLFiles.defvar;
 
 import subl.Mapping;
 import subl.SubLThread;
@@ -44,8 +44,8 @@ import subl.type.core.SubLString;
 import subl.type.number.SubLFloat;
 import subl.type.number.SubLInteger;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
 
 public final class subcollection_unwindings_wff extends SubLTranslatedFile implements V10 {

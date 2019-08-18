@@ -15,11 +15,11 @@ import static subl.Values.resetMultipleValues;
 import static subl.Values.values;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.parse_integer;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.terpri;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.write_string;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.deflexical;
+import static subl.jrtl.translatedCode.sublisp.reader.parse_integer;
+import static subl.jrtl.translatedCode.sublisp.streams_high.terpri;
+import static subl.jrtl.translatedCode.sublisp.streams_high.write_string;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.deflexical;
 
 import subl.Mapping;
 import subl.StreamsLow;
@@ -27,8 +27,8 @@ import subl.type.core.SubLList;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLString;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
 
 public final class system_administration_utilities extends SubLTranslatedFile implements V10 {

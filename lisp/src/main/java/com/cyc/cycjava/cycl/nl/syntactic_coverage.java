@@ -3,8 +3,8 @@ package com.cyc.cycjava.cycl.nl;
 
 import com.cyc.cycjava.cycl.*;
 import com.cyc.cycjava.cycl.sbhl.sbhl_marking_vars;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 import subl.Errors;
 import subl.SubLThread;
 import subl.type.core.SubLList;
@@ -14,10 +14,10 @@ import subl.type.core.SubLString;
 import subl.type.symbol.SubLSymbol;
 
 import static com.cyc.cycjava.cycl.subl_macro_promotions.*;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.member;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.second;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.defparameter;
+import static subl.jrtl.translatedCode.sublisp.conses_high.member;
+import static subl.jrtl.translatedCode.sublisp.conses_high.second;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.defparameter;
 import static subl.ConsesLow.cons;
 import static subl.ConsesLow.list;
 import static subl.Numbers.*;

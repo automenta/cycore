@@ -9,13 +9,13 @@ package subl.type.symbol;
 
 import abcl.LispObject;
 import abcl.Symbol;
-import com.cyc.tool.subl.util.SubLFiles.VariableAccessMode;
 import subl.Errors;
 import subl.SubLThread;
 import subl.type.core.SubLEnvironment;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLString;
 import subl.type.exception.InvalidSubLExpressionException;
+import subl.util.SubLFiles.VariableAccessMode;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;

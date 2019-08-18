@@ -1,10 +1,10 @@
 /* For LarKC */
 package subl;
 
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles;
 import subl.type.core.SubLObject;
 import subl.type.symbol.SubLNil;
+import subl.util.SubLFile;
+import subl.util.SubLFiles;
 
 public class Alien implements SubLFile
 {

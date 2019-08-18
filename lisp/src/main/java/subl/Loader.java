@@ -3,10 +3,6 @@ package subl;
 
 import abcl.Lisp;
 import com.cyc.cycjava.cycl.V02;
-import com.cyc.tool.subl.util.PatchFileLoader;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
 import com.google.common.collect.Sets;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLObjectFactory;
@@ -14,6 +10,10 @@ import subl.type.exception.ResumeException;
 import subl.type.operator.SubLFunction;
 import subl.type.symbol.SubLPackage;
 import subl.type.symbol.SubLSymbol;
+import subl.util.PatchFileLoader;
+import subl.util.SubLFile;
+import subl.util.SubLFiles;
+import subl.util.SubLTranslatedFile;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;

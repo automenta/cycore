@@ -1,10 +1,6 @@
 /* For LarKC */
 package subl;
 
-import com.cyc.tool.subl.util.SafeRunnable;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLObjectFactory;
 import subl.type.core.SubLProcess;
@@ -14,6 +10,10 @@ import subl.type.operator.SubLFunction;
 import subl.type.stream.SubLSocketStream;
 import subl.type.symbol.SubLNil;
 import subl.type.symbol.SubLSymbol;
+import subl.util.SafeRunnable;
+import subl.util.SubLFile;
+import subl.util.SubLFiles;
+import subl.util.SubLTrampolineFile;
 
 import java.io.IOException;
 import java.io.PrintStream;

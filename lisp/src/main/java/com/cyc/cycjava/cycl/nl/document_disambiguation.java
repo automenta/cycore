@@ -3,9 +3,9 @@ package com.cyc.cycjava.cycl.nl;
 
 import abcl.Lisp;
 import com.cyc.cycjava.cycl.*;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.visitation;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.jrtl.translatedCode.sublisp.visitation;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 import subl.*;
 import subl.type.core.SubLList;
 import subl.type.core.SubLObject;
@@ -13,10 +13,10 @@ import subl.type.core.SubLString;
 import subl.type.core.SubLStructNative;
 import subl.type.symbol.SubLSymbol;
 
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.*;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.print_high.$print_object_method_table$;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.write_string;
-import static com.cyc.tool.subl.util.SubLFiles.*;
+import static subl.jrtl.translatedCode.sublisp.conses_high.*;
+import static subl.jrtl.translatedCode.sublisp.print_high.$print_object_method_table$;
+import static subl.jrtl.translatedCode.sublisp.streams_high.write_string;
+import static subl.util.SubLFiles.*;
 import static subl.ConsesLow.cons;
 import static subl.ConsesLow.list;
 import static subl.Equality.identity;

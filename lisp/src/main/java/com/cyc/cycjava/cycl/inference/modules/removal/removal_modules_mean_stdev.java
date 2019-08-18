@@ -10,7 +10,7 @@ import static subl.Values.resetMultipleValues;
 import static subl.type.core.SubLObjectFactory.makeKeyword;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.declareFunction;
 
 import com.cyc.cycjava.cycl.V10;
 import com.cyc.cycjava.cycl.number_utilities;
@@ -19,8 +19,8 @@ import com.cyc.cycjava.cycl.inference.modules.preference_modules;
 import subl.type.core.SubLList;
 import subl.type.core.SubLObject;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
 
 public final class removal_modules_mean_stdev extends SubLTranslatedFile implements V10 {

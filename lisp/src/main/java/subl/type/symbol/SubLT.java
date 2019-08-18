@@ -4,7 +4,6 @@ package subl.type.symbol;
 import abcl.Lisp;
 import abcl.LispObject;
 import abcl.Symbol;
-import com.cyc.tool.subl.util.SubLFiles;
 import subl.Errors;
 import subl.StreamsLow;
 import subl.SubLThread;
@@ -14,6 +13,7 @@ import subl.type.core.SubLObjectFactory;
 import subl.type.core.SubLString;
 import subl.type.exception.InvalidSubLExpressionException;
 import subl.type.stream.*;
+import subl.util.SubLFiles;
 
 public final class SubLT extends Symbol implements SubLObject, SubLBoolean, SubLSymbol {
 

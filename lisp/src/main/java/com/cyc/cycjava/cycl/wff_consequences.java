@@ -16,10 +16,10 @@ import static subl.Values.values;
 import static subl.type.core.SubLObjectFactory.makeBoolean;
 import static subl.type.core.SubLObjectFactory.makeKeyword;
 import static subl.type.core.SubLObjectFactory.makeString;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.second;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.read;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.force_output;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.jrtl.translatedCode.sublisp.conses_high.second;
+import static subl.jrtl.translatedCode.sublisp.reader.read;
+import static subl.jrtl.translatedCode.sublisp.streams_high.force_output;
+import static subl.util.SubLFiles.declareFunction;
 
 import com.cyc.cycjava.cycl.sbhl.sbhl_graphs;
 import com.cyc.cycjava.cycl.sbhl.sbhl_link_vars;
@@ -38,8 +38,8 @@ import subl.type.core.SubLObject;
 import subl.type.core.SubLProcess;
 import subl.type.core.SubLString;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
 
 /**

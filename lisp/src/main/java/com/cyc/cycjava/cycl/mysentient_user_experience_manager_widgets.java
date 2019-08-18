@@ -18,16 +18,16 @@ import static subl.type.core.SubLObjectFactory.makeDouble;
 import static subl.type.core.SubLObjectFactory.makeKeyword;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.cdestructuring_bind_error;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.print_high.princ;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.print_high.princ_to_string;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.get_output_stream_string;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.make_string_output_stream;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.write_string;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.defconstant;
-import static com.cyc.tool.subl.util.SubLFiles.deflexical;
+import static subl.jrtl.translatedCode.sublisp.cdestructuring_bind.cdestructuring_bind_error;
+import static subl.jrtl.translatedCode.sublisp.cdestructuring_bind.destructuring_bind_must_consp;
+import static subl.jrtl.translatedCode.sublisp.print_high.princ;
+import static subl.jrtl.translatedCode.sublisp.print_high.princ_to_string;
+import static subl.jrtl.translatedCode.sublisp.streams_high.get_output_stream_string;
+import static subl.jrtl.translatedCode.sublisp.streams_high.make_string_output_stream;
+import static subl.jrtl.translatedCode.sublisp.streams_high.write_string;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.defconstant;
+import static subl.util.SubLFiles.deflexical;
 
 import com.cyc.cycjava.cycl.inference.ask_utilities;
 import subl.Sort;
@@ -36,9 +36,9 @@ import subl.type.core.SubLObject;
 import subl.type.core.SubLString;
 import subl.type.number.SubLFloat;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTrampolineFile;
+import subl.util.SubLTranslatedFile;
 
 
 /**

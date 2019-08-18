@@ -6,15 +6,15 @@ package com.cyc.cycjava.cycl.rtp;
 
 import static subl.Symbols.symbol_function;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.util.SubLFiles.deflexical;
-import static com.cyc.tool.subl.util.SubLFiles.defparameter;
+import static subl.util.SubLFiles.deflexical;
+import static subl.util.SubLFiles.defparameter;
 
 import com.cyc.cycjava.cycl.V12;
 import subl.type.core.SubLObject;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles.LispMethod;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLFiles.LispMethod;
+import subl.util.SubLTranslatedFile;
 
 
 /**

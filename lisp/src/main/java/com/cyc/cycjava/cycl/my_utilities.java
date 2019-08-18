@@ -3,8 +3,8 @@
  */
 package com.cyc.cycjava.cycl;
 import subl.type.core.SubLObject;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
 
 /**

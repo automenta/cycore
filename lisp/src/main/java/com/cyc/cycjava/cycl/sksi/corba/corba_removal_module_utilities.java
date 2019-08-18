@@ -11,7 +11,7 @@ import static subl.Numbers.subtract;
 import static subl.Sequences.nreverse;
 import static subl.type.core.SubLObjectFactory.makeKeyword;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.declareFunction;
 
 import com.cyc.cycjava.cycl.V10;
 import com.cyc.cycjava.cycl.arguments;
@@ -27,9 +27,9 @@ import subl.SubLThread;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLProcess;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTrampolineFile;
+import subl.util.SubLTranslatedFile;
 
 
 /**

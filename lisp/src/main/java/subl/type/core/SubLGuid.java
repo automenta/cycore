@@ -2,13 +2,13 @@
 package subl.type.core;
 
 import abcl.NLispObject;
-import com.cyc.tool.subl.util.UUID;
 import subl.CommonSymbols;
 import subl.Types;
 import subl.type.number.SubLFixnum;
 import subl.type.number.SubLInteger;
 import subl.type.number.SubLNumberFactory;
 import subl.type.symbol.SubLSymbol;
+import subl.util.UUID;
 
 public class SubLGuid extends NLispObject implements SubLObject, Comparable<SubLGuid> {
 	SubLGuid() {

@@ -20,11 +20,11 @@ import subl.type.symbol.SubLNil;
 import subl.type.symbol.SubLPackage;
 import subl.type.symbol.SubLSymbol;
 import subl.type.symbol.SubLSymbolFactory;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.print_high;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
+import subl.jrtl.translatedCode.sublisp.print_high;
+import subl.jrtl.translatedCode.sublisp.streams_high;
+import subl.util.SubLFile;
+import subl.util.SubLFiles;
+import subl.util.SubLTrampolineFile;
 
 public class Packages extends SubLTrampolineFile {
     public static SubLObject apropos(SubLObject nameSpec, SubLObject packageSpec, SubLObject externalOnly, SubLObject caseInsensitive) {

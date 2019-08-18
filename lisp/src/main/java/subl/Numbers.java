@@ -1,9 +1,7 @@
 /* For LarKC */
 package subl;
 
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.bytes;
-import com.cyc.tool.subl.util.SubLFiles;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
+import subl.jrtl.translatedCode.sublisp.bytes;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLObjectFactory;
 import subl.type.core.SubLProcess;
@@ -11,6 +9,8 @@ import subl.type.exception.InvalidSubLExpressionException;
 import subl.type.number.*;
 import subl.type.symbol.SubLNil;
 import subl.type.symbol.SubLSymbol;
+import subl.util.SubLFiles;
+import subl.util.SubLTrampolineFile;
 
 import java.math.BigInteger;
 import java.util.Arrays;

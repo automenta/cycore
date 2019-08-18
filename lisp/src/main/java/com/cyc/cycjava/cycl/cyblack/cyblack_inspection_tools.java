@@ -11,10 +11,10 @@ import static subl.ConsesLow.rplacd;
 import static subl.Numbers.add;
 import static subl.PrintLow.format;
 import static subl.type.core.SubLObjectFactory.makeString;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.print_high.princ;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.force_output;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.terpri;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.jrtl.translatedCode.sublisp.print_high.princ;
+import static subl.jrtl.translatedCode.sublisp.streams_high.force_output;
+import static subl.jrtl.translatedCode.sublisp.streams_high.terpri;
+import static subl.util.SubLFiles.declareFunction;
 
 import com.cyc.cycjava.cycl.V02;
 import com.cyc.cycjava.cycl.instances;
@@ -27,8 +27,8 @@ import subl.SubLThread;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLProcess;
 import subl.type.core.SubLString;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
 
 /**

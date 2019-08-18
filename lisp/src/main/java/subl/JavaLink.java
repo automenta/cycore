@@ -3,14 +3,14 @@ package subl;
 
 import abcl.JavaObject;
 import abcl.LispObject;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
 import subl.type.core.*;
 import subl.type.number.*;
 import subl.type.symbol.SubLNil;
 import subl.type.symbol.SubLSymbol;
 import subl.type.symbol.SubLT;
+import subl.util.SubLFile;
+import subl.util.SubLFiles;
+import subl.util.SubLTrampolineFile;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;

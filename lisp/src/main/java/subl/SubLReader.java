@@ -3,11 +3,8 @@ package subl;
 
 import abcl.Lisp;
 import abcl.ProcessingTerminated;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high;
-import com.cyc.tool.subl.util.ReaderUtilities;
-import com.cyc.tool.subl.util.SubLCommandHistory;
-import com.cyc.tool.subl.util.SubLCommandHistoryItem;
+import subl.jrtl.translatedCode.sublisp.conses_high;
+import subl.jrtl.translatedCode.sublisp.streams_high;
 import subl.type.core.*;
 import subl.type.exception.ResumeException;
 import subl.type.exception.SubLException;
@@ -18,6 +15,9 @@ import subl.type.stream.SubLStreamFactory;
 import subl.type.symbol.SubLNil;
 import subl.type.symbol.SubLPackage;
 import subl.type.symbol.SubLSymbol;
+import subl.util.ReaderUtilities;
+import subl.util.SubLCommandHistory;
+import subl.util.SubLCommandHistoryItem;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -230,7 +230,7 @@ public class SubLReader {
 				writeCommand(historyItem.getCommand());
 				String command = historyItem.getCommand();
 				SubLString commandTyped = SubLObjectFactory.makeString(command);
-				SubLObject form = com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.read_from_string(commandTyped,
+				SubLObject form = subl.jrtl.translatedCode.sublisp.reader.read_from_string(commandTyped,
 						CommonSymbols.UNPROVIDED, CommonSymbols.UNPROVIDED, CommonSymbols.UNPROVIDED,
 						CommonSymbols.UNPROVIDED, CommonSymbols.UNPROVIDED);
 				long startTime = System.nanoTime();

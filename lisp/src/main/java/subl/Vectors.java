@@ -3,11 +3,11 @@ package subl;
 
 //import org.logicmoo.system.BeanShellCntrl;
 
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLObjectFactory;
 import subl.type.symbol.SubLNil;
+import subl.util.SubLFile;
+import subl.util.SubLFiles;
 
 public class Vectors implements SubLFile {
 	public static SubLObject aref(SubLObject vector, SubLObject index) {

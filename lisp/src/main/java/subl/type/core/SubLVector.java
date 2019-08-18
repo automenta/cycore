@@ -2,12 +2,12 @@
 package subl.type.core;
 
 import abcl.LispObject;
-import com.cyc.tool.subl.util.ComparatorGenericKey;
-import com.cyc.tool.subl.util.ComparatorIdentityKey;
 import subl.BinaryFunction;
 import subl.Errors;
 import subl.UnaryFunction;
 import subl.type.symbol.SubLNil;
+import subl.util.ComparatorGenericKey;
+import subl.util.ComparatorIdentityKey;
 
 import java.util.Arrays;
 import java.util.List;

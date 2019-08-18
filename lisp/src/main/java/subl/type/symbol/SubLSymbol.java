@@ -19,12 +19,12 @@
 package subl.type.symbol;
 
 import abcl.Symbol;
-import com.cyc.tool.subl.util.SubLFiles.VariableAccessMode;
 import subl.SubLThread;
 import subl.type.core.SubLList;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLString;
 import subl.type.operator.SubLOperator;
+import subl.util.SubLFiles.VariableAccessMode;
 
 /**
  * <P>SubLSymbol is designed to...

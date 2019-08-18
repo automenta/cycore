@@ -5,7 +5,7 @@ package com.cyc.cycjava.cycl.sksi.sks_indexing;
 
 
 import static subl.type.core.SubLObjectFactory.makeBoolean;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.declareFunction;
 
 import com.cyc.cycjava.cycl.V12;
 import com.cyc.cycjava.cycl.bindings;
@@ -14,8 +14,8 @@ import com.cyc.cycjava.cycl.unification;
 import subl.SubLThread;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLProcess;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
 
 /**

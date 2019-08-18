@@ -1,9 +1,6 @@
 /* For LarKC */
 package subl;
 
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
 import subl.type.core.SubLList;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLObjectFactory;
@@ -13,6 +10,9 @@ import subl.type.operator.SubLFunction;
 import subl.type.operator.SubLOperator;
 import subl.type.symbol.SubLNil;
 import subl.type.symbol.SubLSymbol;
+import subl.util.SubLFile;
+import subl.util.SubLFiles;
+import subl.util.SubLTrampolineFile;
 
 import java.util.ArrayList;
 import java.util.Arrays;

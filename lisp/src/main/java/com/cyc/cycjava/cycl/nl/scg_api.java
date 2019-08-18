@@ -3,8 +3,8 @@ package com.cyc.cycjava.cycl.nl;
 
 import com.cyc.cycjava.cycl.*;
 import com.cyc.cycjava.cycl.inference.ask_utilities;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 import subl.Errors;
 import subl.Mapping;
 import subl.SubLThread;
@@ -17,11 +17,11 @@ import subl.type.symbol.SubLSymbol;
 
 import static com.cyc.cycjava.cycl.cyc_testing.generic_testing.define_test_case_table_int;
 import static com.cyc.cycjava.cycl.el_utilities.make_formula;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high.getf;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.read_from_string_ignoring_errors;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.make_private_string_input_stream;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.defparameter;
+import static subl.jrtl.translatedCode.sublisp.conses_high.getf;
+import static subl.jrtl.translatedCode.sublisp.reader.read_from_string_ignoring_errors;
+import static subl.jrtl.translatedCode.sublisp.streams_high.make_private_string_input_stream;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.defparameter;
 import static subl.ConsesLow.*;
 import static subl.Functions.funcall;
 import static subl.Numbers.*;

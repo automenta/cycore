@@ -10,8 +10,8 @@ import static subl.ConsesLow.list;
 import static subl.type.core.SubLObjectFactory.makeKeyword;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.defvar;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.defvar;
 
 import com.cyc.cycjava.cycl.V12;
 import com.cyc.cycjava.cycl.cycl_utilities;
@@ -22,8 +22,8 @@ import com.cyc.cycjava.cycl.inference.harness.inference_worker_rewrite;
 import subl.type.core.SubLList;
 import subl.type.core.SubLObject;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLTranslatedFile;
 
 
 /**

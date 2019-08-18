@@ -1,11 +1,11 @@
 /* For LarKC */
 package subl;
 
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles;
-import com.cyc.tool.subl.util.SubLTrampolineFile;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLSequence;
+import subl.util.SubLFile;
+import subl.util.SubLFiles;
+import subl.util.SubLTrampolineFile;
 
 public class Sort extends SubLTrampolineFile {
 	public static SubLObject cmerge(SubLObject seq1, SubLObject seq2, SubLObject predicate, SubLObject key) {

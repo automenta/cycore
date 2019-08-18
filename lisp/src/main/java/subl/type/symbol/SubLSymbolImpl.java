@@ -11,7 +11,7 @@
 //import subl.type.core.SubLProcess;
 //import subl.type.core.SubLString;
 //import subl.type.exception.InvalidSubLExpressionException;
-//import com.cyc.tool.subl.util.SubLFiles;
+//import subl.util.SubLFiles;
 //
 //abstract public class SubLSymbolImpl extends AbstractSubLSymbol implements SubLSymbol {
 //	SubLSymbolImpl(String symbolName, SubLPackage thePackage) {

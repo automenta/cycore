@@ -24,13 +24,13 @@ import static subl.Sequences.subseq;
 import static subl.Values.values;
 import static subl.type.core.SubLObjectFactory.makeString;
 import static subl.type.core.SubLObjectFactory.makeSymbol;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.$read_suppress$;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.set_dispatch_macro_character;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader.simple_reader_error;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.read_char;
-import static com.cyc.tool.subl.jrtl.translatedCode.sublisp.streams_high.unread_char;
-import static com.cyc.tool.subl.util.SubLFiles.declareFunction;
-import static com.cyc.tool.subl.util.SubLFiles.defconstant;
+import static subl.jrtl.translatedCode.sublisp.reader.$read_suppress$;
+import static subl.jrtl.translatedCode.sublisp.reader.set_dispatch_macro_character;
+import static subl.jrtl.translatedCode.sublisp.reader.simple_reader_error;
+import static subl.jrtl.translatedCode.sublisp.streams_high.read_char;
+import static subl.jrtl.translatedCode.sublisp.streams_high.unread_char;
+import static subl.util.SubLFiles.declareFunction;
+import static subl.util.SubLFiles.defconstant;
 
 import subl.Errors;
 import subl.Strings;
@@ -39,9 +39,9 @@ import subl.type.core.SubLObject;
 import subl.type.core.SubLProcess;
 import subl.type.core.SubLString;
 import subl.type.symbol.SubLSymbol;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles.LispMethod;
-import com.cyc.tool.subl.util.SubLTranslatedFile;
+import subl.util.SubLFile;
+import subl.util.SubLFiles.LispMethod;
+import subl.util.SubLTranslatedFile;
 
 
 /**

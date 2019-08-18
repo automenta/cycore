@@ -2,13 +2,13 @@
 package subl.type.core;
 
 import abcl.Cons;
-import com.cyc.tool.subl.util.ComparatorGenericKey;
-import com.cyc.tool.subl.util.ComparatorIdentityKey;
 import subl.*;
 import subl.type.exception.InvalidSubLExpressionException;
 import subl.type.number.SubLFixnum;
 import subl.type.symbol.SubLNil;
 import subl.type.symbol.SubLSymbol;
+import subl.util.ComparatorGenericKey;
+import subl.util.ComparatorIdentityKey;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -38,12 +38,12 @@ import subl.type.symbol.SubLNil;
 import subl.type.symbol.SubLPackage;
 import subl.type.symbol.SubLSymbol;
 import subl.type.symbol.SubLSymbolFactory;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.compatibility;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.conses_high;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.print_high;
-import com.cyc.tool.subl.jrtl.translatedCode.sublisp.reader;
-import com.cyc.tool.subl.util.SubLFile;
-import com.cyc.tool.subl.util.SubLFiles;
+import subl.jrtl.translatedCode.sublisp.compatibility;
+import subl.jrtl.translatedCode.sublisp.conses_high;
+import subl.jrtl.translatedCode.sublisp.print_high;
+import subl.jrtl.translatedCode.sublisp.reader;
+import subl.util.SubLFile;
+import subl.util.SubLFiles;
 
 import junit.framework.Assert;
 import junit.framework.AssertionFailedError;
