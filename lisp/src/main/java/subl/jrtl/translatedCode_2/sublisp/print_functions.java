@@ -571,7 +571,7 @@ plus that power is the corresponding entry in *max-fixnum-base-power*. */
           streams_high.write_string($str22$__, stream_2, UNPROVIDED, UNPROVIDED);
           PrintLow.write(Types.type_of(object), new SubLObject[] {$kw17$STREAM, stream_2});
           streams_high.write_char(Characters.CHAR_space, stream_2);
-          PrintLow.format(stream, $str26$TEST__A__D__D, new SubLObject[] {Hashtables.hash_table_test(hash_table), Hashtables.hash_table_count(hash_table), Hashtables.hash_table_size(hash_table)});
+          PrintLow.format(stream, $str26$TEST__A__D__D, Hashtables.hash_table_test(hash_table), Hashtables.hash_table_count(hash_table), Hashtables.hash_table_size(hash_table));
           streams_high.write_char(Characters.CHAR_space, stream_2);
           PrintLow.write(Equality.pointer(object), new SubLObject[] {$kw17$STREAM, stream_2, $kw24$BASE, SIXTEEN_INTEGER});
           streams_high.write_char(Characters.CHAR_greater, stream_2);

@@ -139,8 +139,8 @@ public void clear() {
           final SubLObject key2 = unwrap(entry.getKey());
           final boolean hasKey = withTest(key2, hkey);
           if (hasKey) {
-            boolean result1 = hash.containsKey(hkey);
-            boolean result2 = hash.containsKey(key);
+//            boolean result1 = hash.containsKey(hkey);
+//            boolean result2 = hash.containsKey(key);
             // if (false) {
             Debug.bug();
             // }
@@ -159,7 +159,7 @@ public void clear() {
   }
 
   public Set<Entry<SubLHashtableKeyEntry, SubLObject>> entrySet() {
-    Map<SubLHashtableKeyEntry, SubLObject> hash = hashMe();
+    Map<SubLHashtableKeyEntry, SubLObject> hash = this.hash;
     return hash.entrySet();
   }
 
@@ -182,7 +182,7 @@ public SubLObject get(SubLObject objI) {
       Resourcer resourcer = Resourcer.getInstance();
       try {
         final Map<SubLHashtableKeyEntry, SubLObject> //
-        hash = hashMe();
+        hash = this.hash;
         final SubLObject hkey = unwrap(objI);
         key2 = resourcer.acquireHashtableKeyEntry();
         key2.init(hkey, test);
@@ -198,7 +198,7 @@ public SubLObject get(SubLObject objI) {
           while (esi.hasNext()) {
             Entry<SubLHashtableKeyEntry, SubLObject> entry = esi.next();
             final SubLHashtableKeyEntry key = entry.getKey();
-            int hc4 = key.hashCode();
+//            int hc4 = key.hashCode();
             final SubLObject unwrap = unwrap(key);
             if (withTest(unwrap, unwrap(objI))) {
 
@@ -234,7 +234,7 @@ public SubLObject get(SubLObject objI) {
       try {
         key2 = resourcer.acquireHashtableKeyEntry();
         key2.init(hkey, test);
-        Map<SubLHashtableKeyEntry, SubLObject> hash = hashMe();
+        Map<SubLHashtableKeyEntry, SubLObject> hash = this.hash;
         final SubLObject subLObject = hash.get(key2);
         return subLObject;
 
@@ -253,11 +253,11 @@ public SubLObject get(SubLObject objI) {
     return hash.isEmpty();
   }
 
-  public java.util.Set keySet() {
-    // @note we'll need to unpack keys before returning them. --APB
-    Errors.unimplementedMethod("SubLHashtable.keySet()");
-    return null;
-  }
+//  public java.util.Set keySet() {
+//    // @note we'll need to unpack keys before returning them. --APB
+//    Errors.unimplementedMethod("SubLHashtable.keySet()");
+//    return null;
+//  }
 
   @Override
 public SubLObject put(SubLObject hkey, SubLObject value) {
@@ -380,7 +380,7 @@ public int size() {
   }
 
   public int getCurrentCapacity() {
-    return (int) (hash.size() * 1.30) + 1; // @hack
+    return (int) (hash.size() * 1.30f) + 1; // @hack
   }
 
   public java.util.Collection<SubLObject> values() {
@@ -590,14 +590,14 @@ public final boolean isKeyhashIterator() {
    * Public only for implementation reasons No one should ever use this directly
    * outside of SubLHashtable.
    */
-  public static interface SubLHashtableKeyEntry {
+  public interface SubLHashtableKeyEntry {
     SubLObject getSKey();
 
     void clear();
 
-    public void init(SubLObject key);
+    void init(SubLObject key);
 
-    public void init(SubLObject key, BinaryFunction test);
+    void init(SubLObject key, BinaryFunction test);
   }
 
   /**
@@ -1118,7 +1118,7 @@ public final boolean isKeyhashIterator() {
 
   @Override
   public void put(LispObject key, LispObject value) {
-    this.put((SubLObject) key, (SubLObject) value);
+    this.put(key, value);
   }
 
   @Override
@@ -1139,10 +1139,6 @@ public final boolean isKeyhashIterator() {
   @Override
   public LispObject ENTRIES() {
     return getEntries();
-  }
-
-    public Map hashMe() {
-    return this.hash;
   }
 
   // Returns a list of (key . value) pairs.
@@ -1188,7 +1184,7 @@ public final boolean isKeyhashIterator() {
 
   @Override
 public LispObject getRehashThreshold() {
-    Map<SubLHashtableKeyEntry, SubLObject> hash = hashMe();
+    Map<SubLHashtableKeyEntry, SubLObject> hash = this.hash;
     if (true)
       throw new UnsupportedOperationException("Not supported yet.");
     return null;
@@ -1197,7 +1193,7 @@ public LispObject getRehashThreshold() {
   @Override
   public LispObject getRehashSize() {
 
-    Map<SubLHashtableKeyEntry, SubLObject> hash = hashMe();
+    Map<SubLHashtableKeyEntry, SubLObject> hash = this.hash;
     if (true)
       throw new UnsupportedOperationException("Not supported yet.");
     return null;

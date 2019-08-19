@@ -218,8 +218,10 @@ public class Errors extends SubLTrampolineFile {
 			String continueString = PrintLow.format(NIL, continue_string, arguments).getStringValue();
 			RestartMethod restartMethod = reader.askRestartChoiceQuestion("Continuable error: " + errorString,
 					continueString, Errors.ERROR_RESTARTS, true, SubLObjectFactory.makeException());
-			if (restartMethod.process(reader, errorString, null))
-				return cerror(continue_string, formatString, arguments);
+			if (restartMethod.process(reader, errorString, null)) {
+				//return cerror(continue_string, formatString, arguments);
+				throw new RuntimeException("TODO restart: "  + continue_string + " "+  formatString + " " +  arguments);
+			}
 			return NIL;
 		}
 	}

@@ -157,7 +157,7 @@ public final class time_high extends SubLTranslatedFile {
 			}
 		    }
 		}
-		return Values.values(new SubLObject[] { second, minute, hour, date, month, year, day, daylight_p, time_zone });
+		return Values.values(second, minute, hour, date, month, year, day, daylight_p, time_zone);
 	    }
 	}
     }
@@ -277,7 +277,7 @@ public final class time_high extends SubLTranslatedFile {
 		SubLObject daylight_p = thread.eighthMultipleValue();
 		SubLObject zone = SubLProcess.nthMultipleValue(EIGHT_INTEGER);
 		thread.resetMultipleValues();
-		return Values.values(new SubLObject[] { second, minute, hour, date, month, year, day, daylight_p, zone });
+		return Values.values(second, minute, hour, date, month, year, day, daylight_p, zone);
 	    }
 	}
     }

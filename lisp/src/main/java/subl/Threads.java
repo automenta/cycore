@@ -8,9 +8,9 @@ import subl.util.SubLFiles;
 import subl.util.SubLTrampolineFile;
 
 public class Threads extends SubLTrampolineFile {
+
 	public static SubLObject all_processes() {
-		SubLProcess[] processes = SubLProcess.currentProcesses();
-		return SubLObjectFactory.makeList(processes);
+		return SubLObjectFactory.makeList(SubLProcess.currentProcesses());
 	}
 
 	public static SubLObject current_process() {
@@ -143,10 +143,10 @@ public class Threads extends SubLTrampolineFile {
 	}
 
 	public static SubLObject show_processes() {
-		SubLProcess[] processes = SubLProcess.currentProcesses();
-		for (SubLProcess process : processes) {
-			SubLObject[] args = {process_name(process), process_state(process), process_whostate(process)};
-			PrintLow.format(CommonSymbols.T, Threads.SHOW_PROCESS_FORMAT_STRING, args);
+		for (SubLProcess process : SubLProcess.currentProcesses()) {
+			PrintLow.format(
+				CommonSymbols.T, Threads.SHOW_PROCESS_FORMAT_STRING,
+				process_name(process), process_state(process), process_whostate(process));
 		}
 		return SubLNil.NIL;
 	}

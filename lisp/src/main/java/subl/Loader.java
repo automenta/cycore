@@ -2,7 +2,6 @@
 package subl;
 
 import abcl.Lisp;
-import com.cyc.cycjava.cycl.V02;
 import com.google.common.collect.Sets;
 import subl.type.core.SubLObject;
 import subl.type.core.SubLObjectFactory;
@@ -150,9 +149,9 @@ public class Loader {
 	    SubLFiles.USE_V2 = true;
 	    pass2 = true;
 	}
-	if (file instanceof V02) {
-	    else_do = true;
-	}
+//	if (file instanceof V02) {
+//	    else_do = true;
+//	}
 
 	try {
 	    currentFile = file;

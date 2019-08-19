@@ -24,8 +24,9 @@ public interface SubLObject extends Cloneable {
 //    int MAX_HASH_LENGTH = 8;
     int MAX_HASH_DEPTH = 8;
     int DEFAULT_EXCEEDED_HASH_VALUE = 0;
+	SubLObject[] EmptySubLObjectArray = new SubLObject[0];
 
-    SubLObject add(SubLObject p0);
+	SubLObject add(SubLObject p0);
 
     void addKey(SubLObject p0);
 

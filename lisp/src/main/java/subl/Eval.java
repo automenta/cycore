@@ -118,19 +118,18 @@ public class Eval implements SubLFile {
 		return eval(from_string);
 	}
 
-	public static SubLObject eval_as_sublisp(SubLObject form) {
-		boolean wasSubLisp = CYC.isSubLisp();
-		try {
-			CYC.setSubLisp(true);
-			return form.eval(SubLEnvironment.currentEnvironment());
-		} catch (Throwable e) {
-			throw doThrow(e);
-		} finally {
-			CYC.setSubLisp(wasSubLisp);
-
-		}
-
-	}
+//	public static SubLObject eval_as_sublisp(SubLObject form) {
+//		boolean wasSubLisp = CYC.isSubLisp();
+//		try {
+//			CYC.setSubLisp(true);
+//			return form.eval(SubLEnvironment.currentEnvironment());
+//		} catch (Throwable e) {
+//			throw doThrow(e);
+//		} finally {
+//			CYC.setSubLisp(wasSubLisp);
+//
+//		}
+//	}
 
 	public static SubLObject eval(SubLObject form) {
 		boolean wasSubLisp = CYC.isSubLisp();
@@ -139,13 +138,13 @@ public class Eval implements SubLFile {
 		return Lisp.eval((LispObject) form);
 	}
 
-	public static SubLObject function_information(SubLObject function, SubLObject environment) {
-		return Errors.unimplementedMethod("function-information");
-	}
+//	public static SubLObject function_information(SubLObject function, SubLObject environment) {
+//		return Errors.unimplementedMethod("function-information");
+//	}
 
-	public static SubLObject get_initial_continuation() {
-		return CommonSymbols.UNPROVIDED;
-	}
+//	public static SubLObject get_initial_continuation() {
+//		return CommonSymbols.UNPROVIDED;
+//	}
 
 	public static SubLObject initialize_subl_interface_file(SubLObject className) {
 		String stringTyped = className.getStringValue();

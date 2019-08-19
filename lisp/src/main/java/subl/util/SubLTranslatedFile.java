@@ -44,8 +44,8 @@ public abstract class SubLTranslatedFile extends SubLTrampolineFile implements C
 		EMPTY_SUBL_OBJECT_ARRAY = Resourcer.EmptySublObjectArray;
 	}
 
-    public static SubLStruct makeConstSym(String name) {
-	return SubLObjectFactory.makeConstSym(name);
-    }
+//    public static SubLStruct makeConstSym(String name) {
+//	return SubLObjectFactory.makeConstSym(name);
+//    }
 	
 }

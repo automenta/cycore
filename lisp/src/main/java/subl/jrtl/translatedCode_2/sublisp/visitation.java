@@ -112,7 +112,7 @@ public  final class visitation extends SubLTranslatedFile {
   /** @stub implementation */
   @SubL(source = "sublisp/visitation.lisp", position = 1755) 
   public static final SubLObject print_visitor(SubLObject obj, SubLObject phase, SubLObject slot, SubLObject value) {
-    return PrintLow.format(T, $str10$_A__A__A___A__, new SubLObject[] {phase, obj, slot, value});
+    return PrintLow.format(T, $str10$_A__A__A___A__, phase, obj, slot, value);
   }
 
   public static final SubLObject declare_visitation_file() {

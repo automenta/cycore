@@ -118,7 +118,7 @@ public class time_high extends SubLTranslatedFile {
 	thread.resetMultipleValues();
 	minute = minutes;
 	second = seconds_$1;
-	return values(new SubLObject[] { second, minute, hour, date, month, year, day, daylight_p, time_zone });
+	return values(second, minute, hour, date, month, year, day, daylight_p, time_zone);
     }
 
     public static SubLObject encode_universal_time(SubLObject second, SubLObject minute, SubLObject hour, SubLObject date, SubLObject month, SubLObject year, SubLObject time_zone) {
@@ -186,7 +186,7 @@ public class time_high extends SubLTranslatedFile {
 	SubLObject daylight_p = thread.eighthMultipleValue();
 	SubLObject zone = SubLProcess.nthMultipleValue(EIGHT_INTEGER);
 	thread.resetMultipleValues();
-	return values(new SubLObject[] { second, minute, hour, date, month, year, day, daylight_p, zone });
+	return values(second, minute, hour, date, month, year, day, daylight_p, zone);
     }
 
     public static SubLObject get_internal_real_time() {

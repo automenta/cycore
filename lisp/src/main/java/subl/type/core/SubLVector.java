@@ -13,6 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SubLVector extends AbstractSubLVector implements SubLSequence {
+
 	public SubLVector(int length) {
 		this(length, SubLNil.NIL);
 	}
@@ -24,7 +25,7 @@ public class SubLVector extends AbstractSubLVector implements SubLSequence {
 	}
 
 	public SubLVector(List<SubLObject> list) {
-		this(list.toArray(new SubLObject[list.size()]));
+		this(list.toArray(EmptySubLObjectArray));
 	}
 
 
@@ -38,7 +39,7 @@ public class SubLVector extends AbstractSubLVector implements SubLSequence {
 	private int size;
 	final private static int SXHASH_TYPE_SPEC_PRIME_VECTOR = 199;
 	//final public static String VECTOR_TYPE_NAME = "VECTOR";
-	final public static SubLVector EMPTY_VECTOR = new SubLVector(0);
+	final static SubLVector EMPTY_VECTOR = new SubLVector(0);
 
 	@Override
 	public Object clone() {
@@ -64,8 +65,9 @@ public class SubLVector extends AbstractSubLVector implements SubLSequence {
 			return this;
 		if (start < 0)
 			start = 0;
-		if (end > this.size())
-			end = this.size();
+		int s = this.size();
+		if (end > s)
+			end = s;
 		Arrays.fill(vect, start, end, item);
 		return this;
 	}
@@ -84,39 +86,38 @@ public class SubLVector extends AbstractSubLVector implements SubLSequence {
 
 
 	@Override
-	public void set(int i, SubLObject obj) {
+	public final void set(int i, SubLObject obj) {
 		vect[i] = obj;
 	}
 	@Override
-	public void shrink(int newSize)
-	{ size = newSize;		
+	public final void shrink(int newSize) { size = newSize;
 	}
 	@Override
 	public LispObject AREF(int i) {
 		return (LispObject) vect[i];
 	}
 	@Override
-	public int size() {
+	public final int size() {
 		return size;
 	}
 
 	@Override
-	public int size(int max) {
+	public final int size(int max) {
 		return size;
 	}
 
 	@Override
 	public SubLSequence sort(boolean isDestructive, BinaryFunction pred, UnaryFunction key) {
 		SubLVector result = isDestructive ? this : makeCopy().toVect();
-		if (key == AbstractSubLSequence.IDENTITY_UNARY_FUNC)
-			Arrays.sort(result.vect, new ComparatorIdentityKey<Object>(pred));
-		else
-			Arrays.sort(result.vect, new ComparatorGenericKey<Object>(pred, key));
+		Arrays.sort(result.vect,
+			key == AbstractSubLSequence.IDENTITY_UNARY_FUNC ?
+				new ComparatorIdentityKey<Object>(pred) :
+				new ComparatorGenericKey<Object>(pred, key));
 		return result;
 	}
 
 	@Override
-	public Object[] toArray() {
+	public final SubLObject[] toArray() {
 		return vect;
 	}
 

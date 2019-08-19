@@ -157,7 +157,7 @@ public abstract class AbstractSubLSymbol extends FromSubLisp implements SubLSymb
 	    return this.size() > 5000;
 	}
     };
-    static char[] printableNonStandardSymbolChars = new char[] { '#', ':', ';', '|', '\"', '\'', '`', ',', '(', ')', '\\' };
+    static char[] printableNonStandardSymbolChars = { '#', ':', ';', '|', '\"', '\'', '`', ',', '(', ')', '\\' };
 
     // private CharSequence getPackageName();
     public abstract CharSequence getPackageNamePrecise();// { return

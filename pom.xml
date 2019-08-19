@@ -31,11 +31,11 @@
 					<target>1.8</target>
 					<encoding>UTF-8</encoding>
 <!--					<detail>true</detail>-->
-					<compilerReuseStrategy>reuseSame</compilerReuseStrategy>
-					<maxmem>2048m</maxmem>
+                    <!--<compilerReuseStrategy>reuseSame</compilerReuseStrategy>-->
+                    <!--<maxmem>6000m</maxmem>-->
 <!--					<staleMillis>1000</staleMillis>-->
 
-					<useIncrementalCompilation>true</useIncrementalCompilation>
+                    <useIncrementalCompilation>true</useIncrementalCompilation>
 					<verbose>true</verbose>
 <!--					<fork>true</fork>-->
 				</configuration>

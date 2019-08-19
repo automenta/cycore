@@ -1,6 +1,11 @@
 /* For LarKC */
 package subl.type.core;
 
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import subl.*;
 import subl.type.exception.InvalidSubLExpressionException;
 import subl.type.exception.ResumeException;
@@ -21,8 +26,14 @@ import subl.util.SafeRunnable;
 
 import java.math.BigInteger;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicReference;
 
 public abstract class SubLProcess extends SafeRunnable implements Runnable, SubLObject {
+
+    /** weakvalues also in case the SubLThread holds a reference to the Thread */
+    final static Cache<Thread, SubLThread> map = Caffeine.newBuilder().weakKeys().weakValues().build();
 
     @Override
     public SubLProcess toLispObject() {
@@ -155,12 +166,11 @@ public abstract class SubLProcess extends SafeRunnable implements Runnable, SubL
     SubLProcess parent;
     public SubLProcess(SubLString name) {
     	parent = SubLProcess.currentProcess();
-        isPossiblyStillborn = false;
+//        isPossiblyStillborn = false;
         runThread = null;
         priority = SubLProcess.DEFAULT_PRIORITY;
-        whoState = Threads.UNSET_STRING;
-        state = SubLProcess.DEAD_STATE;
-        interrupts = Collections.synchronizedList(new ArrayList<Thunk>());
+        whoState.set(Threads.UNSET_STRING);
+        state.set(SubLProcess.DEAD_STATE);
         isRunning = false;
         setState(SubLProcess.INITIALIZING_STATE);
         setWhoState(Threads.INITIALIZING_STRING);
@@ -176,68 +186,41 @@ public abstract class SubLProcess extends SafeRunnable implements Runnable, SubL
         return currentSubLThread().getSubLProcess();
     }
 
-    public static SubLProcess[] currentProcesses() {
-        synchronized (SubLProcess.currentProcesses) {
-            SubLProcess[] result = new SubLProcess[SubLProcess.currentProcesses.size()];
-            return SubLProcess.currentProcesses.toArray(result);
-        }
+    public static Iterable<SubLProcess> currentProcesses() {
+        return Iterables.transform(map.asMap().values(), SubLThread::getSubLProcess);
     }
 
-    final static HashMap<Thread, SubLThread> map = new HashMap<Thread, SubLThread>();
-    private static ThreadLocal<SubLThread> threads = new ThreadLocal<SubLThread>() {
-        @Override
-        public SubLThread initialValue() {
+    private static ThreadLocal<SubLThread> threads = ThreadLocal.withInitial(() -> {
+        Thread thisThread = SubLThread.currentJavaThread();
+        return map.get(thisThread, (t) -> new SubLThread(() -> {
+                if (true)
+                    Errors.unimplementedMethod("Auto-generated method stub:  Type1477805356591.run");
+            }, "From " + t));
+    });
 
-            Thread thisThread = SubLThread.currentJavaThread();
-            SubLThread thread = map.get(thisThread);
-            if (thread == null) {
-                thread = new SubLThread(new Runnable() {
-
-                    @Override
-                    public void run() {
-                        // TODO Auto-generated method stub
-                        if (true)
-                            Errors.unimplementedMethod("Auto-generated method stub:  Type1477805356591.run");
-
-                    }
-                }, "From " + thisThread);
-                oneOnlyJT = thisThread;
-                oneOnlyLT = thread;
-                map.put(thisThread, thread);
-            }
-            return thread;
-        }
-    };
-
-    static Thread oneOnlyJT;
-    static SubLThread oneOnlyLT;
 
     public static SubLThread currentSubLThread() {
         Object t = SubLThread.currentJavaThread();
         if (t instanceof SubLThread)
             return (SubLThread) t;
-        if (SubLProcess.ALLEGRO_SINGLE_THREADED_THREAD != null)
-            return SubLProcess.ALLEGRO_SINGLE_THREADED_THREAD;
-        synchronized (map) {
-            if (t == oneOnlyJT)
-                return oneOnlyLT;
-        }
+//        if (SubLProcess.ALLEGRO_SINGLE_THREADED_THREAD != null)
+//            return SubLProcess.ALLEGRO_SINGLE_THREADED_THREAD;
+
         return threads.get();
 
     }
 
     public static SubLThread currentSubLThreadOrNull() {
-        Object t = SubLThread.currentThread();
+        Thread t = SubLThread.currentThread();
         if (t instanceof SubLThread)
             return (SubLThread) t;
-        if (SubLProcess.ALLEGRO_SINGLE_THREADED_THREAD != null)
-            return SubLProcess.ALLEGRO_SINGLE_THREADED_THREAD;
-        synchronized (map) {
-            if (t == oneOnlyJT)
-                return oneOnlyLT;
-        }
-        return map.get(t);
-
+//        if (SubLProcess.ALLEGRO_SINGLE_THREADED_THREAD != null)
+//            return SubLProcess.ALLEGRO_SINGLE_THREADED_THREAD;
+//        synchronized (map) {
+//            if (t == oneOnlyJT)
+//                return oneOnlyLT;
+//        }
+        return map.getIfPresent(t);
     }
 
     public static void currentThrowStackPop() {
@@ -282,10 +265,6 @@ public abstract class SubLProcess extends SafeRunnable implements Runnable, SubL
         }
     }
 
-    public static synchronized void setAllegoSingleThreadedThread(SubLThread thread) {
-        SubLProcess.ALLEGRO_SINGLE_THREADED_THREAD = thread;
-    }
-
     public static void sleepForNanoSeconds(long nanoSecs) {
         SubLSemaphore.sleepSem.acquireWithTimeoutNanoSecs(1, nanoSecs);
     }
@@ -294,13 +273,14 @@ public abstract class SubLProcess extends SafeRunnable implements Runnable, SubL
         return priority.intValue();
     }
 
-    private volatile boolean isPossiblyStillborn;
+//    private volatile boolean isPossiblyStillborn;
     private volatile SubLThread runThread;
     private SubLString name;
     private SubLFixnum priority;
-    private volatile SubLString whoState;
-    private volatile SubLProcessState state;
-    private List<Thunk> interrupts;
+    private final AtomicReference<SubLString> whoState = new AtomicReference<SubLString>();
+    private final AtomicReference<SubLProcessState> state = new AtomicReference<SubLProcessState>();
+    private final Queue<Thunk> interrupts = new ConcurrentLinkedQueue();
+
     private boolean isRunning;
     public static String PROCESS_TYPE_NAME;
     public static Thunk READ_LOOP_INTERRUPT_THUNK;
@@ -309,9 +289,7 @@ public abstract class SubLProcess extends SafeRunnable implements Runnable, SubL
     public static SubLProcessState WAIT_STATE;
     public static SubLProcessState DEAD_STATE;
     public static SubLProcessState BLOCKED_STATE;
-    private static SubLThread ALLEGRO_SINGLE_THREADED_THREAD;
     private static SubLFixnum DEFAULT_PRIORITY;
-    private static Set<SubLProcess> currentProcesses;
     static {
         SubLProcess.PROCESS_TYPE_NAME = "PROCESS";
         SubLProcess.READ_LOOP_INTERRUPT_THUNK = new InterruptReadLoopThunk();
@@ -320,9 +298,7 @@ public abstract class SubLProcess extends SafeRunnable implements Runnable, SubL
         WAIT_STATE = new SubLProcessState("WAIT");
         DEAD_STATE = new SubLProcessState("DEAD");
         BLOCKED_STATE = new SubLProcessState("BLOCKED");
-        SubLProcess.ALLEGRO_SINGLE_THREADED_THREAD = null;
         DEFAULT_PRIORITY = (SubLFixnum) SubLObjectFactory.makeInteger(5);
-        currentProcesses = new HashSet<SubLProcess>(128);
     }
 
     private SubLObject structFieldError(int fieldNum) {
@@ -659,13 +635,10 @@ public abstract class SubLProcess extends SafeRunnable implements Runnable, SubL
         return priority;
     }
 
-    public synchronized SubLProcessState getState() {
-        return state;
+    public SubLProcessState getState() {
+        return state.get();
     }
 
-    public synchronized SubLSymbol getStateSymbol() {
-        return state.toSymbol();
-    }
 
     @Override
     public SubLStream getStream(boolean followSynonymStream) {
@@ -689,8 +662,8 @@ public abstract class SubLProcess extends SafeRunnable implements Runnable, SubL
         return CommonSymbols.FOURTEEN_INTEGER;
     }
 
-    public synchronized SubLString getWhoState() {
-        return whoState;
+    public SubLString getWhoState() {
+        return whoState.get();
     }
 
     @Override
@@ -732,7 +705,7 @@ public abstract class SubLProcess extends SafeRunnable implements Runnable, SubL
     }
 
     public boolean isActive() {
-        return state == SubLProcess.RUN_STATE;
+        return state.get() == SubLProcess.RUN_STATE;
     }
 
 	@Override
@@ -792,10 +765,7 @@ public abstract class SubLProcess extends SafeRunnable implements Runnable, SubL
     }
 
     public Thunk nextInterrupt() {
-        Thunk interruptRequest = null;
-        if (!interrupts.isEmpty())
-            interruptRequest = interrupts.remove(0);
-        return interruptRequest;
+        return interrupts.poll();
     }
 
     @Override
@@ -844,13 +814,11 @@ public abstract class SubLProcess extends SafeRunnable implements Runnable, SubL
             Thread.interrupted();
         if (isNotInterruptible())
             return;
-        while (hasWatingInterrupts()) {
-            Thunk current = nextInterrupt();
-            if (current != null) {
-                if (current.isTerminationRequest())
-                    throw new TerminationRequest();
-                current.invoke();
-            }
+        Thunk current;
+        while (((current = nextInterrupt())!=null)) {
+            if (current.isTerminationRequest())
+                throw new TerminationRequest();
+            current.invoke();
         }
     }
 
@@ -914,13 +882,10 @@ public abstract class SubLProcess extends SafeRunnable implements Runnable, SubL
 
     @Override
     public void run() {
-      Throwable problem = null;
-      runThread = currentSubLThread();
+//      Throwable problem = null;
+       runThread = currentSubLThread();
         try {
             runThread.clearBindings();
-            synchronized (SubLProcess.currentProcesses) {
-                SubLProcess.currentProcesses.add(this);
-            }
             runThread.setSubLProcess(this);
             setPriority(getPriority());
             setState(SubLProcess.RUN_STATE);
@@ -928,10 +893,10 @@ public abstract class SubLProcess extends SafeRunnable implements Runnable, SubL
             Threads.possiblyHandleInterrupts(false);
             safeRun();
         } catch (TerminationRequest terminate) {
-          problem = terminate;
+//          problem = terminate;
           return;
         } catch (Exception e) {
-          problem = e;
+//          problem = e;
             try {
                 e.printStackTrace();
                 Errors.handleError(e);
@@ -945,9 +910,6 @@ public abstract class SubLProcess extends SafeRunnable implements Runnable, SubL
             Thread.interrupted();
             runThread.reset();
             runThread = null;
-            synchronized (SubLProcess.currentProcesses) {
-                SubLProcess.currentProcesses.remove(this);
-            }
         }
     }
 
@@ -1101,18 +1063,15 @@ public abstract class SubLProcess extends SafeRunnable implements Runnable, SubL
         return null;
     }
 
-    public synchronized SubLProcessState setState(SubLProcessState newState) {
-        if (state == null)
-            Errors.error("Invalid null state attempted to be assigned to process: " + this);
-        SubLProcessState oldState = state;
-        state = newState;
+    public SubLProcessState setState(SubLProcessState newState) {
+        SubLProcessState oldState = state.getAndSet(newState);
+//        if (oldState == null)
+//            Errors.error("Invalid null state attempted to be assigned to process: " + this);
         return oldState;
     }
 
-    public synchronized SubLString setWhoState(SubLString newState) {
-        SubLString oldState = whoState;
-        whoState = newState;
-        return oldState;
+    public SubLString setWhoState(SubLString newState) {
+        return whoState.getAndSet(newState);
     }
 
     @Override

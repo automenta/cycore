@@ -305,9 +305,9 @@ public class JavaLink extends SubLTrampolineFile
 			result = ((SubLBigIntBignum) subLObject).bigIntegerValue();
 		else if (subLObject instanceof SubLVector)
 		{
-			Object[] tmp = ((SubLVector) subLObject).toArray();
+			SubLObject[] tmp = ((SubLVector) subLObject).toArray();
 			ArrayList<Object> arr = new ArrayList<>(tmp.length);
-			for (Object obj : tmp)
+			for (SubLObject obj : tmp)
 				arr.add(getJavaObject(obj));
 			result = arr;
 		}
@@ -370,11 +370,8 @@ public class JavaLink extends SubLTrampolineFile
 
 	private static Object unbox(SubLObject subLObject)
 	{
-		Object result;
-		if (subLObject instanceof SubLAlienObject)
-			result = ((SubLAlienObject) subLObject).getAlien();
-		else
-			result = subLObject;
+		Object result = subLObject instanceof SubLAlienObject ?
+			((SubLAlienObject) subLObject).getAlien() : subLObject;
 		if (JavaLink.DEBUG) System.out.println("JavaLink.unbox((" + subLObject.getClass() + ")" + subLObject + ") --> " + "(" + result.getClass() + ")" + result);
 		return result;
 	}
@@ -404,7 +401,7 @@ public class JavaLink extends SubLTrampolineFile
 	public static Object[] tryRecast(final Class<?>[] parameterTypes, Object[] argObjects)
 	{
 
-		int argsCount = Array.getLength(argObjects);
+		int argsCount = argObjects.length; //Array.getLength(argObjects);
 		//		if (argsCount == 1 && argObjects[0] != null && argObjects[0].getClass().isArray())
 		//		{
 		//			final int ptLength = parameterTypes.length;
@@ -415,13 +412,9 @@ public class JavaLink extends SubLTrampolineFile
 		//			}
 		//		}
 		Object[] args = null;
-		if (argObjects != null)
-		{
-			args = new Object[argsCount];
-			for (int j = 0; j < argsCount; ++j)
-			{
-				args[j] = getJavaObject(parameterTypes[j], argObjects[j], false);
-			}
+		args = new Object[argsCount];
+		for (int j = 0; j < argsCount; ++j) {
+			args[j] = getJavaObject(parameterTypes[j], argObjects[j], false);
 		}
 		return args;
 	}

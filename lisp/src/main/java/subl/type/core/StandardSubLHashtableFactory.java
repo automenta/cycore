@@ -15,7 +15,7 @@ public class StandardSubLHashtableFactory implements SubLHashtableFactory {
 		if (hashTableFactoryClass != null)
 			try {
 				Class theClass = StandardSubLHashtableFactory.class.getClassLoader().loadClass(hashTableFactoryClass);
-				Constructor constructor = theClass.getConstructor(new Class[0]);
+				Constructor constructor = theClass.getConstructor();
 				result = (SubLHashtableFactory) constructor.newInstance(new Object[0]);
 			} catch (Exception e) {
 				Logger.getAnonymousLogger().log(Level.SEVERE,
